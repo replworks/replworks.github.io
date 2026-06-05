@@ -1,6 +1,6 @@
 # AI-Native Product Development Workflow
 
-Version 4.0
+Version 5.0
 
 ---
 
@@ -19,9 +19,9 @@ AI 시대의 핵심 문제는 코드를 생성하는 능력이 아니다.
 
 ---
 
-REPL Works는 AI 에이전트 프레임워크가 아니다.
+REPL Works는 AI Agent Framework가 아니다.
 
-REPL Works는 AI가 따라야 하는 프로젝트 운영체계(Project Operating System)를 정의한다.
+REPL Works는 AI가 따라야 하는 Project Operating System이다.
 
 ---
 
@@ -60,16 +60,6 @@ git init
 
 ---
 
-## Documents Are For AI
-
-README.md를 제외한 모든 문서는 AI를 위한 문서다.
-
-문서는 사람이 읽기 위해 존재하지 않는다.
-
-AI가 프로젝트를 일관되게 수행하기 위해 존재한다.
-
----
-
 ## Models Are Replaceable
 
 ```text
@@ -92,21 +82,14 @@ Cursor
 
 채팅창
 
----
-
 역할
 
 ```text
 Document Creation
-
 Document Revision
-
 Architecture Design
-
 Task Planning
-
 Prompt Creation
-
 Project Decisions
 ```
 
@@ -116,17 +99,12 @@ Project Decisions
 
 코딩창
 
----
-
 역할
 
 ```text
 Implementation
-
 Refactoring
-
 Testing
-
 Bug Fixing
 ```
 
@@ -136,8 +114,6 @@ Bug Fixing
 
 모든 Markdown 문서는 원칙적으로 Planning Runtime에서 생성한다.
 
----
-
 모든 Markdown 문서는 원칙적으로 Planning Runtime에서 수정한다.
 
 ---
@@ -146,33 +122,12 @@ Execution Runtime은 문서의 대규모 수정(Rebuild, Rewrite, Revise)을 수
 
 ---
 
-## Exception
-
-구현 과정에서 필요한 경우에만
-
-다음 문서를 최소한으로 수정할 수 있다.
+예외적으로 다음 문서만 최소 수정 가능하다.
 
 ```text
 TASKS.md
-
 ARCHITECTURE.md
 ```
-
----
-
-예시
-
-```text
-Task 완료 체크
-
-Architecture 누락 항목 추가
-
-새로운 내부 계층 발견
-```
-
----
-
-프로젝트 전체 문서 개편은 반드시 Planning Runtime에서 수행한다.
 
 ---
 
@@ -216,34 +171,26 @@ README.md
 
 ## 목적
 
-프로젝트를 시작할 가치가 있는지 검증한다.
+아이디어를 사업적으로 검증한다.
 
 ---
-
-## 수행 주체
-
-AI 작성
-
-Human 검수
-
----
-
-## 수행 작업
 
 AI와 반복적으로 토론한다.
 
-다음 질문에 대한 답을 찾는다.
+---
+
+검토 항목
 
 ```text
-왜 이 프로젝트를 만드는가?
+아이디어가 충분히 매력적인가?
 
 2년 동안 유지 가능한가?
 
-감당 가능한 비용은 얼마인가?
+예상 비용은 감당 가능한가?
 
-원하는 결과는 무엇인가?
+BEP는 언제 달성 가능한가?
 
-실제로 만들 가치가 있는가?
+사용자 증가 예측은 합리적인가?
 ```
 
 ---
@@ -267,8 +214,6 @@ AI와 반복적으로 토론한다.
 두 문서는 반드시 같은 Commit으로 생성한다.
 
 ```bash
-git add IDEAS.md PITCHING_SCRIPT.md
-
 git commit -m "docs: initialize product vision"
 ```
 
@@ -278,91 +223,55 @@ git commit -m "docs: initialize product vision"
 
 ## 목적
 
-프로젝트 전체 구조를 정의한다.
+프로젝트 전체 구조 정의
 
 ---
-
-## 수행 주체
-
-AI 작성
-
-Human 검수
-
----
-
-## 핵심
 
 실제 개발 단계에서
 
-AI는 ARCHITECTURE.md만 읽어도
-
-프로젝트를 이해할 수 있어야 한다.
+LLM은 ARCHITECTURE.md만 읽어도 프로젝트를 이해할 수 있어야 한다.
 
 ---
 
-IDEAS.md와 PITCHING_SCRIPT.md는
-
-프로젝트 생성 단계의 문서다.
-
-개발 단계의 필수 문서는 아니다.
+IDEAS.md와 PITCHING_SCRIPT.md는 개발 단계의 필수 문서가 아니다.
 
 ---
 
-## 포함 내용
+## Architecture Structure
 
 ```text
-Project Structure
+ARCHITECTURE.md
 
-System Design
-
-Data Flow
-
-Naming Rules
-
-Directory Rules
-
-Technical Decisions
+architecture/
+├── frontend.md
+├── backend.md
+├── database.md
+└── auth.md
 ```
 
 ---
 
-## 원칙
-
-ARCHITECTURE.md는 가능한 한 자세해야 한다.
-
-문서가 과도하게 커지지 않는 한
-
-별도의 SPEC 문서를 만들지 않는 것을 권장한다.
+ARCHITECTURE.md는 Index 역할을 수행한다.
 
 ---
 
-문서가 파편화될수록
-
-LLM의 이해 비용이 증가한다.
+세부 설계는 architecture 폴더에 위치한다.
 
 ---
 
-## 산출물
-
-### ARCHITECTURE.md
+문서가 충분히 상세하다면 별도 SPEC 문서는 필요하지 않다.
 
 ---
 
 # Phase 3. Product Specification
 
-## 목적
-
-런타임 환경을 고정한다.
-
----
-
 ## Optional
 
-ARCHITECTURE.md가 충분히 상세하다면 생략 가능하다.
+ARCHITECTURE.md가 충분하지 않을 경우에만 생성한다.
 
 ---
 
-## 포함 내용
+포함 항목
 
 ```text
 Node Version
@@ -384,8 +293,6 @@ OS Requirements
 
 ### PRODUCT_SPEC.md
 
-Optional
-
 ---
 
 # Phase 4. Constitution
@@ -396,7 +303,11 @@ Optional
 
 ---
 
-## 핵심
+## 산출물
+
+### AGENTS.md
+
+---
 
 AGENTS.md는 프로젝트 헌법이다.
 
@@ -408,13 +319,11 @@ AI는 항상 AGENTS.md부터 읽는다.
 
 ---
 
-## 역할
+포함 항목
 
-### Project Index
+### Read Order
 
 ```text
-Read First
-
 ARCHITECTURE.md
 
 PRODUCT_SPEC.md
@@ -427,14 +336,12 @@ TASKS.md
 ### Agent Registry
 
 ```text
-agents/agent-ios.md
-
-agents/agent-backend.md
+agents/
 ```
 
 ---
 
-### Project Rules
+### Rules
 
 ```text
 Never create files in repository root
@@ -448,13 +355,11 @@ Build must pass
 Lint must pass
 
 Tests must pass
+
+All task updates must trigger architecture review
+
+Only architecture-impacting changes may modify architecture documents
 ```
-
----
-
-## 산출물
-
-### AGENTS.md
 
 ---
 
@@ -462,47 +367,37 @@ Tests must pass
 
 ## 목적
 
-현재 개발 상태를 정의한다.
-
----
-
-## 핵심
-
-TASKS.md는 TODO List다.
-
-반드시 Phase로 그룹화한다.
-
----
-
-ARCHITECTURE.md가 목적지라면
-
-TASKS.md는 현재 위치다.
-
----
-
-## 예시
-
-```text
-Phase 1
-
-- [ ] Authentication
-
-- [ ] Session Management
-
-Phase 2
-
-- [ ] Profile
-
-Phase 3
-
-- [ ] Payment
-```
+현재 개발 상태 정의
 
 ---
 
 ## 산출물
 
 ### TASKS.md
+
+---
+
+TASKS.md는 TODO List다.
+
+---
+
+반드시 Phase로 그룹화한다.
+
+```text
+Phase 1
+
+- [ ]
+
+Phase 2
+
+- [ ]
+```
+
+---
+
+ARCHITECTURE.md는 목적지다.
+
+TASKS.md는 현재 위치다.
 
 ---
 
@@ -520,43 +415,7 @@ Planning Runtime에서 Prompt 생성
 
 ---
 
-## 원칙
-
-Planning Runtime과 Execution Runtime을 분리한다.
-
----
-
-Planning Runtime
-
-```text
-Architecture Review
-
-Task Analysis
-
-Prompt Creation
-
-Document Revision
-```
-
----
-
-Execution Runtime
-
-```text
-Implementation
-
-Testing
-
-Refactoring
-
-Bug Fixing
-```
-
----
-
-LLM의 메모리는 무한하지 않다.
-
-계획과 구현은 분리하는 것이 좋다.
+계획 수립과 구현은 분리한다.
 
 ---
 
@@ -565,7 +424,7 @@ LLM의 메모리는 무한하지 않다.
 Branch 생성
 
 ```bash
-git checkout -b feature/apple-login
+git checkout -b feature/xxx
 ```
 
 ---
@@ -576,21 +435,11 @@ Execution Runtime에서 구현
 
 ---
 
-## 필수 규칙
-
 모든 기능은 반드시 Unit Test를 포함해야 한다.
-
-```text
-Feature Code
-
-+
-
-Unit Test
-```
 
 ---
 
-## 필수 조건
+필수 조건
 
 ```text
 Build Success
@@ -602,7 +451,7 @@ Test Success
 
 ---
 
-통과하지 못하면 수정한다.
+실패 시 수정 후 재실행한다.
 
 ---
 
@@ -629,84 +478,122 @@ Merge
 TASKS.md 업데이트
 
 ```text
-- [x] Apple Login
+- [x]
 ```
 
 ---
 
 ## Step 9
 
-필요 시 문서 업데이트
+필요 시 ARCHITECTURE.md 업데이트
 
 ---
 
-Execution Runtime
-
-허용
-
-```text
-TASKS.md
-
-ARCHITECTURE.md
-```
-
-최소 수정
+구조 변경이 발생한 경우에만 수행한다.
 
 ---
 
-Planning Runtime
-
-허용
-
-```text
-ARCHITECTURE.md
-
-PRODUCT_SPEC.md
-
-AGENTS.md
-
-TASKS.md
-```
-
-대규모 개정
-
----
-
-# Release
+# Long Context
 
 ## 목적
 
-프로젝트 배포
+LLM Session Memory 복구
 
 ---
 
-## 산출물
-
-Release Tag
+LONG_CONTEXT.md는 프로젝트 문서가 아니다.
 
 ---
 
-# README.md
+LONG_CONTEXT.md는 세션 복구 문서다.
 
-## 목적
+---
 
-사람을 위한 문서
+다음 상황에서 사용한다.
+
+```text
+새로운 모델 사용
+
+새로운 채팅 시작
+
+기존 채팅 Context 소멸
+
+장기간 프로젝트 중단 후 재개
+```
+
+---
+
+사용 방법
+
+새로운 채팅을 시작한 뒤
+
+첫 메시지로 LONG_CONTEXT.md를 전달한다.
+
+---
+
+LLM은 어떤 규칙으로도 LONG_CONTEXT.md를 자동 참조하지 않는다.
+
+---
+
+AGENTS.md에 등록하지 않는다.
 
 ---
 
 ## 생성 시점
 
-프로젝트가 충분히 완성된 이후
+소규모 프로젝트
+
+```text
+TASKS.md 완료 시
+```
+
+생성
 
 ---
 
-README.md는 유일한 Human-Oriented Document이다.
+대규모 프로젝트
+
+```text
+Phase 완료 시
+```
+
+생성
+
+---
+
+필요한 경우 수동으로 갱신할 수 있다.
+
+---
+
+## 목적
+
+대화 내용을 저장하는 것이 아니다.
+
+---
+
+최근 프로젝트 문맥을 압축 보존하는 것이다.
+
+---
+
+# Release
+
+배포 수행
+
+---
+
+# README.md
+
+유일한 Human-Oriented Document
+
+---
+
+프로젝트가 충분히 완성된 이후 생성한다.
 
 ---
 
 # Persistent Assets
 
-장기적으로 프로젝트 유지에 필요한 최소 자산
+프로젝트 기억
 
 ```text
 Git
@@ -720,36 +607,24 @@ TASKS.md
 
 ---
 
-ARCHITECTURE.md
+세션 기억
 
-→ 프로젝트의 최종 구조
-
----
-
-AGENTS.md
-
-→ 프로젝트 규칙
+```text
+LONG_CONTEXT.md
+```
 
 ---
 
-TASKS.md
+프로젝트 기억은 Git에 저장된다.
 
-→ 현재 개발 상태
-
----
-
-Git
-
-→ 프로젝트 전체 기억
+세션 기억은 필요할 때 LLM에 주입된다.
 
 ---
 
-이 네 가지가 존재하는 한
+어떤 모델이든
 
-어떤 AI 모델로도 프로젝트를 계속 개발할 수 있다.
+프로젝트는 Git으로 복원할 수 있어야 한다.
 
----
+어떤 세션이든
 
-프로젝트의 기억은 모델에 저장되지 않는다.
-
-프로젝트의 기억은 Git에 저장된다.
+LONG_CONTEXT.md로 이어갈 수 있어야 한다.
