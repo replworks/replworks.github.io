@@ -1,0 +1,30 @@
+---
+import { navItems } from '../lib/site';
+---
+
+<div class="md:hidden">
+  <details class="relative">
+    <summary
+      class="flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:border-slate-400 hover:bg-slate-50"
+    >
+      Menu
+      <span aria-hidden="true">▾</span>
+    </summary>
+    <nav class="mt-2 rounded-lg border border-slate-200 bg-white p-4 shadow-sm">
+      <ul class="space-y-2 text-sm font-medium text-slate-700">
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                class="block rounded-lg px-3 py-2 transition hover:bg-slate-50"
+                href={item.href}
+              >
+                {item.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </details>
+</div>

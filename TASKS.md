@@ -90,11 +90,7 @@ Propose TASK update
 
 ## LAYOUT SYSTEM
 
-- [ ] T106 Create Global Layout
-- [ ] T107 Create Navigation
-- [ ] T108 Create Mobile Navigation
-- [ ] T109 Create Document Layout
-- [ ] T110 Create Content Collection Routing
+- [x] T106 Create Site Shell
 
 ---
 

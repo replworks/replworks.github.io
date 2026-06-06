@@ -1,0 +1,32 @@
+---
+import {
+  collectionDescriptions,
+  collectionTitles,
+  contentCollections,
+  isContentCollection,
+} from '../../lib/site';
+import DocumentLayout from '../../layouts/DocumentLayout.astro';
+
+export async function getStaticPaths() {
+  return contentCollections.map((collection) => ({ params: { collection } }));
+}
+
+const collection = Astro.params.collection;
+if (!isContentCollection(collection)) {
+  throw new Error(`Unsupported collection: ${collection}`);
+}
+
+const collectionTitle = collectionTitles[collection];
+const collectionDescription = collectionDescriptions[collection];
+---
+
+<DocumentLayout title={collectionTitle} description={collectionDescription}>
+  <div
+    class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700"
+  >
+    <p class="text-base">
+      No content has been added yet for {collectionTitle}. This collection route
+      is ready for future documents.
+    </p>
+  </div>
+</DocumentLayout>

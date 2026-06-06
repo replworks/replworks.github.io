@@ -1,11 +1,22 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import SiteLayout from '../layouts/SiteLayout.astro';
 ---
 
-<Layout>
-  <Welcome />
-</Layout>
+<SiteLayout title="Home" description="REPL Works documentation shell.">
+  <section
+    class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12"
+  >
+    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">
+      Documentation shell
+    </p>
+    <h1
+      class="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl"
+    >
+      REPL Works
+    </h1>
+    <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+      This foundation provides shared layout, navigation, and content collection
+      routing for the REPL Works platform.
+    </p>
+  </section>
+</SiteLayout>

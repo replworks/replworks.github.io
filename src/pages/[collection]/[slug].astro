@@ -1,0 +1,42 @@
+---
+import type { ContentCollection } from '../../lib/site';
+import { collectionTitles, isContentCollection } from '../../lib/site';
+import { getEntry } from 'astro:content';
+import DocumentLayout from '../../layouts/DocumentLayout.astro';
+
+export async function getStaticPaths() {
+  return [] as Array<{
+    params: { collection: ContentCollection; slug: string };
+  }>;
+}
+
+const collection = Astro.params.collection;
+const slug = Astro.params.slug;
+if (!isContentCollection(collection)) {
+  throw new Error(`Unsupported collection: ${collection}`);
+}
+
+const entry = await getEntry(collection, slug);
+if (!entry) {
+  throw new Error(`Entry not found for ${collection}/${slug}`);
+}
+
+const rendered = entry.rendered ?? null;
+const metadata = entry.data ?? {};
+---
+
+<DocumentLayout
+  title={metadata.title ?? collectionTitles[collection]}
+  description={metadata.description ??
+    `${collectionTitles[collection]} document.`}
+>
+  {
+    rendered ? (
+      <article set:html={rendered.html} class="space-y-6 text-slate-700" />
+    ) : (
+      <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
+        <p>This document is available once the collection publish content.</p>
+      </div>
+    )
+  }
+</DocumentLayout>
