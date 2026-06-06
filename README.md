@@ -12,30 +12,34 @@ REPL Works is a Project Memory System for AI Development.
 
 ---
 
-## Documentation
+## Project Documentation
 
-For project development and project memory:
+Project state is defined by:
 
 ```text
 AGENTS.md
+
 ARCHITECTURE.md
+
 TASKS.md
 ```
 
 README.md is a human-oriented operational document.
+
+README.md is not an authoritative source for project state.
 
 ---
 
 ## Technology Stack
 
 ```text
-Astro
+Astro 6.x
 
 MDX
 
-TypeScript
+TypeScript 5.x
 
-Tailwind CSS
+Tailwind CSS 4.x
 
 GitHub Pages
 ```
@@ -47,7 +51,7 @@ GitHub Pages
 ```text
 Node.js 24.x
 
-pnpm 10.x
+npm 11.x
 ```
 
 ---
@@ -55,7 +59,7 @@ pnpm 10.x
 ## Installation
 
 ```bash
-pnpm install
+npm install
 ```
 
 ---
@@ -65,7 +69,7 @@ pnpm install
 Start local development server.
 
 ```bash
-pnpm dev
+npm run dev
 ```
 
 ---
@@ -75,7 +79,7 @@ pnpm dev
 Generate static site.
 
 ```bash
-pnpm build
+npm run build
 ```
 
 ---
@@ -85,7 +89,7 @@ pnpm build
 Preview production build locally.
 
 ```bash
-pnpm preview
+npm run preview
 ```
 
 ---
@@ -95,38 +99,50 @@ pnpm preview
 Lint
 
 ```bash
-pnpm lint
+npm run lint
 ```
 
 Type Check
 
 ```bash
-pnpm astro check
+npm run astro check
 ```
 
 Unit Tests
 
 ```bash
-pnpm test
+npm run test
 ```
 
 End-to-End Tests
 
 ```bash
-pnpm test:e2e
+npm run test:e2e
 ```
 
 ---
 
 ## Deployment
 
-Deployment target:
+Deployment Target
 
 ```text
 GitHub Pages
 ```
 
 Deployment is automated through GitHub Actions.
+
+---
+
+## REPL Works
+
+Manifesto
+
+```text
+Models forget.
+
+Projects must not.
+```
 
 ---
 

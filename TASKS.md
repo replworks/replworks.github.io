@@ -96,22 +96,42 @@ Status
 [ ]
 ```
 
-Deliverables
+Required
 
 ```text
-Astro
+Astro >= 6
 
-TypeScript
+TypeScript >= 5
 
-pnpm
+npm
+```
+
+Initialization
+
+```bash
+npm create astro@latest
+```
+
+Options
+
+```text
+Minimal
+
+TypeScript Strict
 ```
 
 Validation
 
-```text
-pnpm install
+```bash
+npm install
 
-pnpm dev
+npm run dev
+```
+
+Result
+
+```text
+Development server starts successfully
 ```
 
 ---
@@ -128,10 +148,16 @@ Status
 [ ]
 ```
 
+Required
+
+```text
+Tailwind CSS >= 4
+```
+
 Validation
 
 ```text
-Tailwind Active
+Tailwind styles applied successfully
 ```
 
 ---
@@ -148,7 +174,7 @@ Status
 [ ]
 ```
 
-Collections
+Required Collections
 
 ```text
 manifesto
@@ -160,6 +186,12 @@ workflow
 resources
 
 showcase
+```
+
+Validation
+
+```text
+Content collections registered successfully
 ```
 
 ---
@@ -179,7 +211,7 @@ Status
 Validation
 
 ```text
-MDX Rendering Works
+MDX pages render successfully
 ```
 
 ---
@@ -196,14 +228,20 @@ Status
 [ ]
 ```
 
-Validation
+Required
 
 ```text
 GitHub Actions
 
 Static Export
+```
 
-Automatic Deployment
+Validation
+
+```text
+Automatic deployment succeeds
+
+Generated site works on GitHub Pages
 ```
 
 ---

@@ -220,6 +220,44 @@ Website does not replace GitHub.
 
 ## STACK
 
+Required
+
+```text
+Node.js >= 24
+
+npm >= 11
+
+Astro >= 6
+
+TypeScript >= 5
+
+Tailwind CSS >= 4
+```
+
+---
+
+Current
+
+```text
+Node.js 24.x
+
+Astro 6.4.4
+
+TypeScript 5.x
+
+Tailwind CSS 4.x
+```
+
+---
+
+Package Manager
+
+```text
+npm
+```
+
+---
+
 Framework
 
 ```text
@@ -244,14 +282,6 @@ MDX
 
 ---
 
-Styling
-
-```text
-Tailwind CSS
-```
-
----
-
 Content Management
 
 ```text
@@ -264,22 +294,6 @@ Search
 
 ```text
 Pagefind
-```
-
----
-
-Package Manager
-
-```text
-pnpm
-```
-
----
-
-Runtime
-
-```text
-Node.js 24+
 ```
 
 ---
@@ -306,6 +320,40 @@ Analytics (Optional)
 Plausible
 
 Umami
+```
+
+---
+
+## PROJECT INITIALIZATION
+
+Required Command
+
+```bash
+npm create astro@latest
+```
+
+---
+
+Template
+
+```text
+Minimal
+```
+
+---
+
+TypeScript
+
+```text
+Strict
+```
+
+---
+
+Package Manager
+
+```text
+npm
 ```
 
 ---
