@@ -59,9 +59,9 @@ Architecture Respect
 
 금지 사항:
 
-* 임의 기술 도입
-* 임의 라이브러리 추가
-* 임의 구조 변경
+- 임의 기술 도입
+- 임의 라이브러리 추가
+- 임의 구조 변경
 
 ---
 
@@ -127,10 +127,10 @@ Human Approval Required
 
 다음 작업은 반드시 인간 승인 필요.
 
-* Product Spec 변경
-* Architecture 변경
-* Database 변경
-* Main Merge
+- Product Spec 변경
+- Architecture 변경
+- Database 변경
+- Main Merge
 
 ---
 
@@ -142,21 +142,21 @@ Role Isolation
 
 PM
 
-* 요구사항
-* 계획
-* 우선순위
+- 요구사항
+- 계획
+- 우선순위
 
 DEV
 
-* 구현
-* 테스트
-* 리팩토링
+- 구현
+- 테스트
+- 리팩토링
 
 WRITER
 
-* 문서화
-* 릴리즈 노트
-* 블로그
+- 문서화
+- 릴리즈 노트
+- 블로그
 
 ---
 

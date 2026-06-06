@@ -16,9 +16,9 @@ Version 1.0
 
 ### Deliverables
 
-* README.md
-* IDEAS.md
-* PRODUCT_SPEC.md
+- README.md
+- IDEAS.md
+- PRODUCT_SPEC.md
 
 ### Done
 
@@ -34,7 +34,7 @@ Version 1.0
 
 ### Deliverables
 
-* AGENTS.md
+- AGENTS.md
 
 ### Done
 
@@ -74,7 +74,7 @@ agents/
 
 ### Deliverables
 
-* PLAN.md
+- PLAN.md
 
 ### Done
 
@@ -90,9 +90,9 @@ agents/
 
 ### Deliverables
 
-* Approved
+- Approved
   또는
-* Rejected
+- Rejected
 
 ### Done
 
@@ -108,8 +108,8 @@ agents/
 
 ### Deliverables
 
-* Source Code
-* Diff
+- Source Code
+- Diff
 
 ### Done
 
@@ -125,13 +125,13 @@ agents/
 
 ### Deliverables
 
-* Validation Report
+- Validation Report
 
 ### Checks
 
-* Build
-* Test
-* Lint
+- Build
+- Test
+- Lint
 
 ### Done
 
@@ -147,8 +147,8 @@ agents/
 
 ### Deliverables
 
-* JOURNAL.md
-* AGENTS.md Update
+- JOURNAL.md
+- AGENTS.md Update
 
 ### Done
 
@@ -164,7 +164,7 @@ Main Branch 반영
 
 ### Deliverables
 
-* Merged PR
+- Merged PR
 
 ### Done
 
@@ -180,9 +180,9 @@ Main Branch 반영
 
 ### Deliverables
 
-* OUTBOX.md
-* Release Notes
-* Blog Draft
+- OUTBOX.md
+- Release Notes
+- Blog Draft
 
 ### Done
 

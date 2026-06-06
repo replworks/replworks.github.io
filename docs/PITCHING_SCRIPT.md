@@ -42,10 +42,10 @@ Agent는 작업을 수행할 수 있다.
 
 중요한 프로젝트 지식은 다음 위치에 흩어진다.
 
-* Chat History
-* Prompt
-* Context Window
-* Agent Runtime
+- Chat History
+- Prompt
+- Context Window
+- Agent Runtime
 
 ---
 

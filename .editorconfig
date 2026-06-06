@@ -1,0 +1,20 @@
+# http://editorconfig.org
+
+root = true
+
+[*]
+# 줄바꿈은 LF 사용 (Git 및 웹 프로젝트 표준)
+end_of_line = lf
+# 파일 끝에 항상 개행 추가
+insert_final_newline = true
+# 파일 끝의 공백 제거
+trim_trailing_whitespace = true
+# 문자 인코딩은 UTF-8
+charset = utf-8
+# 기본 들여쓰기는 공백 2칸 (Astro/TS 표준)
+indent_style = space
+indent_size = 2
+
+# 마크다운 파일 설정
+[*.md]
+trim_trailing_whitespace = false

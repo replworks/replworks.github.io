@@ -76,11 +76,13 @@ Propose TASK update
 
 ## FOUNDATION
 
-* [x] T001 Initialize Astro Project
-* [x] T002 Configure Tailwind CSS
-* [ ] T003 Configure Content Collections
-* [ ] T004 Configure MDX Support
-* [ ] T005 Configure GitHub Pages Deployment
+- [x] T001 Initialize Astro Project
+- [x] T002 Configure Tailwind CSS
+- [x] T003 Configure Content Collections
+- [x] T004 Configure MDX Support
+- [x] T005 Configure GitHub Pages Deployment
+- [x] T006 Configure linting and formatting
+- [x] T007 Configure testing
 
 ---
 
@@ -88,11 +90,11 @@ Propose TASK update
 
 ## LAYOUT SYSTEM
 
-* [ ] T006 Create Global Layout
-* [ ] T007 Create Navigation
-* [ ] T008 Create Mobile Navigation
-* [ ] T009 Create Document Layout
-* [ ] T010 Create Content Collection Routing
+- [ ] T106 Create Global Layout
+- [ ] T107 Create Navigation
+- [ ] T108 Create Mobile Navigation
+- [ ] T109 Create Document Layout
+- [ ] T110 Create Content Collection Routing
 
 ---
 
@@ -100,11 +102,11 @@ Propose TASK update
 
 ## CORE CONTENT
 
-* [ ] T011 Create Home Page
-* [ ] T012 Create Why Page
-* [ ] T013 Publish Manifesto v1
-* [ ] T014 Publish Specification v1
-* [ ] T015 Publish Workflow v1
+- [ ] T211 Create Home Page
+- [ ] T212 Create Why Page
+- [ ] T213 Publish Manifesto v1
+- [ ] T214 Publish Specification v1
+- [ ] T215 Publish Workflow v1
 
 ---
 
@@ -112,13 +114,13 @@ Propose TASK update
 
 ## RESOURCES
 
-* [ ] T016 Create Resources Index
-* [ ] T017 Publish Templates
-* [ ] T018 Publish Example Documents
-* [ ] T019 Publish Long Context Examples
-* [ ] T020 Publish Repository Examples
-* [ ] T021 Publish Planning Examples
-* [ ] T022 Publish FAQ
+- [ ] T316 Create Resources Index
+- [ ] T317 Publish Templates
+- [ ] T318 Publish Example Documents
+- [ ] T319 Publish Long Context Examples
+- [ ] T320 Publish Repository Examples
+- [ ] T321 Publish Planning Examples
+- [ ] T322 Publish FAQ
 
 ---
 
@@ -126,12 +128,12 @@ Propose TASK update
 
 ## SHOWCASE
 
-* [ ] T023 Create Showcase Index
-* [ ] T024 Publish REPL Works Website Showcase
-* [ ] T025 Publish Project A Showcase
-* [ ] T026 Publish Project B Showcase
-* [ ] T027 Publish Project C Showcase
-* [ ] T028 Publish Project D Showcase
+- [ ] T423 Create Showcase Index
+- [ ] T424 Publish REPL Works Website Showcase
+- [ ] T425 Publish Project A Showcase
+- [ ] T426 Publish Project B Showcase
+- [ ] T427 Publish Project C Showcase
+- [ ] T428 Publish Project D Showcase
 
 ---
 
@@ -139,8 +141,8 @@ Propose TASK update
 
 ## SEARCH
 
-* [ ] T029 Integrate Pagefind
-* [ ] T030 Create Search UI
+- [ ] T529 Integrate Pagefind
+- [ ] T530 Create Search UI
 
 ---
 
@@ -148,11 +150,11 @@ Propose TASK update
 
 ## RELEASE
 
-* [ ] T031 Content Review
-* [ ] T032 Responsive Review
-* [ ] T033 Accessibility Review
-* [ ] T034 Deployment Verification
-* [ ] T035 Release v1
+- [ ] T631 Content Review
+- [ ] T632 Responsive Review
+- [ ] T633 Accessibility Review
+- [ ] T634 Deployment Verification
+- [ ] T635 Release v1
 
 ---
 
