@@ -1,44 +1,102 @@
 # TASKS.md
 
-Version 1.0
+Version 2.0
+
+## PURPOSE
+
+Current Work Scope
 
 ---
 
-# Purpose
+ARCHITECTURE.md
 
-이 문서는 현재 개발 범위를 정의한다.
+```text
+Destination
+```
 
----
+TASKS.md
 
-ARCHITECTURE.md는 최종 목적지다.
-
-TASKS.md는 현재 위치다.
-
----
-
-AI는 반드시 TASKS.md를 기준으로 작업 범위를 제한해야 한다.
+```text
+Current Position
+```
 
 ---
 
-AI는 완료되지 않은 Task만 수행한다.
+Only incomplete tasks may be implemented.
 
 ---
 
-AI는 현재 Task와 무관한 기능을 구현해서는 안 된다.
+Work outside TASKS.md is prohibited.
 
 ---
 
-# Phase 1 — Project Foundation
+## EXECUTION RULES
 
-목표
-
-프로젝트 기본 구조 생성
+```text
+One Prompt
+=
+One Task
+```
 
 ---
 
-* [ ] T001 Initialize Astro Project
+```text
+One Task
+=
+One Commit
+```
 
-생성 항목
+---
+
+Do not:
+
+```text
+Combine Tasks
+
+Implement Future Tasks
+
+Expand Scope
+
+Add Unplanned Features
+```
+
+---
+
+If required work is missing:
+
+```text
+STOP
+
+Propose TASK update
+```
+
+---
+
+# PHASE 1
+
+## FOUNDATION
+
+Goal
+
+```text
+Project Initialization
+```
+
+---
+
+### T001
+
+```text
+Initialize Astro Project
+```
+
+Status
+
+```text
+[ ]
+```
+
+Deliverables
 
 ```text
 Astro
@@ -48,33 +106,49 @@ TypeScript
 pnpm
 ```
 
----
-
-완료 조건
+Validation
 
 ```text
 pnpm install
 
 pnpm dev
-
-성공
 ```
 
 ---
 
-* [ ] T002 Configure Tailwind CSS
-
-완료 조건
+### T002
 
 ```text
-Tailwind 적용 확인
+Configure Tailwind CSS
+```
+
+Status
+
+```text
+[ ]
+```
+
+Validation
+
+```text
+Tailwind Active
 ```
 
 ---
 
-* [ ] T003 Configure Content Collections
+### T003
 
-완료 조건
+```text
+Configure Content Collections
+```
+
+Status
+
+```text
+[ ]
+```
+
+Collections
 
 ```text
 manifesto
@@ -88,45 +162,71 @@ resources
 showcase
 ```
 
-컬렉션 생성
-
 ---
 
-* [ ] T004 Configure MDX Support
-
-완료 조건
+### T004
 
 ```text
-MDX 페이지 렌더링 성공
+Configure MDX Support
+```
+
+Status
+
+```text
+[ ]
+```
+
+Validation
+
+```text
+MDX Rendering Works
 ```
 
 ---
 
-* [ ] T005 Configure GitHub Pages Deployment
+### T005
 
-완료 조건
+```text
+Configure GitHub Pages Deployment
+```
+
+Status
+
+```text
+[ ]
+```
+
+Validation
 
 ```text
 GitHub Actions
 
 Static Export
 
-자동 배포
+Automatic Deployment
 ```
 
 ---
 
-# Phase 2 — Core Layout System
+# PHASE 2
 
-목표
+## LAYOUT SYSTEM
 
-사이트 공통 UI 구축
+Goal
+
+```text
+Shared UI Foundation
+```
 
 ---
 
-* [ ] T006 Create Global Layout
+### T006
 
-포함
+```text
+Create Global Layout
+```
+
+Deliverables
 
 ```text
 Header
@@ -138,9 +238,13 @@ Main Content
 
 ---
 
-* [ ] T007 Create Navigation
+### T007
 
-메뉴
+```text
+Create Navigation
+```
+
+Items
 
 ```text
 Home
@@ -160,19 +264,27 @@ Showcase
 
 ---
 
-* [ ] T008 Create Mobile Navigation
-
-완료 조건
+### T008
 
 ```text
-반응형 동작
+Create Mobile Navigation
+```
+
+Validation
+
+```text
+Responsive Navigation
 ```
 
 ---
 
-* [ ] T009 Create Document Layout
+### T009
 
-적용 대상
+```text
+Create Document Layout
+```
+
+Targets
 
 ```text
 Manifesto
@@ -184,192 +296,332 @@ Workflow
 
 ---
 
-* [ ] T010 Create Content Collection Routing
-
-완료 조건
+### T010
 
 ```text
-문서 자동 라우팅
+Create Content Collection Routing
+```
+
+Validation
+
+```text
+Automatic Routing
 ```
 
 ---
 
-# Phase 3 — Core Content
+# PHASE 3
 
-목표
+## CORE CONTENT
 
-REPL Works 핵심 문서 게시
-
----
-
-* [ ] T011 Create Home Page
-
----
-
-* [ ] T012 Create Why Page
-
----
-
-* [ ] T013 Publish Manifesto v1
-
----
-
-* [ ] T014 Publish Specification v1
-
----
-
-* [ ] T015 Publish Workflow v1
-
----
-
-# Phase 4 — Resources
-
-목표
-
-실제 사용을 위한 자료 제공
-
----
-
-* [ ] T016 Create Resources Index
-
----
-
-* [ ] T017 Publish Templates
-
----
-
-* [ ] T018 Publish Example Documents
-
----
-
-* [ ] T019 Publish Long Context Examples
-
----
-
-* [ ] T020 Publish Repository Examples
-
----
-
-* [ ] T021 Publish Planning Examples
-
----
-
-* [ ] T022 Publish FAQ
-
----
-
-# Phase 5 — Showcase
-
-목표
-
-REPL Works 실제 사용 사례 공개
-
----
-
-* [ ] T023 Create Showcase Index
-
----
-
-* [ ] T024 Publish REPL Works Website Showcase
-
----
-
-* [ ] T025 Publish Project A Showcase
-
----
-
-* [ ] T026 Publish Project B Showcase
-
----
-
-* [ ] T027 Publish Project C Showcase
-
----
-
-* [ ] T028 Publish Project D Showcase
-
----
-
-# Phase 6 — Search
-
-목표
-
-문서 탐색 기능 제공
-
----
-
-* [ ] T029 Integrate Pagefind
-
----
-
-* [ ] T030 Create Search UI
-
----
-
-# Phase 7 — Release
-
-목표
-
-v1 공개
-
----
-
-* [ ] T031 Content Review
-
----
-
-* [ ] T032 Responsive Review
-
----
-
-* [ ] T033 Accessibility Review
-
----
-
-* [ ] T034 Deployment Verification
-
----
-
-* [ ] T035 Release v1
-
-````
-
----
-
-# Rules
-
-## One Prompt = One Task
-
-하나의 구현 프롬프트는 하나의 Task만 수행한다.
-
----
-
-## Complete Before Next
-
-현재 Task 완료 전 다음 Task를 수행하지 않는다.
-
----
-
-## No Scope Expansion
-
-TASKS.md에 없는 기능을 구현하지 않는다.
-
----
-
-## Architecture Alignment
-
-Task가 Architecture와 충돌하면
-
-ARCHITECTURE.md를 먼저 수정한다.
-
----
-
-## Update After Completion
-
-Task 완료 시 반드시 체크한다.
-
-예
+Goal
 
 ```text
-- [x] T001 Initialize Astro Project
-````
+Publish Core Documents
+```
+
+---
+
+### T011
+
+```text
+Create Home Page
+```
+
+Status
+
+```text
+[ ]
+```
+
+---
+
+### T012
+
+```text
+Create Why Page
+```
+
+Status
+
+```text
+[ ]
+```
+
+---
+
+### T013
+
+```text
+Publish Manifesto v1
+```
+
+Status
+
+```text
+[ ]
+```
+
+---
+
+### T014
+
+```text
+Publish Specification v1
+```
+
+Status
+
+```text
+[ ]
+```
+
+---
+
+### T015
+
+```text
+Publish Workflow v1
+```
+
+Status
+
+```text
+[ ]
+```
+
+---
+
+# PHASE 4
+
+## RESOURCES
+
+Goal
+
+```text
+Adoption Resources
+```
+
+---
+
+### T016
+
+```text
+Create Resources Index
+```
+
+---
+
+### T017
+
+```text
+Publish Templates
+```
+
+---
+
+### T018
+
+```text
+Publish Example Documents
+```
+
+---
+
+### T019
+
+```text
+Publish Long Context Examples
+```
+
+---
+
+### T020
+
+```text
+Publish Repository Examples
+```
+
+---
+
+### T021
+
+```text
+Publish Planning Examples
+```
+
+---
+
+### T022
+
+```text
+Publish FAQ
+```
+
+---
+
+# PHASE 5
+
+## SHOWCASE
+
+Goal
+
+```text
+Proof of Adoption
+```
+
+---
+
+### T023
+
+```text
+Create Showcase Index
+```
+
+---
+
+### T024
+
+```text
+Publish REPL Works Website Showcase
+```
+
+---
+
+### T025
+
+```text
+Publish Project A Showcase
+```
+
+---
+
+### T026
+
+```text
+Publish Project B Showcase
+```
+
+---
+
+### T027
+
+```text
+Publish Project C Showcase
+```
+
+---
+
+### T028
+
+```text
+Publish Project D Showcase
+```
+
+---
+
+# PHASE 6
+
+## SEARCH
+
+Goal
+
+```text
+Documentation Search
+```
+
+---
+
+### T029
+
+```text
+Integrate Pagefind
+```
+
+---
+
+### T030
+
+```text
+Create Search UI
+```
+
+---
+
+# PHASE 7
+
+## RELEASE
+
+Goal
+
+```text
+Release v1
+```
+
+---
+
+### T031
+
+```text
+Content Review
+```
+
+---
+
+### T032
+
+```text
+Responsive Review
+```
+
+---
+
+### T033
+
+```text
+Accessibility Review
+```
+
+---
+
+### T034
+
+```text
+Deployment Verification
+```
+
+---
+
+### T035
+
+```text
+Release v1
+```
+
+---
+
+## COMPLETION
+
+When a task is completed:
+
+```text
+[ ]
+↓
+[x]
+```
+
+---
+
+Review:
+
+```text
+ARCHITECTURE.md
+```
+
+---
+
+If architecture changed:
+
+```text
+Update ARCHITECTURE.md
+```
