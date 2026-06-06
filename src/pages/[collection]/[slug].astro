@@ -1,13 +1,26 @@
 ---
 import type { ContentCollection } from '../../lib/site';
-import { collectionTitles, isContentCollection } from '../../lib/site';
-import { getEntry } from 'astro:content';
+import {
+  contentCollections,
+  collectionTitles,
+  isContentCollection,
+} from '../../lib/site';
+import { getCollection, getEntry } from 'astro:content';
 import DocumentLayout from '../../layouts/DocumentLayout.astro';
 
 export async function getStaticPaths() {
-  return [] as Array<{
+  const paths: Array<{
     params: { collection: ContentCollection; slug: string };
-  }>;
+  }> = [];
+
+  for (const collection of contentCollections) {
+    const entries = await getCollection(collection);
+    paths.push(
+      ...entries.map((entry) => ({ params: { collection, slug: entry.id } }))
+    );
+  }
+
+  return paths;
 }
 
 const collection = Astro.params.collection;
