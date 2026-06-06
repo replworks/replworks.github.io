@@ -361,31 +361,28 @@ npm
 ## REPOSITORY STRUCTURE
 
 ```text
-.
-
+/
 ├── public/
-
+│   └── favicon.svg
 ├── src/
-│   ├── components/
-│   ├── layouts/
-│   ├── pages/
-│   │
-│   └── content/
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       ├── index.astro
 │       ├── manifesto/
 │       ├── specification/
 │       ├── workflow/
 │       ├── resources/
 │       └── showcase/
-
 ├── tests/
-
 ├── AGENTS.md
 ├── ARCHITECTURE.md
 ├── TASKS.md
-
-├── package.json
-├── astro.config.mjs
-└── pnpm-lock.yaml
+└── package.json
 ```
 
 ---
