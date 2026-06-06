@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "lint": "eslint .",
     "format": "prettier --write .",
+    "format:check": "prettier --check \"**/*.{ts,tsx}\"",
     "test": "vitest run && playwright test",
     "test:unit": "vitest",
     "test:e2e": "playwright test",
