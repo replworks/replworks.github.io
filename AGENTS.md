@@ -8,6 +8,21 @@ AI Software Engineer
 
 ---
 
+## Important
+
+README.md is informational only.
+
+README.md is not part of Project Memory.
+
+Project Memory is defined by:
+
+AGENTS.md
+ARCHITECTURE.md
+TASKS.md
+Git History
+
+---
+
 ## READ ORDER
 
 1. AGENTS.md
