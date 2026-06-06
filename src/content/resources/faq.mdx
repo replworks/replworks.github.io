@@ -1,0 +1,32 @@
+---
+title: 'FAQ'
+version: 'v1'
+description: 'Key questions about REPL Works and its content model.'
+publishedAt: '2026-06-07T00:00:00Z'
+---
+
+# FAQ
+
+## What is REPL Works?
+
+REPL Works is a project memory standard for AI development. It organizes documentation, tasks, and architecture so projects survive sessions and model changes.
+
+## Why Git as memory?
+
+Git provides durable history, clear change context, and a shared source of truth. It makes project memory explicit and versioned outside the model.
+
+## Why separate AGENTS / ARCHITECTURE / TASKS?
+
+Separation keeps responsibility clear:
+
+- AGENTS define interaction and automation,
+- ARCHITECTURE defines project intent,
+- TASKS define execution steps.
+
+## Why LONG_CONTEXT.md exists?
+
+LONG_CONTEXT.md captures the essential state needed to resume a project. It lets a new session bootstrap the model without losing history.
+
+## Why models are replaceable?
+
+Models should be tools, not project owners. REPL Works stores project memory externally so the project is not locked to any single model.

@@ -21,7 +21,8 @@ const collectionTitle = collectionTitles[collection];
 const collectionDescription = collectionDescriptions[collection];
 
 const entries = await getCollection(collection);
-const entry = entries[0] ?? null;
+const indexEntry = entries.find((item) => item.id === 'index') ?? null;
+const entry = indexEntry ?? entries[0] ?? null;
 const rendered = entry?.rendered ?? null;
 const contentResult = entry && !rendered ? await render(entry) : null;
 const Content = contentResult?.Content ?? null;

@@ -100,9 +100,9 @@ Propose TASK update
 
 - [x] T211 Create Home Page
 - [x] T212 Create Why Page
-- [ ] T213 Publish Manifesto v1
-- [ ] T214 Publish Specification v1
-- [ ] T215 Publish Workflow v1
+- [x] T213 Publish Manifesto v1
+- [x] T214 Publish Specification v1
+- [x] T215 Publish Workflow v1
 
 ---
 
@@ -110,13 +110,13 @@ Propose TASK update
 
 ## RESOURCES
 
-- [ ] T316 Create Resources Index
-- [ ] T317 Publish Templates
-- [ ] T318 Publish Example Documents
-- [ ] T319 Publish Long Context Examples
-- [ ] T320 Publish Repository Examples
-- [ ] T321 Publish Planning Examples
-- [ ] T322 Publish FAQ
+- [x] T316 Create Resources Index
+- [x] T317 Publish Templates
+- [x] T318 Publish Example Documents
+- [x] T319 Publish Long Context Examples
+- [x] T320 Publish Repository Examples
+- [x] T321 Publish Planning Examples
+- [x] T322 Publish FAQ
 
 ---
 
