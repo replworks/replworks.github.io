@@ -1,6 +1,6 @@
 # TASKS.md
 
-Version 2.0
+Version 3.0
 
 ## PURPOSE
 
@@ -76,173 +76,11 @@ Propose TASK update
 
 ## FOUNDATION
 
-Goal
-
-```text
-Project Initialization
-```
-
----
-
-### T001
-
-```text
-Initialize Astro Project
-```
-
-Status
-
-```text
-[ ]
-```
-
-Required
-
-```text
-Astro >= 6
-
-TypeScript >= 5
-
-npm
-```
-
-Initialization
-
-```bash
-npm create astro@latest
-```
-
-Options
-
-```text
-Minimal
-
-TypeScript Strict
-```
-
-Validation
-
-```bash
-npm install
-
-npm run dev
-```
-
-Result
-
-```text
-Development server starts successfully
-```
-
----
-
-### T002
-
-```text
-Configure Tailwind CSS
-```
-
-Status
-
-```text
-[ ]
-```
-
-Required
-
-```text
-Tailwind CSS >= 4
-```
-
-Validation
-
-```text
-Tailwind styles applied successfully
-```
-
----
-
-### T003
-
-```text
-Configure Content Collections
-```
-
-Status
-
-```text
-[ ]
-```
-
-Required Collections
-
-```text
-manifesto
-
-specification
-
-workflow
-
-resources
-
-showcase
-```
-
-Validation
-
-```text
-Content collections registered successfully
-```
-
----
-
-### T004
-
-```text
-Configure MDX Support
-```
-
-Status
-
-```text
-[ ]
-```
-
-Validation
-
-```text
-MDX pages render successfully
-```
-
----
-
-### T005
-
-```text
-Configure GitHub Pages Deployment
-```
-
-Status
-
-```text
-[ ]
-```
-
-Required
-
-```text
-GitHub Actions
-
-Static Export
-```
-
-Validation
-
-```text
-Automatic deployment succeeds
-
-Generated site works on GitHub Pages
-```
+* [ ] T001 Initialize Astro Project
+* [ ] T002 Configure Tailwind CSS
+* [ ] T003 Configure Content Collections
+* [ ] T004 Configure MDX Support
+* [ ] T005 Configure GitHub Pages Deployment
 
 ---
 
@@ -250,101 +88,11 @@ Generated site works on GitHub Pages
 
 ## LAYOUT SYSTEM
 
-Goal
-
-```text
-Shared UI Foundation
-```
-
----
-
-### T006
-
-```text
-Create Global Layout
-```
-
-Deliverables
-
-```text
-Header
-
-Footer
-
-Main Content
-```
-
----
-
-### T007
-
-```text
-Create Navigation
-```
-
-Items
-
-```text
-Home
-
-Why
-
-Manifesto
-
-Specification
-
-Workflow
-
-Resources
-
-Showcase
-```
-
----
-
-### T008
-
-```text
-Create Mobile Navigation
-```
-
-Validation
-
-```text
-Responsive Navigation
-```
-
----
-
-### T009
-
-```text
-Create Document Layout
-```
-
-Targets
-
-```text
-Manifesto
-
-Specification
-
-Workflow
-```
-
----
-
-### T010
-
-```text
-Create Content Collection Routing
-```
-
-Validation
-
-```text
-Automatic Routing
-```
+* [ ] T006 Create Global Layout
+* [ ] T007 Create Navigation
+* [ ] T008 Create Mobile Navigation
+* [ ] T009 Create Document Layout
+* [ ] T010 Create Content Collection Routing
 
 ---
 
@@ -352,81 +100,11 @@ Automatic Routing
 
 ## CORE CONTENT
 
-Goal
-
-```text
-Publish Core Documents
-```
-
----
-
-### T011
-
-```text
-Create Home Page
-```
-
-Status
-
-```text
-[ ]
-```
-
----
-
-### T012
-
-```text
-Create Why Page
-```
-
-Status
-
-```text
-[ ]
-```
-
----
-
-### T013
-
-```text
-Publish Manifesto v1
-```
-
-Status
-
-```text
-[ ]
-```
-
----
-
-### T014
-
-```text
-Publish Specification v1
-```
-
-Status
-
-```text
-[ ]
-```
-
----
-
-### T015
-
-```text
-Publish Workflow v1
-```
-
-Status
-
-```text
-[ ]
-```
+* [ ] T011 Create Home Page
+* [ ] T012 Create Why Page
+* [ ] T013 Publish Manifesto v1
+* [ ] T014 Publish Specification v1
+* [ ] T015 Publish Workflow v1
 
 ---
 
@@ -434,67 +112,13 @@ Status
 
 ## RESOURCES
 
-Goal
-
-```text
-Adoption Resources
-```
-
----
-
-### T016
-
-```text
-Create Resources Index
-```
-
----
-
-### T017
-
-```text
-Publish Templates
-```
-
----
-
-### T018
-
-```text
-Publish Example Documents
-```
-
----
-
-### T019
-
-```text
-Publish Long Context Examples
-```
-
----
-
-### T020
-
-```text
-Publish Repository Examples
-```
-
----
-
-### T021
-
-```text
-Publish Planning Examples
-```
-
----
-
-### T022
-
-```text
-Publish FAQ
-```
+* [ ] T016 Create Resources Index
+* [ ] T017 Publish Templates
+* [ ] T018 Publish Example Documents
+* [ ] T019 Publish Long Context Examples
+* [ ] T020 Publish Repository Examples
+* [ ] T021 Publish Planning Examples
+* [ ] T022 Publish FAQ
 
 ---
 
@@ -502,59 +126,12 @@ Publish FAQ
 
 ## SHOWCASE
 
-Goal
-
-```text
-Proof of Adoption
-```
-
----
-
-### T023
-
-```text
-Create Showcase Index
-```
-
----
-
-### T024
-
-```text
-Publish REPL Works Website Showcase
-```
-
----
-
-### T025
-
-```text
-Publish Project A Showcase
-```
-
----
-
-### T026
-
-```text
-Publish Project B Showcase
-```
-
----
-
-### T027
-
-```text
-Publish Project C Showcase
-```
-
----
-
-### T028
-
-```text
-Publish Project D Showcase
-```
+* [ ] T023 Create Showcase Index
+* [ ] T024 Publish REPL Works Website Showcase
+* [ ] T025 Publish Project A Showcase
+* [ ] T026 Publish Project B Showcase
+* [ ] T027 Publish Project C Showcase
+* [ ] T028 Publish Project D Showcase
 
 ---
 
@@ -562,27 +139,8 @@ Publish Project D Showcase
 
 ## SEARCH
 
-Goal
-
-```text
-Documentation Search
-```
-
----
-
-### T029
-
-```text
-Integrate Pagefind
-```
-
----
-
-### T030
-
-```text
-Create Search UI
-```
+* [ ] T029 Integrate Pagefind
+* [ ] T030 Create Search UI
 
 ---
 
@@ -590,57 +148,15 @@ Create Search UI
 
 ## RELEASE
 
-Goal
-
-```text
-Release v1
-```
-
----
-
-### T031
-
-```text
-Content Review
-```
-
----
-
-### T032
-
-```text
-Responsive Review
-```
-
----
-
-### T033
-
-```text
-Accessibility Review
-```
-
----
-
-### T034
-
-```text
-Deployment Verification
-```
-
----
-
-### T035
-
-```text
-Release v1
-```
+* [ ] T031 Content Review
+* [ ] T032 Responsive Review
+* [ ] T033 Accessibility Review
+* [ ] T034 Deployment Verification
+* [ ] T035 Release v1
 
 ---
 
 ## COMPLETION
-
-When a task is completed:
 
 ```text
 [ ]
@@ -650,16 +166,12 @@ When a task is completed:
 
 ---
 
-Review:
+After task completion:
 
-```text
-ARCHITECTURE.md
-```
+Review ARCHITECTURE.md
 
 ---
 
 If architecture changed:
 
-```text
 Update ARCHITECTURE.md
-```
