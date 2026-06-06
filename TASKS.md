@@ -99,7 +99,7 @@ Propose TASK update
 ## CORE CONTENT
 
 - [x] T211 Create Home Page
-- [ ] T212 Create Why Page
+- [x] T212 Create Why Page
 - [ ] T213 Publish Manifesto v1
 - [ ] T214 Publish Specification v1
 - [ ] T215 Publish Workflow v1
