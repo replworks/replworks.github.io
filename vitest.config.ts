@@ -1,16 +1,16 @@
 // vitest.config.ts
-import { defineConfig } from "vitest/config";
+import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
   test: {
-    environment: "node",
+    environment: 'node',
 
     exclude: [
-      "**/node_modules/**",
-      "**/dist/**",
-      "**/.astro/**",
-      "**/*.e2e.ts",
-      "**/tests/**",
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/.astro/**',
+      '**/*.e2e.ts',
+      '**/tests/**',
     ],
   },
 });
