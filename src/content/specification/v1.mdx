@@ -1,0 +1,256 @@
+---
+title: 'REPL Works 스펙'
+version: 'v1'
+type: 'manifesto'
+description: 'AI 시대에 프로젝트의 기억을 Git 기반 문서로 외부화하여 모델에 의존하지 않고 지속 가능하게 관리하는 Project Memory System.'
+publishedAt: '2026-06-06T00:00:00Z'
+---
+
+# 목적
+
+REPL Works는 AI 시대를 위한 **Project Memory System**이다.
+이 문서는 REPL Works를 구성하는 최소 규칙을 정의한다.
+
+- Workflow는 구현체다.
+- Specification은 표준이다.
+
+---
+
+# 핵심 원칙
+
+> AI의 기억은 일시적입니다.
+> 프로젝트의 기억은 외부화되어야 합니다.
+
+---
+
+> Models forget.
+> Projects must not.
+
+---
+
+# Rule 1. Git First
+
+모든 프로젝트는 Git Repository로 시작해야 한다.
+
+```bash
+git init
+```
+
+프로젝트 기억은 Git에 저장된다.
+
+---
+
+# Rule 2. Repository Is The Memory System
+
+프로젝트에 필요한 기억은 모델 내부가 아닌 Repository 내부에 존재해야 한다.
+
+프로젝트는 특정 모델에 의존해서는 안 된다.
+
+---
+
+# Rule 3. AGENTS.md Is The Constitution
+
+모든 프로젝트는 `AGENTS.md`를 가져야 한다.
+`AGENTS.md`는 프로젝트 헌법이다.
+
+---
+
+### AGENTS.md는 최소한 다음 내용을 포함해야 한다
+
+- 프로젝트 규칙
+- 개발 규칙
+- 테스트 규칙
+- 문서 위치
+- 논리적 Agent 정의 위치
+
+---
+
+모든 AI 작업은 `AGENTS.md`를 기준으로 수행된다.
+
+---
+
+# Rule 4. Architecture Is Mandatory
+
+모든 프로젝트는 `ARCHITECTURE.md`를 가져야 한다.
+
+---
+
+### ARCHITECTURE.md는 다음을 정의한다
+
+- 시스템 구조
+- 폴더 구조
+- 데이터 흐름
+- 모듈 책임
+- 기술 스택
+
+---
+
+Architecture가 비대해질 경우 분리 가능하다.
+
+```text
+architecture/
+├── frontend.md
+├── backend.md
+├── database.md
+└── deployment.md
+```
+
+---
+
+`ARCHITECTURE.md`는 진입점 역할을 수행한다.
+
+---
+
+# Rule 5. Tasks Are Mandatory
+
+모든 프로젝트는 `TASKS.md`를 가져야 한다.
+
+---
+
+`TASKS.md`는 TODO List다.
+
+---
+
+Task는 반드시 Phase 단위로 관리한다.
+
+```text
+Phase 1
+
+[ ] Authentication
+[ ] Database Setup
+
+Phase 2
+
+[ ] Dashboard
+```
+
+---
+
+- Architecture는 목적지다.
+- Tasks는 현재 위치다.
+
+---
+
+# Rule 6. Planning And Execution Must Be Separated
+
+계획 수립과 구현은 서로 다른 Runtime에서 수행한다.
+
+---
+
+## Planning Runtime
+
+- IDEAS.md
+- PITCHING_SCRIPT.md
+- ARCHITECTURE.md
+- TASKS.md
+
+---
+
+## Execution Runtime
+
+- 구현
+- 테스트
+- 리팩토링
+
+---
+
+동일 컨텍스트에서 장기간 혼합하는 것을 권장하지 않는다.
+
+---
+
+# Rule 7. Documentation Is AI Infrastructure
+
+`README.md`를 제외한 대부분 문서는 AI를 위한 문서다.
+
+---
+
+- 문서는 설명서가 아니다.
+- 문서는 프로젝트 기억 장치다.
+
+---
+
+# Rule 8. Every Feature Requires Tests
+
+모든 기능은 테스트를 포함해야 한다.
+
+---
+
+- 테스트 없는 구현은 완료된 구현으로 간주하지 않는다.
+- Unit Test는 AI 환각을 줄이는 기본 안전장치다.
+
+---
+
+# Rule 9. Architecture And Tasks Must Stay Consistent
+
+`TASKS.md` 변경이 Architecture에 영향을 준다면
+`ARCHITECTURE.md`도 함께 수정되어야 한다.
+
+---
+
+- Architecture와 Tasks는 독립적으로 진화해서는 안 된다.
+
+---
+
+# Rule 10. Models Are Replaceable
+
+REPL Works는 특정 모델에 의존하지 않는다.
+
+예:
+
+- GPT
+- Claude
+- Gemini
+- Codex
+- Cursor
+
+---
+
+모델은 교체 가능해야 한다.
+프로젝트 기억은 유지되어야 한다.
+
+---
+
+# Rule 11. Session Memory Is Optional
+
+프로젝트 기억과 세션 기억은 다르다.
+
+---
+
+## 프로젝트 기억
+
+- Git
+- AGENTS.md
+- ARCHITECTURE.md
+- TASKS.md
+
+---
+
+## 세션 기억
+
+- LONG_CONTEXT.md
+
+---
+
+`LONG_CONTEXT.md`는 프로젝트 문서가 아니다.
+세션 복구 문서다.
+
+---
+
+- AI는 `LONG_CONTEXT.md`를 자동 참조해서는 안 된다.
+- 사람이 필요할 때 수동으로 제공한다.
+
+---
+
+# Compliance
+
+프로젝트가 **REPL Works Compatible**이려면 최소한 다음을 만족해야 한다.
+
+- Git Repository
+- AGENTS.md
+- ARCHITECTURE.md
+- TASKS.md
+- Test Coverage
+
+---
+
+이 다섯 가지가 REPL Works의 최소 요구사항이다.
