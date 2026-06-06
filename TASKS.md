@@ -76,8 +76,8 @@ Propose TASK update
 
 ## FOUNDATION
 
-* [ ] T001 Initialize Astro Project
-* [ ] T002 Configure Tailwind CSS
+* [x] T001 Initialize Astro Project
+* [x] T002 Configure Tailwind CSS
 * [ ] T003 Configure Content Collections
 * [ ] T004 Configure MDX Support
 * [ ] T005 Configure GitHub Pages Deployment
