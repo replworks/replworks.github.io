@@ -1,5 +1,5 @@
-import { defineCollection } from "astro:content";
-import { z } from "astro/zod";
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 
 const baseCollectionSchema = z.object({
   title: z.string(),
