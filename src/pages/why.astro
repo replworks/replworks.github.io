@@ -2,14 +2,116 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 ---
 
-<SiteLayout title="Why" description="Explore the purpose behind REPL Works.">
-  <section
-    class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12"
-  >
-    <h2 class="text-2xl font-semibold text-slate-900">Why REPL Works?</h2>
-    <p class="mt-4 text-slate-600">
-      This page is a placeholder for the Why section. The shared site shell is
-      configured and ready for content.
-    </p>
+<SiteLayout
+  title="Why"
+  description="Why REPL Works exists and why project memory matters."
+>
+  <section class="space-y-10">
+    <div
+      class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12"
+    >
+      <p
+        class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
+      >
+        Problem
+      </p>
+      <h1
+        class="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl"
+      >
+        AI is improving, but projects still fail.
+      </h1>
+      <p class="mt-4 text-slate-600 leading-7">
+        Teams build with better models every year, yet knowledge remains
+        fragmented across chat history, prompt notes, and scattered docs. The
+        moment a session ends or a model is replaced, critical context vanishes.
+      </p>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+      <article
+        class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+      >
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
+        >
+          Observation
+        </p>
+        <h2 class="mt-4 text-2xl font-semibold text-slate-900">
+          Projects leak memory in multiple ways.
+        </h2>
+        <ul class="mt-6 space-y-3 text-slate-700">
+          <li>Chat history grows long and hard to search.</li>
+          <li>Prompt context is reused without structure.</li>
+          <li>Context windows reset when agents restart.</li>
+          <li>Agents run independently and lose shared state.</li>
+          <li>Personal notes become trapped in silos.</li>
+        </ul>
+      </article>
+
+      <article
+        class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+      >
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
+        >
+          Consequence
+        </p>
+        <h2 class="mt-4 text-2xl font-semibold text-slate-900">
+          The result is project amnesia.
+        </h2>
+        <ul class="mt-6 space-y-3 text-slate-700">
+          <li>Repeated mistakes when context is lost.</li>
+          <li>Architecture drift because decisions are forgotten.</li>
+          <li>Lost decisions when reasoning is not captured.</li>
+          <li>Lost context as sessions end and models change.</li>
+          <li>Long-term projects lose momentum and memory.</li>
+        </ul>
+      </article>
+    </div>
+
+    <div
+      class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12"
+    >
+      <p
+        class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
+      >
+        Question
+      </p>
+      <h2 class="mt-4 text-2xl font-semibold text-slate-900">
+        Why does REPL Works exist?
+      </h2>
+      <p class="mt-4 text-slate-600 leading-7">
+        It exists because AI alone cannot preserve project memory. Without a
+        durable place to record knowledge, every long-term effort becomes
+        vulnerable to forgotten context, lost decisions, and repeated effort.
+      </p>
+      <p class="mt-4 text-slate-600 leading-7">
+        This is not just a technical inconvenience—it is a real barrier to
+        sustained, reliable AI development.
+      </p>
+    </div>
+
+    <div
+      class="rounded-3xl border border-slate-200 bg-slate-50 p-8 text-slate-900 shadow-sm sm:p-12"
+    >
+      <p
+        class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
+      >
+        Next
+      </p>
+      <h2 class="mt-4 text-2xl font-semibold text-slate-900">
+        The manifesto explains the solution.
+      </h2>
+      <p class="mt-4 text-slate-700 leading-7">
+        If the problem feels real, the next step is to understand the principles
+        that make long-term project memory possible.
+      </p>
+      <a
+        href="/manifesto"
+        class="mt-6 inline-flex rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+      >
+        Read the Manifesto
+      </a>
+    </div>
   </section>
 </SiteLayout>
