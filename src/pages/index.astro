@@ -2,21 +2,119 @@
 import SiteLayout from '../layouts/SiteLayout.astro';
 ---
 
-<SiteLayout title="Home" description="REPL Works documentation shell.">
-  <section
-    class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12"
-  >
-    <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">
-      Documentation shell
-    </p>
-    <h1
-      class="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl"
+<SiteLayout
+  title="REPL Works"
+  description="The REPL Works home page for documentation-first AI development."
+>
+  <section class="space-y-10">
+    <div
+      class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12"
     >
-      REPL Works
-    </h1>
-    <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-      This foundation provides shared layout, navigation, and content collection
-      routing for the REPL Works platform.
-    </p>
+      <p
+        class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
+      >
+        Project Memory System
+      </p>
+      <h1
+        class="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl"
+      >
+        REPL Works
+      </h1>
+      <p class="mt-6 max-w-3xl text-xl leading-9 text-slate-700">
+        AI development needs durable memory for projects. Models forget.
+        Projects must not.
+      </p>
+      <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <a
+          href="/why"
+          class="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+        >
+          Why REPL Works
+        </a>
+        <a
+          href="/manifesto"
+          class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50"
+        >
+          Read the Manifesto
+        </a>
+      </div>
+    </div>
+
+    <div class="grid gap-6 lg:grid-cols-2">
+      <article
+        class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
+      >
+        <h2 class="text-2xl font-semibold text-slate-900">
+          A documentation-first approach
+        </h2>
+        <p class="mt-4 text-slate-600 leading-7">
+          REPL Works is a framework for capturing project memory as structured
+          documentation, enabling teams to read, learn, and navigate AI
+          development with confidence.
+        </p>
+        <ul class="mt-6 space-y-3 text-slate-700">
+          <li>Read definitive guidance in one place.</li>
+          <li>Navigate through why, manifesto, specification, and workflow.</li>
+          <li>Learn with a clear, minimal information hierarchy.</li>
+        </ul>
+      </article>
+
+      <aside class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h2 class="text-2xl font-semibold text-slate-900">Get started</h2>
+        <p class="mt-4 text-slate-600 leading-7">
+          This site shell is built on Astro, TypeScript, Tailwind CSS, MDX, and
+          content collections. Future sections will expand the REPL Works
+          project memory story.
+        </p>
+        <div class="mt-8 space-y-3">
+          <a
+            href="/specification"
+            class="block rounded-2xl bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+          >
+            Specification overview
+          </a>
+          <a
+            href="/workflow"
+            class="block rounded-2xl bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+          >
+            Workflow guidance
+          </a>
+          <a
+            href="/resources"
+            class="block rounded-2xl bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+          >
+            Resources and examples
+          </a>
+          <a
+            href="/showcase"
+            class="block rounded-2xl bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+          >
+            Showcase placeholder
+          </a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+      <p
+        class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
+      >
+        GitHub
+      </p>
+      <h2 class="mt-4 text-2xl font-semibold text-slate-900">
+        Repository placeholder
+      </h2>
+      <p class="mt-4 text-slate-600 leading-7">
+        The GitHub link will point to the REPL Works project repository once
+        available.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <span
+          class="inline-flex items-center rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-700"
+        >
+          GitHub link placeholder
+        </span>
+      </div>
+    </div>
   </section>
 </SiteLayout>
