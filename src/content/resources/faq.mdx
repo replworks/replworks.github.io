@@ -7,26 +7,37 @@ publishedAt: '2026-06-07T00:00:00Z'
 
 # FAQ
 
-## What is REPL Works?
+## REPL Works는 무엇인가?
 
-REPL Works is a project memory standard for AI development. It organizes documentation, tasks, and architecture so projects survive sessions and model changes.
+REPL Works는 AI Development를 위한 Project Memory System이자 Project Memory Standard입니다.
+이 시스템은 프로젝트 기억을 Git 기반 문서로 외부화하고, 세션과 모델 교체에도 프로젝트의 연속성을 유지하도록 설계되었습니다.
 
-## Why Git as memory?
+## 왜 Git이 필요한가?
 
-Git provides durable history, clear change context, and a shared source of truth. It makes project memory explicit and versioned outside the model.
+Git은 변경 내역을 기록하고 프로젝트 기억을 버전별로 보존하는 가장 명확한 방법입니다.
+Git은 프로젝트 상태를 추적하고, 의도와 결정을 공유하며, 모델 내부에 의존하지 않는 기억 공간을 제공합니다.
 
-## Why separate AGENTS / ARCHITECTURE / TASKS?
+## 왜 AGENTS.md가 필요한가?
 
-Separation keeps responsibility clear:
+`AGENTS.md`는 프로젝트의 작동 규칙과 AI 상호작용 방식을 문서화하는 헌법입니다.
+이 문서는 누가 무엇을 할지, 어느 문서를 참조할지, 어떤 규칙을 따라야 할지를 명확히 정의합니다.
 
-- AGENTS define interaction and automation,
-- ARCHITECTURE defines project intent,
-- TASKS define execution steps.
+## 왜 LONG_CONTEXT.md가 필요한가?
 
-## Why LONG_CONTEXT.md exists?
+`LONG_CONTEXT.md`는 세션 복구를 위한 문서입니다.
+새로운 세션이나 다른 모델이 프로젝트를 재개할 때 필요한 핵심 상태를 요약하여 빠르게 부트스트랩할 수 있게 합니다.
 
-LONG_CONTEXT.md captures the essential state needed to resume a project. It lets a new session bootstrap the model without losing history.
+## Agent Framework와 무엇이 다른가?
 
-## Why models are replaceable?
+Agent Framework는 AI 에이전트 실행 환경에 초점을 둡니다.
+REPL Works는 에이전트를 실행하는 프레임워크가 아니라, 프로젝트 기억과 문서 중심의 시스템입니다.
 
-Models should be tools, not project owners. REPL Works stores project memory externally so the project is not locked to any single model.
+## REPL Works는 오픈소스인가?
+
+REPL Works는 오픈소스 철학을 지향하며, 문서와 정책을 공개적으로 검증 가능한 형태로 제공합니다.
+이 사이트는 오픈소스 개발 방식에 맞춘 프로젝트 기억 예시를 보여줍니다.
+
+## REPL Works는 개발에만 사용할 수 있는가?
+
+REPL Works는 주로 AI Development를 위한 Project Memory System이지만,
+문서 중심의 기억 저장과 계획-실행 분리를 필요로 하는 다른 지식 집약 프로젝트에도 적용할 수 있습니다.

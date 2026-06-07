@@ -7,74 +7,986 @@ publishedAt: '2026-06-07T00:00:00Z'
 
 # Example Documents
 
-## Sample IDEAS.md
+## 샘플 IDEAS.md
 
-# IDEAS
+다음은 REPL Works 프로젝트에서 아이디어를 정리하는 문서 예시입니다.
 
-## Idea Summary
+````markdown
+# IDEAS.md
 
-- Build a project memory system for AI development.
+Version 2.0
 
-## Problem
+---
 
-- Teams lose context between sessions.
-- Architecture drifts when knowledge is only in conversation.
+# Project
 
-## Key Benefits
+REPL Works
 
-- Durable project memory.
-- Reusable documentation.
+---
 
-## Next Steps
+# Vision
 
-- Define content collections.
-- Create the first manifesto and workflow.
+REPL Works는 AI 시대를 위한 Project Memory System이다.
 
-## Sample ARCHITECTURE.md
+AI는 점점 더 똑똑해지고 있다.
 
-# ARCHITECTURE
+더 긴 Context Window.
+
+더 강력한 Agent.
+
+더 높은 코드 생성 능력.
+
+그러나 장기 프로젝트는 여전히 같은 문제를 겪는다.
+
+프로젝트 의도가 사라진다.
+
+아키텍처가 붕괴한다.
+
+동일한 실수를 반복한다.
+
+모델을 교체하면 생산성이 초기화된다.
+
+세션이 종료되면 중요한 컨텍스트가 사라진다.
+
+---
+
+REPL Works는 이 문제의 원인이 AI의 지능 부족이 아니라고 믿는다.
+
+문제는 기억(Memory)이다.
+
+---
+
+# Problem
+
+현재 대부분의 AI 개발은 Session 중심으로 이루어진다.
+
+프로젝트 지식은 다음 위치에 흩어진다.
+
+- Chat History
+- Prompt
+- Context Window
+- Agent Runtime
+- 개인 메모
+
+---
+
+프로젝트는 수개월 또는 수년 동안 존재할 수 있다.
+
+그러나 AI의 기억은 몇 시간 또는 몇 주를 넘기 어렵다.
+
+---
+
+결과적으로 다음 문제가 발생한다.
+
+- 모델이 바뀌면 기억이 사라진다.
+- 장기 프로젝트를 유지하기 어렵다.
+- 동일한 실수를 반복한다.
+- 아키텍처가 드리프트한다.
+- 중요한 의사결정이 소실된다.
+- 프로젝트가 Session에 종속된다.
+
+---
+
+우리는 이 문제를
+
+Project Amnesia
+
+라고 부른다.
+
+---
+
+# Core Insight
+
+AI Development has a memory problem.
+
+---
+
+AI는 Session Memory를 가진다.
+
+프로젝트는 Project Memory를 필요로 한다.
+
+---
+
+현재 대부분의 AI 개발은
+
+Project Memory를 Session 안에 저장한다.
+
+---
+
+Session이 종료되면 기억도 사라진다.
+
+---
+
+REPL Works는 Project Memory와 Session Memory를 구분한다.
+
+---
+
+Project Memory는 Repository에 저장된다.
+
+Session Memory는 필요할 때 복구된다.
+
+---
+
+프로젝트는 Session보다 오래 살아야 한다.
+
+---
+
+# Solution
+
+프로젝트 기억을 Runtime 밖으로 이동시킨다.
+
+---
+
+Project Memory
+
+```text
+Constitution
+
+Architecture
+
+Tasks
+
+Git History
+```
+
+---
+
+Session Memory
+
+```text
+Long Context
+```
+
+---
+
+REPL Works v1 Reference Implementation
+
+```text
+AGENTS.md
+
+ARCHITECTURE.md
+
+TASKS.md
+
+LONG_CONTEXT.md
+
+Git History
+```
+
+---
+
+프로젝트는 Project Memory만으로 복원 가능해야 한다.
+
+세션은 Session Memory로 복원 가능해야 한다.
+
+---
+
+# Key Principles
+
+## Git First
+
+모든 프로젝트는 Git으로 시작한다.
+
+---
+
+## Architecture First
+
+모든 구현은 Architecture를 따른다.
+
+---
+
+## Tasks Drive Development
+
+개발은 현재 작업 범위를 명확하게 정의해야 한다.
+
+---
+
+## Model Independence
+
+모델은 교체 가능해야 한다.
+
+---
+
+## Planning ≠ Execution
+
+설계와 구현은 분리되어야 한다.
+
+---
+
+## Project Memory ≠ Session Memory
+
+프로젝트 기억과 세션 기억은 서로 다른 문제다.
+
+---
+
+# Target Audience
+
+### Solo Founder
+
+---
+
+### Indie Hacker
+
+---
+
+### Small Team
+
+---
+
+### AI-Native Builder
+
+---
+
+# Long-Term Goal
+
+REPL Works를 AI 시대의 Project Memory Standard로 만든다.
+
+---
+
+예를 들어
+
+```text
+Built with REPL Works
+```
+
+가
+
+```text
+Conventional Commits
+```
+
+처럼 자연스럽게 사용되는 상태를 목표로 한다.
+
+---
+
+# Success Metrics
+
+### Phase 1
+
+REPL Works 자체를 REPL Works로 개발
+
+---
+
+### Phase 2
+
+실제 서비스 5개 이상 운영
+
+---
+
+### Phase 3
+
+외부 사용자가 REPL Works를 사용
+
+---
+
+### Phase 4
+
+REPL Works Compatible 프로젝트 등장
+
+---
+
+# Final Statement
+
+AI는 계속 바뀐다.
+
+프로젝트는 계속 살아남아야 한다.
+
+---
+
+AI memory is temporary.
+
+Project memory must be externalized.
+
+---
+
+Models forget.
+
+Projects must not.
+````
+
+---
+
+## 샘플 ARCHITECTURE.md
+
+다음은 기본적인 아키텍처 문서 구조 예시입니다.
+
+````markdown
+# ARCHITECTURE.md
+
+Version 2.0
 
 ## PROJECT
 
 REPL Works Website
 
+---
+
 ## PURPOSE
 
-Documentation platform for REPL Works.
+Documentation Platform for REPL Works.
+
+Goal:
+
+```text
+Establish REPL Works
+as a Project Memory Standard
+for AI Development
+```
+
+---
 
 ## PRODUCT TYPE
 
+```text
 Documentation Platform
+```
+
+Not:
+
+```text
+SaaS
+Dashboard
+Community Platform
+Social Network
+AI Tool
+```
+
+---
 
 ## USER ACTIONS
 
-- Read
-- Navigate
-- Learn
-- Apply
+```text
+Read
+Navigate
+Learn
+Apply
+```
+
+---
 
 ## PRIMARY JOURNEY
 
-Home → Why → Manifesto → Specification → Workflow → Resources → Showcase → GitHub
+```text
+Home
+↓
+Why
+↓
+Manifesto
+↓
+Specification
+↓
+Workflow
+↓
+Resources
+↓
+Showcase
+↓
+GitHub
+```
 
-## Sample TASKS.md
+---
 
-# TASKS
+## NAVIGATION
+
+```text
+Home
+
+Why
+
+Manifesto
+
+Specification
+
+Workflow
+
+Resources
+
+Showcase
+```
+
+---
+
+### Resources
+
+```text
+Templates
+
+Example Documents
+
+Long Context Examples
+
+Repository Examples
+
+Planning Examples
+
+FAQ
+```
+
+---
+
+## CONTENT MODEL
+
+Content First
+
+Design Second
+
+---
+
+Content Source
+
+```text
+MDX
+```
+
+---
+
+Collections
+
+```text
+manifesto
+
+specification
+
+workflow
+
+resources
+
+showcase
+```
+
+---
+
+## VERSIONING
+
+Required
+
+---
+
+Versioned Content
+
+```text
+Manifesto
+
+Specification
+
+Workflow
+```
+
+---
+
+Example
+
+```text
+src/content/
+
+manifesto/
+  v1.mdx
+
+specification/
+  v1.mdx
+
+workflow/
+  v1.mdx
+```
+
+---
+
+Never delete previous versions.
+
+---
+
+## SHOWCASE
+
+Purpose
+
+```text
+Proof of Adoption
+```
+
+---
+
+Initial Entries
+
+```text
+REPL Works Website
+
+Project A
+
+Project B
+
+Project C
+
+Project D
+```
+
+---
+
+## GITHUB
+
+GitHub is the primary external asset.
+
+Website explains GitHub.
+
+Website does not replace GitHub.
+
+---
+
+## STACK
+
+Required
+
+```text
+Node.js >= 24
+
+npm >= 11
+
+Astro >= 6
+
+TypeScript >= 5
+
+Tailwind CSS >= 4
+```
+
+---
+
+Current
+
+```text
+Node.js 24.x
+
+Astro 6.4.4
+
+TypeScript 5.x
+
+Tailwind CSS 4.x
+```
+
+---
+
+Package Manager
+
+```text
+npm
+```
+
+---
+
+Framework
+
+```text
+Astro
+```
+
+---
+
+Language
+
+```text
+TypeScript
+```
+
+---
+
+Content
+
+```text
+MDX
+```
+
+---
+
+Content Management
+
+```text
+Astro Content Collections
+```
+
+---
+
+Search
+
+```text
+Pagefind
+```
+
+---
+
+Hosting
+
+```text
+GitHub Pages
+```
+
+---
+
+CI/CD
+
+```text
+GitHub Actions
+```
+
+---
+
+Analytics (Optional)
+
+```text
+Plausible
+
+Umami
+```
+
+---
+
+## PROJECT INITIALIZATION
+
+Required Command
+
+```bash
+npm create astro@latest
+```
+
+---
+
+Template
+
+```text
+Minimal
+```
+
+---
+
+TypeScript
+
+```text
+Strict
+```
+
+---
+
+Package Manager
+
+```text
+npm
+```
+
+---
+
+## REPOSITORY STRUCTURE
+
+```text
+/
+├── public/
+│   └── favicon.svg
+├── src/
+│   ├── assets
+│   │   └── astro.svg
+│   ├── components
+│   │   └── Welcome.astro
+│   ├── layouts
+│   │   └── Layout.astro
+│   └── pages
+│       ├── index.astro
+│       ├── manifesto/
+│       ├── specification/
+│       ├── workflow/
+│       ├── resources/
+│       └── showcase/
+├── tests/
+├── AGENTS.md
+├── ARCHITECTURE.md
+├── TASKS.md
+└── package.json
+```
+
+---
+
+## IN SCOPE
+
+```text
+Documentation Pages
+
+Versioned Documents
+
+Static Search
+
+GitHub Links
+
+Showcase Pages
+
+Resource Pages
+```
+
+---
+
+## OUT OF SCOPE
+
+```text
+Database
+
+Backend API
+
+Authentication
+
+User Accounts
+
+Comments
+
+CMS
+
+Realtime Features
+
+Payments
+
+Discussion Board
+```
+
+---
+
+## CONSTRAINTS
+
+All pages must support:
+
+```text
+Static Export
+```
+
+---
+
+Server dependency:
+
+```text
+Not Allowed
+```
+
+---
+
+Dynamic user state:
+
+```text
+Not Allowed
+```
+
+---
+
+## SUCCESS CRITERIA
+
+```text
+Manifesto published
+
+Specification published
+
+Workflow published
+
+Resources published
+
+Showcase published
+
+GitHub Pages deployment works
+
+New versions can be added
+
+Old versions remain accessible
+```
+
+---
+
+## FINAL
+
+REPL Works Website is a Documentation Platform.
+
+Every implementation must support:
+
+```text
+Documentation
+
+Versioning
+
+Static Deployment
+
+Long-Term Maintainability
+```
+````
+
+---
+
+## 샘플 TASKS.md
+
+다음은 REPL Works 태스크 문서 예시입니다.
+
+````markdown
+# TASKS.md
+
+Version 3.0
+
+## PURPOSE
+
+Current Work Scope
+
+---
+
+ARCHITECTURE.md
+
+```text
+Destination
+```
+
+TASKS.md
+
+```text
+Current Position
+```
+
+---
+
+Only incomplete tasks may be implemented.
+
+---
+
+Work outside TASKS.md is prohibited.
+
+---
+
+## EXECUTION RULES
+
+```text
+One Prompt
+=
+One Task
+```
+
+---
+
+```text
+One Task
+=
+One Commit
+```
+
+---
+
+Do not:
+
+```text
+Combine Tasks
+
+Implement Future Tasks
+
+Expand Scope
+
+Add Unplanned Features
+```
+
+---
+
+If required work is missing:
+
+```text
+STOP
+
+Propose TASK update
+```
+
+---
+
+# PHASE 1
 
 ## FOUNDATION
 
-- Initialize Astro project.
-- Configure Tailwind.
-- Enable content collections.
+- [x] T001 Initialize Astro Project
+- [x] T002 Configure Tailwind CSS
+- [x] T003 Configure Content Collections
+- [x] T004 Configure MDX Support
+- [x] T005 Configure GitHub Pages Deployment
+- [x] T006 Configure linting and formatting
+- [x] T007 Configure testing
+
+---
+
+# PHASE 2
+
+## LAYOUT SYSTEM
+
+- [x] T106 Create Site Shell
+
+---
+
+# PHASE 3
 
 ## CORE CONTENT
 
-- Publish Manifesto v1.
-- Publish Specification v1.
-- Publish Workflow v1.
+- [x] T211 Create Home Page
+- [x] T212 Create Why Page
+- [x] T213 Publish Manifesto v1
+- [x] T214 Publish Specification v1
+- [x] T215 Publish Workflow v1
 
-## NEXT STEPS
+---
 
-- Create Resources index.
-- Publish templates.
-- Publish example documents.
+# PHASE 4
+
+## RESOURCES
+
+- [x] T316 Create Resources Index
+- [x] T317 Publish Templates
+- [x] T318 Publish Example Documents
+- [x] T319 Publish Long Context Examples
+- [x] T320 Publish Repository Examples
+- [x] T321 Publish Planning Examples
+- [x] T322 Publish FAQ
+
+---
+
+# PHASE 5
+
+## SHOWCASE
+
+- [x] T423 Create Showcase Index
+- [x] T424 Publish REPL Works Website Showcase
+- [x] T425 Publish Project A Showcase
+- [x] T426 Publish Project B Showcase
+- [x] T427 Publish Project C Showcase
+- [x] T428 Publish Project D Showcase
+
+---
+
+# PHASE 6
+
+## SEARCH
+
+- [x] T529 Integrate Pagefind
+- [x] T530 Create Search UI
+
+---
+
+# PHASE 7
+
+## RELEASE
+
+- [ ] T631 Content Review
+- [ ] T632 Responsive Review
+- [ ] T633 Accessibility Review
+- [ ] T634 Deployment Verification
+- [ ] T635 Release v1
+
+---
+
+## COMPLETION
+
+```text
+[ ]
+↓
+[x]
+```
+
+---
+
+After task completion:
+
+Review ARCHITECTURE.md
+
+---
+
+If architecture changed:
+
+Update ARCHITECTURE.md
+````
