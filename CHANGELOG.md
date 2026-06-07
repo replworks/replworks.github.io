@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.0.1 - 2026-06-07
+
+### What's Changed
+
+* feat: browser setting and style improved by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/19
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v1.0.0...v1.0.1
+
 ## v1.0.0 - 2026-06-07
 
 ### What's Changed
