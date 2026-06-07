@@ -124,12 +124,12 @@ Propose TASK update
 
 ## SHOWCASE
 
-- [ ] T423 Create Showcase Index
-- [ ] T424 Publish REPL Works Website Showcase
-- [ ] T425 Publish Project A Showcase
-- [ ] T426 Publish Project B Showcase
-- [ ] T427 Publish Project C Showcase
-- [ ] T428 Publish Project D Showcase
+- [x] T423 Create Showcase Index
+- [x] T424 Publish REPL Works Website Showcase
+- [x] T425 Publish Project A Showcase
+- [x] T426 Publish Project B Showcase
+- [x] T427 Publish Project C Showcase
+- [x] T428 Publish Project D Showcase
 
 ---
 
@@ -137,8 +137,8 @@ Propose TASK update
 
 ## SEARCH
 
-- [ ] T529 Integrate Pagefind
-- [ ] T530 Create Search UI
+- [x] T529 Integrate Pagefind
+- [x] T530 Create Search UI
 
 ---
 
