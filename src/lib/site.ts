@@ -16,6 +16,7 @@ export const navItems = [
   { title: 'Workflow', href: '/workflow' },
   { title: 'Resources', href: '/resources' },
   { title: 'Showcase', href: '/showcase' },
+  { title: 'Search', href: '/search' },
 ] as const;
 
 export const collectionTitles: Record<ContentCollection, string> = {
