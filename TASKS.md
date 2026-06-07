@@ -146,11 +146,11 @@ Propose TASK update
 
 ## RELEASE
 
-- [ ] T631 Content Review
-- [ ] T632 Responsive Review
-- [ ] T633 Accessibility Review
-- [ ] T634 Deployment Verification
-- [ ] T635 Release v1
+- [x] T631 Content Review
+- [x] T632 Responsive Review
+- [x] T633 Accessibility Review
+- [x] T634 Deployment Verification
+- [x] T635 Release v1
 
 ---
 

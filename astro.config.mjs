@@ -11,4 +11,10 @@ export default defineConfig({
     // 빈 옵션 객체를 전달해 봅니다.
     plugins: [tailwindcss()],
   },
+  markdown: {
+    shikiConfig: {
+      // 테마 설정 (예: 'github-dark', 'dracula', 'vitesse-dark')
+      theme: 'vitesse-dark',
+    },
+  },
 });
