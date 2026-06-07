@@ -7,35 +7,599 @@ publishedAt: '2026-06-07T00:00:00Z'
 
 # Long Context Examples
 
-## Small Project Recovery
+````markdown
+# LONG_CONTEXT.md
 
-When resuming a small project, provide a concise summary of intent, recent decisions, and next actions.
+Version 1.0
 
-- Project: launch a documentation site.
-- Current state: Astro site scaffolded, manifesto published.
-- Goal: publish Resources and Showcase sections.
-- Next actions: add resources content and verify build.
+---
 
-> Use this summary at the start of a new session to bootstrap the model.
+# Current Project
 
-## Mid-Scale Project Recovery
+REPL Works
 
-Capture context across several documents and progress checkpoints.
+Project Memory System for AI Development
 
-- Project scope: documentation platform with content collections and publishing workflow.
-- Completed: home, why, manifesto, specification, workflow.
-- In progress: resources layer and showcase examples.
-- Constraints: static MDX only, no runtime logic.
-- Key decisions: Git-first memory, content-first model, modular task phases.
+---
 
-## Large-Scale Compressed Context Format
+# Current Status
 
-Provide a compressed, high-level snapshot for large projects.
+REPL Works는 구현 단계가 아니라 정의 단계에 있다.
 
-- Project: REPL Works website.
-- Status: core content published, resources publishing phase active.
-- Architecture: content collections, MDX, static site.
-- Policies: one prompt one task, task-per-commit.
-- Immediate next task: create resources index and resource documents.
+현재 논의의 중심은 다음 두 가지다.
 
-> This format is designed for fast AI session bootstrapping and recovery.
+1. REPL Works 자체의 방법론 정립
+2. REPL Works 웹사이트 구성
+
+---
+
+현재까지 정의되었거나 초안이 존재하는 문서
+
+```text
+MANIFESTO.md
+WHY.md
+ORIGIN.md
+SPECIFICATION.md
+WORKFLOW.md
+IDEAS.md
+PITCHING_SCRIPT.md
+```
+
+---
+
+웹사이트는 아직 구현되지 않았으며,
+
+문서 구조와 메시지 정리가 우선이다.
+
+---
+
+# Key Decisions
+
+## REPL Works는 Workflow가 아니다
+
+초기에는 AI Development Workflow처럼 보였다.
+
+그러나 논의를 통해 더 정확한 정의에 도달했다.
+
+REPL Works의 본질은 Workflow가 아니다.
+
+REPL Works는
+
+Project Memory System
+
+이다.
+
+---
+
+## 핵심 문제는 지능이 아니라 기억이다
+
+AI 기반 개발의 실패 원인은
+
+모델 성능 부족보다
+
+프로젝트 기억의 부재에 가깝다고 판단했다.
+
+---
+
+프로젝트는 수년간 유지된다.
+
+모델은 교체된다.
+
+세션은 종료된다.
+
+채팅 기록은 사라진다.
+
+---
+
+따라서 프로젝트 기억은
+
+Runtime이 아니라 Repository에 존재해야 한다.
+
+---
+
+## Repository가 기억의 중심이다
+
+프로젝트를 복원할 수 있는 기억은
+
+Repository 안에 존재해야 한다.
+
+---
+
+Git은 단순 버전 관리 도구가 아니다.
+
+프로젝트 기억 저장소다.
+
+---
+
+## 장기적으로 중요한 문서
+
+논의를 거치며 다음 결론에 도달했다.
+
+프로젝트를 장기간 유지하기 위해 가장 중요한 자산은
+
+```text
+AGENTS.md
+ARCHITECTURE.md
+TASKS.md
+Git History
+```
+
+이다.
+
+---
+
+특히
+
+Architecture + Tasks
+
+조합이 핵심이라고 판단했다.
+
+---
+
+## IDEAS.md의 역할
+
+IDEAS.md는 사업적 사고를 정리하기 위한 문서다.
+
+---
+
+사용자는 IDEAS.md 작성 시 다음 질문을 중요하게 생각한다.
+
+- 사업 관점에서 충분히 매력적인가
+- 2년 비용을 감당 가능한가
+- BEP는 언제 달성되는가
+- 사용자 성장 예상은 어떠한가
+
+---
+
+IDEAS.md는 정확한 예측 문서가 아니다.
+
+아이디어를 현실적인 프로젝트로 정제하는 과정이다.
+
+---
+
+## PITCHING_SCRIPT.md의 역할
+
+IDEAS.md 확정 후 생성한다.
+
+---
+
+목적은 두 가지다.
+
+1. 사람이 프로젝트 의도를 빠르게 이해
+2. 새로운 LLM이 프로젝트 의도를 빠르게 이해
+
+---
+
+다만 장기적으로는
+
+ARCHITECTURE.md만으로도 프로젝트 이해가 가능해야 한다는 철학이 존재한다.
+
+---
+
+## Planning Runtime과 Execution Runtime 분리
+
+중요한 결정 중 하나.
+
+---
+
+문서 생성 및 수정은 기본적으로 채팅창에서 수행한다.
+
+---
+
+코딩창은 구현을 수행한다.
+
+---
+
+이유는 Context 오염 방지와 Diff 최소화다.
+
+---
+
+문서 수정이 코딩창에서 이루어지면
+
+불필요한 변경사항이 증가하는 경향이 있다.
+
+---
+
+예외적으로
+
+개발 도중
+
+ARCHITECTURE.md
+
+TASKS.md
+
+수정은 허용된다.
+
+---
+
+그러나 가능하면 채팅창에서 다시 정리한다.
+
+---
+
+## Validation 단계 제거
+
+초기 Workflow에는 Validation 단계가 존재했다.
+
+---
+
+그러나 논의 결과 제거되었다.
+
+---
+
+대신
+
+Test
+
+Lint
+
+Build
+
+성공이 AGENTS.md 수준의 기본 규칙으로 승격된다.
+
+---
+
+모든 코드에는 Unit Test가 존재해야 한다.
+
+---
+
+Unit Test는 AI 환각 방지 장치로 간주된다.
+
+---
+
+## LONG_CONTEXT는 프로젝트 문서가 아니다
+
+매우 중요한 결정.
+
+---
+
+LONG_CONTEXT는
+
+Project Memory가 아니다.
+
+---
+
+Session Memory다.
+
+---
+
+따라서
+
+AGENTS.md
+
+ARCHITECTURE.md
+
+TASKS.md
+
+어디에서도 자동 참조하면 안 된다.
+
+---
+
+LLM의 규칙 시스템에 포함되면 안 된다.
+
+---
+
+사용자가 새로운 Session 시작 시 수동으로 제공하는 문서다.
+
+---
+
+# Important Insights
+
+## Agent Framework 실험이 출발점이었다
+
+사용자는 LangGraph, CrewAI 등의 Agent Framework를 실제로 검토했다.
+
+---
+
+왜 Agent가 필요한지 이해했다.
+
+---
+
+그러나 실제 적용 과정에서
+
+복잡성이 빠르게 증가한다고 판단했다.
+
+---
+
+결론은
+
+더 많은 Agent가 아니라
+
+더 좋은 Project Memory였다.
+
+---
+
+## 프로젝트는 대화보다 오래 살아남는다
+
+현재 REPL Works 철학의 핵심.
+
+---
+
+대화는 사라진다.
+
+모델은 교체된다.
+
+프로젝트는 남는다.
+
+---
+
+따라서
+
+프로젝트 기억은 외부화되어야 한다.
+
+---
+
+## Memory Ownership
+
+가장 중요한 통찰 중 하나.
+
+---
+
+프로젝트는 자신의 기억을 소유해야 한다.
+
+---
+
+Chat History가 기억이 되어서는 안 된다.
+
+---
+
+Repository가 기억이 되어야 한다.
+
+---
+
+## Long Context의 필요성
+
+반면 Session도 완전히 무시할 수는 없다.
+
+---
+
+프로젝트 문서만으로는
+
+최근 논의
+
+결정 배경
+
+현재 고민
+
+미해결 질문
+
+을 모두 복원하기 어렵다.
+
+---
+
+그래서 LONG_CONTEXT 개념이 탄생했다.
+
+---
+
+LONG_CONTEXT는
+
+Project Memory가 아니라
+
+Session Bootstrap이다.
+
+---
+
+# Open Questions
+
+## LONG_CONTEXT의 최적 구조
+
+현재 버전은 존재한다.
+
+---
+
+그러나 장기적으로 어떤 정보를 남겨야 하는지
+
+아직 표준화되지 않았다.
+
+---
+
+## Prompt History 저장 여부
+
+현재는 미정.
+
+---
+
+TASK 수행 시 사용한 Prompt를
+
+저장할 필요가 있는지
+
+아직 결론이 없다.
+
+---
+
+## REPL Works Compatible
+
+향후
+
+Built with REPL Works
+
+또는
+
+REPL Works Compatible
+
+개념이 필요할 가능성이 있다.
+
+---
+
+정의는 아직 확정되지 않았다.
+
+---
+
+## Architecture Synchronization Rule
+
+TASKS 변경 시
+
+ARCHITECTURE 변경이 필요한 경우
+
+자동 규칙으로 강제할 수 있는지
+
+실험이 필요하다.
+
+---
+
+# Current Direction
+
+현재 목표는
+
+REPL Works 웹사이트 구축이다.
+
+---
+
+웹사이트는 제품이면서
+
+동시에 첫 번째 Showcase가 된다.
+
+---
+
+즉
+
+REPL Works를 이용하여
+
+REPL Works를 만드는 구조를 목표로 한다.
+
+---
+
+현재 메시지
+
+```text
+Models forget.
+
+Projects must not.
+```
+
+---
+
+현재 정의
+
+```text
+Project Memory System for AI Development
+```
+
+---
+
+# Website Direction
+
+현재 합의된 메뉴
+
+```text
+Home
+Why
+Manifesto
+Specification
+Workflow
+Showcase
+Resources
+```
+
+---
+
+추가 후보
+
+```text
+Getting Started
+FAQ
+```
+
+---
+
+Resources는
+
+실전 자료 저장소 역할을 수행한다.
+
+---
+
+특히 중요하다고 판단한 항목
+
+```text
+Templates
+Example Documents
+Repository Examples
+Prompt Examples
+Long Context Examples
+```
+
+---
+
+# Next Discussion Topics
+
+## REPL Works Website Architecture
+
+실제 구현 구조 정의
+
+---
+
+## REPL Works Compatible Definition
+
+표준 적합성 정의
+
+---
+
+## First Showcase Project
+
+REPL Works Website 자체
+
+---
+
+## Template Repository
+
+Starter Template 설계
+
+---
+
+## Long Context Standardization
+
+LONG_CONTEXT 생성 규칙 정교화
+
+---
+
+## Adoption Strategy
+
+개발자들이 실제로 사용할 수 있도록
+
+어떤 방식으로 확산할 것인지
+
+---
+
+# Current Founder Philosophy
+
+AI를 더 똑똑하게 만드는 것이 목표가 아니다.
+
+---
+
+AI가 바뀌어도 프로젝트가 유지되는 것이 목표다.
+
+---
+
+Agent를 만드는 것이 목표가 아니다.
+
+---
+
+프로젝트 기억을 소유하는 것이 목표다.
+
+---
+
+최종적으로 REPL Works는
+
+AI 시대의 Agile Manifesto
+
+또는
+
+Conventional Commits
+
+같은 위치를 지향한다.
+
+---
+
+# Most Important Statement
+
+Projects outlive sessions.
+
+Projects outlive models.
+
+Therefore project memory must live outside the model.
+
+---
+
+Models forget.
+
+Projects must not.
+````
