@@ -5,92 +5,166 @@ description: 'Reusable REPL Works document templates.'
 publishedAt: '2026-06-07T00:00:00Z'
 ---
 
-# Templates
+## AGENTS.md 템플릿
 
-## IDEAS.md 템플릿
+````markdown
+# AGENTS.md
 
-```md
-# IDEAS
+## DOCUMENT_ORDER
 
-## Idea Summary
+1. AGENTS.md
+2. ARCHITECTURE.md
+3. TASKS.md
 
-- One sentence description.
+Only these documents are authoritative.
 
-## Problem
+---
 
-- Why this matters.
+## IGNORE
 
-## Key Benefits
+Ignore all files under:
 
-- Benefit 1
-- Benefit 2
-
-## Next Steps
-
-- Action 1
-- Action 2
+```text
+docs/
 ```
 
-## ARCHITECTURE.md 템플릿
+Never use files in docs/ as requirements.
 
-```md
-# ARCHITECTURE
+Never implement features described only in docs/.
 
-## Purpose
+---
 
-- High-level goal of the project.
+## SOURCE_OF_TRUTH
 
-## Product Type
+Architecture:
 
-- What this project is and is not.
-
-## User Actions
-
-- Primary user actions.
-
-## Primary Journey
-
-- User flow through the product.
+```text
+ARCHITECTURE.md
 ```
 
-## TASKS.md 템플릿
+Tasks:
 
-```md
-# TASKS
-
-## Current Position
-
-- What is already done.
-
-## Next Priorities
-
-- Task 1
-- Task 2
-
-## Work Rules
-
-- One Prompt = One Task
-- One Task = One Commit
+```text
+TASKS.md
 ```
 
-## PITCHING_SCRIPT.md 템플릿
+If a conflict exists:
 
-```md
-# PITCHING SCRIPT
+```text
+ARCHITECTURE.md > TASKS.md > everything else
+```
 
-## Opening
+---
 
-- One sentence hook.
+## IMPLEMENTATION_RULES
 
-## Problem
+Implement only the selected task.
 
-- What is broken today.
+Do not implement:
 
-## Solution
+- future work
+- roadmap items
+- optional features
+- assumptions
+- inferred requirements
 
-- What REPL Works delivers.
+Implement only requirements explicitly defined in TASKS.md.
 
-## Call to Action
+---
 
-- What the listener should do next.
+## TASK_EXECUTION
+
+For every task:
+
+1. Read ARCHITECTURE.md
+2. Read task definition
+3. Implement
+4. Test
+5. Stop
+
+Do not start another task automatically.
+
+---
+
+## ARCHITECTURE_CHANGES
+
+If implementation requires architecture changes:
+
+1. Update ARCHITECTURE.md
+2. Update implementation
+
+Never allow architecture and code to diverge.
+
+---
+
+## TASK_CHANGES
+
+If implementation invalidates a task:
+
+Update TASKS.md.
+
+---
+
+## DESIGN_RULES
+
+Prefer:
+
+- simple
+- explicit
+- minimal
+
+Avoid:
+
+- abstraction without use
+- premature optimization
+- speculative features
+
+---
+
+## FILE_CREATION
+
+Do not create new top-level documents unless explicitly requested.
+
+Prefer modifying existing files.
+
+---
+
+## SUCCESS_CRITERIA
+
+Task is complete only when:
+
+- requirements satisfied
+- acceptance criteria satisfied
+- code runs
+- tests pass
+
+Then stop.
+````
+
+## IDEAS.md 프롬프트
+
+이 문서를 만들기 위해서 Chat AI에게 아래와 같은 프롬프트를 입력합니다.
+
+```prompt
+나는 새로운 프로젝트 아이디어를 검토하려고 한다.
+
+지금은 문서를 만들지 말고 Discussion Mode로 동작해라.
+
+너의 역할은 비판적 공동창업자(Critical Co-founder)다.
+
+다음 관점으로 질문하라.
+
+- 문제 정의
+- 타겟 사용자
+- 기존 대안
+- 차별성
+- 수익 모델
+- 운영 비용
+- 기술 난이도
+- 시장 규모
+- 2년 지속 가능성
+
+충분히 토론되었다고 판단하기 전까지 IDEAS.md를 작성하지 마라.
+
+먼저 내가 설명할 아이디어를 듣고 질문부터 시작해라.
 ```
