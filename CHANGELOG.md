@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.2.0 - 2026-06-08
+
+### What's Changed
+
+* docs: revise main documents by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/25
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v1.1.1...v1.2.0
+
 ## v1.1.1 - 2026-06-08
 
 ### What's Changed
