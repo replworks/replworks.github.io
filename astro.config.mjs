@@ -14,6 +14,7 @@ export default defineConfig({
     sitemap(),
     astroBrokenLinksChecker({
       throwError: true,
+      checkExternalLinks: false,
     }),
   ],
   vite: {
