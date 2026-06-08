@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.1.0 - 2026-06-08
+
+### What's Changed
+
+* docs: add `AGENTS.md` sample by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/23
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v1.0.3...v1.1.0
+
 ## v1.0.3 - 2026-06-08
 
 ### What's Changed
