@@ -1,5 +1,14 @@
 # Release Notes
 
+## v1.2.1 - 2026-06-08
+
+### What's Changed
+
+* fix: broken links action by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/26
+* chore: add build test when ci by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/27
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v1.2.0...v1.2.1
+
 ## v1.2.0 - 2026-06-08
 
 ### What's Changed
