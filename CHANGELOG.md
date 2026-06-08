@@ -1,5 +1,14 @@
 # Release Notes
 
+## v1.0.3 - 2026-06-08
+
+### What's Changed
+
+* chore: create `sitemap-index.xml` by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/21
+* chore: add naver verification file by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/22
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v1.0.2...v1.0.3
+
 ## v1.0.2 - 2026-06-07
 
 ### What's Changed
