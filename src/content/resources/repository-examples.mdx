@@ -1,68 +1,186 @@
 ---
 title: 'Repository Examples'
 version: 'v1'
-description: 'Example repository structures for REPL Works.'
+description: 'REPL Works는 디렉터리 구조를 강제하지 않는다.'
 publishedAt: '2026-06-07T00:00:00Z'
 ---
 
-# Repository Examples
+REPL Works는 디렉터리 구조를 강제하지 않는다.
 
-## 최소 구성 리포지토리
+REPL Works가 정의하는 것은 코드 구조가 아니라 프로젝트 기억(Project Memory) 구조이다.
+
+프로젝트는 기술 스택에 따라 자유롭게 구성할 수 있다.
+
+중요한 것은 프로젝트 기억이 일관되게 유지되는 것이다.
+
+---
+
+## Minimal Repository
+
+가장 작은 REPL Works 프로젝트
 
 ```text
-src/
-  content/
-  layouts/
-  pages/
-  lib/
-package.json
-astro.config.mjs
-TASKS.md
+docs/
+  IDEAS.md
+  PITCHING_SCRIPT.md
+
+AGENTS.md
 ARCHITECTURE.md
+TASKS.md
+
+src/
 ```
 
-## 전체 프로덕션 리포지토리
+설명
 
 ```text
+IDEAS.md
+→ 무엇을 만들기로 결정했는가
+
+PITCHING_SCRIPT.md
+→ 왜 그것을 만들기로 결정했는가
+
+ARCHITECTURE.md
+→ 프로젝트는 어떻게 구성되는가
+
+TASKS.md
+→ 지금 무엇을 해야 하는가
+
+AGENTS.md
+→ AI는 무엇을 읽어야 하는가
+```
+
+---
+
+## Standard Repository
+
+일반적인 프로젝트
+
+```text
+docs/
+  IDEAS.md
+  PITCHING_SCRIPT.md
+
+architecture/
+  frontend.md
+  backend.md
+  database.md
+
 src/
-  assets/
-  components/
-  content/
-    manifesto/
-    specification/
-    workflow/
-    resources/
-    showcase/
-  layouts/
-  pages/
-  styles/
-package.json
-tsconfig.json
-astro.config.mjs
+
+AGENTS.md
+ARCHITECTURE.md
+TASKS.md
+LONG_CONTEXT.md
 README.md
-TASKS.md
-ARCHITECTURE.md
 ```
 
-## 다중 서비스 리포지토리 (개념적)
+설명
+
+```text
+ARCHITECTURE.md
+→ Architecture Index
+
+architecture/*
+→ Detailed Architecture
+
+LONG_CONTEXT.md
+→ Session Recovery Memory
+
+README.md
+→ Human-Oriented Entry Point
+```
+
+---
+
+## Large Project
+
+복잡한 프로젝트
+
+```text
+docs/
+  IDEAS.md
+  PITCHING_SCRIPT.md
+
+architecture/
+  frontend.md
+  backend.md
+  database.md
+  deployment.md
+
+agents/
+
+services/
+  api/
+  web/
+  worker/
+
+packages/
+  shared/
+
+AGENTS.md
+ARCHITECTURE.md
+TASKS.md
+LONG_CONTEXT.md
+README.md
+```
+
+설명
+
+```text
+services/
+→ Runtime Structure
+
+packages/
+→ Shared Code
+
+architecture/
+→ Project Memory
+
+AGENTS.md
+→ AI Entry Point
+```
+
+---
+
+## Monorepo
+
+REPL Works는 Monorepo도 지원한다.
 
 ```text
 services/
   web/
-    src/
-    package.json
-    TASKS.md
-    ARCHITECTURE.md
-  docs/
-    src/
-    package.json
-    ARCHITECTURE.md
+  api/
+
 packages/
-  ui/
   shared/
-README.md
-TASKS.md
+
+docs/
+  IDEAS.md
+  PITCHING_SCRIPT.md
+
+architecture/
+
+AGENTS.md
 ARCHITECTURE.md
+TASKS.md
+LONG_CONTEXT.md
 ```
 
-이 구조는 Git-first 프로젝트 기억 아래에서 문서와 코드를 정렬합니다.
+중요한 것은 서비스 개수가 아니다.
+
+모든 AI가 동일한 프로젝트 기억을 공유하는 것이다.
+
+---
+
+## Core Principle
+
+REPL Works는 코드 구조를 정의하지 않는다.
+
+REPL Works는 기억 구조를 정의한다.
+
+기술 스택은 변경될 수 있다.
+
+모델은 변경될 수 있다.
+
+프로젝트 기억은 유지되어야 한다.
