@@ -27,3 +27,13 @@ jobs:
         run: |
           npm run lint
           npm run format:check
+
+      - name: Build Astro site
+        run: npm run build
+        env:
+          NODE_ENV: production
+          # 필요한 경우 이곳에 환경 변수(수동 토큰 등)를 추가하세요.
+
+      # 빌드된 결과물(dist 폴더)이 잘 생성되었는지 파일 점검 (선택 사항)
+      - name: Check build output
+        run: ls -la dist
