@@ -1,308 +1,131 @@
 # AGENTS.md
 
-Version 2.0
-
-## ROLE
-
-AI Software Engineer
-
----
-
-## Important
-
-README.md is informational only.
-
-README.md is not part of Project Memory.
-
-Project Memory is defined by:
-
-AGENTS.md
-ARCHITECTURE.md
-TASKS.md
-Git History
-
----
-
-## READ ORDER
+## DOCUMENT_ORDER
 
 1. AGENTS.md
 2. ARCHITECTURE.md
 3. TASKS.md
 
----
-
-Do not start implementation before reading all three documents.
+Only these documents are authoritative.
 
 ---
 
-## ACCESS
+## IGNORE
 
-Allowed
+Ignore all files under:
 
 ```text
-src/
-tests/
 docs/
 ```
 
+Never use files in docs/ as requirements.
+
+Never implement features described only in docs/.
+
 ---
 
-Restricted
+## SOURCE_OF_TRUTH
+
+Architecture:
 
 ```text
-repository root
-```
-
----
-
-Exception
-
-```text
-framework initialization
-
-package installation
-
-build tooling
-```
-
----
-
-## TASK EXECUTION
-
-Rules
-
-```text
-One Prompt
-=
-One Task
-
-One Task
-=
-One Commit
-```
-
----
-
-Do not perform work outside the current task.
-
----
-
-Do not perform work from future tasks.
-
----
-
-Do not combine multiple tasks.
-
----
-
-## TASK SOURCE
-
-Current work scope is defined by:
-
-```text
-TASKS.md
-```
-
----
-
-If requested work is not present in TASKS.md
-
-stop
-
-and propose TASK update.
-
----
-
-## TESTING
-
-Required
-
-```text
-Build Success
-
-Lint Success
-
-Unit Test Success
-
-E2E Test Success
-```
-
----
-
-Recommended
-
-```text
-Vitest
-
-Playwright
-```
-
----
-
-Failed validation
-
-=
-
-Task not complete
-
----
-
-## DOCUMENTS
-
-Editable
-
-```text
-AGENTS.md
-
 ARCHITECTURE.md
+```
 
+Tasks:
+
+```text
 TASKS.md
 ```
 
----
-
-Architecture changes
-
-→ review ARCHITECTURE.md
-
----
-
-Major process changes
-
-→ review AGENTS.md
-
----
-
-## DESIGN
-
-Allowed
+If a conflict exists:
 
 ```text
-layout
-
-spacing
-
-typography
-
-color
-
-visual hierarchy
+ARCHITECTURE.md > TASKS.md > everything else
 ```
 
 ---
 
-Design evolution is permitted.
+## IMPLEMENTATION_RULES
+
+Implement only the selected task.
+
+Do not implement:
+
+- future work
+- roadmap items
+- optional features
+- assumptions
+- inferred requirements
+
+Implement only requirements explicitly defined in TASKS.md.
 
 ---
 
-## DEPENDENCIES
+## TASK_EXECUTION
 
-New dependencies allowed.
+For every task:
 
----
+1. Read ARCHITECTURE.md
+2. Read task definition
+3. Implement
+4. Test
+5. Stop
 
-If architecture changes
-
-review ARCHITECTURE.md
-
----
-
-## REFACTORING
-
-Allowed only inside current task scope.
+Do not start another task automatically.
 
 ---
 
-Large-scale refactoring requires new task.
+## ARCHITECTURE_CHANGES
+
+If implementation requires architecture changes:
+
+1. Update ARCHITECTURE.md
+2. Update implementation
+
+Never allow architecture and code to diverge.
 
 ---
 
-## DECISIONS
+## TASK_CHANGES
 
-Do not create
+If implementation invalidates a task:
 
-```text
-DECISION.md
-```
+Update TASKS.md.
 
 ---
 
-Project decisions belong in:
+## DESIGN_RULES
 
-```text
-AGENTS.md
+Prefer:
 
-ARCHITECTURE.md
+- simple
+- explicit
+- minimal
 
-TASKS.md
-```
+Avoid:
 
----
-
-Git history is the decision log.
-
----
-
-## PRIORITY
-
-```text
-Human Instruction
-↓
-AGENTS.md
-↓
-ARCHITECTURE.md
-↓
-TASKS.md
-↓
-Implementation
-```
+- abstraction without use
+- premature optimization
+- speculative features
 
 ---
 
-## HUMAN REVIEW
+## FILE_CREATION
 
-Human approval required before commit.
+Do not create new top-level documents unless explicitly requested.
 
----
-
-AI does not own final authority.
+Prefer modifying existing files.
 
 ---
 
-## MEMORY MODEL
+## SUCCESS_CRITERIA
 
-Project Memory
+Task is complete only when:
 
-```text
-Git
+- requirements satisfied
+- acceptance criteria satisfied
+- code runs
+- tests pass
 
-AGENTS.md
-
-ARCHITECTURE.md
-
-TASKS.md
-```
-
----
-
-Session Memory
-
-```text
-LONG_CONTEXT.md
-```
-
----
-
-LONG_CONTEXT.md is not part of project memory.
-
----
-
-Manual injection only.
-
----
-
-## FINAL
-
-Models forget.
-
-Projects must not.
+Then stop.
