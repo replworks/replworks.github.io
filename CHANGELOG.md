@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.4.0 - 2026-06-09
+
+### What's Changed
+
+* feat: rename filename from `LONG_CONTEXT` to `AI_MEMORY` by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/29
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v1.3.0...v1.4.0
+
 ## v1.3.0 - 2026-06-08
 
 ### What's Changed
