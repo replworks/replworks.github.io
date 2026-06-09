@@ -1,8 +1,8 @@
-# Generate LONG_CONTEXT.md
+# Generate AI_MEMORY.md
 
-지금까지의 대화 내용을 기반으로 LONG_CONTEXT.md를 생성해줘.
+지금까지의 대화 내용을 기반으로 AI_MEMORY.md를 생성해줘.
 
-LONG_CONTEXT.md의 목적은 새로운 Session 또는 새로운 Model이 현재 상황을 빠르게 복구할 수 있도록 하는 것이다.
+AI_MEMORY.md의 목적은 새로운 Session 또는 새로운 Model이 현재 상황을 빠르게 복구할 수 있도록 하는 것이다.
 
 이 문서는 프로젝트 문서가 아니다.
 
@@ -35,4 +35,4 @@ LONG_CONTEXT.md의 목적은 새로운 Session 또는 새로운 Model이 현재 
 - Current Direction
 - Next Discussion Topics
 
-출력은 LONG_CONTEXT.md 전체 문서만 작성할 것.
+출력은 AI_MEMORY.md 전체 문서만 작성할 것.

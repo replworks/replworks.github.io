@@ -154,7 +154,7 @@ ARCHITECTURE.md
 
 TASKS.md
 
-LONG_CONTEXT.md
+AI_MEMORY.md
 
 Git History
 ```

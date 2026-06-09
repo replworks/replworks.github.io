@@ -134,17 +134,17 @@ Agent Framework가 실행(Execution)을 담당한다면, REPL Works는 기억(Me
 
 둘은 경쟁 관계가 아니라 서로 다른 문제를 해결합니다.
 
-| 항목             | Agent Framework           | REPL Works                                            |
-| ---------------- | ------------------------- | ----------------------------------------------------- |
-| 목적             | AI가 작업을 수행하도록 함 | AI가 프로젝트를 기억하도록 함                         |
-| 관심사           | Execution                 | Memory                                                |
-| 핵심 질문        | AI는 무엇을 해야 하는가?  | AI는 무엇을 기억해야 하는가?                          |
-| 시간 범위        | 현재 작업                 | 프로젝트 전체                                         |
-| 상태 관리        | Runtime State             | Project Memory                                        |
-| 기억의 단위      | Session                   | Project                                               |
-| 주요 산출물      | Workflow, Agent           | AGENTS.md, ARCHITECTURE.md, TASKS.md, LONG_CONTEXT.md |
-| Agent 교체       | 종종 어려움               | 자유롭게 가능                                         |
-| Framework 의존성 | 높음                      | 없음                                                  |
+| 항목             | Agent Framework           | REPL Works                                         |
+| ---------------- | ------------------------- | -------------------------------------------------- |
+| 목적             | AI가 작업을 수행하도록 함 | AI가 프로젝트를 기억하도록 함                      |
+| 관심사           | Execution                 | Memory                                             |
+| 핵심 질문        | AI는 무엇을 해야 하는가?  | AI는 무엇을 기억해야 하는가?                       |
+| 시간 범위        | 현재 작업                 | 프로젝트 전체                                      |
+| 상태 관리        | Runtime State             | Project Memory                                     |
+| 기억의 단위      | Session                   | Project                                            |
+| 주요 산출물      | Workflow, Agent           | AGENTS.md, ARCHITECTURE.md, TASKS.md, AI_MEMORY.md |
+| Agent 교체       | 종종 어려움               | 자유롭게 가능                                      |
+| Framework 의존성 | 높음                      | 없음                                               |
 
 ---
 
@@ -192,17 +192,17 @@ REPL Works에서 AGENTS.md의 역할은 AI에게 더 많은 정보를 제공하�
 
 ---
 
-## 왜 LONG_CONTEXT.md가 필요한가?
+## 왜 AI_MEMORY.md가 필요한가?
 
-> 채팅 기록은 사라질 수 있지만, LONG_CONTEXT.md는 기억되어야 할 맥락만 남긴다.
+> 채팅 기록은 사라질 수 있지만, AI_MEMORY.md는 기억되어야 할 맥락만 남긴다.
 
 사람은 모든 것을 기억하지 않습니다.
 
 시간이 지나면 세부사항은 잊어버리고 중요한 맥락만 장기기억으로 남깁니다.
 
-LONG_CONTEXT.md는 AI를 위한 장기기억입니다.
+AI_MEMORY.md는 AI를 위한 장기기억입니다.
 
-프로젝트가 끝나거나 중요한 작업이 완료되면 AI는 장기적으로 유지해야 할 맥락만 LONG_CONTEXT.md에 기록합니다.
+프로젝트가 끝나거나 중요한 작업이 완료되면 AI는 장기적으로 유지해야 할 맥락만 AI_MEMORY.md에 기록합니다.
 
 예를 들어:
 
@@ -211,17 +211,17 @@ LONG_CONTEXT.md는 AI를 위한 장기기억입니다.
 - 프로젝트의 핵심 철학은 무엇인가
 - 미래의 AI가 반드시 이해해야 하는 맥락은 무엇인가
 
-LONG_CONTEXT.md는 채팅 기록이 아닙니다.
+AI_MEMORY.md는 채팅 기록이 아닙니다.
 
 채팅에서 살아남은 기억입니다.
 
 ---
 
-## 누가 LONG_CONTEXT.md를 작성하는가?
+## 누가 AI_MEMORY.md를 작성하는가?
 
-> LONG_CONTEXT.md는 AI가 작성하고 인간이 승인하는 프로젝트의 장기기억입니다.
+> AI_MEMORY.md는 AI가 작성하고 인간이 승인하는 프로젝트의 장기기억입니다.
 
-LONG_CONTEXT.md는 사람이 작성하지 않습니다.
+AI_MEMORY.md는 사람이 작성하지 않습니다.
 
 AI가 작성합니다.
 
@@ -321,7 +321,7 @@ REPL Works는 프로젝트 메모리 시스템입니다.
 ```text
 ARCHITECTURE.md
 TASKS.md
-LONG_CONTEXT.md
+AI_MEMORY.md
 ```
 
 ### 책 집필
@@ -329,7 +329,7 @@ LONG_CONTEXT.md
 ```text
 OUTLINE.md
 CHAPTERS.md
-LONG_CONTEXT.md
+AI_MEMORY.md
 ```
 
 ### 스타트업 운영
@@ -337,7 +337,7 @@ LONG_CONTEXT.md
 ```text
 STRATEGY.md
 TASKS.md
-LONG_CONTEXT.md
+AI_MEMORY.md
 ```
 
 ### 연구 프로젝트
@@ -345,7 +345,7 @@ LONG_CONTEXT.md
 ```text
 HYPOTHESIS.md
 EXPERIMENTS.md
-LONG_CONTEXT.md
+AI_MEMORY.md
 ```
 
 중요한 것은 문서 이름이 아니라 Memory Creation과 Memory Consumption 패턴입니다.
