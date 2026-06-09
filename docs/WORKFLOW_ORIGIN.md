@@ -495,11 +495,11 @@ LLM Session Memory 복구
 
 ---
 
-`LONG_CONTEXT.md`는 프로젝트 문서가 아니다.
+`AI_MEMORY.md`는 프로젝트 문서가 아니다.
 
 ---
 
-`LONG_CONTEXT.md`는 세션 복구 문서다.
+`AI_MEMORY.md`는 세션 복구 문서다.
 
 ---
 
@@ -519,11 +519,11 @@ LLM Session Memory 복구
 
 ## 사용 방법
 
-새로운 채팅을 시작한 뒤 첫 메시지로 `LONG_CONTEXT.md`를 전달한다.
+새로운 채팅을 시작한 뒤 첫 메시지로 `AI_MEMORY.md`를 전달한다.
 
 ---
 
-LLM은 어떤 규칙으로도 `LONG_CONTEXT.md`를 자동 참조하지 않는다.
+LLM은 어떤 규칙으로도 `AI_MEMORY.md`를 자동 참조하지 않는다.
 
 ---
 
@@ -600,7 +600,7 @@ TASKS.md
 ## 세션 기억
 
 ```text
-LONG_CONTEXT.md
+AI_MEMORY.md
 ```
 
 ---
@@ -613,4 +613,4 @@ LONG_CONTEXT.md
 
 어떤 모델이든 프로젝트는 Git으로 복원할 수 있어야 한다.
 
-어떤 세션이든 `LONG_CONTEXT.md`로 이어갈 수 있어야 한다.
+어떤 세션이든 `AI_MEMORY.md`로 이어갈 수 있어야 한다.

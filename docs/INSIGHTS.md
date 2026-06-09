@@ -212,11 +212,11 @@ Git Commit을 통해 보존된다.
 
 # Observation 8
 
-LONG_CONTEXT.md는 프로젝트 문서가 아니다.
+AI_MEMORY.md는 프로젝트 문서가 아니다.
 
 ---
 
-LONG_CONTEXT.md는
+AI_MEMORY.md는
 
 ```text
 Session Bootstrap Document
@@ -301,7 +301,7 @@ TASKS.md
 세션 기억
 
 ```text
-LONG_CONTEXT.md
+AI_MEMORY.md
 ```
 
 ---
