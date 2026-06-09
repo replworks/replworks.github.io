@@ -1,5 +1,13 @@
 # Release Notes
 
+## v1.4.1 - 2026-06-09
+
+### What's Changed
+
+* docs: revise `/workflow` page by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/30
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v1.4.0...v1.4.1
+
 ## v1.4.0 - 2026-06-09
 
 ### What's Changed
