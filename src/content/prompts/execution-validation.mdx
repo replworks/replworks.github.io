@@ -1,19 +1,100 @@
 ---
-title: 'Execution Validation'
+title: '실행 검증'
 version: 'v1'
-description: 'Prompt starter for validating implementation against the approved plan.'
+description: '구현 결과가 승인된 계획과 일치하는지 검증하기 위한 프롬프트'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
-```prompt
-Validate the implementation against TASKS.md, ARCHITECTURE.md, and PRODUCT_SPEC.md.
+# 목적
 
-Check:
-- required files
-- content accuracy
-- navigation
-- build correctness
-- architecture alignment
+구현 결과가 프로젝트 문서와 일치하는지 검증한다.
 
-Report only mismatches, risks, and missing coverage.
+이 단계의 목적은 새로운 기능을 제안하는 것이 아니다.
+
+승인된 범위 내에서 정확하게 구현되었는지 확인하는 것이다.
+
+---
+
+# 산출물
+
+```text
+Validation Report
 ```
+
+---
+
+# 사용 방법
+
+구현이 완료된 이후 사용한다.
+
+AI는 구현 결과를 PRODUCT_SPEC.md, ARCHITECTURE.md, TASKS.md와 비교하여 검토해야 한다.
+
+새로운 요구사항을 추가하지 않는다.
+
+범위를 확장하지 않는다.
+
+이미 승인된 계획과의 일치 여부만 평가한다.
+
+---
+
+# 프롬프트
+
+``````prompt
+Review the following documents together:
+
+- PRODUCT_SPEC.md
+- ARCHITECTURE.md
+- FRAMEWORK.md
+
+Assume you are responsible for implementing the entire product.
+
+Assume no additional information will be provided.
+
+Your goal is to determine whether implementation can begin with confidence.
+
+Generate only questions.
+
+Do not answer questions.
+
+Do not suggest improvements.
+
+Do not suggest new features.
+
+Do not redesign the product.
+
+Do not modify requirements.
+
+Focus on identifying:
+
+- missing requirements
+- missing architectural responsibilities
+- missing implementation constraints
+- ambiguous behavior
+- conflicting definitions
+- undefined ownership
+- undefined flows
+- undefined inputs
+- undefined outputs
+- contradictions between documents
+
+Treat the three documents as a single implementation contract.
+
+A question is valid only if it blocks implementation certainty.
+
+Ignore:
+
+- personal preferences
+- alternative technologies
+- feature ideas
+- product strategy
+
+Output only a numbered list of questions.
+
+If no blocking questions exist, output:
+
+```text
+Implementation can begin with high confidence.
+```
+
+Optimize for implementation certainty.
+``````

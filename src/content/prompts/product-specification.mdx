@@ -1,19 +1,100 @@
 ---
-title: 'Product Specification'
+title: '제품 명세 작성'
 version: 'v1'
-description: 'Prompt starter for writing a product specification from a pitch.'
+description: 'PRODUCT_SPEC.md 작성을 위한 제품 명세 생성 프롬프트'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
-```prompt
-Convert the pitch into PRODUCT_SPEC.md content.
+## 목적
 
-Include:
-- product definition
-- user journey
-- core message
-- information architecture
-- page responsibilities
+프로젝트의 제품 요구사항을 정의한다.
 
-Stay aligned with the existing framework.
+이 단계의 목적은 기술 구조를 설계하는 것이 아니다.
+
+무엇을 만들어야 하는지 명확하게 정의하는 것이다.
+
+---
+
+## 산출물
+
+```text
+PRODUCT_SPEC.md
 ```
+
+---
+
+## 사용 방법
+
+PITCHING_SCRIPT.md가 완성된 이후 사용한다.
+
+AI는 프로젝트의 목적을 기반으로 제품 관점에서 요구사항을 정리해야 한다.
+
+구현 방법보다는 사용자 경험과 제품 구조를 우선한다.
+
+---
+
+## 프롬프트
+
+``````prompt
+Generate PRODUCT_SPEC.md.
+
+Assume all product discovery and idea validation are already complete.
+
+The purpose of PRODUCT_SPEC.md is to define:
+
+```text
+What the product is.
+What the product does.
+What the user can do.
+What success means.
+```
+
+Do not describe implementation.
+
+Do not describe architecture.
+
+Do not describe technologies.
+
+Do not describe frameworks.
+
+Do not describe programming languages.
+
+Do not describe databases.
+
+Do not describe APIs.
+
+Do not describe internal components.
+
+Do not describe directory structures.
+
+Focus only on externally observable product behavior.
+
+The document should be sufficient for a product manager to approve the product scope.
+
+The document must include:
+
+- Purpose
+- Problem
+- Product Goals
+- Users
+- Inputs
+- Outputs
+- Functional Requirements
+- User Flows
+- Error Conditions
+- Non-Goals
+- Acceptance Criteria
+- Success Criteria
+
+Do not propose improvements.
+
+Do not add features that were not discussed.
+
+Do not expand the scope.
+
+Prefer explicit requirements over explanations.
+
+Optimize for implementation certainty.
+
+The document is intended for AI implementation, not human marketing.
+``````
