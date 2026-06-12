@@ -3,8 +3,9 @@
 ## DOCUMENT_ORDER
 
 1. AGENTS.md
-2. ARCHITECTURE.md
-3. TASKS.md
+2. PRODUCT_SPEC.md
+3. ARCHITECTURE.md
+4. TASKS.md
 
 Only these documents are authoritative.
 
@@ -26,6 +27,12 @@ Never implement features described only in docs/.
 
 ## SOURCE_OF_TRUTH
 
+Product:
+
+```text
+PRODUCT_SPEC.md
+```
+
 Architecture:
 
 ```text
@@ -38,11 +45,48 @@ Tasks:
 TASKS.md
 ```
 
+---
+
 If a conflict exists:
 
 ```text
-ARCHITECTURE.md > TASKS.md > everything else
+PRODUCT_SPEC.md
+>
+ARCHITECTURE.md
+>
+TASKS.md
+>
+everything else
 ```
+
+---
+
+## DOCUMENT_RESPONSIBILITIES
+
+PRODUCT_SPEC.md defines:
+
+- Product
+- Users
+- User Journey
+- UX
+- Content
+- Business Intent
+
+---
+
+ARCHITECTURE.md defines:
+
+- System Design
+- Technical Structure
+- Repository Structure
+- Constraints
+
+---
+
+TASKS.md defines:
+
+- Current Work Scope
+- Execution Order
 
 ---
 
@@ -58,7 +102,11 @@ Do not implement:
 - assumptions
 - inferred requirements
 
-Implement only requirements explicitly defined in TASKS.md.
+Implement only requirements explicitly defined by:
+
+- PRODUCT_SPEC.md
+- ARCHITECTURE.md
+- TASKS.md
 
 ---
 
@@ -66,13 +114,26 @@ Implement only requirements explicitly defined in TASKS.md.
 
 For every task:
 
-1. Read ARCHITECTURE.md
-2. Read task definition
-3. Implement
-4. Test
-5. Stop
+1. Read PRODUCT_SPEC.md
+2. Read ARCHITECTURE.md
+3. Read task definition
+4. Implement
+5. Test
+6. Stop
 
 Do not start another task automatically.
+
+---
+
+## PRODUCT_CHANGES
+
+If implementation conflicts with PRODUCT_SPEC.md:
+
+STOP
+
+Propose PRODUCT_SPEC.md update.
+
+Do not silently change product behavior.
 
 ---
 
@@ -123,8 +184,9 @@ Prefer modifying existing files.
 
 Task is complete only when:
 
-- requirements satisfied
-- acceptance criteria satisfied
+- product requirements satisfied
+- architecture requirements satisfied
+- task requirements satisfied
 - code runs
 - tests pass
 
