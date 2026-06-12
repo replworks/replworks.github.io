@@ -1,6 +1,6 @@
 # IDEAS.md
 
-Version 2.0
+Version 4.0
 
 ---
 
@@ -8,13 +8,18 @@ Version 2.0
 
 REPL Works
 
+REPL Works is an AI-Native Product Development Framework
+that separates thinking from execution,
+keeps project knowledge in living documents,
+and maintains project continuity across humans, sessions, and models.
+
 ---
 
 # Vision
 
-REPL Works는 AI 시대를 위한 Project Memory System이다.
+REPL Works는 AI 시대를 위한 Product Lifecycle System이다.
 
-AI는 점점 더 똑똑해지고 있다.
+AI는 점점 더 강력해지고 있다.
 
 더 긴 Context Window.
 
@@ -22,23 +27,29 @@ AI는 점점 더 똑똑해지고 있다.
 
 더 높은 코드 생성 능력.
 
-그러나 장기 프로젝트는 여전히 같은 문제를 겪는다.
+더 빠른 구현 속도.
+
+---
+
+그러나 제품 개발은 여전히 같은 문제를 반복한다.
+
+좋은 아이디어가 실행으로 이어지지 않는다.
 
 프로젝트 의도가 사라진다.
 
-아키텍처가 붕괴한다.
+아키텍처가 드리프트한다.
 
-동일한 실수를 반복한다.
+문서는 오래될수록 신뢰를 잃는다.
+
+운영 과정에서 발생한 학습이 축적되지 않는다.
 
 모델을 교체하면 생산성이 초기화된다.
-
-세션이 종료되면 중요한 컨텍스트가 사라진다.
 
 ---
 
 REPL Works는 이 문제의 원인이 AI의 지능 부족이 아니라고 믿는다.
 
-문제는 기억(Memory)이다.
+문제는 프로젝트 연속성(Project Continuity)에 있다.
 
 ---
 
@@ -46,36 +57,43 @@ REPL Works는 이 문제의 원인이 AI의 지능 부족이 아니라고 믿는
 
 현재 대부분의 AI 개발은 Session 중심으로 이루어진다.
 
+---
+
 프로젝트 지식은 다음 위치에 흩어진다.
 
-- Chat History
-- Prompt
-- Context Window
-- Agent Runtime
-- 개인 메모
+* Chat History
+* Prompt
+* Context Window
+* Agent Runtime
+* 개인 메모
+* 운영 경험
 
 ---
 
 프로젝트는 수개월 또는 수년 동안 존재할 수 있다.
 
-그러나 AI의 기억은 몇 시간 또는 몇 주를 넘기 어렵다.
+그러나 AI 세션은 짧다.
+
+사람도 바뀐다.
+
+모델도 바뀐다.
 
 ---
 
 결과적으로 다음 문제가 발생한다.
 
-- 모델이 바뀌면 기억이 사라진다.
-- 장기 프로젝트를 유지하기 어렵다.
-- 동일한 실수를 반복한다.
-- 아키텍처가 드리프트한다.
-- 중요한 의사결정이 소실된다.
-- 프로젝트가 Session에 종속된다.
+* 프로젝트 의도가 유지되지 않는다.
+* 동일한 실수를 반복한다.
+* 중요한 의사결정이 소실된다.
+* 아키텍처가 드리프트한다.
+* 운영 경험이 축적되지 않는다.
+* 프로젝트가 특정 사람 또는 특정 세션에 종속된다.
 
 ---
 
 우리는 이 문제를
 
-Project Amnesia
+Project Discontinuity
 
 라고 부른다.
 
@@ -83,95 +101,271 @@ Project Amnesia
 
 # Core Insight
 
-AI Development has a memory problem.
+Projects outlive humans, sessions, and models.
 
 ---
 
-AI는 Session Memory를 가진다.
+AI는 계속 발전한다.
 
-프로젝트는 Project Memory를 필요로 한다.
+사람은 팀을 이동한다.
 
----
+모델은 교체된다.
 
-현재 대부분의 AI 개발은
-
-Project Memory를 Session 안에 저장한다.
+세션은 종료된다.
 
 ---
 
-Session이 종료되면 기억도 사라진다.
+그러나 프로젝트는 계속 살아남아야 한다.
 
 ---
 
-REPL Works는 Project Memory와 Session Memory를 구분한다.
+프로젝트는 특정 사람의 기억에 의존해서는 안 된다.
+
+프로젝트는 특정 AI 모델에 의존해서도 안 된다.
 
 ---
 
-Project Memory는 Repository에 저장된다.
-
-Session Memory는 필요할 때 복구된다.
-
----
-
-프로젝트는 Session보다 오래 살아야 한다.
+프로젝트는 스스로를 설명할 수 있어야 한다.
 
 ---
 
 # Solution
 
-프로젝트 기억을 Runtime 밖으로 이동시킨다.
+REPL Works는 프로젝트의 현재 상태를 유지하기 위한 Living Documents를 제공한다.
 
 ---
 
-Project Memory
+Idea Phase
 
 ```text
-Constitution
+IDEAS.md
 
-Architecture
-
-Tasks
-
-Git History
+PITCHING_SCRIPT.md
 ```
 
 ---
 
-Session Memory
+Specification Phase
 
 ```text
-Long Context
+PRODUCT_SPEC.md
 ```
 
 ---
 
-REPL Works v1 Reference Implementation
+Architecture Phase
+
+```text
+ARCHITECTURE.md
+
+FRAMEWORK.md
+```
+
+---
+
+Planning Phase
+
+```text
+TASKS.md
+```
+
+---
+
+Execution Phase
 
 ```text
 AGENTS.md
 
-ARCHITECTURE.md
-
-TASKS.md
-
-AI_MEMORY.md
-
-Git History
+Implementation
 ```
 
 ---
 
-프로젝트는 Project Memory만으로 복원 가능해야 한다.
+Review Phase
 
-세션은 Session Memory로 복원 가능해야 한다.
+```text
+Issue
+
+Pull Request
+
+Architecture Revision
+
+Task Revision
+```
+
+---
+
+Operation Phase
+
+```text
+Customer Feedback
+
+Product Improvement
+
+Specification Update
+
+Architecture Update
+
+Task Update
+```
+
+---
+
+프로젝트는 출시로 끝나지 않는다.
+
+운영 과정에서 학습한 내용은 다시 프로젝트에 반영되어야 한다.
+
+---
+
+# Living Documents
+
+REPL Works는 문서를 산출물이 아니라 현재 상태의 표현으로 본다.
+
+---
+
+PRODUCT_SPEC.md는 현재 제품을 설명한다.
+
+ARCHITECTURE.md는 현재 아키텍처를 설명한다.
+
+TASKS.md는 현재 작업 상태를 설명한다.
+
+---
+
+문서는 버전별로 보관하지 않는다.
+
+Git이 버전을 관리한다.
+
+문서는 현재를 설명한다.
+
+Git은 과거를 보존한다.
+
+---
+
+프로젝트를 이해하기 위해 오래된 문서를 찾을 필요가 없어야 한다.
+
+---
+
+# Development Model
+
+Thinking LLM
+
+```text
+Ideas
+
+Product Design
+
+Architecture
+
+Planning
+```
+
+---
+
+Execution LLM
+
+```text
+Implementation
+
+Refactoring
+
+Testing
+
+Documentation
+```
+
+---
+
+Thinking과 Execution은 분리된다.
+
+---
+
+Execution은 설계를 검증할 수 있다.
+
+그러나 설계를 대체하지 않는다.
+
+---
+
+설계 변경이 필요하면 문서를 수정한다.
+
+문서를 수정한 뒤 구현한다.
+
+---
+
+# Feedback Loop
+
+REPL Works는 Closed Loop Development를 지향한다.
+
+---
+
+```text
+Idea
+
+↓
+
+Specification
+
+↓
+
+Architecture
+
+↓
+
+Tasks
+
+↓
+
+Execution
+
+↓
+
+Review
+
+↓
+
+Operation
+
+↓
+
+Issue
+
+↓
+
+Specification Update
+
+↓
+
+Architecture Update
+
+↓
+
+Tasks Update
+
+↓
+
+Execution
+```
+
+---
+
+모든 개선은 다시 프로젝트 지식으로 환원된다.
+
+---
+
+운영은 개발의 종료가 아니라 다음 개발의 시작이다.
 
 ---
 
 # Key Principles
 
-## Git First
+## Thinking ≠ Execution
 
-모든 프로젝트는 Git으로 시작한다.
+설계와 구현은 분리되어야 한다.
+
+---
+
+## Living Documents
+
+문서는 항상 현재 상태를 표현해야 한다.
 
 ---
 
@@ -183,7 +377,19 @@ Git History
 
 ## Tasks Drive Development
 
-개발은 현재 작업 범위를 명확하게 정의해야 한다.
+개발은 정의된 작업 범위를 따라야 한다.
+
+---
+
+## Git First
+
+모든 프로젝트는 Git으로 관리된다.
+
+---
+
+## Closed Feedback Loop
+
+모든 구현 결과와 운영 결과는 다시 설계로 돌아가야 한다.
 
 ---
 
@@ -193,15 +399,9 @@ Git History
 
 ---
 
-## Planning ≠ Execution
+## Project Continuity
 
-설계와 구현은 분리되어야 한다.
-
----
-
-## Project Memory ≠ Session Memory
-
-프로젝트 기억과 세션 기억은 서로 다른 문제다.
+프로젝트는 사람, 세션, 모델보다 오래 살아야 한다.
 
 ---
 
@@ -209,15 +409,9 @@ Git History
 
 ### Solo Founder
 
----
-
 ### Indie Hacker
 
----
-
 ### Small Team
-
----
 
 ### AI-Native Builder
 
@@ -225,7 +419,7 @@ Git History
 
 # Long-Term Goal
 
-REPL Works를 AI 시대의 Project Memory Standard로 만든다.
+REPL Works를 AI 시대의 Product Lifecycle Standard로 만든다.
 
 ---
 
@@ -235,13 +429,19 @@ REPL Works를 AI 시대의 Project Memory Standard로 만든다.
 Built with REPL Works
 ```
 
-가
+가 자연스럽게 사용되는 상태를 목표로 한다.
 
-```text
-Conventional Commits
-```
+---
 
-처럼 자연스럽게 사용되는 상태를 목표로 한다.
+REPL Works 프로젝트는
+
+누가 개발하더라도,
+
+어떤 AI를 사용하더라도,
+
+어떤 시점에 참여하더라도,
+
+프로젝트를 이해하고 이어갈 수 있어야 한다.
 
 ---
 
@@ -273,18 +473,32 @@ REPL Works Compatible 프로젝트 등장
 
 # Final Statement
 
-AI는 계속 바뀐다.
+AI는 계속 발전한다.
 
-프로젝트는 계속 살아남아야 한다.
+사람은 바뀐다.
+
+모델은 교체된다.
+
+세션은 종료된다.
+
+---
+
+프로젝트는 그보다 오래 살아야 한다.
+
+---
+
+프로젝트는 기억되는 것이 아니라
+
+계속 이해될 수 있어야 한다.
 
 ---
 
 AI memory is temporary.
 
-Project memory must be externalized.
+Project continuity must be preserved.
 
 ---
 
 Models forget.
 
-Projects must not.
+Projects must continue.
