@@ -102,11 +102,11 @@ AI의 능력 부족이라고 생각한다.
 
 프로젝트 지식은 다음 위치에 흩어진다.
 
-* Chat History
-* Prompt
-* Context Window
-* Agent Runtime
-* 개인 메모
+- Chat History
+- Prompt
+- Context Window
+- Agent Runtime
+- 개인 메모
 
 ---
 
