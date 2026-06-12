@@ -1,18 +1,106 @@
 ---
-title: 'Task Generation'
+title: 'Task 생성'
 version: 'v1'
-description: 'Prompt starter for generating task files from approved architecture.'
+description: 'TASKS.md는 프로젝트의 현재 위치(Current Position)를 설명하는 문서다.'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
-```prompt
-Generate TASKS.md from the approved product specification and architecture.
+## 목적
 
-Requirements:
-- one task per deliverable
-- explicit execution order
-- no future work
-- no speculative scope
+TASKS.md를 생성한다.
 
-Output only the task list.
+TASKS.md는 프로젝트의 현재 위치(Current Position)를 설명하는 문서다.
+
+---
+
+## 산출물
+
+```text
+TASKS.md
 ```
+
+---
+
+## 사용 방법
+
+ARCHITECTURE.md가 완성된 이후 사용한다.
+
+AI는 PRODUCT_SPEC.md와 ARCHITECTURE.md 요구사항을 지키는 TASKS를 체크리스트로 정리해야 한다.
+
+---
+
+## Prompt
+
+``````prompt
+# TASKS_PROMPT.md
+
+Generate TASKS.md.
+
+Assume PRODUCT_SPEC.md exists.
+
+Assume ARCHITECTURE.md exists.
+
+Assume FRAMEWORK.md exists.
+
+The purpose of TASKS.md is to define:
+
+```text
+What remains to be implemented.
+```
+
+TASKS.md is an execution checklist.
+
+Do not describe architecture.
+
+Do not describe technologies.
+
+Do not describe frameworks.
+
+Do not describe implementation details.
+
+Do not reference specific classes.
+
+Do not reference specific files.
+
+Do not reference specific libraries.
+
+Generate implementation tasks only.
+
+Tasks should represent user-visible capabilities or architectural milestones.
+
+Each task must be independently completable.
+
+Each task must be independently testable.
+
+Organize tasks into phases.
+
+For each phase:
+
+- define tasks
+- define acceptance criteria
+
+Tasks must:
+
+- be actionable
+- be verifiable
+- be implementation-independent
+
+Avoid:
+
+- implementation steps
+- code-level instructions
+- framework-specific instructions
+
+Include:
+
+- MVP
+- Future
+
+Acceptance criteria must be objective.
+
+A task is complete only when acceptance criteria are satisfied.
+
+Optimize for autonomous execution by AI systems.
+
+The document is intended for AI implementation, not human project management.
+``````
