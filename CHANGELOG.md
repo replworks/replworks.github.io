@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.1.0 - 2026-06-12
+
+### What's Changed
+
+* Review Home Page Positioning #50 by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/51
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.0.0...v2.1.0
+
 ## v2.0.0 - 2026-06-12
 
 ### What's Changed
