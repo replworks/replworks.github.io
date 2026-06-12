@@ -10,20 +10,6 @@ const baseCollectionSchema = z.object({
 });
 
 export const collections = {
-  manifesto: defineCollection({
-    loader: glob({
-      base: './src/content/manifesto',
-      pattern: '**/*.{md,mdx}',
-    }),
-    schema: baseCollectionSchema,
-  }),
-  specification: defineCollection({
-    loader: glob({
-      base: './src/content/specification',
-      pattern: '**/*.{md,mdx}',
-    }),
-    schema: baseCollectionSchema,
-  }),
   workflow: defineCollection({
     loader: glob({
       base: './src/content/workflow',
@@ -31,9 +17,23 @@ export const collections = {
     }),
     schema: baseCollectionSchema,
   }),
-  resources: defineCollection({
+  prompts: defineCollection({
     loader: glob({
-      base: './src/content/resources',
+      base: './src/content/prompts',
+      pattern: '**/*.{md,mdx}',
+    }),
+    schema: baseCollectionSchema,
+  }),
+  documents: defineCollection({
+    loader: glob({
+      base: './src/content/documents',
+      pattern: '**/*.{md,mdx}',
+    }),
+    schema: baseCollectionSchema,
+  }),
+  tools: defineCollection({
+    loader: glob({
+      base: './src/content/tools',
       pattern: '**/*.{md,mdx}',
     }),
     schema: baseCollectionSchema,
@@ -41,6 +41,13 @@ export const collections = {
   showcase: defineCollection({
     loader: glob({
       base: './src/content/showcase',
+      pattern: '**/*.{md,mdx}',
+    }),
+    schema: baseCollectionSchema,
+  }),
+  faq: defineCollection({
+    loader: glob({
+      base: './src/content/faq',
       pattern: '**/*.{md,mdx}',
     }),
     schema: baseCollectionSchema,

@@ -4,121 +4,89 @@ import SiteLayout from '../layouts/SiteLayout.astro';
 
 <SiteLayout
   title="REPL Works"
-  description="REPL Works는 AI 개발을 할 때, '기억을 만들어내는 과정'과 '그 기억을 가져다 쓰는 과정'을 따로 나누어 관리하는 프로젝트 기억 시스템입니다."
+  description="REPL Works is an AI-Native Product Development Framework for building projects with durable memory, model independence, and Git-native continuity."
 >
   <section class="space-y-10">
-    <div
-      class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12"
-    >
-      <p
-        class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
-      >
-        Project Memory System
+    <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-12">
+      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">
+        AI-Native Product Development Framework
       </p>
-      <h1
-        class="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl"
-      >
-        REPL Works
+      <h1 class="mt-4 max-w-4xl text-4xl font-semibold tracking-tight text-slate-900 sm:text-6xl">
+        Build projects that remember.
       </h1>
       <p class="mt-6 max-w-3xl text-xl leading-9 text-slate-700">
-        AI Development는 프로젝트를 위한 지속 가능한 기억을 필요로 합니다.
-        Models forget. Projects must not.
+        REPL Works keeps product work durable with project memory, model independence, Git-native development, context compression, and long-term project continuity.
       </p>
       <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
         <a
-          href="/why"
+          href="/workflow"
           class="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
         >
-          왜 REPL Works인가
+          Learn the Workflow
         </a>
         <a
-          href="/manifesto"
+          href="https://github.com/replworks/replworks.github.io"
+          target="_blank"
+          rel="noopener noreferrer"
           class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50"
         >
-          선언문 읽기
+          View GitHub
         </a>
       </div>
     </div>
 
-    <div class="grid gap-6 lg:grid-cols-2">
-      <article
-        class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm"
-      >
-        <h2 class="text-2xl font-semibold text-slate-900">
-          문서 중심의 프로젝트 기억
-        </h2>
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <article class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h2 class="text-2xl font-semibold text-slate-900">Project Memory</h2>
         <p class="mt-4 text-slate-600 leading-7">
-          REPL Works는 프로젝트 기억을 구조화된 문서로 포착하여 팀이 AI
-          Development를 신뢰할 수 있게 관리하도록 돕는 Documentation
-          Platform입니다.
+          Capture decisions, constraints, and intent in durable documents instead of leaving them in chat history.
         </p>
-        <ul class="mt-6 space-y-3 text-slate-700">
-          <li>한곳에서 핵심 내용을 읽고 이해합니다.</li>
-          <li>왜, 선언문, 스펙, 워크플로를 순서대로 탐색합니다.</li>
-          <li>명확하고 최소한의 정보 계층으로 학습합니다.</li>
-        </ul>
       </article>
 
-      <aside class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-        <h2 class="text-2xl font-semibold text-slate-900">시작하기</h2>
+      <article class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h2 class="text-2xl font-semibold text-slate-900">Model Independence</h2>
         <p class="mt-4 text-slate-600 leading-7">
-          이 사이트는 Astro, TypeScript, Tailwind CSS, MDX, 콘텐츠 컬렉션
-          기반으로 구성된 Documentation Platform입니다.
+          Switch models without losing the project structure that keeps work understandable and reviewable.
         </p>
-        <div class="mt-8 space-y-3">
-          <a
-            href="/specification"
-            class="block rounded-2xl bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
-          >
-            스펙 보기
-          </a>
-          <a
-            href="/workflow"
-            class="block rounded-2xl bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
-          >
-            워크플로 보기
-          </a>
-          <a
-            href="/resources"
-            class="block rounded-2xl bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
-          >
-            리소스 보기
-          </a>
-          <a
-            href="/showcase"
-            class="block rounded-2xl bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
-          >
-            도입 사례 보기
-          </a>
-        </div>
-      </aside>
+      </article>
+
+      <article class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h2 class="text-2xl font-semibold text-slate-900">Git-Native Development</h2>
+        <p class="mt-4 text-slate-600 leading-7">
+          Keep product memory in versioned Markdown so every change can be reviewed, committed, and traced.
+        </p>
+      </article>
+
+      <article class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <h2 class="text-2xl font-semibold text-slate-900">Context Compression</h2>
+        <p class="mt-4 text-slate-600 leading-7">
+          Compress project history into the smallest set of documents needed for the next decision or task.
+        </p>
+      </article>
+
+      <article class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:col-span-2 xl:col-span-1">
+        <h2 class="text-2xl font-semibold text-slate-900">Long-Term Continuity</h2>
+        <p class="mt-4 text-slate-600 leading-7">
+          Preserve momentum across sessions, contributors, and release cycles without rebuilding context from scratch.
+        </p>
+      </article>
     </div>
 
     <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-      <p
-        class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
-      >
-        깃허브
-      </p>
-      <h2 class="mt-4 text-2xl font-semibold text-slate-900">
-        프로젝트 기억 공개 예정
-      </h2>
-      <p class="mt-4 text-slate-600 leading-7">
-        이 사이트와 프로젝트 문서는 Git 기반으로 관리되며, 향후 공개 저장소
-        링크를 통해 더 많은 증거를 제시할 예정입니다.
+      <h2 class="text-2xl font-semibold text-slate-900">Start with the workflow</h2>
+      <p class="mt-4 max-w-3xl text-slate-600 leading-7">
+        The best entry point is the workflow, because it shows how REPL Works moves from idea refinement to operation through documents, planning AI, execution AI, and human review.
       </p>
       <div class="mt-6 flex flex-wrap gap-3">
-        <span
-          class="inline-flex items-center rounded-full bg-slate-100 px-4 py-2 text-sm text-slate-700"
-        >
-          <a
-            href="https://github.com/replworks/replworks.github.io"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub 링크
-          </a>
-        </span>
+        <a href="/workflow" class="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-200">
+          Workflow
+        </a>
+        <a href="/documents" class="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-200">
+          Documents
+        </a>
+        <a href="/prompts" class="rounded-full bg-slate-100 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-200">
+          Prompts
+        </a>
       </div>
     </div>
   </section>

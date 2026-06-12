@@ -119,77 +119,77 @@ Propose TASK update
 
 ### INFORMATION ARCHITECTURE
 
-* [ ] T401 Replace legacy navigation with new navigation structure
-* [ ] T402 Remove Why section
-* [ ] T403 Remove Manifesto section
-* [ ] T404 Remove Specification section
+* [x] T401 Replace legacy navigation with new navigation structure
+* [x] T402 Remove Why section
+* [x] T403 Remove Manifesto section
+* [x] T404 Remove Specification section
 
 ---
 
 ### HOME
 
-* [ ] T405 Rewrite Home page for AI-Native Product Development Framework positioning
-* [ ] T406 Add workflow-first messaging
-* [ ] T407 Add REPL Works Compatible positioning
-* [ ] T408 Add GitHub call-to-action
+* [x] T405 Rewrite Home page for AI-Native Product Development Framework positioning
+* [x] T406 Add workflow-first messaging
+* [x] T407 Add REPL Works Compatible positioning
+* [x] T408 Add GitHub call-to-action
 
 ---
 
 ### WORKFLOW
 
-* [ ] T409 Rewrite Workflow documentation
-* [ ] T410 Publish current REPL Works workflow
-* [ ] T411 Explain Planning AI vs Execution AI
-* [ ] T412 Explain continuous improvement workflow
+* [x] T409 Rewrite Workflow documentation
+* [x] T410 Publish current REPL Works workflow
+* [x] T411 Explain Planning AI vs Execution AI
+* [x] T412 Explain continuous improvement workflow
 
 ---
 
 ### PROMPTS
 
-* [ ] T413 Create Prompts section
-* [ ] T414 Publish IDEAS prompt
-* [ ] T415 Publish PITCHING_SCRIPT prompt
-* [ ] T416 Publish PRODUCT_SPEC prompt
-* [ ] T417 Publish ARCHITECTURE prompt
-* [ ] T418 Publish TASKS prompt
-* [ ] T419 Publish Review prompts
+* [x] T413 Create Prompts section
+* [x] T414 Publish IDEAS prompt
+* [x] T415 Publish PITCHING_SCRIPT prompt
+* [x] T416 Publish PRODUCT_SPEC prompt
+* [x] T417 Publish ARCHITECTURE prompt
+* [x] T418 Publish TASKS prompt
+* [x] T419 Publish Review prompts
 
 ---
 
 ### DOCUMENTS
 
-* [ ] T420 Create Documents section
-* [ ] T421 Publish AGENTS.md standard
-* [ ] T422 Publish PRODUCT_SPEC.md standard
-* [ ] T423 Publish ARCHITECTURE.md standard
-* [ ] T424 Publish TASKS.md standard
+* [x] T420 Create Documents section
+* [x] T421 Publish AGENTS.md standard
+* [x] T422 Publish PRODUCT_SPEC.md standard
+* [x] T423 Publish ARCHITECTURE.md standard
+* [x] T424 Publish TASKS.md standard
 
 ---
 
 ### TOOLS
 
-* [ ] T425 Create Tools section
-* [ ] T426 Publish ai-issue
-* [ ] T427 Add installation guide
-* [ ] T428 Add GitHub repository links
+* [x] T425 Create Tools section
+* [x] T426 Publish ai-issue
+* [x] T427 Add installation guide
+* [x] T428 Add GitHub repository links
 
 ---
 
 ### SHOWCASE
 
-* [ ] T429 Convert Showcase to REPL Works Compatible Projects
-* [ ] T430 Publish REPL Works Website showcase
-* [ ] T431 Publish ai-issue showcase
-* [ ] T432 Publish Wifi Note showcase
+* [x] T429 Convert Showcase to REPL Works Compatible Projects
+* [x] T430 Publish REPL Works Website showcase
+* [x] T431 Publish ai-issue showcase
+* [x] T432 Publish Wifi Note showcase
 
 ---
 
 ### FAQ
 
-* [ ] T433 Rewrite FAQ for framework positioning
-* [ ] T434 Add compatibility questions
-* [ ] T435 Add workflow questions
-* [ ] T436 Add planning vs execution questions
+* [x] T433 Rewrite FAQ for framework positioning
+* [x] T434 Add compatibility questions
+* [x] T435 Add workflow questions
+* [x] T436 Add planning vs execution questions
 
 ---
 
