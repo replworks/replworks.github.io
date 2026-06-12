@@ -1,29 +1,120 @@
 ---
 title: 'MMA'
 version: 'v1'
-description: 'MMA는 비공개 프로젝트 사례로, 프로젝트명만 공개되어 있습니다.'
-publishedAt: '2026-06-07T00:00:00Z'
+description: '인간과 AI 간의 구조화된 협업을 보여주는 비공개 REPL Works 호환 프로젝트.'
+publishedAt: '2026-06-12T00:00:00Z'
 ---
 
-## 공개 정보
+## Overview
 
-- Website: 제공되지 않음
-- Repository: 비공개
+MMA는 비공개로 운영되는 프로젝트다.
 
-## 협업 워크플로
+프로젝트 자체에 대한 상세 정보는 공개되지 않지만, REPL Works 워크플로를 실제로 적용하고 검증하는 사례 중 하나이다.
 
-- 여러 AI 모델과 사람이 동일한 문서화된 기억을 공유합니다.
-- 리포지토리는 프로젝트 상태를 저장하여 연속성을 유지합니다.
-- 산출물은 단일 모델 세션이 아니라 파일과 문서에 기록됩니다.
+---
 
-## 의사 결정 루프
+## Why REPL Works
 
-- 인간은 `ARCHITECTURE.md`와 `TASKS.md`에 기록된 결정을 검토하고 승인합니다.
-- AI가 생성한 제안은 콘텐츠로 기록된 후 팀에서 검증됩니다.
-- 이 루프는 Git 기록을 통해 명시적이고 추적 가능하게 유지됩니다.
+복잡한 프로젝트일수록 프로젝트 기억(Project Memory)은 특정 사람이나 특정 AI에 의존해서는 안 된다.
 
-## 계획과 실행 분리
+MMA는 의도, 구조, 작업 상태를 문서와 Git에 저장함으로써 여러 사람과 여러 AI가 동일한 프로젝트를 지속적으로 운영할 수 있도록 설계되었다.
 
-- 계획 산출물은 실행 산출물과 분리되어 유지됩니다.
-- `TASKS.md`는 계획을 정의하고, 콘텐츠 컬렉션은 결과 문서를 보관합니다.
-- 이 분리는 전략이 구현 세부 사항과 혼합되지 않도록 합니다.
+---
+
+## Website / Repository
+
+Website
+
+```text
+Not Public
+```
+
+Repository
+
+```text
+Private
+```
+
+---
+
+## Documents Used
+
+이 프로젝트는 REPL Works 핵심 문서 구조를 사용한다.
+
+```text
+IDEAS.md
+
+PITCHING_SCRIPT.md
+
+PRODUCT_SPEC.md
+
+ARCHITECTURE.md
+
+FRAMEWORK.md
+
+TASKS.md
+
+AGENTS.md
+```
+
+---
+
+프로젝트 상태는 대화가 아니라 문서를 통해 공유된다.
+
+---
+
+## Lessons Learned
+
+### Shared Memory Matters
+
+협업에서 가장 중요한 것은 동일한 기억을 공유하는 것이다.
+
+사람과 AI는 같은 문서를 읽고 같은 기준으로 작업해야 한다.
+
+---
+
+### Decisions Should Be Explicit
+
+중요한 결정은 채팅 기록에 남아서는 안 된다.
+
+프로젝트의 방향과 구조에 영향을 주는 결정은 문서에 기록되어야 한다.
+
+문서화된 결정은 검토 가능하고 추적 가능하다.
+
+---
+
+### Planning And Execution Are Different Activities
+
+계획과 구현은 서로 다른 작업이다.
+
+계획은 무엇을 해야 하는지를 정의하고,
+
+구현은 정의된 작업을 수행한다.
+
+이 둘을 분리할수록 프로젝트는 더 안정적으로 운영된다.
+
+---
+
+### Repository Becomes The Coordination Layer
+
+프로젝트 참여자는 같은 세션을 공유하지 않는다.
+
+하지만 같은 저장소는 공유할 수 있다.
+
+Git 저장소는 프로젝트 상태를 전달하고 협업을 조정하는 중심 역할을 수행한다.
+
+---
+
+## Current Status
+
+비공개 운영 중.
+
+REPL Works 기반 협업 방식과 프로젝트 기억 관리 방식을 지속적으로 검증하고 있다.
+
+---
+
+## What This Project Proves
+
+MMA는 REPL Works가 개인 프로젝트뿐만 아니라,
+
+사람과 AI가 함께 참여하는 협업 환경에서도 효과적으로 작동할 수 있음을 보여준다.
