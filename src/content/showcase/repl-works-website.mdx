@@ -1,24 +1,29 @@
 ---
 title: 'REPL Works 웹사이트'
 version: 'v1'
-description: '이 웹사이트는 REPL Works의 레퍼런스 구현입니다.'
-publishedAt: '2026-06-07T00:00:00Z'
+description: 'REPL Works itself as a compatible project and reference implementation.'
+publishedAt: '2026-06-12T00:00:00Z'
 ---
 
-## REPL Works 적용 방식
+## Overview
 
-- 사이트는 `src/content`의 콘텐츠 컬렉션으로 구성되어 있습니다.
-- 핵심 섹션은 MDX 문서로 게시됩니다: Manifesto, Specification, Workflow, Resources, Showcase.
-- 사이트 셸과 라우팅은 정적 문서 콘텐츠에 의해 구동됩니다.
+The REPL Works website is the reference implementation for the framework.
 
-## AGENTS / ARCHITECTURE / TASKS 매핑
+## Why REPL Works
 
-- **AGENTS**는 콘텐츠 우선 프로세스를 통해 문서화된 작업 단위와 프로젝트 기억으로 표현됩니다.
-- **ARCHITECTURE**는 `ARCHITECTURE.md`에 캡처되어 사이트 구조와 탐색에 반영됩니다.
-- **TASKS**는 `TASKS.md`에서 추적되며, 각 단계는 하나의 프롬프트와 하나의 커밋 단위입니다.
+It demonstrates how content-first, Git-native documentation can preserve product memory across sessions and model changes.
 
-## 워크플로 도입 증거
+## Documents Used
 
-- 콘텐츠는 태스크 단계별로 점진적으로 게시되어 문서화 워크플로를 입증합니다.
-- 이 사이트는 Git-first 기억 모델을 사용하며 모든 결정과 출력은 버전 관리된 파일에 저장됩니다.
-- Resources와 Showcase 섹션은 실용적 사용과 채택 증거를 문서화하여 워크플로가 실제로 작동함을 보여줍니다.
+- `IDEAS.md`
+- `PITCHING_SCRIPT.md`
+- `PRODUCT_SPEC.md`
+- `ARCHITECTURE.md`
+- `TASKS.md`
+- `AGENTS.md`
+
+## Lessons Learned
+
+- The website must stay content-first.
+- Planning and execution work better when separated.
+- Markdown documents reduce context overhead and make continuity explicit.

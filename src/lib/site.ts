@@ -1,39 +1,40 @@
 export const contentCollections = [
-  'manifesto',
-  'specification',
   'workflow',
-  'resources',
+  'prompts',
+  'documents',
+  'tools',
   'showcase',
+  'faq',
 ] as const;
 
 export type ContentCollection = (typeof contentCollections)[number];
 
 export const navItems = [
   { title: 'Home', href: '/' },
-  { title: 'Why', href: '/why' },
-  { title: 'Manifesto', href: '/manifesto' },
-  { title: 'Specification', href: '/specification' },
   { title: 'Workflow', href: '/workflow' },
-  { title: 'Resources', href: '/resources' },
+  { title: 'Prompts', href: '/prompts' },
+  { title: 'Documents', href: '/documents' },
+  { title: 'Tools', href: '/tools' },
   { title: 'Showcase', href: '/showcase' },
-  { title: 'Search', href: '/search' },
+  { title: 'FAQ', href: '/faq' },
 ] as const;
 
 export const collectionTitles: Record<ContentCollection, string> = {
-  manifesto: 'Manifesto',
-  specification: 'Specification',
   workflow: 'Workflow',
-  resources: 'Resources',
+  prompts: 'Prompts',
+  documents: 'Documents',
+  tools: 'Tools',
   showcase: 'Showcase',
+  faq: 'FAQ',
 };
 
 export const collectionDescriptions: Record<ContentCollection, string> = {
-  manifesto: 'A shared manifesto for REPL Works and AI development.',
-  specification:
-    'The specification framework for the REPL Works documentation platform.',
   workflow: 'The workflow and process guidance for using REPL Works.',
-  resources: 'Curated resources to support REPL Works adoption.',
-  showcase: 'Proof of adoption and showcase examples for REPL Works.',
+  prompts: 'Reusable prompts for AI-native product development.',
+  documents: 'Reusable document standards for the REPL Works framework.',
+  tools: 'REPL Works ecosystem tools and framework assets.',
+  showcase: 'REPL Works compatible projects and adoption examples.',
+  faq: 'Answers to recurring questions about REPL Works.',
 };
 
 export function isContentCollection(value: string): value is ContentCollection {
