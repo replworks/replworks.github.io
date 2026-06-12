@@ -1,0 +1,42 @@
+---
+// src/components/DocumentFlow.astro
+interface Props {
+  documents: string[];
+}
+const { documents } = Astro.props;
+---
+
+<div
+  class="my-6 rounded-2xl border border-slate-200 bg-slate-50/60 p-5 shadow-sm"
+>
+  {/* 모바일 화면에서도 자연스럽게 흐르도록 flex-wrap 처리 */}
+  <div class="flex flex-wrap items-center gap-x-2.5 gap-y-3.5">
+    {
+      documents.map((doc, idx) => (
+        <div class="flex items-center gap-2.5">
+          {/* .md 파일명에 맞춰 시그니처 폰트 스타일(Mono)과 묵직한 다크 배지 적용 */}
+          <span class="inline-block px-3 py-1.5 text-xs font-bold bg-slate-950 text-slate-100 border border-slate-900 rounded-lg shadow-sm font-mono tracking-tight">
+            {doc}
+          </span>
+
+          {/* 마지막 문서 뒤에는 화살표를 표시하지 않음 */}
+          {idx < documents.length - 1 && (
+            <svg
+              class="h-4 w-4 text-slate-400 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="3"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+              />
+            </svg>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</div>

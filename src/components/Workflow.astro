@@ -1,0 +1,33 @@
+---
+interface Props {
+  steps: string[];
+}
+
+const { steps } = Astro.props;
+---
+
+<div class="flex flex-wrap items-center gap-x-2 gap-y-3 py-6">
+  {
+    steps.map((step, idx) => (
+      <div class="flex items-center gap-x-2">
+        {/* 문서(.md)와 일반 단계(AI/Action)의 스타일을 구분해서 세련되게 표현 */}
+        <span
+          class={`inline-block px-3 py-1.5 text-xs font-semibold rounded-md border shadow-sm ${
+            step.endsWith('.md')
+              ? 'bg-slate-900 text-slate-100 border-slate-800 font-mono' // 문서 양식
+              : step.includes('AI')
+                ? 'bg-blue-500 text-white border-transparent animate-pulse' // 핵심 AI 액션
+                : 'bg-slate-100 text-slate-800 border-slate-200' // 일반 프로세스
+          }`}
+        >
+          {step}
+        </span>
+
+        {/* 마지막 요소 뒤에는 화살표를 붙이지 않음 */}
+        {idx < steps.length - 1 && (
+          <span class="text-slate-400 text-xs font-bold">→</span>
+        )}
+      </div>
+    ))
+  }
+</div>

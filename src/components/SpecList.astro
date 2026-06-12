@@ -1,0 +1,45 @@
+---
+// src/components/SpecList.astro
+interface Props {
+  items: string[];
+}
+const { items } = Astro.props;
+
+// 항목별 매칭할 아이콘 (SVG 고정)
+const iconMap: Record<string, string> = {
+  Vision:
+    '<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>',
+  'User Journey':
+    '<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.385a.563.563 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.499z" /></svg>',
+  Navigation:
+    '<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" /></svg>',
+  Features:
+    '<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>',
+  'Content Structure':
+    '<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125V3.375c0-.621.504-1.125 1.125-1.125h17.25c.621 0 1.125.504 1.125 1.125v15a1.125 1.125 0 01-1.125 1.125z" /></svg>',
+  'Success Criteria':
+    '<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h3.75a.625.625 0 01.625.625v18.25a.625.625 0 01-.625.625h-3.75a.625.625 0 01-.625-.625V2.875c0-.345.28-.625.625-.625z" /></svg>',
+};
+
+const defaultIcon =
+  '<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-1.57-3.379A3.751 3.751 0 006 18a3.75 3.75 0 006 0zm0 0V3.375" /></svg>';
+---
+
+<div
+  class="border border-slate-100 rounded-2xl bg-slate-50/50 p-6 my-6 space-y-3.5"
+>
+  {
+    items.map((item) => (
+      <div class="flex items-center gap-3">
+        {/* 아이콘 배지: text-slate-500으로 은은하게 */}
+        <div
+          class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white border border-slate-200 text-slate-500 shadow-sm"
+          set:html={iconMap[item] || defaultIcon}
+        />
+        <span class="text-sm font-semibold text-slate-800 tracking-tight">
+          {item}
+        </span>
+      </div>
+    ))
+  }
+</div>

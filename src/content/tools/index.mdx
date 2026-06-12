@@ -5,6 +5,12 @@ description: '도구(Tools)는 ReplWorks framework 를 확장하고 자동화 �
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
+import SpecGrid from '../../components/SpecGrid.astro';
+import DocumentFlow from '../../components/DocumentFlow.astro';
+import ValueFlow from '../../components/ValueFlow.astro';
+import TerminalGrid from '../../components/TerminalGrid.astro';
+import RelationFlow from '../../components/RelationFlow.astro';
+
 REPL Works는 도구를 제품으로 보지 않는다.
 
 도구는 프레임워크를 실행하기 위한 자산(Framework Assets)이다.
@@ -21,13 +27,11 @@ Workflow가 반복되면,
 
 REPL Works는 다음을 표준화한다.
 
-```text
-Workflow
-
-Prompts
-
-Documents
-```
+<SpecGrid items={[
+  "Workflow",
+  "Prompts",
+  "Documents"
+]} />
 
 ---
 
@@ -39,15 +43,12 @@ Documents
 
 일반적으로 다음 순서로 발전한다.
 
-```text
-Manual Process
-↓
-Prompt
-↓
-Document
-↓
-Tool
-```
+<DocumentFlow documents={[
+  "Manual Process",
+  "Prompt",
+  "Document",
+  "Tool"
+]} />
 
 ---
 
@@ -65,11 +66,7 @@ GitHub Issue를 REPL Works 방식으로 생성하기 위한 도구.
 
 목적
 
-```text
-Idea
-↓
-Issue
-```
+<ValueFlow from="Idea" to="Issue" />
 
 전환을 단순화한다.
 
@@ -96,15 +93,12 @@ REPL Works는 실제 사용 경험을 통해 새로운 도구를 추가할 수 �
 
 예시
 
-```text
-ai-prompt
-
-ai-sync
-
-ai-review
-
-ai-memory
-```
+<TerminalGrid commands={[
+  "ai-prompt",
+  "ai-sync",
+  "ai-review",
+  "ai-memory"
+]} />
 
 ---
 
@@ -118,15 +112,12 @@ ai-memory
 
 ## Relationship
 
-```text
-Workflow
-↓
-Prompts
-↓
-Documents
-↓
-Tools
-```
+<RelationFlow items={[
+  "Workflow",
+  "Prompts",
+  "Documents",
+  "Tools"
+]} />
 
 ---
 

@@ -5,6 +5,11 @@ description: 'Reusable prompt library for REPL Works.'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
+import SpecGrid from '../../components/SpecGrid.astro';
+import InOut from '../../components/InOut.astro';
+import OperationLoop from '../../components/OperationLoop.astro';
+import Terminal from '../../components/Terminal.astro';
+
 REPL Works는 Prompt Engineering Framework가 아니다.
 
 하지만 Prompt는 REPL Works의 중요한 구성 요소이다.
@@ -27,15 +32,12 @@ Prompt는 그 기억을 활용하는 방법을 정의한다.
 
 대부분의 AI 사용자는 같은 설명을 반복한다.
 
-```text
-무엇을 만들고 있는가?
-
-왜 만드는가?
-
-어떤 형식으로 답변해야 하는가?
-
-어떤 문서를 생성해야 하는가?
-```
+<SpecGrid items={[
+  "무엇을 만들고 있는가?",
+  "왜 만드는가?",
+  "어떤 형식으로 답변해야 하는가?",
+  "어떤 문서를 생성해야 하는가?"
+]} />
 
 ---
 
@@ -63,9 +65,7 @@ Prompt는 프로젝트마다 새로 작성하는 것이 아니다.
 
 생성 문서
 
-```text
-IDEAS.md
-```
+<InOut type="output" items={["IDEAS.md"]} />
 
 [Prompt 보기](/prompts/idea-refinement)
 
@@ -79,9 +79,7 @@ IDEAS.md
 
 생성 문서
 
-```text
-PITCHING_SCRIPT.md
-```
+<InOut type="output" items={["PITCHING_SCRIPT.md"]} />
 
 [Prompt 보기](/prompts/pitch-creation)
 
@@ -95,9 +93,7 @@ PITCHING_SCRIPT.md
 
 생성 문서
 
-```text
-PRODUCT_SPEC.md
-```
+<InOut type="output" items={["PRODUCT_SPEC.md"]} />
 
 [Prompt 보기](/prompts/product-specification)
 
@@ -111,9 +107,7 @@ PRODUCT_SPEC.md
 
 생성 문서
 
-```text
-ARCHITECTURE.md
-```
+<InOut type="output" items={["ARCHITECTURE.md"]} />
 
 [Prompt 보기](/prompts/architecture-design)
 
@@ -127,9 +121,7 @@ ARCHITECTURE.md
 
 생성 문서
 
-```text
-TASKS.md
-```
+<InOut type="output" items={["TASKS.md"]} />
 
 [Prompt 보기](/prompts/task-generation)
 
@@ -143,13 +135,7 @@ Execution AI가 개발 가능한 상태인지 검증한다.
 
 검증 대상
 
-```text
-PRODUCT_SPEC.md
-
-ARCHITECTURE.md
-
-TASKS.md
-```
+<InOut type="in" items={["PRODUCT_SPEC.md", "ARCHITECTURE.md", "TASKS.md"]} />
 
 [Prompt 보기](/prompts/execution-validation)
 
@@ -167,17 +153,13 @@ REPL Works Prompt는 고정된 문서가 아니다.
 
 일반적인 흐름
 
-```text
-Project Usage
-↓
-Prompt Improvement
-↓
-Better Documents
-↓
-Better Execution
-↓
-Project Usage
-```
+<OperationLoop steps={[
+  "Project Usage",
+  "Prompt Improvement",
+  "Better Documents",
+  "Better Execution",
+  "Project Usage"
+]} />
 
 ---
 
@@ -211,9 +193,7 @@ REPL Works는 Prompt를 개인 자산이 아닌 공유 가능한 자산으로 �
 
 예시
 
-```text
-ai-prompt
-```
+<Terminal command="ai-prompt" />
 
 ---
 

@@ -1,0 +1,69 @@
+---
+// src/components/MemoryGrid.astro
+---
+
+<div class="grid gap-4 sm:grid-cols-2 my-6">
+  {/* 1. Session Memory Card */}
+  <div
+    class="flex flex-col p-5 rounded-2xl border border-slate-200 bg-slate-50/50 shadow-sm"
+  >
+    <div class="flex items-center gap-2 mb-3">
+      <span class="flex h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
+      <h4 class="text-sm font-black uppercase tracking-wider text-slate-500">
+        Session Memory
+      </h4>
+    </div>
+    <p class="text-xs text-slate-500 mb-4 leading-relaxed">
+      현재 세션이 끝나면 사라질 수 있는 휘발성 컨텍스트입니다.
+    </p>
+
+    <div class="flex flex-wrap gap-2">
+      {
+        ['현재 채팅', '현재 Context Window', '현재 Agent Runtime'].map(
+          (item) => (
+            <span class="inline-block px-3 py-1.5 text-xs font-bold bg-white text-slate-700 border border-slate-200 rounded-lg shadow-sm">
+              {item}
+            </span>
+          )
+        )
+      }
+    </div>
+  </div>
+
+  {/* 2. Project Memory Card */}
+  <div
+    class="flex flex-col p-5 rounded-2xl border border-slate-800 bg-slate-950 shadow-md"
+  >
+    <div class="flex items-center gap-2 mb-3">
+      <span class="flex h-2 w-2 rounded-full bg-emerald-400"></span>
+      <h4 class="text-sm font-black uppercase tracking-wider text-slate-400">
+        Project Memory
+      </h4>
+    </div>
+    <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+      Git과 마크다운 문서로 영구히 보존되는 프로젝트의 핵심 기억입니다.
+    </p>
+
+    <div class="flex flex-wrap gap-2">
+      {
+        [
+          'Git',
+          'PRODUCT_SPEC.md',
+          'ARCHITECTURE.md',
+          'TASKS.md',
+          'AGENTS.md',
+        ].map((item) => (
+          <span
+            class={`inline-block px-3 py-1.5 text-xs font-bold rounded-lg border ${
+              item.endsWith('.md')
+                ? 'bg-slate-900 text-slate-100 border-slate-800 font-mono'
+                : 'bg-white text-slate-900 border-transparent'
+            } shadow-sm`}
+          >
+            {item}
+          </span>
+        ))
+      }
+    </div>
+  </div>
+</div>
