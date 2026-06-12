@@ -1,5 +1,15 @@
 # Release Notes
 
+## v2.2.0 - 2026-06-12
+
+### What's Changed
+
+* [style] Unify Sentence Endings in 'REPL Works Compatible Projects' Section #56 by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/57
+* Move mobile layout to full-width (Remove box container) #58 by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/59
+* [Feature/Refactor] Website UI/UX Renewal and Style Optimization #60 by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/61
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.1.2...v2.2.0
+
 ## v2.1.2 - 2026-06-12
 
 ### What's Changed
