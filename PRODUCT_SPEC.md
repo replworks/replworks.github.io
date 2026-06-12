@@ -243,7 +243,7 @@ Continuous Improvement
 Must explain:
 
 ```text
-Planning AI
+Discussion AI
 
 Execution AI
 
