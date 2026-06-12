@@ -1,30 +1,187 @@
 ---
 title: 'ARCHITECTURE.md'
 version: 'v1'
-description: 'Technical structure and repository constraints for REPL Works.'
+description: 'ARCHITECTURE.md는 프로젝트의 기술 구조를 정의하는 문서다.'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
-## Purpose
+이 문서의 목적은 제품 요구사항을 정의하는 것이 아니다.
 
-Describe the system design, technical structure, and repository constraints.
+제품을 어떤 구조로 구현할 것인지 정의하는 것이다.
 
-## Inputs
+---
 
-- `PRODUCT_SPEC.md`
-- repository structure
-- implementation constraints
+# Purpose
 
-## Outputs
+다음 질문에 답한다.
 
-- content model
-- routing plan
-- file placement rules
+```text
+프로젝트는 어떻게 구성되는가?
 
-## Lifecycle
+콘텐츠는 어디에 위치하는가?
 
-Updated when technical structure or implementation constraints change.
+시스템은 어떻게 연결되는가?
 
-## Relationships
+어떤 제약을 따라야 하는가?
+```
 
-Constrained by `PRODUCT_SPEC.md` and implemented through `TASKS.md`.
+---
+
+ARCHITECTURE.md는 프로젝트의 기술적 진실(Source of Truth)이다.
+
+---
+
+# Inputs
+
+일반적으로 다음 정보를 기반으로 작성한다.
+
+* PRODUCT_SPEC.md
+* 선택된 기술 스택
+* 프로젝트 요구사항
+* 운영 제약
+* 배포 환경
+
+---
+
+# Outputs
+
+다음 내용을 정의한다.
+
+* 시스템 구조
+* 저장소 구조
+* 콘텐츠 구조
+* 라우팅 구조
+* 데이터 흐름
+* 모듈 구조
+* 구현 경계
+* 운영 제약
+
+---
+
+# Lifecycle
+
+PRODUCT_SPEC.md 이후 작성한다.
+
+---
+
+제품 구조가 변경될 경우 업데이트한다.
+
+---
+
+기술 구조가 변경될 경우 업데이트한다.
+
+---
+
+단순 구현 작업으로는 수정하지 않는다.
+
+---
+
+# Relationship
+
+```text
+IDEAS.md
+↓
+PITCHING_SCRIPT.md
+↓
+PRODUCT_SPEC.md
+↓
+ARCHITECTURE.md
+↓
+FRAMEWORK.md
+↓
+TASKS.md
+```
+
+---
+
+PRODUCT_SPEC.md는 무엇을 만들지 정의한다.
+
+---
+
+ARCHITECTURE.md는 어떻게 구성할지 정의한다.
+
+---
+
+FRAMEWORK.md는 어떻게 구현할지 정의한다.
+
+---
+
+TASKS.md는 무엇을 해야 하는지 정의한다.
+
+---
+
+# AI Usage
+
+Planning AI가 반드시 읽어야 하는 문서다.
+
+---
+
+Execution AI도 반드시 읽어야 하는 문서다.
+
+---
+
+기술 구조에 대한 최종 기준은 ARCHITECTURE.md다.
+
+---
+
+# Generate With
+
+ARCHITECTURE.md는 일반적으로 다음 프롬프트를 통해 생성한다.
+
+→ [Architecture Design Prompt](/prompts/architecture-design)
+
+---
+
+Architecture Design Prompt는 다음을 수행한다.
+
+* 저장소 구조 설계
+* 콘텐츠 구조 설계
+* 라우팅 설계
+* 구현 경계 정의
+* 운영 제약 정의
+
+---
+
+# Example
+
+실제 REPL Works Compatible 프로젝트 예시를 통해 ARCHITECTURE.md 작성 방식을 확인할 수 있다.
+
+→ [Example ARCHITECTURE.md](./example-architecture)
+
+---
+
+예시는 다음 내용을 포함한다.
+
+* 시스템 구조
+* 콘텐츠 구조
+* 라우팅 구조
+* 모듈 구조
+* 제약 사항
+
+---
+
+# Key Principle
+
+좋은 ARCHITECTURE.md는 기능을 설명하지 않는다.
+
+좋은 ARCHITECTURE.md는 구조를 설명한다.
+
+---
+
+# Why It Matters
+
+AI는 구조가 없으면 기능 중심으로 구현하려는 경향이 있다.
+
+---
+
+ARCHITECTURE.md는 프로젝트 전체 구조를 명확하게 정의한다.
+
+---
+
+PRODUCT_SPEC.md가 목적지라면,
+
+ARCHITECTURE.md는 설계도다.
+
+---
+
+모든 구현은 ARCHITECTURE.md와 일치해야 한다.

@@ -1,0 +1,343 @@
+---
+title: 'REACT_VITE.md'
+version: 'v1'
+description: 'ReplWorks에서 제공하는 REACT_VITE.md framework 파일'
+publishedAt: '2026-06-12T00:00:00Z'
+---
+
+``````markdown
+# REACT_VITE.md
+
+## STACK
+
+REQUIRED
+
+- Vite 8.x
+- React 19.x
+- JavaScript
+- TailwindCSS 4.x
+- i18next 25.x
+- react-i18next 15.x
+
+OPTIONAL
+
+- react-router-dom
+- lucide-react
+- axios
+- zustand
+- @tanstack/react-query
+- react-hook-form
+- zod
+
+USE_DECLARED_STACK_ONLY
+
+DO_NOT_INTRODUCE_NEW_LIBRARIES_UNLESS_EXPLICITLY_REQUESTED
+
+---
+
+## VERSION_POLICY
+
+PACKAGE_JSON_IS_SOURCE_OF_TRUTH
+
+FRAMEWORK_MD_IS_FALLBACK
+
+USE_DECLARED_VERSIONS_ONLY
+
+DO_NOT_ASSUME_LIBRARY_VERSIONS
+
+DO_NOT_GENERATE_CODE_FOR_OTHER_VERSIONS
+
+WHEN_VERSION_CONFLICT_EXISTS
+
+FOLLOW_PACKAGE_JSON
+
+---
+
+## PROJECT_STRUCTURE
+
+```text
+src/
+├── assets/
+├── components/
+│   ├── layout/
+│   ├── sections/
+│   └── ui/
+├── pages/
+├── i18n/
+│   ├── locales/
+│   │   └── en.json
+│   └── index.js
+├── data/
+├── hooks/
+├── utils/
+├── App.jsx
+├── main.jsx
+└── index.css
+```
+
+THIS_STRUCTURE_IS_AUTHORITATIVE
+
+DO_NOT_CREATE_NEW_TOP_LEVEL_DIRECTORIES
+
+PREFER_EXISTING_DIRECTORIES_OVER_NEW_ONES
+
+FOLLOW_EXISTING_STRUCTURE_BEFORE_CREATING_NEW_STRUCTURE
+
+---
+
+## FILE_PLACEMENT
+
+pages -> src/pages
+
+layout_components -> src/components/layout
+
+section_components -> src/components/sections
+
+reusable_ui_components -> src/components/ui
+
+page_specific_components -> src/pages/<PageName>
+
+static_content -> src/data
+
+navigation_data -> src/data
+
+faq_data -> src/data
+
+content_data -> src/data
+
+custom_hooks -> src/hooks
+
+utility_functions -> src/utils
+
+translation_files -> src/i18n/locales
+
+i18n_configuration -> src/i18n/index.js
+
+application_root -> src/App.jsx
+
+application_entry -> src/main.jsx
+
+global_styles -> src/index.css
+
+DO_NOT_CREATE_SUBDIRECTORIES_UNDER_PAGES
+
+DO_NOT_CREATE_COMPONENTS_OUTSIDE_DEFINED_LOCATIONS
+
+---
+
+## ROOT_DIRECTORY_POLICY
+
+DO_NOT_CREATE_FILES_IN_REPOSITORY_ROOT
+
+UNLESS_EXPLICITLY_DEFINED_IN_ARCHITECTURE_MD
+
+PREFER_SRC_PLACEMENT_WHENEVER_POSSIBLE
+
+---
+
+## FORBIDDEN_DIRECTORIES
+
+- features
+- shared
+- widgets
+- modules
+- stores
+- state
+- services
+- api
+- views
+
+DO_NOT_CREATE_FORBIDDEN_DIRECTORIES
+
+UNLESS_EXPLICITLY_DEFINED_IN_ARCHITECTURE_MD
+
+---
+
+## NAMING_RULES
+
+COMPONENT_FILES -> PascalCase
+
+HOOK_FILES -> useCamelCase
+
+UTILITY_FILES -> camelCase
+
+DATA_FILES -> camelCase
+
+TRANSLATION_FILES -> language_code.json
+
+EXAMPLES
+
+- Header.jsx
+
+- HeroSection.jsx
+
+- PricingCard.jsx
+
+- useLanguage.js
+
+- useScrollPosition.js
+
+- navigationData.js
+
+- faqData.js
+
+DO_NOT_CREATE_INDEX_FILES_UNLESS_REQUIRED
+
+---
+
+## COMPONENT_RULES
+
+USE_FUNCTION_COMPONENTS_ONLY
+
+DO_NOT_USE_CLASS_COMPONENTS
+
+ONE_COMPONENT_PER_FILE
+
+DO_NOT_EXPORT_MULTIPLE_COMPONENTS_FROM_SAME_FILE
+
+PREFER_SMALL_COMPOSABLE_COMPONENTS
+
+MOVE_REUSABLE_UI_TO_COMPONENTS_UI
+
+MOVE_PAGE_SPECIFIC_UI_TO_PAGE_DIRECTORY
+
+PREFER_COMPOSITION_OVER_COMPLEX_COMPONENTS
+
+---
+
+## DATA_RULES
+
+STATIC_CONTENT_BELONGS_IN_SRC_DATA
+
+FAQ_CONTENT_BELONGS_IN_SRC_DATA
+
+NAVIGATION_CONTENT_BELONGS_IN_SRC_DATA
+
+CONTENT_BELONGS_IN_SRC_DATA
+
+DO_NOT_STORE_LARGE_CONTENT_BLOCKS_IN_COMPONENTS
+
+SEPARATE_CONTENT_FROM_PRESENTATION
+
+---
+
+## STYLING_RULES
+
+USE_TAILWINDCSS_ONLY
+
+DO_NOT_USE_SCSS
+
+DO_NOT_USE_SASS
+
+DO_NOT_USE_CSS_MODULES
+
+DO_NOT_USE_STYLED_COMPONENTS
+
+DO_NOT_USE_EMOTION
+
+DO_NOT_USE_INLINE_STYLE_UNLESS_REQUIRED
+
+PREFER_TAILWIND_UTILITY_CLASSES
+
+---
+
+## I18N_RULES
+
+SOURCE_LANGUAGE = ko
+
+KOREAN_IS_SOURCE_OF_TRUTH
+
+USE_KOREAN_TEXT_AS_TRANSLATION_KEYS
+
+ALL_USER_VISIBLE_TEXT_MUST_USE_TRANSLATION_FUNCTION
+
+DO_NOT_HARDCODE_USER_VISIBLE_TEXT
+
+DO_NOT_CREATE_KO_TRANSLATION_FILE
+
+ONLY_TRANSLATE_NON_SOURCE_LANGUAGES
+
+REQUIRED_FILES
+
+- src/i18n/locales/en.json
+
+EXAMPLE
+
+Component
+
+```jsx
+__("회원가입");
+```
+
+Translation
+
+```json
+{
+  "회원가입": "Sign Up"
+}
+```
+
+WHEN_ADDING_NEW_TEXT
+
+1. USE_KOREAN_TEXT_AS_KEY
+2. ADD_TRANSLATIONS_TO_ALL_NON_SOURCE_LANGUAGES
+3. KEEP_TRANSLATIONS_SYNCHRONIZED
+
+FORBIDDEN
+
+```jsx
+t("auth.register.button");
+```
+
+```json
+{
+  "auth.register.button": "회원가입"
+}
+```
+
+---
+
+## ACCESSIBILITY_RULES
+
+REQUIRE_PROPER_HEADING_HIERARCHY
+
+REQUIRE_ALT_TEXT_FOR_IMAGES
+
+REQUIRE_KEYBOARD_ACCESSIBILITY
+
+REQUIRE_VISIBLE_FOCUS_STATES
+
+REQUIRE_SUFFICIENT_COLOR_CONTRAST
+
+ACCESSIBILITY_OVERRIDES_VISUAL_PREFERENCES
+
+---
+
+## GENERATION_POLICY
+
+BEFORE_CREATING_ANY_FILE
+
+1. CHECK_EXISTING_STRUCTURE
+2. CHECK_EXISTING_COMPONENTS
+3. CHECK_EXISTING_DATA_FILES
+4. CHECK_EXISTING_PATTERNS
+5. REUSE_BEFORE_CREATING
+
+PREFER_MODIFICATION_OVER_NEW_FILES
+
+PREFER_EXISTING_PATTERNS_OVER_NEW_PATTERNS
+
+DO_NOT_INVENT_NEW_ARCHITECTURE
+
+DO_NOT_DUPLICATE_EXISTING_FUNCTIONALITY
+
+WHEN_UNCERTAIN_FOLLOW_EXISTING_CODEBASE
+
+ARCHITECTURE_MD_OVERRIDES_THIS_DOCUMENT
+
+TASKS_MD_OVERRIDES_ASSUMPTIONS
+
+PACKAGE_JSON_OVERRIDES_VERSION_ASSUMPTIONS
+
+DO_NOT_GUESS
+``````

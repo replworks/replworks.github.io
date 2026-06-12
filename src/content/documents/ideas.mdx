@@ -1,30 +1,148 @@
 ---
 title: 'IDEAS.md'
 version: 'v1'
-description: 'Idea refinement record for project discovery and validation.'
+description: 'IDEAS.md는 프로젝트 아이디어를 검증하고 정제하기 위한 문서다.'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
-## Purpose
+이 문서의 목적은 무엇을 만들지 결정하는 것이 아니다.
 
-Capture refined project ideas before specification work begins.
+무엇을 만들 가치가 있는지 판단하는 것이다.
 
-## Inputs
+---
 
-- raw ideas
-- market observations
-- user pain points
+# Purpose
 
-## Outputs
+아이디어를 사업적 관점에서 검토한다.
 
-- validated direction
-- risks
-- open questions
+---
 
-## Lifecycle
+다음을 검증한다.
 
-Created during discovery and updated until the idea is ready for pitching.
+```text
+문제가 충분히 중요한가?
 
-## Relationships
+누가 이 문제를 가지고 있는가?
 
-Feeds `PITCHING_SCRIPT.md` and informs `PRODUCT_SPEC.md`.
+기존 대안은 무엇인가?
+
+차별성은 존재하는가?
+
+장기적으로 유지 가능한가?
+```
+
+---
+
+# Inputs
+
+일반적으로 다음 정보를 기반으로 작성한다.
+
+- 초기 아이디어
+- 사용자 불편
+- 시장 관찰
+- 경쟁 제품 분석
+- 개인 경험
+- 사업 가설
+
+---
+
+# Outputs
+
+다음 내용을 정리한다.
+
+- 문제 정의
+- 대상 사용자
+- 제안하는 방향
+- 차별성
+- 위험 요소
+- 제약 사항
+- 검증이 필요한 항목
+
+---
+
+# Lifecycle
+
+프로젝트 초기 단계에서 생성한다.
+
+---
+
+IDEAS.md는 아이디어가 충분히 검증될 때까지 반복적으로 수정한다.
+
+---
+
+아이디어 검증이 완료되면 PITCHING_SCRIPT.md 작성 단계로 이동한다.
+
+---
+
+# Relationship
+
+```text
+IDEAS.md
+↓
+PITCHING_SCRIPT.md
+↓
+PRODUCT_SPEC.md
+```
+
+---
+
+IDEAS.md는 프로젝트의 출발점이다.
+
+---
+
+# AI Usage
+
+IDEAS.md는 주로 Planning AI와 사람이 함께 사용하는 문서다.
+
+---
+
+Execution AI가 반드시 읽어야 하는 문서는 아니다.
+
+---
+
+프로젝트가 진행되면서 핵심 내용은 이후 문서로 전달된다.
+
+---
+
+# Generate With
+
+IDEAS.md는 일반적으로 다음 프롬프트를 통해 생성한다.
+
+→ [아이디어 정제 Prompt](/prompts/idea-refinement)
+
+---
+
+아이디어 정제 Prompt는 다음을 수행한다.
+
+- 아이디어 검증
+- 시장성 검토
+- 사용자 분석
+- 위험 요소 식별
+- 장기 지속 가능성 평가
+
+---
+
+# Example
+
+실제 REPL Works Compatible 프로젝트 예시를 통해 IDEAS.md 작성 방식을 확인할 수 있다.
+
+→ [Example IDEAS.md](./example-ideas-md)
+
+---
+
+예시는 다음 내용을 포함한다.
+
+- 문제 정의
+- 대상 사용자
+- 제안 방향
+- 핵심 가설
+- 위험 요소
+- 검증 결과
+
+---
+
+# Key Principle
+
+좋은 IDEAS.md는 아이디어를 설명하지 않는다.
+
+좋은 IDEAS.md는 아이디어를 검증한다.

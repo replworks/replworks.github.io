@@ -31,6 +31,13 @@ export const collections = {
     }),
     schema: baseCollectionSchema,
   }),
+  frameworks: defineCollection({
+    loader: glob({
+      base: './src/content/frameworks',
+      pattern: '**/*.{md,mdx}',
+    }),
+    schema: baseCollectionSchema,
+  }),
   tools: defineCollection({
     loader: glob({
       base: './src/content/tools',
