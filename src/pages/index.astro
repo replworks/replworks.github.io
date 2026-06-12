@@ -1,444 +1,407 @@
 ---
-import SiteLayout from '../layouts/SiteLayout.astro';
+import HomeLayout from '../layouts/HomeLayout.astro';
+import heroBg from '../assets/hero-background.jpg';
+
+// 코어 워크플로 파이프라인 데이터
+const pipelineSteps = [
+  { id: '01', file: 'IDEAS.md', desc: '아이디어 검증' },
+  { id: '02', file: 'PITCHING_SCRIPT.md', desc: '프로젝트 포지셔닝' },
+  { id: '03', file: 'PRODUCT_SPEC.md', desc: '제품 정의' },
+  { id: '04', file: 'ARCHITECTURE.md', desc: '시스템 설계' },
+  { id: '05', file: 'FRAMEWORK.md', desc: '기술 스택별 구현 규칙' },
+  { id: '06', file: 'TASKS.md', desc: '수행 계획' },
+  { id: '07', file: 'AGENTS.md', desc: 'AI 에이전트 규칙' },
+];
+
+// 다섯 가지 핵심 기반 데이터
+const benefits = [
+  {
+    title: '특정 AI 의존성 탈피',
+    desc: '특정 AI 모델에 의존하지 않습니다. 프로젝트 기억은 Git과 문서에 저장되므로 새로운 모델도 프로젝트를 이어갈 수 있습니다.',
+  },
+  {
+    title: '프로젝트 지속성',
+    desc: '프로젝트는 수개월 또는 수년 동안 유지됩니다. 세션이 종료되어도 프로젝트의 의도와 구조는 온전하게 보존됩니다.',
+  },
+  {
+    title: 'AI 입력 비용 최적화',
+    desc: '오래된 채팅 로그를 다시 읽게 하는 대신, 필수 정보만 정제된 영구 문서로 남겨 AI가 최소한의 토큰만 읽고 정확히 작업하도록 돕습니다.',
+  },
+  {
+    title: '온보딩 비용 절감',
+    desc: '새로 합류한 팀원과 새로운 AI 에이전트 모두 구조화된 문서를 읽고 지체 없이 프로젝트를 깊이 이해할 수 있습니다.',
+  },
+  {
+    title: 'Git 기반 워크플로',
+    desc: '모든 프로젝트 기억은 Git으로 이력 관리됩니다. 현재 상태는 문서가 설명하고, 과거 상태는 Git 커밋이 안전하게 보존합니다.',
+  },
+];
+
+// 쇼케이스 프로젝트 데이터
+const showcases = [
+  {
+    title: 'REPL Works 웹사이트',
+    desc: 'ReplWorks 웹사이트는 본 프레임워크를 실제로 적용하여 관리 중인 첫 번째 REPL Works 호환 프로덕션 프로젝트입니다.',
+    tags: ['Website', 'Dogfooding'],
+    link: '/showcase/repl-works-website',
+    github: 'https://github.com/replworks/replworks.github.io',
+  },
+  {
+    title: 'AI 이슈 퍼블리셔',
+    desc: 'AI 에이전트와의 토론 컨텍스트를 분석하여, 즉시 개발 및 실행 가능한 GitHub Issue 형태로 자동 변환해 주는 호환 도구입니다.',
+    tags: ['Tooling', 'Issue workflow'],
+    link: '/showcase/ai-issue',
+    github: 'https://github.com/replworks/ai-issue',
+  },
+  {
+    title: '클래이튜브(ClayTube)',
+    desc: 'ClayTube는 장기간에 걸쳐 지속적으로 기능이 개발되고 확장되는 과정을 검증하는 데 초점을 둔 참조 프로젝트입니다.',
+    tags: ['CLI', 'Website Generator'],
+    link: '/showcase/claytube',
+    github: 'https://github.com/eternops/claytube',
+  },
+  {
+    title: '와이파이 노트(WIFI Note)',
+    desc: '구조화된 프로젝트 기억 자산화를 통해 복잡한 비즈니스 로직을 빌드해 나가는 과정을 보여주는 웹 애플리케이션 프로젝트입니다.',
+    tags: ['Commercial', 'Web App'],
+    link: '/showcase/wifi-note',
+  },
+];
 ---
 
-<SiteLayout
+<HomeLayout
   title="REPL Works"
   description="REPL Works는 프로젝트 기억, 모델 독립성, Git 기반 연속성을 갖춘 AI-Native Product Development Framework입니다."
 >
-  <section class="space-y-16">
-    <div
-      class="relative overflow-hidden w-full p-0 bg-transparent sm:rounded-3xl sm:border sm:border-slate-200 sm:bg-white sm:p-12 sm:shadow-sm"
-    >
-      <div class="grid gap-10 lg:grid-cols-[1.5fr_0.85fr] lg:items-end">
-        <div class="max-w-4xl">
-          <p
-            class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
-          >
-            AI 중심의 제품 개발 프레임워크
-          </p>
-          <h1
-            class="mt-6 text-4xl font-semibold tracking-tight text-slate-900 sm:text-6xl"
-          >
-            AI는 바뀝니다.
-            <br />
-            프로젝트는 계속되어야 합니다.
-          </h1>
-          <p
-            class="mt-6 max-w-3xl text-xl font-medium leading-9 text-slate-900"
-          >
-            REPL Works는 AI Agent가 아닙니다. AI 중심의 제품 개발
-            프레임워크입니다.
-          </p>
-        </div>
-
-        <aside class="pl-0 lg:border-l lg:border-slate-200 lg:pl-8">
-          <p
-            class="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500"
-          >
-            제공하는 것
-          </p>
-          <ul class="mt-5 space-y-3 text-base font-medium text-slate-800">
-            <li>특정 AI 의존성 탈피</li>
-            <li>프로젝트 지속성</li>
-            <li>AI 입력 비용 최적화</li>
-            <li>온보딩 비용 절감</li>
-            <li>Git 기반 워크플로</li>
-          </ul>
-        </aside>
-      </div>
-      <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-        <a
-          href="/workflow"
-          class="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-        >
-          워크플로 보기
-        </a>
-        <a
-          href="https://github.com/replworks/replworks.github.io"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:border-slate-400 hover:bg-slate-50"
-        >
-          GitHub 보기
-        </a>
-      </div>
-    </div>
-
+  <div class="space-y-16 sm:space-y-24 max-w-5xl mx-auto px-4 md:px-6">
+    {
+      /* =========================================================================
+        2. WORKFLOW SECTION
+        ========================================================================= */
+    }
     <section
-      class="grid gap-10 border-t border-slate-200 pt-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"
+      class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start border-b border-slate-100 pb-16"
     >
       <div>
         <p
-          class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
+          class="text-xs font-black tracking-widest text-slate-400 uppercase font-mono"
         >
           Workflow
         </p>
         <h2
-          class="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl"
+          class="mt-2 text-2xl sm:text-3xl font-black tracking-tight text-slate-900"
         >
           REPL Works는 어떻게 작동하는가
         </h2>
-      </div>
-      <div class="space-y-6">
-        <div
-          class="space-y-4 rounded-3xl border border-slate-200 bg-slate-50 p-6"
-        >
-          <div class="space-y-1">
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500"
-            >
-              IDEAS.md
-            </p>
-            <p class="text-base text-slate-700">아이디어 검증</p>
-          </div>
-          <div class="space-y-1">
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500"
-            >
-              PITCHING_SCRIPT.md
-            </p>
-            <p class="text-base text-slate-700">프로젝트 포지셔닝</p>
-          </div>
-          <div class="space-y-1">
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500"
-            >
-              PRODUCT_SPEC.md
-            </p>
-            <p class="text-base text-slate-700">제품 정의</p>
-          </div>
-          <div class="space-y-1">
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500"
-            >
-              ARCHITECTURE.md
-            </p>
-            <p class="text-base text-slate-700">시스템 설계</p>
-          </div>
-          <div class="space-y-1">
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500"
-            >
-              FRAMEWORK.md
-            </p>
-            <p class="text-base text-slate-700">기술 스택별 구현 규칙</p>
-          </div>
-          <div class="space-y-1">
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500"
-            >
-              TASKS.md
-            </p>
-            <p class="text-base text-slate-700">수행 계획</p>
-          </div>
-          <div class="space-y-1">
-            <p
-              class="text-sm font-semibold uppercase tracking-[0.25em] text-slate-500"
-            >
-              AGENTS.md
-            </p>
-            <p class="text-base text-slate-700">AI 에이젼트 규칙</p>
-          </div>
-        </div>
-        <p class="max-w-3xl text-lg leading-8 text-slate-700">
-          REPL Works는 프로젝트 기억 문서에서 시작해 Planning AI, Execution AI,
-          Human Review로 이어집니다.
+        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+          상위 문서 규격이 명확히 정립되면서 하위 마일스톤 단계로 점진적으로
+          파생·확장되는 연속형 누적 파이프라인 프로세스입니다.
         </p>
+      </div>
+
+      <div class="space-y-6">
+        {/* 세로 타임라인 트랙 트레일 */}
+        <div
+          class="relative pl-5 my-2 before:absolute before:top-2 before:bottom-2 before:left-[9px] before:w-0.5 before:bg-slate-200"
+        >
+          {
+            pipelineSteps.map((step) => (
+              <div class="relative mb-4 last:mb-0 group flex items-center min-w-0">
+                {/* 불릿 원 노드 포인트 */}
+                <span class="absolute -left-[21px] flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white border-2 border-slate-300 group-hover:border-slate-900 transition-colors z-10">
+                  <span class="h-1 w-1 rounded-full bg-slate-300 group-hover:bg-slate-900 transition-colors" />
+                </span>
+
+                {/* 콘텐츠 행 래퍼 (찌그러짐 원천 차단) */}
+                <div class="flex items-center gap-2 sm:gap-3 w-full min-w-0 text-slate-700">
+                  {/* 정렬용 ID 번호 */}
+                  <span class="text-[10px] font-mono font-bold text-slate-400 select-none w-3 shrink-0 text-right">
+                    {step.id}
+                  </span>
+
+                  {/* 파일명 시그니처 칩 */}
+                  <span class="inline-block px-2 py-0.5 text-[10px] sm:text-[11px] font-black font-mono bg-slate-950 text-slate-100 rounded border border-slate-900 shadow-sm tracking-tight select-none shrink-0">
+                    {step.file}
+                  </span>
+
+                  {/* 데스크톱 가로 연결 화살표 */}
+                  <svg
+                    class="hidden sm:block h-3.5 w-3.5 text-slate-300 shrink-0"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2.5"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+                    />
+                  </svg>
+
+                  {/* 한글 기능 가이드 설명 */}
+                  <p class="text-[11px] sm:text-xs font-extrabold text-slate-600 tracking-tight min-w-0 truncate">
+                    <span class="sm:hidden text-slate-300 mr-1 font-normal">
+                      ·
+                    </span>
+                    {step.desc}
+                  </p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+
+        <p class="text-xs sm:text-sm leading-relaxed text-slate-500">
+          REPL Works 아키텍처는 프로젝트 기억 문서 자산화에서 시작해 Planning
+          AI, Execution AI를 거쳐 최종 Human Review 파이프라인으로 연결됩니다.
+        </p>
+
         <a
           href="/workflow"
-          class="inline-flex rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+          class="inline-flex items-center justify-center px-4 py-2 text-xs font-black text-slate-700 bg-white border border-slate-200 rounded-xl shadow-sm hover:bg-slate-50 hover:text-slate-900 hover:border-slate-300 transition-all shrink-0 w-fit"
         >
-          워크플로 자세히 보기
+          워크플로 구조 문서 상세 보기
         </a>
       </div>
     </section>
 
-    <section
-      class="grid gap-10 border-t border-slate-200 pt-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"
-    >
-      <div>
-        <p
-          class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
+    {
+      /* =========================================================================
+        3. PROBLEM SECTION
+        ========================================================================= */
+    }
+    <section class="py-4">
+      <span
+        class="text-xs font-black tracking-widest text-slate-400 uppercase font-mono block mb-1"
+        >PROBLEM</span
+      >
+      <h2 class="text-2xl font-black text-slate-900 tracking-tight mb-2">
+        REPL Works가 해결하는 문제
+      </h2>
+      <p class="text-sm text-slate-600 leading-relaxed max-w-xl mb-6">
+        AI 에이전트는 코드를 정교하게 작성하지만 세션이 끊기면 컨텍스트를
+        망각합니다. 프로젝트 기억은 일회성 채팅방이 아닌 Git 저장소에 영구
+        보존되어야 합니다.
+      </p>
+
+      {/* 2x2 대시보드 그리드 큐브 카드 구조 */}
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-6">
+        <div
+          class="flex items-start gap-3 p-4 rounded-2xl border border-slate-200/70 bg-slate-50/40 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all group"
         >
-          Problem
-        </p>
-        <h2
-          class="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl"
+          <span
+            class="text-xs font-mono font-bold text-slate-400 mt-0.5 group-hover:text-slate-900 transition-colors"
+            >Q1</span
+          >
+          <div class="space-y-0.5">
+            <h3 class="text-sm font-extrabold text-slate-800 tracking-tight">
+              왜 만드는가?
+            </h3>
+            <p class="text-[11px] text-slate-500 tracking-tight">
+              프로젝트의 본질적인 도메인 목적과 비즈니스 동기
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="flex items-start gap-3 p-4 rounded-2xl border border-slate-200/70 bg-slate-50/40 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all group"
         >
-          REPL Works가 해결하는 문제
-        </h2>
+          <span
+            class="text-xs font-mono font-bold text-slate-400 mt-0.5 group-hover:text-slate-900 transition-colors"
+            >Q2</span
+          >
+          <div class="space-y-0.5">
+            <h3 class="text-sm font-extrabold text-slate-800 tracking-tight">
+              무엇을 만드는가?
+            </h3>
+            <p class="text-[11px] text-slate-500 tracking-tight">
+              제품의 스펙 사양 정의 및 상세 요구사항 기능 규격
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="flex items-start gap-3 p-4 rounded-2xl border border-slate-200/70 bg-slate-50/40 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all group"
+        >
+          <span
+            class="text-xs font-mono font-bold text-slate-400 mt-0.5 group-hover:text-slate-900 transition-colors"
+            >Q3</span
+          >
+          <div class="space-y-0.5">
+            <h3 class="text-sm font-extrabold text-slate-800 tracking-tight">
+              현재 구조는 무엇인가?
+            </h3>
+            <p class="text-[11px] text-slate-500 tracking-tight">
+              전체 시스템 엔지니어링 아키텍처 및 기술 스택 구현 규칙
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="flex items-start gap-3 p-4 rounded-2xl border border-slate-200/70 bg-slate-50/40 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all group"
+        >
+          <span
+            class="text-xs font-mono font-bold text-slate-400 mt-0.5 group-hover:text-slate-900 transition-colors"
+            >Q4</span
+          >
+          <div class="space-y-0.5">
+            <h3 class="text-sm font-extrabold text-slate-800 tracking-tight">
+              어떤 결정을 내렸는가?
+            </h3>
+            <p class="text-[11px] text-slate-500 tracking-tight">
+              지금까지 누적 도출된 테크니컬 마일스톤과 설계 의사결정 이력
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="space-y-4 text-lg leading-8 text-slate-700">
-        <p>AI는 코드를 잘 작성합니다.</p>
-        <p>하지만 프로젝트를 기억하지는 못합니다.</p>
-        <p>몇 주가 지나면 다시 설명해야 합니다.</p>
-        <pre
-          class="overflow-x-auto rounded-2xl bg-slate-950 p-6 text-sm leading-7 text-slate-100"><code>왜 만드는가?
 
-무엇을 만드는가?
-
-현재 구조는 무엇인가?
-
-어떤 결정을 내렸는가?</code></pre>
-        <p>REPL Works는 이러한 정보를 프로젝트 문서에 저장합니다.</p>
-        <p>프로젝트 기억은 세션이 아니라 Git에 남아야 합니다.</p>
-      </div>
+      <p class="text-xs sm:text-sm text-slate-500 leading-relaxed mt-4">
+        REPL Works 프레임워크는 상기 핵심 질문 4가지를 누수 없이 수렴하여 시스템
+        설계 문서로 밀착 압축하고 형상 관리의 자산으로 영속시킵니다.
+      </p>
     </section>
 
+    {
+      /* =========================================================================
+        4. BENEFITS SECTION
+        ========================================================================= */
+    }
     <section
-      class="grid gap-10 border-t border-slate-200 pt-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"
+      class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start border-t border-slate-200 pt-12"
     >
       <div>
         <p
-          class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
+          class="text-xs font-black tracking-widest text-slate-400 uppercase font-mono"
         >
           Benefits
         </p>
         <h2
-          class="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl"
+          class="mt-2 text-2xl sm:text-3xl font-black tracking-tight text-slate-900"
         >
           프로젝트를 계속할 수 있게 만드는 다섯 가지 기반
         </h2>
       </div>
-      <div class="space-y-9">
-        <article class="border-l border-slate-200 pl-6">
-          <h3 class="text-xl font-semibold text-slate-900">
-            특정 AI 의존성 탈피
-          </h3>
-          <p class="mt-3 max-w-2xl text-slate-700 leading-8">
-            특정 AI 모델에 의존하지 않습니다. 프로젝트 기억은 Git과 문서에
-            저장되므로 새로운 모델도 프로젝트를 이어갈 수 있습니다.
-          </p>
-        </article>
-        <article class="border-l border-slate-200 pl-6">
-          <h3 class="text-xl font-semibold text-slate-900">프로젝트 지속성</h3>
-          <p class="mt-3 max-w-2xl text-slate-700 leading-8">
-            프로젝트는 수개월 또는 수년 동안 유지됩니다. 세션이 종료되어도
-            프로젝트의 의도와 구조는 유지됩니다.
-          </p>
-        </article>
-        <article class="border-l border-slate-200 pl-6">
-          <h3 class="text-xl font-semibold text-slate-900">
-            AI 입력 비용 최적화
-          </h3>
-          <p class="mt-3 max-w-2xl text-slate-700 leading-8">
-            프로젝트 기억을 문서로 압축합니다. 오래된 채팅을 다시 읽게 하는
-            대신, 필요한 정보만 영구 문서로 남겨 AI가 꼭 필요한 문서만 읽고
-            작업할 수 있습니다.
-          </p>
-        </article>
-        <article class="border-l border-slate-200 pl-6">
-          <h3 class="text-xl font-semibold text-slate-900">온보딩 비용 절감</h3>
-          <p class="mt-3 max-w-2xl text-slate-700 leading-8">
-            새로운 사람과 새로운 AI는 문서를 읽고 빠르게 프로젝트를 이해할 수
-            있습니다.
-          </p>
-        </article>
-        <article class="border-l border-slate-200 pl-6">
-          <h3 class="text-xl font-semibold text-slate-900">
-            Git 기반 워크플로
-          </h3>
-          <p class="mt-3 max-w-2xl text-slate-700 leading-8">
-            모든 프로젝트 기억은 Git으로 관리됩니다. 현재 상태는 문서가
-            설명하고, 과거 상태는 Git이 보존합니다.
-          </p>
-        </article>
+
+      <div class="space-y-8">
+        {
+          benefits.map((benefit) => (
+            <article class="border-l-2 border-slate-200 hover:border-slate-900 pl-5 transition-colors group">
+              <h3 class="text-base sm:text-lg font-black text-slate-800 tracking-tight group-hover:text-slate-950 transition-colors">
+                {benefit.title}
+              </h3>
+              <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                {benefit.desc}
+              </p>
+            </article>
+          ))
+        }
       </div>
     </section>
 
+    {
+      /* =========================================================================
+        5. SHOWCASE SECTION
+        ========================================================================= */
+    }
     <section
-      class="grid gap-10 border-t border-slate-200 pt-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start"
+      class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start border-t border-slate-200 pt-12"
     >
       <div>
         <p
-          class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500"
+          class="text-xs font-black tracking-widest text-slate-400 uppercase font-mono"
         >
           Showcase
         </p>
         <h2
-          class="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl"
+          class="mt-2 text-2xl sm:text-3xl font-black tracking-tight text-slate-900"
         >
           REPL Works 호환 프로젝트
         </h2>
-      </div>
-      <div class="space-y-6">
-        <p class="text-lg leading-8 text-slate-700">
-          REPL Works는 실제 프로젝트에서 사용되고 있습니다.
+        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+          실제 엔지니어링 생태계 및 대규모 개발 주기에 REPL Works 프레임워크
+          설계 표준을 도입한 실제 증명 케이스입니다.
         </p>
-        <div class="grid gap-4">
-          <article
-            class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-          >
-            <div
-              class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-slate-500"
-            >
-              <span
-                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-              >
-                Website
-              </span>
-              <span
-                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-              >
-                Dogfooding
-              </span>
-            </div>
-            <h3 class="mt-3 text-xl font-semibold text-slate-900">
-              REPL Works 웹사이트
-            </h3>
-            <p class="mt-3 text-slate-700 leading-7">
-              ReplWorks 웹사이트는 ReplWorks를 실제로 적용한 첫 번째 ReplWorks
-              Compatible 프로젝트.
-            </p>
-            <p>
-              <a
-                href="/showcase/repl-works-website"
-                class="inline-flex rounded-full bg-slate-100 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
-              >
-                바로가기
-              </a>
-              <a
-                href="https://github.com/replworks/replworks.github.io"
-                class="inline-flex rounded-full bg-slate-100 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
-              >
-                Github 가기
-              </a>
-            </p>
-          </article>
-          <article
-            class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-          >
-            <div
-              class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-slate-500"
-            >
-              <span
-                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-              >
-                Tooling
-              </span>
-              <span
-                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-              >
-                Issue workflow
-              </span>
-            </div>
-            <h3 class="mt-3 text-xl font-semibold text-slate-900">
-              AI 이슈 퍼블리셔
-            </h3>
-            <p class="mt-3 text-slate-700 leading-7">
-              AI와의 토론을 바로 실행 가능한 Github Issue로 변환해 주는 REPL
-              Works 호환 도구.
-            </p>
-            <p>
-              <a
-                href="/showcase/ai-issue"
-                class="inline-flex rounded-full bg-slate-100 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
-              >
-                바로가기
-              </a>
-              <a
-                href="https://github.com/replworks/ai-issue"
-                class="inline-flex rounded-full bg-slate-100 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
-              >
-                Github 가기
-              </a>
-            </p>
-          </article>
-          <article
-            class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-          >
-            <div
-              class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-slate-500"
-            >
-              <span
-                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-              >
-                CLI
-              </span>
-              <span
-                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-              >
-                Website Generator
-              </span>
-            </div>
-            <h3 class="mt-3 text-xl font-semibold text-slate-900">
-              클래이튜브(ClayTube)
-            </h3>
-            <p class="mt-3 text-slate-700 leading-7">
-              ClayTube는 장기간에 걸쳐 개발되고 운영되는지 검증하는데 포커스를
-              둔 ReplWorks 호환 프로젝트.
-            </p>
-            <p>
-              <a
-                href="/showcase/claytube"
-                class="inline-flex rounded-full bg-slate-100 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
-              >
-                바로가기
-              </a>
-              <a
-                href="https://github.com/eternops/claytube"
-                class="inline-flex rounded-full bg-slate-100 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
-              >
-                Github 가기
-              </a>
-            </p>
-          </article>
-          <article
-            class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"
-          >
-            <div
-              class="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.25em] text-slate-500"
-            >
-              <span
-                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-              >
-                Commercial
-              </span>
-              <span
-                class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800"
-              >
-                Web App
-              </span>
-            </div>
-            <h3 class="mt-3 text-xl font-semibold text-slate-900">
-              와이파이 노트(WIFI Note)
-            </h3>
-            <p class="mt-3 text-slate-700 leading-7">
-              구조화된 프로젝트 기억을 통한 제품 개발을 보여주는 비공개 REPL
-              Works 호환 프로젝트.
-            </p>
-            <p>
-              <a
-                href="/showcase/wifi-note"
-                class="inline-flex rounded-full bg-slate-100 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
-              >
-                바로가기
-              </a>
-            </p>
-          </article>
-        </div>
         <a
           href="/showcase"
-          class="inline-flex rounded-full bg-slate-100 px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-200"
+          class="mt-6 inline-flex items-center justify-center px-4 py-2 text-xs font-black text-slate-700 bg-white border border-slate-200 rounded-xl shadow-sm hover:bg-slate-50 hover:text-slate-900 hover:border-slate-300 transition-all shrink-0 w-fit"
         >
-          Showcase 보기
+          전체 쇼케이스 아카이브 보기
         </a>
+      </div>
+
+      <div class="space-y-4 w-full">
+        {
+          showcases.map((project) => (
+            <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 hover:shadow-md transition-all duration-200">
+              {/* 프로젝트 유형 테그 그룹 */}
+              <div class="flex flex-wrap items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider font-mono">
+                {project.tags.map((tag, idx) => (
+                  <span
+                    class={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold ${idx === 0 ? 'bg-blue-50 text-blue-700 border border-blue-100' : 'bg-slate-50 text-slate-600 border border-slate-200/60'}`}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <h3 class="mt-3 text-base sm:text-lg font-black text-slate-900 tracking-tight">
+                {project.title}
+              </h3>
+              <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                {project.desc}
+              </p>
+
+              {/* 실행 링크 버튼 그룹 */}
+              <div class="mt-4 flex items-center gap-2">
+                <a
+                  href={project.link}
+                  class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-extrabold text-slate-700 bg-slate-50 border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-slate-900 transition-colors"
+                >
+                  상세 정보
+                </a>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-extrabold text-slate-700 bg-slate-50 border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-slate-900 transition-colors"
+                  >
+                    GitHub 소스
+                  </a>
+                )}
+              </div>
+            </article>
+          ))
+        }
       </div>
     </section>
 
+    {
+      /* =========================================================================
+        6. CORE IDEA FOOTER CARD
+        ========================================================================= */
+    }
     <section
-      class="rounded-3xl border border-slate-200 bg-slate-950 p-10 text-slate-50 shadow-sm"
+      class="rounded-2xl border border-slate-200 bg-slate-950 p-6 sm:p-8 text-slate-50 shadow-sm my-4"
     >
       <p
-        class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-400"
+        class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 font-mono"
       >
         Core Idea
       </p>
-      <pre
-        class="mt-6 overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900 p-6 text-sm leading-7 text-slate-100"><code>Models forget.
-
-Projects must not.</code></pre>
+      <div
+        class="mt-4 font-mono text-sm leading-relaxed text-slate-100 bg-slate-900/40 p-4 rounded-xl border border-slate-800/80 max-w-sm select-none"
+      >
+        <p class="font-black text-white text-base tracking-tight">
+          Models forget.
+        </p>
+        <p
+          class="text-slate-400 font-extrabold text-base tracking-tight mt-0.5"
+        >
+          Projects must not.
+        </p>
+      </div>
     </section>
-  </section>
-</SiteLayout>
+  </div>
+</HomeLayout>

@@ -1,0 +1,24 @@
+---
+// src/components/QuestionGrid.astro
+interface Props {
+  questions: string[];
+}
+const { questions } = Astro.props;
+---
+
+<div class="grid gap-3 sm:grid-cols-2 my-6">
+  {
+    questions.map((question, idx) => (
+      <div class="flex items-center gap-3.5 p-4 rounded-xl border border-slate-200 bg-slate-50/50 shadow-sm transition-all hover:border-slate-300 hover:bg-white min-h-[64px]">
+        {/* 1. 번호 배지: flex-shrink-0으로 찌그러짐 방지, 글자 크기와 정렬 고정 */}
+        <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-slate-900 text-[11px] font-black text-white select-none">
+          {idx + 1}
+        </span>
+        {/* 2. 텍스트: items-center와 leading-snug 조합으로 무조건 숫자 배지와 황금 수평 정렬 */}
+        <p class="text-sm font-bold text-slate-800 leading-snug tracking-tight">
+          {question}
+        </p>
+      </div>
+    ))
+  }
+</div>

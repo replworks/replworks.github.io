@@ -4,6 +4,14 @@ version: 'v1'
 description: 'REPL Works를 이용한 AI-Native Product Development Workflow'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
+import Workflow from '../../components/Workflow.astro';
+import QuestionGrid from '../../components/QuestionGrid.astro';
+import SpecList from '../../components/SpecList.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import InOut from '../../components/InOut.astro';
+import Criteria from '../../components/Criteria.astro';
+import MemoryGrid from '../../components/MemoryGrid.astro';
+import ReviewGrid from '../../components/ReviewGrid.astro';
 
 대부분의 AI 프로젝트는 같은 문제를 반복한다.
 
@@ -29,15 +37,13 @@ publishedAt: '2026-06-12T00:00:00Z'
 
 그 순간부터 동일한 설명이 반복된다.
 
-```text
-왜 만들고 있지?
-
-현재 상태가 뭐지?
-
-왜 이렇게 설계했지?
-
-다음 작업은 뭐지?
-```
+<QuestionGrid questions={[
+  "왜 만들고 있지?",
+  "현재 상태가 뭐지?",
+  "왜 이렇게 설계했지?",
+  "지속 가능한가?",
+  "다음 작업은 뭐지?"
+]} />
 
 ---
 
@@ -57,31 +63,7 @@ REPL Works는 프로젝트 기억(Project Memory)과 세션 기억(Session Memor
 
 ---
 
-Session Memory
-
-```text
-현재 채팅
-
-현재 Context Window
-
-현재 Agent Runtime
-```
-
----
-
-Project Memory
-
-```text
-Git
-
-PRODUCT_SPEC.md
-
-ARCHITECTURE.md
-
-TASKS.md
-
-AGENTS.md
-```
+<MemoryGrid />
 
 ---
 
@@ -101,37 +83,11 @@ AGENTS.md
 
 # 전체 흐름
 
-```text
-IDEAS.md
-↓
-PITCHING_SCRIPT.md
-↓
-PRODUCT_SPEC.md
-↓
-ARCHITECTURE.md
-↓
-TASKS.md
-↓
-AGENTS.md
-↓
-Discussion AI
-↓
-Issue
-↓
-Execution AI
-↓
-Pull Request
-↓
-Human Review
-↓
-Merge
-↓
-Operation
-↓
-Document Updates
-↓
-Next Iteration
-```
+<Workflow steps={[
+  "IDEAS.md", "PITCHING_SCRIPT.md", "PRODUCT_SPEC.md", "ARCHITECTURE.md",
+  "TASKS.md", "AGENTS.md", "Discussion AI", "Issue", "Execution AI",
+  "Pull Request", "Human Review", "Merge", "Operation", "Document Updates", "Next Iteration"
+]} />
 
 ---
 
@@ -159,17 +115,13 @@ Discussion AI와 반복적으로 대화하며 아이디어를 검증한다.
 
 주요 질문
 
-```text
-누구를 위한 제품인가?
-
-왜 존재해야 하는가?
-
-사용자가 원하는가?
-
-지속 가능한가?
-
-사업적으로 의미가 있는가?
-```
+<QuestionGrid questions={[
+  "누구를 위한 제품인가?",
+  "왜 존재해야 하는가?",
+  "사용자가 원하는가?",
+  "지속 가능한가?",
+  "사업적으로 의미가 있는가?"
+]} />
 
 ---
 
@@ -211,19 +163,14 @@ Discussion AI와 반복적으로 대화하며 아이디어를 검증한다.
 
 포함 내용
 
-```text
-Vision
-
-User Journey
-
-Navigation
-
-Features
-
-Content Structure
-
-Success Criteria
-```
+<SpecGrid items={[
+  "Vision",
+  "User Journey",
+  "Navigation",
+  "Features",
+  "Content Structure",
+  "Success Criteria"
+]} />
 
 ---
 
@@ -253,19 +200,14 @@ Execution AI는 PRODUCT_SPEC.md만 읽어도 제품의 목적을 이해할 수 �
 
 포함 내용
 
-```text
-Project Structure
-
-Routing
-
-Content Model
-
-Data Flow
-
-Deployment
-
-Constraints
-```
+<SpecGrid items={[
+  "Project Structure",
+  "Routing",
+  "Content Model",
+  "Data Flow",
+  "Deployment",
+  "Constraints"
+]} />
 
 ---
 
@@ -341,17 +283,13 @@ AI는 항상 AGENTS.md부터 읽는다.
 
 포함 내용
 
-```text
-문서 우선순위
-
-구현 규칙
-
-테스트 규칙
-
-파일 생성 규칙
-
-아키텍처 변경 규칙
-```
+<SpecGrid items={[
+  "문서 우선순위",
+  "구현 규칙",
+  "테스트 규칙",
+  "파일 생성 규칙",
+  "아키텍처 변경 규칙"
+]} />
 
 ---
 
@@ -365,17 +303,13 @@ Discussion AI는 구현보다 이해에 집중한다.
 
 역할
 
-```text
-요구사항 분석
-
-문서 검토
-
-Task 검증
-
-Issue 작성
-
-Architecture 검토
-```
+<SpecGrid items={[
+  "요구사항 분석",
+  "문서 검토",
+  "Task 검증",
+  "Issue 작성",
+  "Architecture 검토"
+]} />
 
 ---
 
@@ -395,43 +329,21 @@ Execution AI는 승인된 작업을 구현한다.
 
 ---
 
-입력
+**입력**
 
-```text
-PRODUCT_SPEC.md
-
-ARCHITECTURE.md
-
-TASKS.md
-
-AGENTS.md
-
-Issue
-```
+<InOut type="input" items={["PRODUCT_SPEC.md", "ARCHITECTURE.md", "TASKS.md", "AGENTS.md", "Issue"]} />
 
 ---
 
-출력
+**출력**
 
-```text
-Code
-
-Tests
-
-Pull Request
-```
+<InOut type="output" items={["Code", "Tests", "Pull Request"]} />
 
 ---
 
 필수 조건
 
-```text
-Build Success
-
-Lint Success
-
-Test Success
-```
+<Criteria items={["Build Success", "Lint Success", "Test Success"]} />
 
 ---
 
@@ -449,17 +361,13 @@ Test Success
 
 Human Review는 다음을 확인한다.
 
-```text
-요구사항 충족 여부
-
-제품 방향 일치 여부
-
-사용자 경험
-
-품질
-
-릴리즈 준비 상태
-```
+<ReviewGrid items={[
+  "요구사항 충족 여부",
+  "제품 방향 일치 여부",
+  "사용자 경험",
+  "품질",
+  "릴리즈 준비 상태"
+]} />
 
 ---
 
@@ -479,15 +387,12 @@ Human Review는 다음을 확인한다.
 
 운영 과정에서는 새로운 학습이 발생한다.
 
-```text
-사용자 피드백
-
-버그
-
-신규 요구사항
-
-제품 개선
-```
+<SpecGrid items={[
+  "사용자 피드백",
+  "버그 리포트",
+  "신규 요구사항",
+  "제품 개선 아이디어"
+]} />
 
 ---
 
@@ -497,19 +402,10 @@ Human Review는 다음을 확인한다.
 
 # 운영 루프
 
-```text
-Operate
-↓
-Learn
-↓
-Update PRODUCT_SPEC.md
-↓
-Update ARCHITECTURE.md
-↓
-Update TASKS.md
-↓
-Next Iteration
-```
+<Workflow steps={[
+  "Operate", "Learn", "Update PRODUCT_SPEC.md", "Update ARCHITECTURE.md",
+  "Update TASKS.md", "Next Iteration"
+]} />
 
 ---
 

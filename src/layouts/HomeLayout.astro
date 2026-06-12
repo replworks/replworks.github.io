@@ -1,0 +1,21 @@
+---
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+const {
+  title = 'REPL Works',
+  description = 'REPL Works documentation shell.',
+} = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <Header />
+  <Hero />
+  <div class="min-h-screen bg-slate-50 text-slate-900">
+    <main class="prose mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+      <slot />
+    </main>
+    <Footer />
+  </div>
+</Layout>

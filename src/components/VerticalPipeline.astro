@@ -1,0 +1,55 @@
+---
+// src/components/VerticalPipeline.astro
+const steps = [
+  { file: 'IDEAS.md', desc: '아이디어 검증' },
+  { file: 'PITCHING_SCRIPT.md', desc: '프로젝트 포지셔닝' },
+  { file: 'PRODUCT_SPEC.md', desc: '제품 정의' },
+  { file: 'ARCHITECTURE.md', desc: '시스템 설계' },
+  { file: 'FRAMEWORK.md', desc: '기술 스택별 구현 규칙' },
+  { file: 'TASKS.md', desc: '수행 계획' },
+  { file: 'AGENTS.md', desc: 'AI 에이전트 규칙' },
+];
+---
+
+<div
+  class="my-8 relative pl-6 before:absolute before:top-2 before:bottom-2 before:left-[11px] before:w-0.5 before:bg-slate-200"
+>
+  {
+    steps.map((step, idx) => (
+      <div class="relative mb-6 last:mb-0 group">
+        {/* 타임라인 노드 포인트 */}
+        <span class="absolute -left-[21px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-white border-2 border-slate-300 group-hover:border-slate-900 transition-colors">
+          <span class="h-1.5 w-1.5 rounded-full bg-slate-300 group-hover:bg-slate-900 transition-colors" />
+        </span>
+
+        {/* 가로로 나란히 매칭되는 파일명과 설명 */}
+        <div class="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-3">
+          {/* 파일명 배지 */}
+          <span class="inline-block self-start px-2.5 py-1 text-xs font-black font-mono bg-slate-950 text-slate-100 rounded-md shadow-sm tracking-tight select-none">
+            {step.file}
+          </span>
+
+          {/* 화살표와 설명 (모바일에서는 생략되거나 자연스럽게 배치) */}
+          <div class="flex items-center gap-2">
+            <svg
+              class="hidden sm:block h-3.5 w-3.5 text-slate-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2.5"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+              />
+            </svg>
+            <p class="text-sm font-extrabold text-slate-700 tracking-tight">
+              {step.desc}
+            </p>
+          </div>
+        </div>
+      </div>
+    ))
+  }
+</div>

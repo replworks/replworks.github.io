@@ -1,0 +1,30 @@
+---
+// src/components/DocLink.astro
+interface Props {
+  href: string;
+  text?: string;
+}
+const { href, text = 'View Document Standard' } = Astro.props;
+---
+
+<div class="my-4">
+  <a
+    href={href}
+    class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-slate-200 bg-white text-xs font-bold text-slate-600 shadow-sm no-underline transition-all hover:bg-slate-50 hover:text-slate-900 hover:border-slate-300 group"
+  >
+    <span>{text}</span>
+    {/* 오른쪽으로 향하는 미니멀한 화살표 애니메이션 */}
+    <svg
+      class="h-3.5 w-3.5 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:text-slate-700"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="3"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+    </svg>
+  </a>
+</div>

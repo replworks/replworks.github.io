@@ -1,0 +1,37 @@
+---
+// src/components/MissionBox.astro
+interface Props {
+  text: string;
+}
+const { text } = Astro.props;
+---
+
+<div
+  class="my-4 overflow-hidden rounded-xl border border-slate-200 bg-gradient-to-r from-slate-50 to-slate-100/50 p-4 shadow-sm"
+>
+  <div class="flex items-center gap-3">
+    {/* 나침반/방향을 상징하는 아이콘 */}
+    <div
+      class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-900 text-white shadow-sm"
+    >
+      <svg
+        class="h-4 w-4"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.042 9.152c.582.448 1.148.89 1.676 1.345m-1.676-1.345c-.58-.447-1.147-.89-1.677-1.345m3.353 2.69c1.082.813 2.14 1.64 3.163 2.477a1.604 1.604 0 010 2.482c-1.023.836-2.08 1.664-3.163 2.477m0-7.436a11.963 11.963 0 00-3.353-2.69M15.042 16.588c.582-.449 1.148-.89 1.676-1.345m-1.676 1.345c-.58.446-1.147-.89-1.677-1.345m3.353 2.69c1.082-.813 2.14-1.64 3.163-2.477a1.604 1.604 0 000-2.482c-1.023-.836-2.08-1.664-3.163-2.477m0 7.436a11.963 11.963 0 01-3.353 2.69M12 2.25l-9.75 4.5 9.75 4.5 9.75-4.5L12 2.25zm0 10.5l-9.75 4.5 9.75 4.5 9.75-4.5-9.75-4.5z"
+        ></path>
+      </svg>
+    </div>
+
+    {/* 이타릭체와 두꺼운 폰트로 미션 느낌 강조 */}
+    <p class="text-base font-extrabold italic text-slate-800 tracking-tight">
+      "{text}"
+    </p>
+  </div>
+</div>

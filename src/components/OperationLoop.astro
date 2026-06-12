@@ -1,0 +1,66 @@
+---
+// src/components/OperationLoop.astro
+interface Props {
+  steps: string[];
+}
+const { steps } = Astro.props;
+---
+
+<div
+  class="my-6 rounded-2xl border border-blue-100 bg-gradient-to-r from-blue-50/30 to-indigo-50/30 p-5 shadow-sm"
+>
+  {/* 가로로 부드럽게 정렬되는 루프 컨테이너 */}
+  <div class="flex flex-wrap items-center gap-x-3 gap-y-3.5">
+    {
+      steps.map((step, idx) => (
+        <div class="flex items-center gap-3">
+          {/* 일반 액션과 .md 파일의 스타일을 구분하여 일관성 유지 */}
+          <span
+            class={`inline-block px-3.5 py-1.5 text-sm font-bold rounded-xl border shadow-sm transition-all ${
+              step.includes('Update')
+                ? 'bg-slate-950 text-slate-100 border-slate-900 font-mono' // 문서 업데이트 (강조)
+                : 'bg-white text-slate-800 border-slate-200 hover:border-blue-300' // 일반 운영 단계
+            }`}
+          >
+            {step}
+          </span>
+
+          {/* 단계 연결 화살표 */}
+          {idx < steps.length - 1 ? (
+            <svg
+              class="h-4 w-4 text-blue-400 shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="3"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+              />
+            </svg>
+          ) : (
+            /* 마지막 단계 뒤에는 처음으로 돌아간다는 순환(Loop) 아이콘 배치 */
+            <div class="flex items-center gap-1.5 px-2 py-1 bg-blue-100/70 text-blue-700 text-xs font-black rounded-lg uppercase tracking-wider animate-pulse">
+              <svg
+                class="h-3.5 w-3.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="3"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99"
+                />
+              </svg>
+              Loop
+            </div>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</div>

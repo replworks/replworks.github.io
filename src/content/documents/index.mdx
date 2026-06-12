@@ -5,6 +5,10 @@ description: 'Document standards used by the REPL Works framework.'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
+import DocumentFlow from '../../components/DocumentFlow.astro';
+import MissionBox from '../../components/MissionBox.astro';
+import DocLink from '../../components/DocLink.astro';
+
 REPL Works는 문서를 단순한 기록으로 보지 않는다.
 
 문서는 프로젝트 기억(Project Memory)의 일부이다.
@@ -25,21 +29,15 @@ REPL Works는 프로젝트 기억을 문서와 Git에 저장한다.
 
 # Document Flow
 
-```text
-IDEAS.md
-↓
-PITCHING_SCRIPT.md
-↓
-PRODUCT_SPEC.md
-↓
-ARCHITECTURE.md
-↓
-FRAMEWORK.md
-↓
-TASKS.md
-↓
-AGENTS.md
-```
+<DocumentFlow documents={[
+  "IDEAS.md",
+  "PITCHING_SCRIPT.md",
+  "PRODUCT_SPEC.md",
+  "ARCHITECTURE.md",
+  "FRAMEWORK.md",
+  "TASKS.md",
+  "AGENTS.md"
+]} />
 
 ---
 
@@ -57,9 +55,7 @@ AGENTS.md
 
 목적
 
-```text
-Should we build this?
-```
+<MissionBox text="Should we build this?" />
 
 ---
 
@@ -73,7 +69,7 @@ Should we build this?
 
 ---
 
-[View Document Standard](/documents/ideas)
+<DocLink href="/documents/ideas" />
 
 ---
 
@@ -85,9 +81,7 @@ Should we build this?
 
 목적
 
-```text
-Why does this project exist?
-```
+<MissionBox text="Why does this project exist?" />
 
 ---
 
@@ -100,7 +94,7 @@ Why does this project exist?
 
 ---
 
-[View Document Standard](/documents/pitching-script)
+<DocLink href="/documents/pitching-script" />
 
 ---
 
@@ -112,9 +106,7 @@ Why does this project exist?
 
 목적
 
-```text
-What should be built?
-```
+<MissionBox text="What should be built?" />
 
 ---
 
@@ -128,7 +120,7 @@ What should be built?
 
 ---
 
-[View Document Standard](/documents/product-spec)
+<DocLink href="/documents/product-spec" />
 
 ---
 
@@ -140,9 +132,7 @@ What should be built?
 
 목적
 
-```text
-How should it be built?
-```
+<MissionBox text="How should it be built?" />
 
 ---
 
@@ -160,7 +150,7 @@ ARCHITECTURE.md는 프로젝트의 기술적 진실이다.
 
 ---
 
-[View Document Standard](/documents/architecture)
+<DocLink href="/documents/architecture" />
 
 ---
 
@@ -172,9 +162,7 @@ ARCHITECTURE.md는 프로젝트의 기술적 진실이다.
 
 목적
 
-```text
-How should this stack be used?
-```
+<MissionBox text="How should this stack be used?" />
 
 ---
 
@@ -200,7 +188,7 @@ FRAMEWORK.md는 해당 구조를 구현하는 방법을 설명한다.
 
 ---
 
-[View Document Standard](/documents/framework)
+<DocLink href="/documents/framework" />
 
 ---
 
@@ -212,9 +200,7 @@ FRAMEWORK.md는 해당 구조를 구현하는 방법을 설명한다.
 
 목적
 
-```text
-What should be done next?
-```
+<MissionBox text="What should be done next?" />
 
 ---
 
@@ -230,7 +216,7 @@ TASKS.md는 현재 위치를 설명한다.
 
 ---
 
-[View Document Standard](/documents/tasks)
+<DocLink href="/documents/tasks" />
 
 ---
 
@@ -242,9 +228,7 @@ AI 작업 규칙을 정의한다.
 
 목적
 
-```text
-How should AI work?
-```
+<MissionBox text="How should AI work?" />
 
 ---
 
@@ -261,7 +245,7 @@ AGENTS.md는 모든 AI의 진입점이다.
 
 ---
 
-[View Document Standard](/documents/agents)
+<DocLink href="/documents/agents" />
 
 ---
 

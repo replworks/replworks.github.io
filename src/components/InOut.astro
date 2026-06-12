@@ -1,0 +1,76 @@
+---
+// src/components/InOut.astro
+interface Props {
+  type: 'input' | 'output';
+  items: string[];
+}
+
+const { type, items } = Astro.props;
+
+// 입력과 출력에 따른 스타일 정의
+const isInput = type === 'input';
+const bgColor = isInput ? 'bg-slate-50' : 'bg-blue-50/50';
+const borderColor = isInput ? 'border-slate-200' : 'border-blue-200';
+const labelColor = isInput ? 'bg-slate-900' : 'bg-blue-600';
+const iconColor = isInput ? 'text-slate-400' : 'text-blue-500';
+---
+
+<div class={`my-4 rounded-2xl border ${borderColor} ${bgColor} p-5 shadow-sm`}>
+  {/* 상단 라벨 */}
+  <div class="mb-4 flex items-center gap-2">
+    <span
+      class={`px-2.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-white rounded-full ${labelColor}`}
+    >
+      {type}
+    </span>
+    <div class={`h-px flex-1 ${isInput ? 'bg-slate-200' : 'bg-blue-200'}`}>
+    </div>
+  </div>
+
+  {/* 아이템 리스트 (가로로 예쁘게 배치) */}
+  <div class="flex flex-wrap gap-2">
+    {
+      items.map((item) => (
+        <div
+          class={`flex items-center gap-2 px-3 py-1.5 rounded-lg border shadow-sm transition-all ${
+            item.endsWith('.md')
+              ? 'bg-slate-950 text-slate-100 border-slate-800 font-mono'
+              : 'bg-white text-slate-800 border-slate-200'
+          }`}
+        >
+          {/* 아이콘: 입력은 화살표 인, 출력은 체크박스 */}
+          {isInput ? (
+            <svg
+              class={`h-3.5 w-3.5 ${iconColor}`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="3"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75"
+              />
+            </svg>
+          ) : (
+            <svg
+              class={`h-3.5 w-3.5 ${iconColor}`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="3"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4.5 12.75l6 6 9-13.5"
+              />
+            </svg>
+          )}
+          <span class="text-sm font-bold tracking-tight">{item}</span>
+        </div>
+      ))
+    }
+  </div>
+</div>

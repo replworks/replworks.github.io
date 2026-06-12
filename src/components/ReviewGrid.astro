@@ -1,0 +1,33 @@
+---
+// src/components/ReviewGrid.astro
+interface Props {
+  items: string[];
+}
+const { items } = Astro.props;
+---
+
+<div class="grid gap-3 sm:grid-cols-2 my-6">
+  {
+    items.map((item) => (
+      <div class="flex items-center gap-3.5 px-4 py-3 rounded-xl border border-slate-200 bg-white shadow-sm border-l-4 border-l-amber-500 transition-all hover:border-amber-300 hover:shadow-md">
+        {/* Human Review를 상징하는 주황/노란색 돋보기 아이콘 */}
+        <svg
+          class="h-4 w-4 shrink-0 text-amber-500"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="3"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+          />
+        </svg>
+        <span class="text-base font-bold text-slate-900 tracking-tight leading-tight">
+          {item}
+        </span>
+      </div>
+    ))
+  }
+</div>

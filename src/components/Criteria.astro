@@ -1,0 +1,36 @@
+---
+// src/components/Criteria.astro
+interface Props {
+  items: string[];
+}
+const { items } = Astro.props;
+---
+
+<div
+  class="my-4 rounded-xl border border-emerald-100 bg-emerald-50/30 p-4 shadow-sm"
+>
+  {/* 항목들을 모바일에서도 한 줄에 예쁘게 칩(Chip) 형태로 가로 배치 */}
+  <div class="flex flex-wrap gap-2.5">
+    {
+      items.map((item) => (
+        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-emerald-200 bg-white text-emerald-800 shadow-sm transition-all hover:border-emerald-300">
+          {/* 성공/패스를 의미하는 초록색 체크 아이콘 */}
+          <svg
+            class="h-4 w-4 shrink-0 text-emerald-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="3"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4.5 12.75l6 6 9-13.5"
+            />
+          </svg>
+          <span class="text-sm font-bold tracking-tight">{item}</span>
+        </div>
+      ))
+    }
+  </div>
+</div>
