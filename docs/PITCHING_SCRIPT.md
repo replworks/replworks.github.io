@@ -1,69 +1,54 @@
 # PITCHING_SCRIPT.md
 
-Version 2.0
+Version 3.0
 
 ---
 
 # What Is REPL Works?
 
-REPL Works는 AI 개발 워크플로우가 아니다.
-
-REPL Works는 AI 시대를 위한 Project Memory System이다.
+REPL Works는 AI 시대를 위한 Product Development Framework이다.
 
 ---
 
-# The Problem
+AI는 점점 더 강력해지고 있다.
 
-AI development has a memory problem.
+더 긴 Context Window.
 
----
+더 강력한 Agent.
 
-AI는 코드를 작성할 수 있다.
-
-Agent는 작업을 수행할 수 있다.
-
-모델은 점점 더 똑똑해지고 있다.
+더 높은 코드 생성 능력.
 
 ---
 
-그러나 장기 프로젝트는 여전히 실패한다.
+그러나 제품 개발은 여전히 어렵다.
 
 ---
 
-왜일까?
+좋은 아이디어는 사라진다.
+
+설계 의도는 잊혀진다.
+
+문서는 오래될수록 신뢰를 잃는다.
+
+아키텍처는 드리프트한다.
+
+운영 경험은 축적되지 않는다.
 
 ---
 
-프로젝트는 수개월 또는 수년 동안 존재한다.
+AI는 발전하고 있지만
 
-그러나 AI의 기억은 몇 시간 또는 몇 주를 넘기 어렵다.
-
----
-
-중요한 프로젝트 지식은 다음 위치에 흩어진다.
-
-- Chat History
-- Prompt
-- Context Window
-- Agent Runtime
-
----
-
-그리고 언젠가 이 기억들은 사라진다.
-
----
-
-우리는 이 문제를
-
-Project Amnesia
-
-라고 부른다.
+프로젝트는 여전히 연속성을 잃는다.
 
 ---
 
 # The Real Problem
 
-우리는 오랫동안 AI의 지능을 향상시키려고 노력했다.
+대부분의 사람들은 AI 개발의 문제를
+
+AI의 능력 부족이라고 생각한다.
+
+---
 
 더 좋은 모델.
 
@@ -73,136 +58,304 @@ Project Amnesia
 
 ---
 
-그러나 문제는 지능이 아니었다.
+그러나 REPL Works는 다르게 생각한다.
 
 ---
 
-문제는 기억이었다.
+문제는 지능이 아니다.
+
+문제는 Continuity다.
 
 ---
 
-# Project Memory vs Session Memory
+프로젝트는 사람보다 오래 살아야 한다.
 
-REPL Works는 두 가지 기억을 구분한다.
-
----
-
-Project Memory
-
-프로젝트가 유지해야 하는 영속적 기억
-
----
-
-Session Memory
-
-현재 세션이 유지하는 임시 기억
-
----
-
-대부분의 AI 개발은 이 둘을 혼동한다.
-
----
-
-프로젝트 기억을 Session 안에 저장하면
-
-Session이 종료될 때 프로젝트도 함께 기억을 잃는다.
-
----
-
-# The REPL Works Approach
-
-REPL Works는 다른 질문을 한다.
-
----
-
-기억은 왜 Runtime 안에 있어야 하는가?
-
----
-
-프로젝트 기억은 Repository 안에 존재해야 한다.
-
----
-
-Project Memory
-
-```text
-Constitution
-
-Architecture
-
-Tasks
-
-Git History
-```
-
----
-
-Session Memory
-
-```text
-Long Context
-```
-
----
-
-REPL Works는 프로젝트 기억을 Repository에 저장한다.
-
-필요한 경우 Session Memory를 복구한다.
-
----
-
-# What Changes?
-
-모델이 바뀌어도 프로젝트는 유지된다.
-
----
-
-Session이 종료되어도 프로젝트는 유지된다.
-
----
-
-새로운 AI를 사용해도 프로젝트를 복원할 수 있다.
-
----
-
-프로젝트는 특정 모델에 종속되지 않는다.
-
----
-
-# Why It Matters
-
-AI 시대의 핵심 문제는 더 똑똑한 AI를 만드는 것이 아니다.
-
----
-
-더 오래 살아남는 프로젝트를 만드는 것이다.
-
----
+프로젝트는 세션보다 오래 살아야 한다.
 
 프로젝트는 모델보다 오래 살아야 한다.
 
 ---
 
-프로젝트는 Session보다 오래 살아야 한다.
+# Project Continuity
+
+프로젝트는 계속 이해될 수 있어야 한다.
+
+---
+
+누가 참여하든
+
+어떤 모델을 사용하든
+
+언제 프로젝트에 합류하든
+
+---
+
+프로젝트를 이해하고
+
+이어서 개발할 수 있어야 한다.
+
+---
+
+그러나 현실은 그렇지 않다.
+
+---
+
+프로젝트 지식은 다음 위치에 흩어진다.
+
+* Chat History
+* Prompt
+* Context Window
+* Agent Runtime
+* 개인 메모
+
+---
+
+결국 중요한 의사결정은 사라진다.
+
+---
+
+우리는 이 문제를
+
+Project Discontinuity
+
+라고 부른다.
+
+---
+
+# The REPL Works Approach
+
+REPL Works는 프로젝트 지식을 Living Documents로 관리한다.
+
+---
+
+Idea
+
+```text
+IDEAS.md
+
+PITCHING_SCRIPT.md
+```
+
+---
+
+Product
+
+```text
+PRODUCT_SPEC.md
+```
+
+---
+
+Architecture
+
+```text
+ARCHITECTURE.md
+
+FRAMEWORK.md
+```
+
+---
+
+Planning
+
+```text
+TASKS.md
+```
+
+---
+
+Execution
+
+```text
+AGENTS.md
+```
+
+---
+
+이 문서들은 프로젝트의 현재 상태를 설명한다.
+
+---
+
+문서는 버전별로 관리하지 않는다.
+
+Git이 버전을 관리한다.
+
+---
+
+문서는 현재를 설명한다.
+
+Git은 과거를 보존한다.
+
+---
+
+# Thinking ≠ Execution
+
+REPL Works는 설계와 구현을 분리한다.
+
+---
+
+Thinking LLM
+
+```text
+Ideas
+
+Product Design
+
+Architecture
+
+Planning
+```
+
+---
+
+Execution LLM
+
+```text
+Implementation
+
+Testing
+
+Refactoring
+
+Documentation
+```
+
+---
+
+Execution은 Thinking을 대체하지 않는다.
+
+---
+
+설계가 바뀌면
+
+문서를 수정한다.
+
+---
+
+문서를 수정한 뒤
+
+구현한다.
+
+---
+
+# Development Never Ends
+
+대부분의 개발 프로세스는
+
+출시를 목표로 한다.
+
+---
+
+REPL Works는 운영까지 포함한다.
+
+---
+
+```text
+Idea
+
+↓
+
+Specification
+
+↓
+
+Architecture
+
+↓
+
+Tasks
+
+↓
+
+Execution
+
+↓
+
+Release
+
+↓
+
+Operation
+
+↓
+
+Improvement
+
+↓
+
+Specification Update
+
+↓
+
+Architecture Update
+
+↓
+
+Tasks Update
+```
+
+---
+
+운영 결과는 다시 설계로 돌아간다.
+
+---
+
+모든 개선은 프로젝트 지식으로 환원된다.
+
+---
+
+# Why It Matters
+
+AI는 계속 발전할 것이다.
+
+사람은 팀을 이동할 것이다.
+
+모델은 교체될 것이다.
+
+세션은 종료될 것이다.
+
+---
+
+그러나 프로젝트는 계속 살아남아야 한다.
+
+---
+
+프로젝트는 특정 사람에게 종속되어서는 안 된다.
+
+프로젝트는 특정 모델에 종속되어서도 안 된다.
+
+---
+
+프로젝트는 스스로를 설명할 수 있어야 한다.
 
 ---
 
 # One Sentence
 
-Most AI systems store memory inside the runtime.
-
-REPL Works stores project memory inside the repository.
+REPL Works keeps projects understandable, maintainable, and improvable across humans, sessions, and AI models.
 
 ---
 
 # Closing
 
+AI will change.
+
+Models will change.
+
+Teams will change.
+
+---
+
+Projects must continue.
+
+---
+
 AI memory is temporary.
 
-Project memory must be externalized.
+Project continuity must be preserved.
 
 ---
 
 Models forget.
 
-Projects must not.
+Projects continue.

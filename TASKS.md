@@ -1,6 +1,6 @@
 # TASKS.md
 
-Version 3.0
+Version 4.0
 
 ## PURPOSE
 
@@ -76,69 +76,144 @@ Propose TASK update
 
 ## FOUNDATION
 
-- [x] T001 Initialize Astro Project
-- [x] T002 Configure Tailwind CSS
-- [x] T003 Configure Content Collections
-- [x] T004 Configure MDX Support
-- [x] T005 Configure GitHub Pages Deployment
-- [x] T006 Configure linting and formatting
-- [x] T007 Configure testing
+* [x] T001 Initialize Astro Project
+* [x] T002 Configure Tailwind CSS
+* [x] T003 Configure Content Collections
+* [x] T004 Configure MDX Support
+* [x] T005 Configure GitHub Pages Deployment
+* [x] T006 Configure Linting and Formatting
+* [x] T007 Configure Testing
 
 ---
 
 # PHASE 2
 
-## LAYOUT SYSTEM
+## PLATFORM FOUNDATION
 
-- [x] T106 Create Site Shell
+* [x] T101 Create Site Shell
+* [x] T102 Configure Navigation
+* [x] T103 Configure Layout System
+* [x] T104 Configure Content Rendering
+* [x] T105 Configure Search Infrastructure
 
 ---
 
 # PHASE 3
 
-## CORE CONTENT
+## INITIAL WEBSITE RELEASE
 
-- [x] T211 Create Home Page
-- [x] T212 Create Why Page
-- [x] T213 Publish Manifesto v1
-- [x] T214 Publish Specification v1
-- [x] T215 Publish Workflow v1
+* [x] T201 Create Home Page
+* [x] T202 Publish Why Content
+* [x] T203 Publish Manifesto
+* [x] T204 Publish Specification
+* [x] T205 Publish Workflow
+* [x] T206 Publish Resources
+* [x] T207 Publish Showcase
+* [x] T208 Publish FAQ
 
 ---
 
 # PHASE 4
 
-## RESOURCES
+## REPL WORKS REPOSITIONING
 
-- [x] T316 Create Resources Index
-- [x] T317 Publish Templates
-- [x] T318 Publish Example Documents
-- [x] T319 Publish Long Context Examples
-- [x] T320 Publish Repository Examples
-- [x] T321 Publish Planning Examples
-- [x] T322 Publish FAQ
+### INFORMATION ARCHITECTURE
+
+* [ ] T401 Replace legacy navigation with new navigation structure
+* [ ] T402 Remove Why section
+* [ ] T403 Remove Manifesto section
+* [ ] T404 Remove Specification section
+
+---
+
+### HOME
+
+* [ ] T405 Rewrite Home page for AI-Native Product Development Framework positioning
+* [ ] T406 Add workflow-first messaging
+* [ ] T407 Add REPL Works Compatible positioning
+* [ ] T408 Add GitHub call-to-action
+
+---
+
+### WORKFLOW
+
+* [ ] T409 Rewrite Workflow documentation
+* [ ] T410 Publish current REPL Works workflow
+* [ ] T411 Explain Planning AI vs Execution AI
+* [ ] T412 Explain continuous improvement workflow
+
+---
+
+### PROMPTS
+
+* [ ] T413 Create Prompts section
+* [ ] T414 Publish IDEAS prompt
+* [ ] T415 Publish PITCHING_SCRIPT prompt
+* [ ] T416 Publish PRODUCT_SPEC prompt
+* [ ] T417 Publish ARCHITECTURE prompt
+* [ ] T418 Publish TASKS prompt
+* [ ] T419 Publish Review prompts
+
+---
+
+### DOCUMENTS
+
+* [ ] T420 Create Documents section
+* [ ] T421 Publish AGENTS.md standard
+* [ ] T422 Publish PRODUCT_SPEC.md standard
+* [ ] T423 Publish ARCHITECTURE.md standard
+* [ ] T424 Publish TASKS.md standard
+
+---
+
+### TOOLS
+
+* [ ] T425 Create Tools section
+* [ ] T426 Publish ai-issue
+* [ ] T427 Add installation guide
+* [ ] T428 Add GitHub repository links
+
+---
+
+### SHOWCASE
+
+* [ ] T429 Convert Showcase to REPL Works Compatible Projects
+* [ ] T430 Publish REPL Works Website showcase
+* [ ] T431 Publish ai-issue showcase
+* [ ] T432 Publish Wifi Note showcase
+
+---
+
+### FAQ
+
+* [ ] T433 Rewrite FAQ for framework positioning
+* [ ] T434 Add compatibility questions
+* [ ] T435 Add workflow questions
+* [ ] T436 Add planning vs execution questions
 
 ---
 
 # PHASE 5
 
-## SHOWCASE
+## SEARCH
 
-- [x] T423 Create Showcase Index
-- [x] T424 Publish REPL Works Website Showcase
-- [x] T425 Publish Project A Showcase
-- [x] T426 Publish Project B Showcase
-- [x] T427 Publish Project C Showcase
-- [x] T428 Publish Project D Showcase
+* [ ] T501 Verify search indexing for Prompts
+* [ ] T502 Verify search indexing for Documents
+* [ ] T503 Verify search indexing for Tools
+* [ ] T504 Verify search indexing for Showcase
+* [ ] T505 Verify search indexing for FAQ
 
 ---
 
 # PHASE 6
 
-## SEARCH
+## CONTENT REVIEW
 
-- [x] T529 Integrate Pagefind
-- [x] T530 Create Search UI
+* [ ] T601 Review Workflow content
+* [ ] T602 Review Prompt content
+* [ ] T603 Review Document content
+* [ ] T604 Review Tool content
+* [ ] T605 Review Showcase content
 
 ---
 
@@ -146,11 +221,11 @@ Propose TASK update
 
 ## RELEASE
 
-- [x] T631 Content Review
-- [x] T632 Responsive Review
-- [x] T633 Accessibility Review
-- [x] T634 Deployment Verification
-- [x] T635 Release v1
+* [ ] T701 Responsive Review
+* [ ] T702 Accessibility Review
+* [ ] T703 Search Verification
+* [ ] T704 GitHub Pages Verification
+* [ ] T705 Release v2
 
 ---
 
