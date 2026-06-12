@@ -1,15 +1,105 @@
 ---
 title: 'Workflow'
 version: 'v1'
-description: 'The current REPL Works process for AI-native product development.'
+description: 'REPL Works를 이용한 AI-Native Product Development Workflow'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
-## Purpose
+대부분의 AI 프로젝트는 같은 문제를 반복한다.
 
-Explain the latest REPL Works process from idea refinement through operation.
+처음에는 모든 것이 명확하다.
 
-## Workflow
+무엇을 만들고 있는지,
+왜 만들고 있는지,
+어떤 구조를 선택했는지 모두 알고 있다.
+
+---
+
+하지만 시간이 지나면 상황이 달라진다.
+
+새로운 채팅을 시작한다.
+
+다른 모델을 사용한다.
+
+프로젝트를 몇 주 동안 중단했다가 다시 돌아온다.
+
+새로운 사람이 프로젝트에 참여한다.
+
+---
+
+그 순간부터 동일한 설명이 반복된다.
+
+```text
+왜 만들고 있지?
+
+현재 상태가 뭐지?
+
+왜 이렇게 설계했지?
+
+다음 작업은 뭐지?
+```
+
+---
+
+REPL Works는 이 문제를 해결하기 위해 만들어졌다.
+
+---
+
+REPL Works의 목표는 단순히 AI로 코드를 생성하는 것이 아니다.
+
+프로젝트가 세션보다 오래 살아남을 수 있도록 만드는 것이다.
+
+---
+
+# 핵심 아이디어
+
+REPL Works는 프로젝트 기억(Project Memory)과 세션 기억(Session Memory)을 구분한다.
+
+---
+
+Session Memory
+
+```text
+현재 채팅
+
+현재 Context Window
+
+현재 Agent Runtime
+```
+
+---
+
+Project Memory
+
+```text
+Git
+
+PRODUCT_SPEC.md
+
+ARCHITECTURE.md
+
+TASKS.md
+
+AGENTS.md
+```
+
+---
+
+세션 기억은 언제든 사라질 수 있다.
+
+프로젝트 기억은 Git에 남아야 한다.
+
+---
+
+어떤 모델을 사용하더라도,
+
+어떤 세션을 시작하더라도,
+
+프로젝트는 다시 복원될 수 있어야 한다.
+
+---
+
+# 전체 흐름
 
 ```text
 IDEAS.md
@@ -30,21 +120,459 @@ Issue
 ↓
 Execution AI
 ↓
-PR
+Pull Request
 ↓
 Human Review
 ↓
 Merge
 ↓
 Operation
+↓
+Document Updates
+↓
+Next Iteration
 ```
 
-## Roles
+---
 
-- Planning AI defines the work and updates the project memory documents.
-- Execution AI implements the approved task.
-- Human Review approves the result before merge.
+이 흐름은 제품 개발부터 운영까지 동일하게 유지된다.
 
-## Continuity
+REPL Works는 개발 단계와 운영 단계를 분리하지 않는다.
 
-The process is designed to preserve project memory across sessions and model changes.
+제품이 진화하면 문서도 함께 진화해야 한다.
+
+---
+
+# Phase 1. 아이디어 정제
+
+## 목적
+
+무엇을 만들 것인지 결정한다.
+
+---
+
+Discussion AI와 반복적으로 대화하며 아이디어를 검증한다.
+
+이 단계에서는 구현보다 문제와 시장을 이해하는 것이 중요하다.
+
+---
+
+주요 질문
+
+```text
+누구를 위한 제품인가?
+
+왜 존재해야 하는가?
+
+사용자가 원하는가?
+
+지속 가능한가?
+
+사업적으로 의미가 있는가?
+```
+
+---
+
+## 산출물
+
+### IDEAS.md
+
+아이디어와 핵심 가설을 정리한다.
+
+---
+
+### PITCHING_SCRIPT.md
+
+제품을 짧고 명확하게 설명할 수 있도록 정리한다.
+
+---
+
+# Phase 2. 제품 정의
+
+## 목적
+
+무엇을 만들 것인지 명확하게 정의한다.
+
+---
+
+좋은 아이디어만으로는 제품을 만들 수 없다.
+
+제품이 어떤 경험을 제공해야 하는지 구체적으로 정의해야 한다.
+
+---
+
+## 산출물
+
+### PRODUCT_SPEC.md
+
+제품의 Source of Truth이다.
+
+---
+
+포함 내용
+
+```text
+Vision
+
+User Journey
+
+Navigation
+
+Features
+
+Content Structure
+
+Success Criteria
+```
+
+---
+
+Execution AI는 PRODUCT_SPEC.md만 읽어도 제품의 목적을 이해할 수 있어야 한다.
+
+---
+
+# Phase 3. 아키텍처 설계
+
+## 목적
+
+어떻게 만들 것인지 정의한다.
+
+---
+
+제품 정의가 끝나면 기술 구조를 설계한다.
+
+---
+
+## 산출물
+
+### ARCHITECTURE.md
+
+기술적 Source of Truth이다.
+
+---
+
+포함 내용
+
+```text
+Project Structure
+
+Routing
+
+Content Model
+
+Data Flow
+
+Deployment
+
+Constraints
+```
+
+---
+
+PRODUCT_SPEC.md가 무엇을 정의한다면,
+
+ARCHITECTURE.md는 어떻게를 정의한다.
+
+---
+
+# Phase 4. 작업 계획
+
+## 목적
+
+현재 개발 상태를 정의한다.
+
+---
+
+큰 프로젝트도 결국 작은 작업들의 집합이다.
+
+---
+
+## 산출물
+
+### TASKS.md
+
+현재 위치를 설명하는 문서이다.
+
+---
+
+예시
+
+```text
+Phase 1
+
+- [ ]
+
+Phase 2
+
+- [ ]
+```
+
+---
+
+ARCHITECTURE.md는 목적지다.
+
+TASKS.md는 현재 위치다.
+
+---
+
+작업은 항상 TASKS.md 기준으로 수행한다.
+
+---
+
+# Phase 5. 프로젝트 규칙 정의
+
+## 목적
+
+AI가 따라야 하는 규칙을 정의한다.
+
+---
+
+## 산출물
+
+### AGENTS.md
+
+프로젝트 헌법이다.
+
+---
+
+AI는 항상 AGENTS.md부터 읽는다.
+
+---
+
+포함 내용
+
+```text
+문서 우선순위
+
+구현 규칙
+
+테스트 규칙
+
+파일 생성 규칙
+
+아키텍처 변경 규칙
+```
+
+---
+
+# Phase 6. 계획 수립
+
+## Planning AI
+
+Planning AI는 구현보다 이해에 집중한다.
+
+---
+
+역할
+
+```text
+요구사항 분석
+
+문서 검토
+
+Task 검증
+
+Issue 작성
+
+Architecture 검토
+```
+
+---
+
+Planning과 Execution은 분리한다.
+
+---
+
+REPL Works는 설계되지 않은 구현을 지양한다.
+
+---
+
+# Phase 7. 구현
+
+## Execution AI
+
+Execution AI는 승인된 작업을 구현한다.
+
+---
+
+입력
+
+```text
+PRODUCT_SPEC.md
+
+ARCHITECTURE.md
+
+TASKS.md
+
+AGENTS.md
+
+Issue
+```
+
+---
+
+출력
+
+```text
+Code
+
+Tests
+
+Pull Request
+```
+
+---
+
+필수 조건
+
+```text
+Build Success
+
+Lint Success
+
+Test Success
+```
+
+---
+
+구현이 완료되면 Pull Request를 생성한다.
+
+---
+
+# Phase 8. 검토
+
+## Human Review
+
+최종 책임은 사람에게 있다.
+
+---
+
+Human Review는 다음을 확인한다.
+
+```text
+요구사항 충족 여부
+
+제품 방향 일치 여부
+
+사용자 경험
+
+품질
+
+릴리즈 준비 상태
+```
+
+---
+
+승인 후 Merge를 수행한다.
+
+---
+
+# Phase 9. 운영
+
+## Operation
+
+배포는 끝이 아니다.
+
+실제 제품 개발은 운영 단계에서 계속된다.
+
+---
+
+운영 과정에서는 새로운 학습이 발생한다.
+
+```text
+사용자 피드백
+
+버그
+
+신규 요구사항
+
+제품 개선
+```
+
+---
+
+이 변화는 반드시 프로젝트 문서에 반영되어야 한다.
+
+---
+
+# 운영 루프
+
+```text
+Operate
+↓
+Learn
+↓
+Update PRODUCT_SPEC.md
+↓
+Update ARCHITECTURE.md
+↓
+Update TASKS.md
+↓
+Next Iteration
+```
+
+---
+
+REPL Works는 문서를 한 번 작성하고 버리는 방식이 아니다.
+
+문서는 프로젝트의 현재 상태를 지속적으로 반영해야 한다.
+
+---
+
+# Benefits
+
+REPL Works는 다음과 같은 효과를 목표로 한다.
+
+---
+
+## Model Independence
+
+특정 AI 모델에 의존하지 않는다.
+
+---
+
+## Project Continuity
+
+세션 종료 이후에도 프로젝트를 이어갈 수 있다.
+
+---
+
+## Reduced Context Cost
+
+반복 설명을 줄이고 컨텍스트 비용을 줄인다.
+
+---
+
+## Reduced Onboarding Cost
+
+새로운 사람이나 새로운 모델이 빠르게 프로젝트를 이해할 수 있다.
+
+---
+
+## Git-Native Workflow
+
+Git을 중심으로 프로젝트 기억을 관리한다.
+
+---
+
+# 결론
+
+REPL Works는 AI 도구가 아니다.
+
+---
+
+REPL Works는 AI-Native Product Development Framework이다.
+
+---
+
+프로젝트 기억을 Git과 문서에 저장하고,
+
+Planning AI, Execution AI, Human Review를 통해
+
+장기적으로 유지 가능한 제품 개발 프로세스를 제공한다.
+
+---
+
+Models forget.
+
+Projects must not.
