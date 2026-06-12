@@ -11,7 +11,14 @@ export default defineConfig({
   integrations: [
     mdx(),
     pagefind(),
-    sitemap(),
+    sitemap({
+      serialize(item) {
+        if (item.url.endsWith('/index/')) {
+          item.url = item.url.replace('/index/', '/');
+        }
+        return item;
+      },
+    }),
     astroBrokenLinksChecker({
       throwError: true,
       checkExternalLinks: false,
