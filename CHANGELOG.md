@@ -1,5 +1,23 @@
 # Release Notes
 
+## v2.0.0 - 2026-06-12
+
+### What's Changed
+
+* chore: remove useless files by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/31
+* docs: update `AI_MEMORY.md` by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/32
+* chore: touch SEO by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/33
+* feat: change main concept by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/36
+* Rebuild REPL Works Website Around the AI-Native Product Development Framework #35 by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/37
+* Review Workflow Content #38 by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/43
+* Review Prompt Content #39 by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/44
+* Review Document Content #40 by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/45
+* Review Tool Content #41 by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/46
+* Review Showcase Content #42 by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/47
+* Review FAQ Content #48 by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/49
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v1.4.1...v2.0.0
+
 ## v1.4.1 - 2026-06-09
 
 ### What's Changed
