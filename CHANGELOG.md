@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.1.2 - 2026-06-12
+
+### What's Changed
+
+* Bug Report & Improvement Request #54 by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/55
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.1.1...v2.1.2
+
 ## v2.1.1 - 2026-06-12
 
 ### What's Changed
