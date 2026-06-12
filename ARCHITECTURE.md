@@ -1,6 +1,6 @@
 # ARCHITECTURE.md
 
-Version 2.0
+Version 3.0
 
 ## PROJECT
 
@@ -15,9 +15,7 @@ Documentation Platform for REPL Works.
 Goal:
 
 ```text
-Establish REPL Works
-as a Project Memory Standard
-for AI Development
+Establish REPL Works as an AI-Native Product Development Framework.
 ```
 
 ---
@@ -32,81 +30,56 @@ Not:
 
 ```text
 SaaS
+
 Dashboard
+
 Community Platform
+
 Social Network
+
+Developer Portal
+
 AI Tool
 ```
 
 ---
 
-## USER ACTIONS
+## PRIMARY NAVIGATION
 
 ```text
-Read
-Navigate
-Learn
-Apply
+Home
+
+Workflow
+
+Prompts
+
+Documents
+
+Tools
+
+Showcase
+
+FAQ
 ```
 
 ---
 
-## PRIMARY JOURNEY
+## PRIMARY USER JOURNEY
 
 ```text
 Home
 ↓
-Why
-↓
-Manifesto
-↓
-Specification
-↓
 Workflow
 ↓
-Resources
+Prompts
+↓
+Documents
+↓
+Tools
 ↓
 Showcase
 ↓
 GitHub
-```
-
----
-
-## NAVIGATION
-
-```text
-Home
-
-Why
-
-Manifesto
-
-Specification
-
-Workflow
-
-Resources
-
-Showcase
-```
-
----
-
-### Resources
-
-```text
-Templates
-
-Example Documents
-
-Long Context Examples
-
-Repository Examples
-
-Planning Examples
-
-FAQ
 ```
 
 ---
@@ -130,64 +103,161 @@ MDX
 Collections
 
 ```text
-manifesto
-
-specification
-
 workflow
 
-resources
+prompts
+
+documents
+
+tools
 
 showcase
+
+faq
 ```
 
 ---
 
-## VERSIONING
+## PAGE RESPONSIBILITIES
 
-Required
-
----
-
-Versioned Content
-
-```text
-Manifesto
-
-Specification
-
-Workflow
-```
-
----
-
-Example
-
-```text
-src/content/
-
-manifesto/
-  v1.mdx
-
-specification/
-  v1.mdx
-
-workflow/
-  v1.mdx
-```
-
----
-
-Never delete previous versions.
-
----
-
-## SHOWCASE
+### Home
 
 Purpose
 
 ```text
-Proof of Adoption
+Introduce REPL Works
+
+Explain Core Philosophy
+
+Provide Entry Points
+```
+
+---
+
+### Workflow
+
+Purpose
+
+```text
+Explain REPL Works Methodology
+```
+
+---
+
+Must describe:
+
+```text
+Idea Refinement
+
+Product Definition
+
+Architecture Design
+
+Task Planning
+
+AI Execution
+
+Review
+
+Release
+
+Continuous Improvement
+```
+
+---
+
+### Prompts
+
+Purpose
+
+```text
+Provide Reusable Prompts
+```
+
+---
+
+Content Examples
+
+```text
+IDEAS Prompt
+
+PITCHING Prompt
+
+PRODUCT_SPEC Prompt
+
+ARCHITECTURE Prompt
+
+TASKS Prompt
+
+Review Prompt
+```
+
+---
+
+### Documents
+
+Purpose
+
+```text
+Provide Reusable Document Standards
+```
+
+---
+
+Content Examples
+
+```text
+AGENTS.md
+
+PRODUCT_SPEC.md
+
+ARCHITECTURE.md
+
+TASKS.md
+```
+
+---
+
+### Tools
+
+Purpose
+
+```text
+Provide REPL Works Tooling
+```
+
+---
+
+Initial Tools
+
+```text
+ai-issue
+```
+
+---
+
+Future Tools
+
+```text
+ai-prompt
+```
+
+---
+
+### Showcase
+
+Purpose
+
+```text
+Demonstrate Real Adoption
+```
+
+---
+
+Definition
+
+```text
+REPL Works Compatible Projects
 ```
 
 ---
@@ -197,13 +267,109 @@ Initial Entries
 ```text
 REPL Works Website
 
-Project A
+ai-issue
 
-Project B
+Wifi Note
+```
 
-Project C
+---
 
-Project D
+Each Showcase Entry Must Include
+
+```text
+Project
+
+Purpose
+
+Workflow Usage
+
+Documents Used
+
+Tools Used
+```
+
+---
+
+### FAQ
+
+Purpose
+
+```text
+Answer Common Questions
+```
+
+---
+
+## CONTENT ORGANIZATION
+
+```text
+src/content/
+
+workflow/
+
+prompts/
+
+documents/
+
+tools/
+
+showcase/
+
+faq/
+```
+
+---
+
+All content must be stored as:
+
+```text
+MDX
+```
+
+---
+
+Large content blocks must not be embedded directly inside page components.
+
+---
+
+Content must remain independent from presentation.
+
+---
+
+## ROUTING STRUCTURE
+
+```text
+/
+
+/workflow
+
+/prompts
+
+/documents
+
+/tools
+
+/showcase
+
+/faq
+```
+
+---
+
+Content detail pages
+
+```text
+/workflow/[slug]
+
+/prompts/[slug]
+
+/documents/[slug]
+
+/tools/[slug]
+
+/showcase/[slug]
+
+/faq/[slug]
 ```
 
 ---
@@ -212,9 +378,99 @@ Project D
 
 GitHub is the primary external asset.
 
-Website explains GitHub.
+---
 
-Website does not replace GitHub.
+Website Responsibilities
+
+```text
+Explain
+
+Teach
+
+Distribute
+```
+
+---
+
+GitHub Responsibilities
+
+```text
+Source Code
+
+Issues
+
+Pull Requests
+
+Releases
+```
+
+---
+
+Website must never replace GitHub.
+
+---
+
+## SEARCH
+
+Required
+
+---
+
+Search Scope
+
+```text
+Workflow
+
+Prompts
+
+Documents
+
+Tools
+
+Showcase
+
+FAQ
+```
+
+---
+
+Implementation
+
+```text
+Pagefind
+```
+
+---
+
+## SHOWCASE POLICY
+
+Showcase is reserved for:
+
+```text
+REPL Works Compatible Projects
+```
+
+---
+
+Do Not Include
+
+```text
+Prompt Repositories
+
+Document Repositories
+
+Template Repositories
+```
+
+---
+
+Those belong under:
+
+```text
+Prompts
+
+Documents
+```
 
 ---
 
@@ -236,20 +492,6 @@ Tailwind CSS >= 4
 
 ---
 
-Current
-
-```text
-Node.js 24.x
-
-Astro 6.4.4
-
-TypeScript 5.x
-
-Tailwind CSS 4.x
-```
-
----
-
 Package Manager
 
 ```text
@@ -266,26 +508,10 @@ Astro
 
 ---
 
-Language
-
-```text
-TypeScript
-```
-
----
-
 Content
 
 ```text
 MDX
-```
-
----
-
-Content Management
-
-```text
-Astro Content Collections
 ```
 
 ---
@@ -314,121 +540,6 @@ GitHub Actions
 
 ---
 
-Analytics (Optional)
-
-```text
-Plausible
-
-Umami
-```
-
----
-
-## PROJECT INITIALIZATION
-
-Required Command
-
-```bash
-npm create astro@latest
-```
-
----
-
-Template
-
-```text
-Minimal
-```
-
----
-
-TypeScript
-
-```text
-Strict
-```
-
----
-
-Package Manager
-
-```text
-npm
-```
-
----
-
-## REPOSITORY STRUCTURE
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       ├── index.astro
-│       ├── manifesto/
-│       ├── specification/
-│       ├── workflow/
-│       ├── resources/
-│       └── showcase/
-├── tests/
-├── AGENTS.md
-├── ARCHITECTURE.md
-├── TASKS.md
-└── package.json
-```
-
----
-
-## IN SCOPE
-
-```text
-Documentation Pages
-
-Versioned Documents
-
-Static Search
-
-GitHub Links
-
-Showcase Pages
-
-Resource Pages
-```
-
----
-
-## OUT OF SCOPE
-
-```text
-Database
-
-Backend API
-
-Authentication
-
-User Accounts
-
-Comments
-
-CMS
-
-Realtime Features
-
-Payments
-
-Discussion Board
-```
-
----
-
 ## CONSTRAINTS
 
 All pages must support:
@@ -439,7 +550,7 @@ Static Export
 
 ---
 
-Server dependency:
+Server Dependency
 
 ```text
 Not Allowed
@@ -447,7 +558,31 @@ Not Allowed
 
 ---
 
-Dynamic user state:
+Database
+
+```text
+Not Allowed
+```
+
+---
+
+Authentication
+
+```text
+Not Allowed
+```
+
+---
+
+User Accounts
+
+```text
+Not Allowed
+```
+
+---
+
+Dynamic User State
 
 ```text
 Not Allowed
@@ -458,21 +593,23 @@ Not Allowed
 ## SUCCESS CRITERIA
 
 ```text
-Manifesto published
+Workflow Published
 
-Specification published
+Prompts Published
 
-Workflow published
+Documents Published
 
-Resources published
+Tools Published
 
-Showcase published
+Showcase Published
 
-GitHub Pages deployment works
+FAQ Published
 
-New versions can be added
+GitHub Pages Deployment Works
 
-Old versions remain accessible
+Search Works
+
+New Content Can Be Added Through MDX
 ```
 
 ---
@@ -486,9 +623,11 @@ Every implementation must support:
 ```text
 Documentation
 
-Versioning
+Discoverability
 
 Static Deployment
 
 Long-Term Maintainability
+
+REPL Works Adoption
 ```
