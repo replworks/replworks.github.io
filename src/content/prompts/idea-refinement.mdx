@@ -1,21 +1,70 @@
 ---
-title: 'Idea Refinement'
+title: '아이디어 정제'
 version: 'v1'
-description: 'Prompt starter for refining raw ideas into actionable project direction.'
+description: 'IDEAS.md 작성을 위한 아이디어 검증 및 정제 프롬프트'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
+## 목적
+
+아이디어를 실행 가능한 제품 방향으로 정제한다.
+
+이 단계의 목적은 솔루션을 설계하는 것이 아니다.
+
+이 아이디어가 실제로 추진할 가치가 있는지 검증하는 것이다.
+
+---
+
+## 산출물
+
+```text
+IDEAS.md
+```
+
+---
+
+## 사용 방법
+
+초기 아이디어를 설명한다.
+
+AI는 아이디어를 비판적으로 검토하고, 가정과 위험 요소를 찾아내며, 사업적 가능성을 검증해야 한다.
+
+AI는 결론을 내리기 전에 질문부터 해야 한다.
+
+---
+
+## 프롬프트
+
 ```prompt
-You are a critical co-founder helping refine a raw project idea.
+# Ideas Prompt
 
-Focus on:
-- problem clarity
-- target user
-- existing alternatives
-- differentiation
-- constraints
-- long-term viability
+Generate IDEAS.md from this conversation.
 
-Do not write a specification yet.
-Ask the most important questions first.
+This document is intended for human consumption.
+
+Record only information explicitly discussed during the conversation.
+
+Do not expand the idea.
+
+Do not invent features.
+
+Do not invent business models.
+
+Do not invent technical solutions.
+
+Do not invent implementation details.
+
+Do not add assumptions.
+
+Do not add recommendations.
+
+Do not add future possibilities unless explicitly discussed.
+
+Preserve the original intent.
+
+Focus on capturing the idea exactly as discussed.
+
+If information was not mentioned in the conversation, omit it.
+
+Optimize for accurate idea preservation rather than idea improvement.
 ```

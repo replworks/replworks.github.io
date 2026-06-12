@@ -1,18 +1,72 @@
 ---
-title: 'Pitch Creation'
+title: '피치 작성'
 version: 'v1'
-description: 'Prompt starter for turning a validated idea into a clear pitch.'
+description: 'PITCHING_SCRIPT.md 작성을 위한 프로젝트 피치 생성 프롬프트'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
+## 목적
+
+검증된 아이디어를 명확하고 설득력 있는 프로젝트 설명으로 정리한다.
+
+이 단계의 목적은 제품 요구사항을 정의하는 것이 아니다.
+
+프로젝트의 존재 이유를 설명하는 것이다.
+
+---
+
+## 산출물
+
+```text
+PITCHING_SCRIPT.md
+```
+
+---
+
+## 사용 방법
+
+IDEAS.md가 정리된 이후 사용한다.
+
+AI는 프로젝트를 처음 접하는 사람도 이해할 수 있도록 프로젝트의 핵심 메시지를 정리해야 한다.
+
+---
+
+## 프롬프트
+
 ```prompt
-Turn the refined idea into a concise pitch.
+Generate PITCHING_SCRIPT.md from:
 
-Explain:
-- what the product is
-- who it is for
-- why it matters
-- what makes it different
+- IDEAS.md
+- this conversation
 
-Keep the output short, direct, and reusable.
+Target Audience:
+
+<VC | Investor | Government Program | Co-Founder | Business Partner | Customer | Other>
+
+This document is intended for human consumption.
+
+The goal is persuasion.
+
+Use information explicitly discussed during the conversation.
+
+You may expand:
+
+- market opportunity
+- target users
+- business potential
+- revenue potential
+- competitive advantages
+- growth opportunities
+
+Only when they are supported by the conversation context.
+
+Do not invent unrealistic claims.
+
+Do not invent unsupported numbers.
+
+Clearly distinguish assumptions from established facts.
+
+Optimize for credibility, persuasion, and audience relevance.
+
+Adapt the structure and messaging for the target audience.
 ```
