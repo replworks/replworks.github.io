@@ -209,11 +209,12 @@ Propose TASK update
 
 ## CONTENT REVIEW
 
-* [ ] T601 Review Workflow content
-* [ ] T602 Review Prompt content
-* [ ] T603 Review Document content
-* [ ] T604 Review Tool content
-* [ ] T605 Review Showcase content
+* [x] T601 Review Workflow content
+* [x] T602 Review Prompt content
+* [x] T603 Review Document content
+* [x] T604 Review Tool content
+* [x] T605 Review Showcase content
+* [ ] T605 Review FAQ content
 
 ---
 

@@ -1,23 +1,107 @@
 ---
-title: 'ETERNOps'
+
+title: '이터놉스(ETERNOps)'
 version: 'v1'
-description: 'Etern은 공개 프로젝트 사례로, REPL Works를 통해 프로젝트 기억과 의도를 보존합니다.'
+description: '장기간 운영에 포커스를 맞춘 ReplWorks 호환 프로젝트.'
 publishedAt: '2026-06-07T00:00:00Z'
 ---
 
-## 웹사이트 / 저장소
+## Overview
 
-- Website: [https://www.etern.co.kr](https://www.etern.co.kr)
-- Repository: private
+이터놉스는 장기간 운영되는 비즈니스를 위한 웹사이트 제작 및 운영 프로젝트다.
 
-## 메모리 시스템 적용
+프로젝트의 목표는 단순히 웹사이트를 만드는 것이 아니라, 시간이 지나도 유지 가능한 운영 시스템을 구축하는 것이다.
 
-- 프로젝트 지식은 버전 관리 파일인 `ARCHITECTURE.md`, `TASKS.md`, 콘텐츠 컬렉션에 저장됩니다.
-- 콘텐츠 우선 구조를 사용하여 상태를 명시적으로 표현하고 복구 가능하게 만듭니다.
-- 변경 사항은 Git에 기록되어 향후 세션에 대한 역사와 맥락을 제공합니다.
+---
 
-## Git 기반 워크플로 사용
+## Why REPL Works
 
-- 새로운 작업은 `TASKS.md`의 개별 태스크로 도입됩니다.
-- 각 태스크는 문서화된 커밋으로 구현됩니다.
-- 리포지토리는 프로젝트 기억의 출처로 사용되어 세션 기억에 의존하지 않고 작업을 재개할 수 있습니다.
+이터놉스는 AI와 사람이 함께 장기간 프로젝트를 운영하는 환경을 전제로 한다.
+
+프로젝트가 성장할수록 대화 기록만으로는 의도와 구조를 유지하기 어렵다.
+
+REPL Works는 프로젝트 기억(Project Memory)을 문서와 Git에 저장함으로써 이러한 문제를 해결한다.
+
+---
+
+## Website / Repository
+
+Website
+
+[https://www.etern.co.kr](https://www.etern.co.kr)
+
+Repository
+
+```text
+Private
+```
+
+---
+
+## Documents Used
+
+이 프로젝트는 REPL Works 핵심 문서 구조를 사용한다.
+
+```text
+IDEAS.md
+
+PITCHING_SCRIPT.md
+
+PRODUCT_SPEC.md
+
+ARCHITECTURE.md
+
+FRAMEWORK.md
+
+TASKS.md
+
+AGENTS.md
+```
+
+---
+
+프로젝트 의도, 구조, 작업 상태는 문서를 통해 관리된다.
+
+---
+
+## Lessons Learned
+
+### Project Memory Is More Important Than Session Memory
+
+대화는 종료될 수 있다.
+
+프로젝트는 계속 운영되어야 한다.
+
+문서는 프로젝트 기억을 유지하는 가장 안정적인 방법이었다.
+
+---
+
+### Git Becomes The Source Of Truth
+
+프로젝트 상태는 채팅이 아니라 Git 저장소에 남아야 한다.
+
+Git은 변경 이력과 의사결정을 함께 보존한다.
+
+---
+
+### Content First Scales Better
+
+프로젝트가 커질수록 콘텐츠와 문서가 중요해진다.
+
+문서가 명확할수록 AI와 사람 모두 더 빠르게 프로젝트를 이해할 수 있다.
+
+---
+
+## Current Status
+
+운영 중.
+
+REPL Works 워크플로를 기반으로 지속적으로 개선되고 있다.
+
+---
+
+## What This Project Proves
+
+이터놉스는 REPL Works가 단순한 문서화 방식이 아니라,
+
+실제 비즈니스 프로젝트를 장기간 운영하기 위한 프레임워크임을 보여준다.

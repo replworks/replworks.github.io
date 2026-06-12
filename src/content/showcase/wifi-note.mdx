@@ -1,27 +1,121 @@
 ---
-title: '와이파이 노트'
+
+title: '와이파이 노트(WIFI Note)'
 version: 'v1'
-description: 'WIFI Note는 비공개 프로젝트 사례로, 프로젝트명과 도입 패턴만 공개합니다.'
-publishedAt: '2026-06-07T00:00:00Z'
+description: '구조화된 프로젝트 기억을 통한 제품 개발을 보여주는 비공개 REPL Works 호환 프로젝트.'
+publishedAt: '2026-06-12T00:00:00Z'
+-----------------------------------
+
+## Overview
+
+WIFI Note는 매장을 위한 WiFi 안내 및 고객 경험 개선 서비스를 구축하기 위한 프로젝트다.
+
+프로젝트의 세부 구현은 비공개지만, REPL Works를 실제 제품 개발 과정에 적용하는 사례로 운영되고 있다.
+
 ---
 
-## 공개 정보
+## Why REPL Works
 
-- Website: 제공되지 않음
-- Repository: 비공개
+제품 개발은 기능을 만드는 것보다 의도를 유지하는 것이 더 어렵다.
 
-## 문서 중심 메모리
+시간이 지나고 기능이 추가될수록 프로젝트는 원래 목표를 잃기 쉽다.
 
-- 도메인 지식과 설계 의도는 문서화된 프로젝트 기억에 기록됩니다.
-- `ARCHITECTURE.md`와 `TASKS.md`는 프로젝트 구조와 실행 계획을 명확히 합니다.
-- 세션 간 연속성은 Git과 문서에 저장된 기억으로 유지됩니다.
+WIFI Note는 프로젝트 기억(Project Memory)을 문서와 Git에 저장함으로써 제품의 방향성과 의도를 지속적으로 유지하고자 한다.
 
-## 세션 복구
+---
 
-- 세션 복구가 필요할 때는 `AI_MEMORY.md`를 통해 핵심 상태를 복원합니다.
-- 이 접근 방식은 모델 상태에 의존하지 않고 프로젝트를 이어가는 데 도움이 됩니다.
+## Website / Repository
 
-## 비공개 사례의 목적
+Website
 
-- 프로젝트명만 공개하면서도 도입 패턴을 공유합니다.
-- 개인 정보와 내부 저장소는 공개하지 않지만, 프로세스는 재현 가능합니다.
+```text
+Not Public
+```
+
+Repository
+
+```text
+Private
+```
+
+---
+
+## Documents Used
+
+이 프로젝트는 REPL Works 핵심 문서 구조를 사용한다.
+
+```text
+IDEAS.md
+
+PITCHING_SCRIPT.md
+
+PRODUCT_SPEC.md
+
+ARCHITECTURE.md
+
+FRAMEWORK.md
+
+TASKS.md
+
+AGENTS.md
+```
+
+---
+
+프로젝트의 의도, 구조, 작업 상태는 문서를 통해 관리된다.
+
+---
+
+## Lessons Learned
+
+### Product Intent Must Survive Development
+
+제품은 개발 과정에서 계속 변한다.
+
+하지만 왜 이 제품을 만드는지는 변하면 안 된다.
+
+문서는 제품의 원래 의도를 유지하는 역할을 한다.
+
+---
+
+### Documentation Reduces Context Cost
+
+같은 내용을 반복 설명하는 것은 비용이 크다.
+
+중요한 의도와 구조를 문서로 정리하면 AI는 반복적으로 긴 맥락을 재구성할 필요가 없다.
+
+문서는 프로젝트 기억을 압축하는 역할을 한다.
+
+---
+
+### Session Recovery Should Be Fast
+
+프로젝트는 언제든지 중단될 수 있다.
+
+중요한 것은 얼마나 빨리 다시 시작할 수 있는가이다.
+
+문서화된 프로젝트 기억은 새로운 세션과 새로운 모델이 빠르게 프로젝트를 이해하도록 돕는다.
+
+---
+
+### Private Projects Need Process Too
+
+비공개 프로젝트라고 해서 워크플로가 덜 중요해지는 것은 아니다.
+
+오히려 장기간 운영되는 프로젝트일수록 명확한 문서 구조와 작업 절차가 필요하다.
+
+---
+
+## Current Status
+
+개발 진행 중.
+
+REPL Works 기반 제품 개발 워크플로를 실제 서비스에 적용하며 지속적으로 개선하고 있다.
+
+---
+
+## What This Project Proves
+
+WIFI Note는 REPL Works가 단순한 문서 관리 방식이 아니라,
+
+실제 제품 개발 과정에서 프로젝트 기억을 유지하고 실행 비용을 줄이는 프레임워크임을 보여준다.
