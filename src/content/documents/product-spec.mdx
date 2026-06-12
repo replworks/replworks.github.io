@@ -1,30 +1,164 @@
 ---
 title: 'PRODUCT_SPEC.md'
 version: 'v1'
-description: 'Product source of truth for the website and framework.'
+description: 'PRODUCT_SPEC.md는 제품의 진실(Source of Truth)이다.'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
-## Purpose
+이 문서의 목적은 기술 구조를 정의하는 것이 아니다.
 
-Define the product, users, journey, UX, content, and business intent.
+무엇을 만들어야 하는지 정의하는 것이다.
 
-## Inputs
+---
 
-- pitch
-- user needs
-- business goals
+# Purpose
 
-## Outputs
+다음 질문에 답한다.
 
-- product definition
-- page responsibilities
-- information architecture
+```text
+무엇을 만들 것인가?
 
-## Lifecycle
+누구를 위한 것인가?
 
-Updated when product meaning or user-facing structure changes.
+왜 중요한가?
 
-## Relationships
+사용자는 무엇을 경험해야 하는가?
+```
 
-Guides `ARCHITECTURE.md` and constrains `TASKS.md`.
+---
+
+PRODUCT_SPEC.md는 제품 관점의 기준 문서다.
+
+---
+
+# Inputs
+
+일반적으로 다음 정보를 기반으로 작성한다.
+
+- PITCHING_SCRIPT.md
+- 사용자 요구사항
+- 비즈니스 목표
+- 시장 이해
+- 프로젝트 방향성
+
+---
+
+# Outputs
+
+다음 내용을 정의한다.
+
+- 제품 정의
+- 대상 사용자
+- 핵심 가치
+- 핵심 메시지
+- 사용자 여정
+- 정보 구조
+- 화면 또는 페이지 역할
+- 기능 범위
+- 제외 범위
+- 성공 기준
+
+---
+
+# Lifecycle
+
+PITCHING_SCRIPT.md 이후 작성한다.
+
+---
+
+제품의 의미가 변경될 때 업데이트한다.
+
+---
+
+사용자 경험이 변경될 경우 업데이트한다.
+
+---
+
+기능 추가만으로는 반드시 수정할 필요는 없다.
+
+---
+
+# Relationship
+
+```text
+IDEAS.md
+↓
+PITCHING_SCRIPT.md
+↓
+PRODUCT_SPEC.md
+↓
+ARCHITECTURE.md
+↓
+TASKS.md
+```
+
+---
+
+PRODUCT_SPEC.md는 기술 구현보다 우선한다.
+
+---
+
+ARCHITECTURE.md는 PRODUCT_SPEC.md를 구현하기 위해 존재한다.
+
+---
+
+TASKS.md는 PRODUCT_SPEC.md를 실현하기 위해 존재한다.
+
+---
+
+# AI Usage
+
+Planning AI가 반드시 읽어야 하는 문서다.
+
+---
+
+Execution AI도 반드시 읽어야 하는 문서다.
+
+---
+
+제품 요구사항에 대한 최종 기준은 PRODUCT_SPEC.md다.
+
+---
+
+# Generate With
+
+PRODUCT_SPEC.md는 일반적으로 다음 프롬프트를 통해 생성한다.
+
+→ [제품 명세 Prompt](/prompts/product-specification)
+
+---
+
+제품 명세 Prompt는 다음을 수행한다.
+
+- 제품 정의
+- 사용자 정의
+- 사용자 여정 설계
+- 정보 구조 설계
+- 범위 정의
+- 성공 기준 정의
+
+---
+
+# Example
+
+실제 REPL Works Compatible 프로젝트 예시를 통해 PRODUCT_SPEC.md 작성 방식을 확인할 수 있다.
+
+→ [Example PRODUCT_SPEC.md](/documents/example-product-spec)
+
+---
+
+예시는 다음 내용을 포함한다.
+
+- 제품 정의
+- 사용자 여정
+- 정보 구조
+- 범위 정의
+- 성공 기준
+
+---
+
+# Key Principle
+
+좋은 PRODUCT_SPEC.md는 구현 방법을 설명하지 않는다.
+
+좋은 PRODUCT_SPEC.md는 무엇을 만들어야 하는지 설명한다.

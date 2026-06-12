@@ -1,23 +1,310 @@
 ---
 title: 'Documents'
 version: 'v1'
-description: 'Reusable document standards for the REPL Works framework.'
+description: 'Document standards used by the REPL Works framework.'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
-## Purpose
+REPL Works는 문서를 단순한 기록으로 보지 않는다.
 
-Document the standards that keep REPL Works projects consistent over time.
+문서는 프로젝트 기억(Project Memory)의 일부이다.
 
-## Documents
+---
 
-- [AGENTS.md](/documents/agents)
-- [PITCHING_SCRIPT.md](/documents/pitching-script)
-- [PRODUCT_SPEC.md](/documents/product-spec)
-- [ARCHITECTURE.md](/documents/architecture)
-- [TASKS.md](/documents/tasks)
-- [IDEAS.md](/documents/ideas)
+프로젝트는 수개월 또는 수년 동안 유지된다.
 
-## Lifecycle
+세션은 몇 시간 또는 몇 주 안에 종료된다.
 
-Each document captures a different stage of the project lifecycle and is updated only when its responsibility changes.
+---
+
+REPL Works는 프로젝트 기억을 문서와 Git에 저장한다.
+
+이를 통해 모델이 바뀌어도 프로젝트를 이어갈 수 있다.
+
+---
+
+# Document Flow
+
+```text
+IDEAS.md
+↓
+PITCHING_SCRIPT.md
+↓
+PRODUCT_SPEC.md
+↓
+ARCHITECTURE.md
+↓
+FRAMEWORK.md
+↓
+TASKS.md
+↓
+AGENTS.md
+```
+
+---
+
+각 문서는 서로 다른 책임을 가진다.
+
+문서는 서로를 대체하지 않는다.
+
+---
+
+# IDEAS.md
+
+아이디어를 검증하고 정제한다.
+
+---
+
+목적
+
+```text
+Should we build this?
+```
+
+---
+
+주요 내용
+
+- 문제 정의
+- 대상 사용자
+- 시장성
+- 위험 요소
+- 제약 사항
+
+---
+
+[View Document Standard](/documents/ideas)
+
+---
+
+# PITCHING_SCRIPT.md
+
+프로젝트를 설명한다.
+
+---
+
+목적
+
+```text
+Why does this project exist?
+```
+
+---
+
+주요 내용
+
+- 프로젝트 정의
+- 핵심 가치
+- 차별성
+- 비전
+
+---
+
+[View Document Standard](/documents/pitching-script)
+
+---
+
+# PRODUCT_SPEC.md
+
+제품 요구사항을 정의한다.
+
+---
+
+목적
+
+```text
+What should be built?
+```
+
+---
+
+주요 내용
+
+- 제품 정의
+- 사용자 여정
+- 정보 구조
+- 범위
+- 성공 기준
+
+---
+
+[View Document Standard](/documents/product-spec)
+
+---
+
+# ARCHITECTURE.md
+
+기술 구조를 정의한다.
+
+---
+
+목적
+
+```text
+How should it be built?
+```
+
+---
+
+주요 내용
+
+- 시스템 구조
+- 콘텐츠 구조
+- 모듈 구조
+- 제약 사항
+- 운영 구조
+
+---
+
+ARCHITECTURE.md는 프로젝트의 기술적 진실이다.
+
+---
+
+[View Document Standard](/documents/architecture)
+
+---
+
+# FRAMEWORK.md
+
+기술 스택별 구현 규칙을 정의한다.
+
+---
+
+목적
+
+```text
+How should this stack be used?
+```
+
+---
+
+주요 내용
+
+- 프로젝트 구조
+- 파일 배치 규칙
+- 라우팅 규칙
+- 컴포넌트 규칙
+- 스타일링 규칙
+- 성능 규칙
+- 생성 규칙
+
+---
+
+FRAMEWORK.md는 기술 스택에 대한 구현 가이드다.
+
+---
+
+ARCHITECTURE.md가 프로젝트 구조를 설명한다면,
+
+FRAMEWORK.md는 해당 구조를 구현하는 방법을 설명한다.
+
+---
+
+[View Document Standard](/documents/framework)
+
+---
+
+# TASKS.md
+
+현재 작업 상태를 정의한다.
+
+---
+
+목적
+
+```text
+What should be done next?
+```
+
+---
+
+주요 내용
+
+- 작업 목록
+- 진행 상태
+- 현재 우선순위
+
+---
+
+TASKS.md는 현재 위치를 설명한다.
+
+---
+
+[View Document Standard](/documents/tasks)
+
+---
+
+# AGENTS.md
+
+AI 작업 규칙을 정의한다.
+
+---
+
+목적
+
+```text
+How should AI work?
+```
+
+---
+
+주요 내용
+
+- 문서 읽기 순서
+- 구현 규칙
+- 범위 제어
+- 작업 절차
+
+---
+
+AGENTS.md는 모든 AI의 진입점이다.
+
+---
+
+[View Document Standard](/documents/agents)
+
+---
+
+# Living Documents
+
+REPL Works 문서는 버전 문서가 아니다.
+
+---
+
+문서는 항상 현재 상태를 설명해야 한다.
+
+---
+
+제품이 운영 단계에 진입한 이후에도 계속 갱신된다.
+
+---
+
+과거 상태는 Git이 보존한다.
+
+현재 상태는 문서가 설명한다.
+
+---
+
+# 핵심 원칙
+
+## Project Memory
+
+문서는 프로젝트 기억이다.
+
+---
+
+## Git-Native
+
+문서는 Git과 함께 관리된다.
+
+---
+
+## Living Documentation
+
+문서는 최신 상태를 유지한다.
+
+---
+
+## Model Independent
+
+어떤 AI라도 문서를 읽고 프로젝트를 이해할 수 있어야 한다.

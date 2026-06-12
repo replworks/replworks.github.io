@@ -1,30 +1,212 @@
 ---
 title: 'TASKS.md'
 version: 'v1'
-description: 'Current work scope and execution order for REPL Works.'
+description: 'TASKS.md는 현재 작업 범위를 정의하는 문서다.'
 publishedAt: '2026-06-12T00:00:00Z'
+---
+
+이 문서의 목적은 프로젝트의 현재 위치를 설명하는 것이다.
+
 ---
 
 ## Purpose
 
-Track the current implementation scope and the order in which work should be done.
+다음 질문에 답한다.
+
+```text
+현재 무엇을 해야 하는가?
+
+어떤 순서로 진행해야 하는가?
+
+무엇이 완료되었는가?
+
+무엇이 아직 남아 있는가?
+```
+
+---
+
+TASKS.md는 프로젝트의 현재 상태를 설명한다.
+
+---
 
 ## Inputs
 
-- `PRODUCT_SPEC.md`
-- `ARCHITECTURE.md`
-- active project state
+일반적으로 다음 정보를 기반으로 작성한다.
+
+- [PRODUCT_SPEC.md](/documents/product-spec)
+- [ARCHITECTURE.md](/documents/architecture)
+- [FRAMEWORK.md](/documents/framework)
+- 현재 프로젝트 상태
+- 승인된 요구사항
+
+---
 
 ## Outputs
 
-- task list
-- execution order
-- completion status
+다음 내용을 정의한다.
+
+- 작업 목록
+- 우선순위
+- 실행 순서
+- 진행 상태
+- 완료 상태
+
+---
 
 ## Lifecycle
 
-Updated as tasks are completed or newly scoped work is approved.
+ARCHITECTURE.md 이후 작성한다.
 
-## Relationships
+---
 
-Must stay aligned with `PRODUCT_SPEC.md` and `ARCHITECTURE.md`.
+작업 완료 시 지속적으로 업데이트한다.
+
+---
+
+새로운 범위가 승인되면 작업을 추가할 수 있다.
+
+---
+
+완료된 작업은 기록으로 유지한다.
+
+---
+
+## Relationship
+
+```text
+PRODUCT_SPEC.md
+↓
+ARCHITECTURE.md
+↓
+FRAMEWORK.md
+↓
+TASKS.md
+↓
+Execution
+```
+
+---
+
+PRODUCT_SPEC.md는 목적지를 정의한다.
+
+---
+
+ARCHITECTURE.md는 구조를 정의한다.
+
+---
+
+FRAMEWORK.md는 구현 규칙을 정의한다.
+
+---
+
+TASKS.md는 현재 위치를 정의한다.
+
+---
+
+## AI Usage
+
+Execution AI가 반드시 읽어야 하는 문서다.
+
+---
+
+작업 범위에 대한 최종 기준은 TASKS.md다.
+
+---
+
+TASKS.md에 없는 작업은 구현해서는 안 된다.
+
+---
+
+필요한 작업이 존재하지 않는 경우:
+
+```text
+STOP
+
+Propose TASKS.md update
+```
+
+---
+
+## Structure
+
+일반적으로 Phase 기반으로 구성한다.
+
+예시:
+
+```text
+PHASE 1
+
+- [x] Task A
+- [x] Task B
+
+PHASE 2
+
+- [ ] Task C
+- [ ] Task D
+```
+
+---
+
+각 작업은 명확하고 검증 가능해야 한다.
+
+---
+
+## Generate With
+
+TASKS.md는 일반적으로 다음 프롬프트를 통해 생성한다.
+
+→ [Task Generation Prompt](/prompts/task-generation)
+
+---
+
+Task Generation Prompt는 다음을 수행한다.
+
+- 작업 분해
+- 우선순위 설정
+- Phase 구성
+- 실행 순서 정의
+
+---
+
+## Example
+
+실제 REPL Works Compatible 프로젝트 예시를 통해 TASKS.md 작성 방식을 확인할 수 있다.
+
+→ [Example TASKS.md](/documents/example-tasks)
+
+---
+
+예시는 다음 내용을 포함한다.
+
+- Phase 구조
+- 작업 목록
+- 진행 상태
+- 완료 기준
+
+---
+
+## Key Principle
+
+좋은 TASKS.md는 미래 계획을 설명하지 않는다.
+
+좋은 TASKS.md는 현재 해야 할 일을 설명한다.
+
+---
+
+## Why It Matters
+
+AI는 범위를 확장하려는 경향이 있다.
+
+---
+
+TASKS.md는 이를 방지한다.
+
+---
+
+PRODUCT_SPEC.md가 목적지라면,
+
+TASKS.md는 현재 위치다.
+
+---
+
+Execution AI는 현재 위치에서 다음 단계만 수행해야 한다.
