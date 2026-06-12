@@ -139,7 +139,7 @@ Propose TASK update
 
 * [x] T409 Rewrite Workflow documentation
 * [x] T410 Publish current REPL Works workflow
-* [x] T411 Explain Planning AI vs Execution AI
+* [x] T411 Explain Discussion AI vs Execution AI
 * [x] T412 Explain continuous improvement workflow
 
 ---
