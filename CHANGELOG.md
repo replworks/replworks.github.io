@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.3.0 - 2026-06-18
+
+### What's Changed
+
+* chore: insert `google-analytics` by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/62
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.2.0...v2.3.0
+
 ## v2.2.0 - 2026-06-12
 
 ### What's Changed
