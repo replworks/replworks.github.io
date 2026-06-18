@@ -4,6 +4,7 @@ const {
   title = 'REPL Works',
   description = 'A documentation shell for the REPL Works website.',
 } = Astro.props;
+import GoogleTag from '../components/GoogleTag.astro';
 ---
 
 <!doctype html>
@@ -20,6 +21,7 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <GoogleTag />
   </head>
   <body>
     <slot />
