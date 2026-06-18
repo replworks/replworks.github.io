@@ -1,0 +1,20 @@
+---
+// Frontmatter 영역에서 프로덕션 환경인지 확인
+const isProd = import.meta.env.PROD;
+---
+{isProd && (
+  <>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DMP8WHFE3V"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('js', new Date());
+
+  gtag('config', 'G-DMP8WHFE3V');
+</script>
+</>
+)}
