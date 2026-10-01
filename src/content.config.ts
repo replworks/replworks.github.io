@@ -6,7 +6,7 @@ const baseCollectionSchema = z.object({
   title: z.string(),
   description: z.string(),
   version: z.string(),
-  publishedAt: z.string().datetime(),
+  publishedAt: z.iso.datetime(),
 });
 
 export const collections = {
