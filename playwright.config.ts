@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
 const PORT = process.env.PORT || 4321;
 
@@ -21,6 +21,6 @@ export default defineConfig({
   },
   use: {
     // Base URL to use in actions like `await page.goto('/')`.
-    baseURL: 'http://localhost:4321/labs/',
+    baseURL,
   },
 });

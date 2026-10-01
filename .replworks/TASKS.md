@@ -164,6 +164,7 @@ Propose TASK update
 - [x] T423 Publish ARCHITECTURE.md standard
 - [x] T424 Publish TASKS.md standard
 - [x] T437 Publish TECH_STACK.md standard
+- [x] T439 Add raw document download endpoints
 
 ---
 
@@ -199,11 +200,11 @@ Propose TASK update
 
 ## SEARCH
 
-- [ ] T501 Verify search indexing for Prompts
-- [ ] T502 Verify search indexing for Documents
-- [ ] T503 Verify search indexing for Tools
-- [ ] T504 Verify search indexing for Showcase
-- [ ] T505 Verify search indexing for FAQ
+- [x] T501 Verify search indexing for Prompts
+- [x] T502 Verify search indexing for Documents
+- [x] T503 Verify search indexing for Tools
+- [x] T504 Verify search indexing for Showcase
+- [x] T505 Verify search indexing for FAQ
 
 ---
 
@@ -224,9 +225,9 @@ Propose TASK update
 
 ## RELEASE
 
-- [ ] T701 Responsive Review
-- [ ] T702 Accessibility Review
-- [ ] T703 Search Verification
+- [x] T701 Responsive Review
+- [x] T702 Accessibility Review
+- [x] T703 Search Verification
 - [x] T704 GitHub Pages Verification
 - [x] T705 Release v2
 
