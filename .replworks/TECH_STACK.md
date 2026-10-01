@@ -1,11 +1,12 @@
-# ASTRO.md
+# TECH_STACK.md
 
 ## STACK
 
 REQUIRED
 
 - Astro 7.x
-- JavaScript
+- TypeScript 6.x
+- Node.js 24.x
 
 OPTIONAL
 
@@ -36,6 +37,20 @@ DO_NOT_GENERATE_CODE_FOR_OTHER_VERSIONS
 WHEN_VERSION_CONFLICT_EXISTS
 
 FOLLOW_PACKAGE_JSON
+
+---
+
+## DEVELOPMENT_TOOLING
+
+- Vite 8.x
+- Vitest 5.x
+- Playwright 1.x
+- ESLint 10.x
+- Prettier 3.x
+
+USE_DECLARED_TOOLING_ONLY
+
+RUN_PROJECT_DEFINED_VALIDATION_COMMANDS
 
 ---
 
