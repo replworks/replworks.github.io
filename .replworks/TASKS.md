@@ -173,6 +173,7 @@ Propose TASK update
 - [x] T426 Publish ai-issue
 - [x] T427 Add installation guide
 - [x] T428 Add GitHub repository links
+- [x] T438 Publish repl-cli
 
 ---
 

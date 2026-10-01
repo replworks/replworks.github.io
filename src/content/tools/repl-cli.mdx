@@ -1,0 +1,89 @@
+---
+title: 'REPL CLI'
+version: 'v1'
+description: 'REPL CLI는 AI 실행을 위한 로컬 프로젝트 상태를 결정론적으로 관리하는 도구다.'
+publishedAt: '2026-06-12T00:00:00Z'
+---
+
+REPL CLI는 외부 AI 실행을 위한 로컬 프로젝트 상태를 관리하고 관찰하는 CLI 도구다.
+
+[GitHub 저장소](https://github.com/replworks/repl-cli)
+
+설치 안내: [macOS Homebrew](https://brew.repl.net) · [Linux APT](https://apt.repl.net)
+
+---
+
+## Purpose
+
+AI 실행 과정에서 작업 상태와 결과를 일관되게 관리한다.
+
+```text
+Task
+↓
+Runtime State
+↓
+Validated AI Result
+```
+
+---
+
+## Features
+
+- 프로젝트 실행 환경 초기화
+- 실행 세션 시작과 종료
+- AI 실행 결과의 스키마 검증
+- 작업 진행 상태와 실행 로그 기록
+- 로컬 전용 결정론적 런타임 관리
+
+---
+
+## Installation
+
+운영체제에 맞는 공식 설치 포털을 사용한다.
+
+- macOS: [brew.repl.net](https://brew.repl.net)
+- Linux: [apt.repl.net](https://apt.repl.net)
+
+설치 후 다음 명령으로 확인한다.
+
+```text
+repl --version
+```
+
+---
+
+## Usage
+
+```text
+repl init
+repl runtime start
+repl runtime status
+repl runtime stop
+```
+
+AI 실행 결과는 검증된 입력 형식으로 `repl runtime apply`에 전달한다.
+
+---
+
+## Relationship
+
+```text
+TASKS.md
+↓
+REPL CLI Runtime
+↓
+Execution AI
+↓
+Validated Project State
+```
+
+REPL CLI는 `AGENTS.md`, `PRODUCT_SPEC.md`, `TECH_STACK.md`, `ARCHITECTURE.md`,
+`TASKS.md`를 대체하지 않는다.
+
+---
+
+## Repository
+
+REPL CLI는 [replworks/repl-cli](https://github.com/replworks/repl-cli)에서 관리된다.
+
+로컬 전용 실행 도구이며 백엔드, 클라우드 동기화, 데몬을 요구하지 않는다.
