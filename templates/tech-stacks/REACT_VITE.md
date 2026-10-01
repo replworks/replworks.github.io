@@ -258,7 +258,7 @@ EXAMPLE
 Component
 
 ```jsx
-__("회원가입");
+__('회원가입');
 ```
 
 Translation
@@ -278,7 +278,7 @@ WHEN_ADDING_NEW_TEXT
 FORBIDDEN
 
 ```jsx
-t("auth.register.button");
+t('auth.register.button');
 ```
 
 ```json

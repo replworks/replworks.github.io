@@ -8,7 +8,7 @@ import GoogleTag from '../components/GoogleTag.astro';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,6 +24,12 @@ import GoogleTag from '../components/GoogleTag.astro';
     <GoogleTag />
   </head>
   <body>
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-slate-950 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white"
+    >
+      본문으로 건너뛰기
+    </a>
     <slot />
   </body>
 </html>

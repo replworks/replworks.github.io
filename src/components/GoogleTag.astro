@@ -7,10 +7,10 @@ const isProd = import.meta.env.PROD;
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DMP8WHFE3V"
 ></script>
-<script>
+<script is:inline>
   window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
+  function gtag(...args) {
+    window.dataLayer.push(args);
   }
   gtag('js', new Date());
 
