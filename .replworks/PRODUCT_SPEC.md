@@ -315,6 +315,8 @@ AGENTS.md
 
 PRODUCT_SPEC.md
 
+TECH_STACK.md
+
 ARCHITECTURE.md
 
 TASKS.md
@@ -322,13 +324,37 @@ TASKS.md
 
 ---
 
-Optional Documents
+Human-Created Documents
 
 ```text
-IDEAS.md
+docs/IDEAS.md
 
-PITCHING_SCRIPT.md
+docs/PITCHING_SCRIPT.md
 ```
+
+`IDEAS.md` and `PITCHING_SCRIPT.md` are created by humans and stored under
+`docs/`. They are not authoritative AI documents and must not be used by AI
+agents as requirements.
+
+---
+
+## DOCUMENT_CREATION_ORDER
+
+```text
+Human: docs/IDEAS.md
+        ↓
+Human: docs/PITCHING_SCRIPT.md
+        ↓
+AI: .replworks/PRODUCT_SPEC.md
+        ↓
+AI: .replworks/TECH_STACK.md
+        ↓
+AI: .replworks/ARCHITECTURE.md
+        ↓
+AI: .replworks/TASKS.md
+```
+
+The AI document sequence begins with `PRODUCT_SPEC.md`. The human-created documents under `docs/` provide the preceding product context but are outside the AI document loading order.
 
 ---
 
