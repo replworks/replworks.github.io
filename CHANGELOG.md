@@ -1,5 +1,17 @@
 # Release Notes
 
+## v2.4.0 - 2026-10-01
+
+### What's Changed
+
+* chore: update dependencies and devDependencies in package.json by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/64
+* docs: add implementation readiness and tech stack prompts by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/65
+* docs: restructure README.md for clarity by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/66
+* docs: update replworks docs by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/67
+* refactor: update site content by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/68
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.3.0...v2.4.0
+
 ## v2.3.0 - 2026-06-18
 
 ### What's Changed
