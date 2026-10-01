@@ -3,7 +3,43 @@
 ---
 
 <footer
-  class="border-t border-slate-200 bg-slate-50 py-8 text-center text-sm text-slate-600"
+  class="border-t border-slate-200 bg-slate-50 py-10 text-sm text-slate-600"
 >
-  <p>REPL Works documentation shell · Built with Astro and Tailwind CSS.</p>
+  <div
+    class="mx-auto flex max-w-6xl flex-col gap-8 px-4 sm:px-6 lg:flex-row lg:items-start lg:justify-between"
+  >
+    <div class="max-w-md">
+      <a href="/" class="font-semibold tracking-tight text-slate-900">
+        REPL Works
+      </a>
+      <p class="mt-2 leading-6">
+        AI와 사람이 프로젝트의 기억을 문서와 Git에 남기며 함께 개발하는
+        AI-Native Product Development Framework.
+      </p>
+      <p class="mt-4 text-xs text-slate-500">Models change. Projects survive.</p>
+    </div>
+
+    <nav aria-label="Footer navigation" class="flex flex-wrap gap-x-5 gap-y-3">
+      <a href="/workflow" class="transition hover:text-slate-900">Workflow</a>
+      <a href="/prompts" class="transition hover:text-slate-900">Prompts</a>
+      <a href="/documents" class="transition hover:text-slate-900">Documents</a>
+      <a href="/tools" class="transition hover:text-slate-900">Tools</a>
+      <a href="/showcase" class="transition hover:text-slate-900">Showcase</a>
+      <a href="/faq" class="transition hover:text-slate-900">FAQ</a>
+      <a
+        href="https://github.com/replworks/replworks.github.io"
+        target="_blank"
+        rel="noreferrer"
+        class="transition hover:text-slate-900"
+      >
+        GitHub
+      </a>
+    </nav>
+  </div>
+
+  <div
+    class="mx-auto mt-8 max-w-6xl border-t border-slate-200 px-4 pt-4 text-xs text-slate-500 sm:px-6"
+  >
+    <p>REPL Works · MIT License</p>
+  </div>
 </footer>
