@@ -27,7 +27,7 @@ REPLWorks는 코드를 먼저 작성하는 방식이 아니다. 먼저 제품과
     ↓
 제품 정의 - .replworks/PRODUCT_SPEC.md 생성
     ↓
-기술 사양 정의 - .replworks/TECH_STACK.md 생성 혹은 content/tech-stacks/ 에서 복사
+기술 사양 정의 - .replworks/TECH_STACK.md 생성 혹은 templates/tech-stacks/ 에서 복사
     ↓
 아키텍처 설계 - .replworks/ARCHITECTURE.md 생성
     ↓
@@ -103,14 +103,14 @@ AI agent는 먼저 `AGENTS.md`를 읽고, 그 문서가 선언한 순서에 따�
 5. 테스트와 빌드를 실행한다.
 6. 문서와 코드가 어긋나면 다음 작업으로 넘어가지 않고 충돌을 보고한다.
 
-## `content/`의 역할
+## `templates/`의 역할
 
-`content/`는 웹사이트가 직접 렌더링하는 콘텐츠 디렉터리가 아니다.
+`templates/`는 웹사이트가 직접 렌더링하는 콘텐츠 디렉터리가 아니다.
 
-`content/`에는 REPLWorks 방식으로 실무를 진행할 때 AI가 참고하는 프롬프트와 미리 만들어 놓은 예제 `TECH_STACK.md`를 둔다. 실무에서 이 파일들을 수정하면, AI는 해당 내용을 참고해 웹사이트의 실제 콘텐츠와 구현을 `src/**`에 반영한다.
+`templates/`에는 REPLWorks 방식으로 실무를 진행할 때 AI가 참고하는 프롬프트와 미리 만들어 놓은 예제 `TECH_STACK.md`를 둔다. 실무에서 이 파일들을 수정하면, AI는 해당 내용을 참고해 웹사이트의 실제 콘텐츠와 구현을 `src/**`에 반영한다.
 
 ```text
-content/
+templates/
 ├── prompts/       # 실무에서 사용하는 재사용 프롬프트
 └── tech-stacks/   # 프레임워크별 `TECH_STACK.md` 템플릿
 
@@ -118,7 +118,7 @@ src/
 └── ...            # Astro가 실제로 빌드하고 웹사이트에 렌더링하는 파일
 ```
 
-따라서 `content/`는 Astro content collection이나 public asset으로 등록하지 않는다. `content/`의 파일을 웹사이트에 그대로 노출하거나 raw endpoint로 제공하지 않는다.
+따라서 `templates/`는 Astro content collection이나 public asset으로 등록하지 않는다. `templates/`의 파일을 웹사이트에 그대로 노출하거나 raw endpoint로 제공하지 않는다.
 
 ## 이 저장소
 

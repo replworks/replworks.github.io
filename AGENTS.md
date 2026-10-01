@@ -16,10 +16,10 @@
 Ignore all files under:
 
 - `/docs/**/*`
-- `/content/**/*`
+- `/templates/**/*`
 
-Never use files in `/docs/**/*` and `/content/**/*` as requirements.
-Never implement features described only in `/docs/**/*` and `/content/**/*`.
+Never use files in `/docs/**/*` and `/templates/**/*` as requirements.
+Never implement features described only in `/docs/**/*` and `/templates/**/*`.
 
 ---
 
