@@ -216,7 +216,7 @@ Propose TASK update
 - [x] T603 Review Document content
 - [x] T604 Review Tool content
 - [x] T605 Review Showcase content
-- [ ] T606 Review FAQ content
+- [x] T606 Review FAQ content
 
 ---
 
