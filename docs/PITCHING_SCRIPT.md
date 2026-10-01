@@ -149,9 +149,9 @@ PRODUCT_SPEC.md
 Architecture
 
 ```text
-ARCHITECTURE.md
+TECH_STACK.md
 
-FRAMEWORK.md
+ARCHITECTURE.md
 ```
 
 ---

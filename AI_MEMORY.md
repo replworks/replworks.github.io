@@ -200,9 +200,9 @@ Human-friendly documents often waste context.
 
 ---
 
-# FRAMEWORK.MD DECISION
+# TECH_STACK.md DECISION
 
-Why FRAMEWORK.md exists:
+Why TECH_STACK.md exists:
 
 Real-world failure already occurred.
 
@@ -224,7 +224,7 @@ The recurring cost of errors exceeded the cost of documentation.
 
 Important:
 
-FRAMEWORK.md was not theoretical.
+TECH_STACK.md was not theoretical.
 
 It was created to solve an already observed bottleneck.
 
@@ -249,7 +249,7 @@ Examples:
 
 ### Build Now
 
-FRAMEWORK.md
+TECH_STACK.md
 
 Reason:
 

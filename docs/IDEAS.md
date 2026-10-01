@@ -156,9 +156,9 @@ PRODUCT_SPEC.md
 Architecture Phase
 
 ```text
-ARCHITECTURE.md
+TECH_STACK.md
 
-FRAMEWORK.md
+ARCHITECTURE.md
 ```
 
 ---
