@@ -23,3 +23,33 @@ test('searches every public content collection', async ({ page }) => {
     await expect(resultLink).toBeVisible();
   }
 });
+
+test('keeps primary pages within a mobile viewport', async ({ page }) => {
+  await page.setViewportSize({ width: 393, height: 852 });
+
+  for (const path of [
+    '/',
+    '/workflow',
+    '/prompts',
+    '/documents',
+    '/tools',
+    '/showcase',
+    '/faq',
+    '/search',
+  ]) {
+    await page.goto(path);
+    const width = await page.evaluate(
+      () => document.documentElement.scrollWidth
+    );
+    const viewportWidth = await page.evaluate(
+      () => document.documentElement.clientWidth
+    );
+    expect(width, `${path} overflows horizontally`).toBeLessThanOrEqual(
+      viewportWidth + 1
+    );
+  }
+
+  await page.goto('/');
+  await page.locator('summary').click();
+  await expect(page.locator('details nav').getByRole('link', { name: 'Workflow' })).toBeVisible();
+});
