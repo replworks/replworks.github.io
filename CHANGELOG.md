@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.4.1 - 2026-10-01
+
+### What's Changed
+
+* feat: update GoogleTag script, enhance accessibility, and add document download endpoints by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/69
+* refactor: update package.json scripts, improve VerticalPipeline component, and adjust publishedAt type in content config by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/70
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.4.0...v2.4.1
+
 ## v2.4.0 - 2026-10-01
 
 ### What's Changed
