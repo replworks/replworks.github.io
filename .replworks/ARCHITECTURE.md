@@ -234,6 +234,8 @@ Initial Tools
 
 ```text
 ai-issue
+
+repl-cli
 ```
 
 ---

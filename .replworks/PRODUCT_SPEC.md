@@ -380,6 +380,8 @@ Initial Tools
 
 ```text
 ai-issue
+
+repl-cli
 ```
 
 ---
@@ -404,6 +406,8 @@ Installation
 Usage
 
 Repository Link
+
+Platform Installation Links
 ```
 
 ---

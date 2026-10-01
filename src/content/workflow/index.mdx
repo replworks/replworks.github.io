@@ -88,17 +88,18 @@ REPL Works는 프로젝트 기억(Project Memory)과 세션 기억(Session Memor
 
 <Workflow
   steps={[
+    'Human / Discussion AI',
     'IDEAS.md',
     'PITCHING_SCRIPT.md',
     'PRODUCT_SPEC.md',
+    'TECH_STACK.md',
     'ARCHITECTURE.md',
     'TASKS.md',
-    'AGENTS.md',
-    'Discussion AI',
     'Issue',
     'Execution AI',
     'Pull Request',
     'Human Review',
+    'Release',
     'Merge',
     'Operation',
     'Document Updates',
@@ -124,7 +125,9 @@ REPL Works는 개발 단계와 운영 단계를 분리하지 않는다.
 
 ---
 
-Discussion AI와 반복적으로 대화하며 아이디어를 검증한다.
+Human은 Discussion AI와 반복적으로 대화하며 아이디어를 검증한다.
+
+최종 판단과 문서 작성은 Human이 담당한다.
 
 이 단계에서는 구현보다 문제와 시장을 이해하는 것이 중요하다.
 
@@ -195,11 +198,50 @@ Discussion AI와 반복적으로 대화하며 아이디어를 검증한다.
 
 ---
 
-Execution AI는 PRODUCT_SPEC.md만 읽어도 제품의 목적을 이해할 수 있어야 한다.
+PRODUCT_SPEC.md는 제품의 목적과 요구사항을 정의한다. Execution AI는 구현할 때
+TECH_STACK.md, ARCHITECTURE.md, TASKS.md, AGENTS.md도 함께 읽어야 한다.
 
 ---
 
-# Phase 3. 아키텍처 설계
+# Phase 3. 기술 사양 정의
+
+## 목적
+
+어떤 기술과 구현 규칙으로 만들 것인지 정의한다.
+
+---
+
+제품 정의가 끝나면 사용 기술과 구현 제약을 정리한다.
+
+---
+
+## 산출물
+
+### TECH_STACK.md
+
+구현 기술 제약의 기준이다.
+
+---
+
+포함 내용
+
+<SpecGrid
+  items={[
+    'Languages',
+    'Versions',
+    'File Placement',
+    'Naming Rules',
+    'Implementation Constraints',
+  ]}
+/>
+
+---
+
+TECH_STACK.md는 시스템의 컴포넌트 관계나 동작을 정의하지 않는다.
+
+---
+
+# Phase 4. 아키텍처 설계
 
 ## 목적
 
@@ -215,7 +257,7 @@ Execution AI는 PRODUCT_SPEC.md만 읽어도 제품의 목적을 이해할 수 �
 
 ### ARCHITECTURE.md
 
-기술적 Source of Truth이다.
+시스템 구조와 동작의 기준이다.
 
 ---
 
@@ -234,13 +276,13 @@ Execution AI는 PRODUCT_SPEC.md만 읽어도 제품의 목적을 이해할 수 �
 
 ---
 
-PRODUCT_SPEC.md가 무엇을 정의한다면,
+PRODUCT_SPEC.md가 무엇을 정의하고 TECH_STACK.md가 어떤 구현 규칙을 정의한다면,
 
 ARCHITECTURE.md는 어떻게를 정의한다.
 
 ---
 
-# Phase 4. 작업 계획
+# Phase 5. 작업 계획
 
 ## 목적
 
@@ -284,17 +326,13 @@ TASKS.md는 현재 위치다.
 
 ---
 
-# Phase 5. 프로젝트 규칙 정의
+# AGENTS.md
 
 ## 목적
 
 AI가 따라야 하는 규칙을 정의한다.
 
 ---
-
-## 산출물
-
-### AGENTS.md
 
 프로젝트 헌법이다.
 
@@ -340,7 +378,7 @@ Discussion AI는 구현보다 이해에 집중한다.
 
 ---
 
-Planning과 Execution은 분리한다.
+Discussion과 Execution은 분리한다.
 
 ---
 
@@ -362,6 +400,7 @@ Execution AI는 승인된 작업을 구현한다.
   type="input"
   items={[
     'PRODUCT_SPEC.md',
+    'TECH_STACK.md',
     'ARCHITECTURE.md',
     'TASKS.md',
     'AGENTS.md',

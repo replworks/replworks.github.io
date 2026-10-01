@@ -25,7 +25,7 @@ REPL Works는 이 문제를 해결하기 위해 만들어졌습니다.
 
 ### REPL Works는 무엇인가요?
 
-REPL Works는 [AI Issue Publisher](/tools/ai-issue)와 같은 AI 협업 개발 도구를 지원하지만, AI 도구 자체는 아닙니다.
+REPL Works는 [AI Issue Publisher](/tools/ai-issue)와 [REPL CLI](/tools/repl-cli) 같은 도구를 지원하지만, AI 도구 자체는 아닙니다.
 
 REPL Works는 AI와 사람이 장기간 프로젝트를 함께 운영하기 위한 AI-Native Product Development Framework입니다.
 
@@ -62,9 +62,9 @@ ChatGPT로 개발하는 것은 쉬운 일이 아닙니다. 차라리 하나만 �
 
 하지만 프로젝트가 커질수록 같은 설명을 반복하게 되며, 프로젝트의 현재 상태를 반복해서 설명해야 하는 경우가 필연적으로 생깁니다.
 
-REPL Works는 ChatGPT, Gemini와 같은 Discussion LLM와 Codex, Cloude Code와 같은 Execution LLM 모두를 사용하며, 프로젝트의 의도와 구조를 문서에 저장하여 반복 설명을 줄입니다.
+REPL Works는 ChatGPT, Gemini와 같은 Discussion AI와 Codex, Claude Code와 같은 Execution AI를 함께 사용할 수 있습니다. 프로젝트의 의도와 구조를 문서에 저장하여 반복 설명을 줄입니다.
 
-REPL Works는 최소한의 LLM 비용 지출로 소프트웨어를 완성하기 위한 최고의 선택입니다.
+어떤 모델을 사용할지는 프로젝트의 요구사항과 상황에 따라 결정합니다.
 
 ---
 
@@ -74,31 +74,31 @@ REPL Works는 최소한의 LLM 비용 지출로 소프트웨어를 완성하기 
 
 채팅 기록은 대화를 위한 도구입니다. 프로젝트는 수개월 또는 수년 동안 유지될 수 있습니다.
 
-REPL Works는 중요한 프로젝트 기억을 Git의 commit 리스트로 채팅 기록을 대신하며, 채팅 기록을 직접 사용했을 때 발생하는 LLM 환각을 최소화 할 수 있다는 결과를 얻었습니다.
+REPL Works는 중요한 프로젝트 기억을 문서와 Git에 저장합니다. 채팅 기록은 일시적인 세션 맥락으로 사용하고, 프로젝트의 지속적인 상태와 결정은 문서와 Git을 기준으로 관리합니다.
 
-따라서, 대안이 있기 때문에 단점이 큰 채팅 기록을 사용할 필요가 없습니다.
+따라서 새로운 세션이나 모델에서도 프로젝트를 문서와 저장소를 기준으로 복원할 수 있습니다.
 
 ---
 
-### 왜 Github을 사용하나요?
+### 왜 GitHub을 사용하나요?
 
 Git은 Commit과 Pull Request 그리고 Merge 라는 절차가 있습니다.
 
-전통적인 개발 환경은 개발자가 Commit을 하면 보통 시니어 개발자인 리뷰어가 리뷰를 승인하고 Merge를 해서 제품에 반영합니다.
+전통적인 개발 환경에서는 변경 사항을 Pull Request로 제안하고 리뷰와 승인을 거쳐 Merge합니다.
 
-REPL Works 에서는 AI가 코드를 만들면 Human이 승인을 하게 되는데 이 절차가 Commit 입니다.
+REPL Works에서도 Execution AI가 구현한 변경 사항을 Pull Request로 제안하고 Human이 리뷰합니다. Human Review와 Release가 완료된 변경만 Merge합니다.
 
-이 절차를 간소화 하기 위해서 REPL Works에서는 여러가지 도구를 제공할 예정이며, 큰 규모의 개발에도 대응할 수 있는 AI 단독 Github 계정을 운영할 수 있는 시스템도 개발하고 있습니다.
+REPL Works는 이 흐름을 지원하기 위해 [AI Issue Publisher](/tools/ai-issue)와 [REPL CLI](/tools/repl-cli) 같은 도구를 제공합니다.
 
-Github을 사용하는 이유는 AI와 개발하기 위한 최고의 서비스를 제공하기 때문입니다.
+GitHub은 Issue, Pull Request, Review, Merge를 통해 변경 과정과 프로젝트 이력을 함께 관리할 수 있기 때문에 사용합니다.
 
 ---
 
 ### 왜 Markdown 문서를 사용하나요?
 
-문서 기반 개발에 있어서 문서의 Linting와 Formatting은 프로그래밍 코드에서의 그것과 마찬가지로 매우 중요합니다.
+문서 기반 개발에서 문서의 Linting과 Formatting은 프로그래밍 코드와 마찬가지로 중요합니다.
 
-Markdown은 유구한 역사로 이미 어떤 파이프에서도 Linting과 Formatting을 할 수 있는 환경을 지원하는 거의 유일한 문서 포멧입니다.
+Markdown은 오랫동안 사용되어 다양한 환경에서 Linting과 Formatting을 적용할 수 있습니다.
 
 게다가 사람이 읽기 쉽고 AI가 문서를 이해하고 생성하기 쉽습니다.
 
@@ -112,19 +112,19 @@ REPL Works는 장기 보존과 모델 독립성을 위해 Markdown을 사용합�
 
 문서마다 책임이 다르기 때문입니다.
 
-| 문서               | 핵심 질문                           |
-| ------------------ | ----------------------------------- |
-| IDEAS.md           | 이 아이디어가 가치가 있는가?        |
-| PITCHING_SCRIPT.md | 이 프로젝트를 어떻게 설명할 것인가? |
-| PRODUCT_SPEC.md    | 무엇을 만들 것인가?                 |
-| ARCHITECTURE.md    | 어떻게 만들 것인가?                 |
-| FRAMEWORK.md       | 기술 사양과 개발 규칙은 무엇인가?   |
-| TASKS.md           | 지금 무엇을 해야 하는가?            |
-| AGENTS.md          | AI는 어떤 규칙으로 작업해야 하는가? |
+| 문서               | 핵심 질문                            |
+| ------------------ | ------------------------------------ |
+| IDEAS.md           | 이 아이디어가 가치가 있는가?         |
+| PITCHING_SCRIPT.md | 이 프로젝트를 어떻게 설명할 것인가?  |
+| PRODUCT_SPEC.md    | 무엇을 만들 것인가?                  |
+| TECH_STACK.md      | 어떤 기술과 규칙을 사용할 것인가?    |
+| ARCHITECTURE.md    | 시스템은 어떻게 구성되고 동작하는가? |
+| TASKS.md           | 지금 무엇을 해야 하는가?             |
+| AGENTS.md          | AI는 어떤 규칙으로 작업해야 하는가?  |
 
 문서가 명확할수록 AI와 사람 모두 프로젝트를 더 쉽게 이해할 수 있습니다.
 
-ReplWorks에서는 사실 실제 프로젝트에서 사용하는 10여개의 문서를 4개로 줄인 것입니다. 나머지 3개는 ReplWorks에서 제공하는 프롬프트로 생성할 수 있습니다.
+ReplWorks에서는 실제 프로젝트에서 사용하는 10여 개의 문서를 핵심 문서 체계로 줄였습니다. IDEAS.md와 PITCHING_SCRIPT.md는 Human이 만들고, AI는 PRODUCT_SPEC.md, TECH_STACK.md, ARCHITECTURE.md, TASKS.md를 순서대로 작성합니다.
 
 문서는 더 줄어들었는데 그 이유는 AI가 이 구조의 문서를 가장 잘 이해한다는 결과를 얻었기 때문입니다.
 
@@ -132,20 +132,18 @@ ReplWorks에서는 사실 실제 프로젝트에서 사용하는 10여개의 문
 
 ### 왜 Discussion AI와 Execution AI를 분리하나요?
 
-그 둘을 분리하는 이유는 두가지 입니다.
+그 둘을 분리하는 이유는 두 가지입니다.
 
 1. AI 환각(Hallucination) 현상 방지
 2. AI 토큰 비용 절약
 
-문서 없이 채팅만으로 프로젝트를 진행하게 되면 일주일만 넘으면 나도 길을 읽고 AI도 길을 잃습니다. 게다가 처음 정한 정책과 같은 내용도 AI가 잊어버리면 관련 코드가 있는데도 새로 만들곤 합니다.
+문서 없이 채팅만으로 프로젝트를 진행하면 세션이 길어지거나 바뀔 때 프로젝트의 의도와 현재 상태를 다시 설명해야 합니다. 처음 정한 정책을 AI가 잊으면 이미 존재하는 기능을 다시 만들 수도 있습니다.
 
-가장 위험한건 AI 환각인데요, 일단 이 모드로 들어가게 되면 프로젝트를 처음부터 다시 시작해야 하는 상황도 빈번하게 발생합니다. 과정이 관리되지 않았으니까요.
+문서와 검토 절차가 없으면 AI의 추측이 구현에 섞일 가능성도 커집니다. REPL Works는 문서, Issue, Pull Request와 Human Review를 통해 그 과정을 관리합니다.
 
-게다가 ReplWorks compatible 방식이 아닌 Cloude Code의 상위모델로 프로젝트 개발을 끝낸다면 생각보다 많은 토큰 사용량과 비용에 놀라게 됩니다.
+Discussion AI는 고품질 결정이 필요한 문서를 정리하고, Execution AI는 승인된 문서와 작업을 기준으로 구현합니다.
 
-REPL Works는 고품질 결정이 필요한 내용은 무료이거나 매우 저렴한 Discussion AI를 사용해서 개발에 필수적인 문서를 ReplWorks 제공 프롬프트를 통해서 완성합니다.
-
-Execution AI는 필수 문서만 보고 작업하며, TASKS.md 문서에 체크리스트를 보면서 작업하기 때문에 사용 토큰이 최소화 됩니다. 게다가 개발 도중이라고 상태관리가 됩니다.
+Execution AI는 AGENTS.md의 규칙에 따라 필요한 authoritative 문서를 읽고 TASKS.md의 작업 범위를 확인합니다. 이를 통해 같은 프로젝트 설명을 세션마다 반복하는 비용을 줄일 수 있습니다.
 
 이런 방법은 모델 독립적이라, 중간에 좋은 모델을 사용할 수 있는 환경이 생기면 프로젝트 개발 중간이라도 다른 모델로도 개발이 가능하게 됩니다.
 
@@ -153,9 +151,9 @@ Execution AI는 필수 문서만 보고 작업하며, TASKS.md 문서에 체크�
 
 ### 왜 PRODUCT_SPEC.md가 필요한가요?
 
-PRODUCT_SPEC.md는 여러분의 아이디어를 AI가 개발 완료에 필요한 모든(All) 정보와 콘텐츠가 담긴 유일한 문서입니다.
+PRODUCT_SPEC.md는 제품 요구사항을 정의하는 기준 문서입니다.
 
-AI는 스스로 이 문서를 진실의 소스(Source of Truth) 혹은 유일한 진리라고 부릅니다.
+기술과 구현 규칙은 TECH_STACK.md가, 시스템 구조와 동작은 ARCHITECTURE.md가, 현재 작업 범위는 TASKS.md가 담당합니다.
 
 이 문서는 아래 네가지 질문에 답할 수 있어야 합니다.
 
@@ -183,12 +181,16 @@ REPL Works는 이러한 정보를 문서로 압축합니다.
 ```text
 PRODUCT_SPEC.md
 
+TECH_STACK.md
+
 ARCHITECTURE.md
 
 TASKS.md
+
+AGENTS.md
 ```
 
-Execution AI는 필요한 문서만 읽고 작업할 수 있습니다.
+Execution AI는 AGENTS.md의 규칙에 따라 작업에 필요한 authoritative 문서를 읽고 작업할 수 있습니다.
 
 결과적으로 컨텍스트 길이와 비용을 줄일 수 있습니다.
 
@@ -208,7 +210,7 @@ REPL Works는 모델 독립성(Model Independence)을 핵심 원칙으로 합니
 
 ### REPL Works는 어떤 프로젝트에 적합한가요?
 
-REPL Works는 아래 프로젝트에서 성공적으로 테스트되고 운영되고 있으며, 지금도 개선되고 있습니다.
+REPL Works는 다음과 같은 프로젝트 유형에 적용할 수 있으며, 실제 프로젝트를 통해 계속 검증되고 있습니다.
 
 - SaaS
 - 웹사이트
@@ -217,7 +219,7 @@ REPL Works는 아래 프로젝트에서 성공적으로 테스트되고 운영�
 - AI 제품
 - 장기 운영 서비스
 
-기술 스택으로는 아래와 같이 테스트 되고 있으며, 개발 시작 당시의 최신 버전을 이용합니다.
+다양한 기술 스택에서 사용할 수 있습니다.
 
 - React/Vite
 - NodeJS

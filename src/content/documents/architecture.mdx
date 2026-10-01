@@ -1,13 +1,13 @@
 ---
 title: 'ARCHITECTURE.md'
 version: 'v1'
-description: 'ARCHITECTURE.md는 프로젝트의 기술 구조를 정의하는 문서다.'
+description: 'ARCHITECTURE.md는 시스템 구조와 동작을 정의하는 문서다.'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
 이 문서의 목적은 제품 요구사항을 정의하는 것이 아니다.
 
-제품을 어떤 구조로 구현할 것인지 정의하는 것이다.
+시스템이 어떤 구조로 구성되고 동작하는지 정의하는 것이다.
 
 ---
 
@@ -16,18 +16,18 @@ publishedAt: '2026-06-12T00:00:00Z'
 다음 질문에 답한다.
 
 ```text
-프로젝트는 어떻게 구성되는가?
+시스템은 어떻게 구성되고 동작하는가?
 
-콘텐츠는 어디에 위치하는가?
+컴포넌트의 책임은 어떻게 나뉘는가?
 
-시스템은 어떻게 연결되는가?
+데이터는 어떻게 흐르는가?
 
-어떤 제약을 따라야 하는가?
+어떤 경계와 불변식을 따라야 하는가?
 ```
 
 ---
 
-ARCHITECTURE.md는 프로젝트의 기술적 진실(Source of Truth)이다.
+ARCHITECTURE.md는 시스템 구조와 동작의 기준이다.
 
 ---
 
@@ -36,10 +36,8 @@ ARCHITECTURE.md는 프로젝트의 기술적 진실(Source of Truth)이다.
 일반적으로 다음 정보를 기반으로 작성한다.
 
 - PRODUCT_SPEC.md
-- 선택된 기술 스택
-- 프로젝트 요구사항
-- 운영 제약
-- 배포 환경
+- TECH_STACK.md
+- 승인된 제품 요구사항
 
 ---
 
@@ -48,13 +46,11 @@ ARCHITECTURE.md는 프로젝트의 기술적 진실(Source of Truth)이다.
 다음 내용을 정의한다.
 
 - 시스템 구조
-- 저장소 구조
-- 콘텐츠 구조
-- 라우팅 구조
+- 컴포넌트 책임
 - 데이터 흐름
-- 모듈 구조
 - 구현 경계
-- 운영 제약
+- 실패 경계
+- 아키텍처 불변식
 
 ---
 
@@ -85,9 +81,9 @@ PITCHING_SCRIPT.md
 ↓
 PRODUCT_SPEC.md
 ↓
-ARCHITECTURE.md
+TECH_STACK.md
 ↓
-FRAMEWORK.md
+ARCHITECTURE.md
 ↓
 TASKS.md
 ```
@@ -96,15 +92,9 @@ TASKS.md
 
 PRODUCT_SPEC.md는 무엇을 만들지 정의한다.
 
----
+TECH_STACK.md는 어떤 기술과 구현 규칙을 사용할지 정의한다.
 
-ARCHITECTURE.md는 어떻게 구성할지 정의한다.
-
----
-
-FRAMEWORK.md는 어떻게 구현할지 정의한다.
-
----
+ARCHITECTURE.md는 시스템이 어떻게 구성되고 동작하는지 정의한다.
 
 TASKS.md는 무엇을 해야 하는지 정의한다.
 
@@ -120,7 +110,7 @@ Execution AI도 반드시 읽어야 하는 문서다.
 
 ---
 
-기술 구조에 대한 최종 기준은 ARCHITECTURE.md다.
+시스템 구조와 동작에 대한 최종 기준은 ARCHITECTURE.md다.
 
 ---
 

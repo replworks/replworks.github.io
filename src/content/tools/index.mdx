@@ -1,7 +1,7 @@
 ---
 title: '도구(Tools)'
 version: 'v1'
-description: '도구(Tools)는 ReplWorks framework 를 확장하고 자동화 합니다.'
+description: '도구(Tools)는 검증된 REPL Works 작업을 실행하고 자동화한다.'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
@@ -11,9 +11,9 @@ import ValueFlow from '../../components/ValueFlow.astro';
 import TerminalGrid from '../../components/TerminalGrid.astro';
 import RelationFlow from '../../components/RelationFlow.astro';
 
-REPL Works는 도구를 제품으로 보지 않는다.
+REPL Works의 도구는 독립적인 제품이 아니라, 검증된 Workflow를 실행하기 위한 도구다.
 
-도구는 프레임워크를 실행하기 위한 자산(Framework Assets)이다.
+도구는 Workflow, Prompt, Document를 대체하지 않는다.
 
 ---
 
@@ -76,6 +76,25 @@ GitHub Issue를 REPL Works 방식으로 생성하기 위한 도구.
 
 ---
 
+### REPL CLI
+
+AI 실행 결과와 로컬 프로젝트 상태를 결정론적으로 관리하는 CLI 도구.
+
+---
+
+주요 기능
+
+- 프로젝트 실행 환경 초기화
+- 작업 실행 세션 관리
+- AI 실행 결과 검증
+- 로컬 실행 상태와 진행 상황 기록
+
+---
+
+[View Tool](/tools/repl-cli)
+
+---
+
 ## Future Tools
 
 REPL Works는 실제 사용 경험을 통해 새로운 도구를 추가할 수 있다.
@@ -84,7 +103,7 @@ REPL Works는 실제 사용 경험을 통해 새로운 도구를 추가할 수 �
 
 예시
 
-<TerminalGrid commands={['ai-prompt', 'ai-sync', 'ai-review', 'ai-memory']} />
+<TerminalGrid commands={['ai-prompt']} />
 
 ---
 
@@ -102,11 +121,11 @@ REPL Works는 실제 사용 경험을 통해 새로운 도구를 추가할 수 �
 
 ---
 
-도구는 프레임워크를 대체하지 않는다.
+도구는 REPL Works Workflow를 대체하지 않는다.
 
 ---
 
-도구는 프레임워크를 더 쉽게 실행하게 만든다.
+도구는 검증된 Workflow를 더 쉽게 실행하게 만든다.
 
 ---
 
