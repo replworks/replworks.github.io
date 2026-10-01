@@ -34,6 +34,7 @@ export const collectionDescriptions: Record<ContentCollection, string> = {
   workflow: 'The workflow and process guidance for using REPL Works.',
   prompts: 'Reusable prompts for AI-native product development.',
   documents: 'Reusable document standards for the REPL Works framework.',
+  frameworks: 'Legacy technology stack references.',
   tools: 'REPL Works ecosystem tools and framework assets.',
   showcase: 'REPL Works compatible projects and adoption examples.',
   faq: 'Answers to recurring questions about REPL Works.',
