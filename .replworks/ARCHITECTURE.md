@@ -378,6 +378,16 @@ Content detail pages
 
 ---
 
+Document source endpoints
+
+```text
+/documents/[slug].md
+```
+
+Document source endpoints return the raw Markdown body for reusable document standards.
+
+---
+
 ## GITHUB
 
 GitHub is the primary external asset.

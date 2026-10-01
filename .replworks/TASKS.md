@@ -164,6 +164,7 @@ Propose TASK update
 - [x] T423 Publish ARCHITECTURE.md standard
 - [x] T424 Publish TASKS.md standard
 - [x] T437 Publish TECH_STACK.md standard
+- [x] T439 Add raw document download endpoints
 
 ---
 
