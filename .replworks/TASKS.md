@@ -72,9 +72,9 @@ Propose TASK update
 
 ---
 
-# PHASE 1
+## PHASE 1
 
-## FOUNDATION
+### FOUNDATION
 
 - [x] T001 Initialize Astro Project
 - [x] T002 Configure Tailwind CSS
@@ -86,9 +86,9 @@ Propose TASK update
 
 ---
 
-# PHASE 2
+## PHASE 2
 
-## PLATFORM FOUNDATION
+### PLATFORM FOUNDATION
 
 - [x] T101 Create Site Shell
 - [x] T102 Configure Navigation
@@ -98,9 +98,9 @@ Propose TASK update
 
 ---
 
-# PHASE 3
+## PHASE 3
 
-## INITIAL WEBSITE RELEASE
+### INITIAL WEBSITE RELEASE
 
 - [x] T201 Create Home Page
 - [x] T202 Publish Why Content
@@ -113,11 +113,11 @@ Propose TASK update
 
 ---
 
-# PHASE 4
+## PHASE 4
 
-## REPL WORKS REPOSITIONING
+### REPL WORKS REPOSITIONING
 
-### INFORMATION ARCHITECTURE
+#### INFORMATION ARCHITECTURE
 
 - [x] T401 Replace legacy navigation with new navigation structure
 - [x] T402 Remove Why section
@@ -126,7 +126,7 @@ Propose TASK update
 
 ---
 
-### HOME
+#### HOME
 
 - [x] T405 Rewrite Home page for AI-Native Product Development Framework positioning
 - [x] T406 Add workflow-first messaging
@@ -135,7 +135,7 @@ Propose TASK update
 
 ---
 
-### WORKFLOW
+#### WORKFLOW
 
 - [x] T409 Rewrite Workflow documentation
 - [x] T410 Publish current REPL Works workflow
@@ -144,7 +144,7 @@ Propose TASK update
 
 ---
 
-### PROMPTS
+#### PROMPTS
 
 - [x] T413 Create Prompts section
 - [x] T414 Publish IDEAS prompt
@@ -156,7 +156,7 @@ Propose TASK update
 
 ---
 
-### DOCUMENTS
+#### DOCUMENTS
 
 - [x] T420 Create Documents section
 - [x] T421 Publish AGENTS.md standard
@@ -168,7 +168,7 @@ Propose TASK update
 
 ---
 
-### TOOLS
+#### TOOLS
 
 - [x] T425 Create Tools section
 - [x] T426 Publish ai-issue
@@ -178,7 +178,7 @@ Propose TASK update
 
 ---
 
-### SHOWCASE
+#### SHOWCASE
 
 - [x] T429 Convert Showcase to REPL Works Compatible Projects
 - [x] T430 Publish REPL Works Website showcase
@@ -187,7 +187,7 @@ Propose TASK update
 
 ---
 
-### FAQ
+#### FAQ
 
 - [x] T433 Rewrite FAQ for framework positioning
 - [x] T434 Add compatibility questions
@@ -196,9 +196,9 @@ Propose TASK update
 
 ---
 
-# PHASE 5
+## PHASE 5
 
-## SEARCH
+### SEARCH
 
 - [x] T501 Verify search indexing for Prompts
 - [x] T502 Verify search indexing for Documents
@@ -208,9 +208,9 @@ Propose TASK update
 
 ---
 
-# PHASE 6
+## PHASE 6
 
-## CONTENT REVIEW
+### CONTENT REVIEW
 
 - [x] T601 Review Workflow content
 - [x] T602 Review Prompt content
@@ -221,9 +221,9 @@ Propose TASK update
 
 ---
 
-# PHASE 7
+## PHASE 7
 
-## RELEASE
+### RELEASE
 
 - [x] T701 Responsive Review
 - [x] T702 Accessibility Review
@@ -233,9 +233,9 @@ Propose TASK update
 
 ---
 
-# PHASE 8
+## PHASE 8
 
-## DOCUMENTATION ALIGNMENT
+### DOCUMENTATION ALIGNMENT
 
 - [x] T801 Align document naming and structure
 
