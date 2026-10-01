@@ -1,0 +1,48 @@
+---
+title: 'Task 검토'
+version: 'v1'
+description: 'TASKS.md가 승인된 제품 및 기술 문서를 실행 가능한 작업으로 반영했는지 검토하기 위한 프롬프트'
+publishedAt: '2026-06-12T00:00:00Z'
+---
+
+## 목적
+
+TASKS.md가 PRODUCT_SPEC.md, TECH_STACK.md, ARCHITECTURE.md를 빠짐없이 반영하는지 검토한다.
+
+---
+
+## Prompt
+
+````text
+Review these documents together:
+
+- PRODUCT_SPEC.md
+- TECH_STACK.md
+- ARCHITECTURE.md
+- TASKS.md
+
+Generate only blocking questions.
+
+Check for:
+
+- product requirements without tasks
+- architecture responsibilities without tasks
+- tasks that conflict with the product requirements
+- tasks that conflict with the technology constraints
+- tasks that are not independently completable
+- tasks without objective acceptance criteria
+- missing dependencies between tasks
+- work that is outside the approved scope
+
+Do not create new tasks.
+
+Do not suggest new features.
+
+Do not rewrite TASKS.md.
+
+If no blocking questions exist, output:
+
+```text
+Tasks can be executed with high confidence.
+```
+````

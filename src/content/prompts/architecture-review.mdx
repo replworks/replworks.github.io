@@ -1,0 +1,49 @@
+---
+title: '아키텍처 검토'
+version: 'v1'
+description: 'ARCHITECTURE.md가 제품 요구사항과 기술 스택을 충족하는지 검토하기 위한 프롬프트'
+publishedAt: '2026-06-12T00:00:00Z'
+---
+
+## 목적
+
+ARCHITECTURE.md가 PRODUCT_SPEC.md와 TECH_STACK.md를 정확하게 반영하는지 검토한다.
+
+새로운 구조를 제안하거나 문서를 다시 작성하지 않는다.
+
+---
+
+## Prompt
+
+````text
+Review these documents together:
+
+- PRODUCT_SPEC.md
+- TECH_STACK.md
+- ARCHITECTURE.md
+
+Generate only blocking questions.
+
+Check for:
+
+- product requirements without architectural ownership
+- components with overlapping responsibilities
+- missing inputs or outputs
+- undefined data flows
+- conflicts with TECH_STACK.md
+- architecture decisions that introduce unapproved product behavior
+- missing failure boundaries
+- contradictory invariants
+
+Do not suggest new features.
+
+Do not choose alternative technologies.
+
+Do not redesign the architecture.
+
+If no blocking questions exist, output:
+
+```text
+Architecture can be implemented with high confidence.
+```
+````

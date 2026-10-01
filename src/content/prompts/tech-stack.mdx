@@ -1,0 +1,79 @@
+---
+title: '기술 스택 정의'
+version: 'v1'
+description: 'TECH_STACK.md 작성을 위한 기술 선택 및 구현 규칙 정의 프롬프트'
+publishedAt: '2026-06-12T00:00:00Z'
+---
+
+## 목적
+
+제품 요구사항을 구현하기 위한 기술과 구현 규칙을 정의한다.
+
+이 단계의 목적은 시스템 구조를 설계하는 것이 아니다.
+
+사용 기술, 버전, 폴더 규칙, 네이밍 규칙과 구현 제약을 명확하게 정리하는 것이다.
+
+---
+
+## 산출물
+
+```text
+TECH_STACK.md
+```
+
+---
+
+## 사용 방법
+
+PRODUCT_SPEC.md가 완성된 이후, ARCHITECTURE.md를 작성하기 전에 사용한다.
+
+AI는 제품 요구사항을 만족하는 데 필요한 기술과 구현 규칙만 정의해야 한다.
+
+---
+
+## Prompt
+
+````text
+Generate TECH_STACK.md.
+
+Assume PRODUCT_SPEC.md already exists and is correct.
+
+The purpose of TECH_STACK.md is to define:
+
+```text
+Which technologies are used.
+Which versions are required.
+Where files are placed.
+How files and symbols are named.
+Which implementation constraints must be followed.
+```
+
+Do not describe the system architecture.
+
+Do not describe component relationships.
+
+Do not describe data flow.
+
+Do not describe user flows.
+
+Do not describe product requirements.
+
+The document must include:
+
+- Languages
+- Frameworks
+- Libraries
+- Versions
+- File Placement
+- Naming Rules
+- Implementation Constraints
+- Testing Tools
+
+Every technology and version must support an explicit product requirement.
+
+If a decision cannot be justified by PRODUCT_SPEC.md, identify it as unresolved.
+
+Prefer explicit constraints over general preferences.
+
+Optimize for implementation consistency.
+````

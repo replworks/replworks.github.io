@@ -1,17 +1,17 @@
 ---
 title: '실행 검증'
 version: 'v1'
-description: '구현 결과가 승인된 계획과 일치하는지 검증하기 위한 프롬프트'
+description: '구현을 시작하기 전에 프로젝트 문서가 실행 가능한 상태인지 검증하기 위한 프롬프트'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
 # 목적
 
-구현 결과가 프로젝트 문서와 일치하는지 검증한다.
+구현을 시작하기 전에 프로젝트 문서가 서로 일치하는지 검증한다.
 
 이 단계의 목적은 새로운 기능을 제안하는 것이 아니다.
 
-승인된 범위 내에서 정확하게 구현되었는지 확인하는 것이다.
+승인된 범위 안에서 Execution AI가 작업을 시작할 수 있는지 확인하는 것이다.
 
 ---
 
@@ -25,9 +25,9 @@ Validation Report
 
 # 사용 방법
 
-구현이 완료된 이후 사용한다.
+PRODUCT_SPEC.md, TECH_STACK.md, ARCHITECTURE.md, TASKS.md가 완성된 이후 사용한다.
 
-AI는 구현 결과를 PRODUCT_SPEC.md, ARCHITECTURE.md, TASKS.md와 비교하여 검토해야 한다.
+AI는 프로젝트 문서를 함께 비교하여 구현을 막는 불일치와 누락을 검토해야 한다.
 
 새로운 요구사항을 추가하지 않는다.
 
@@ -42,9 +42,11 @@ AI는 구현 결과를 PRODUCT_SPEC.md, ARCHITECTURE.md, TASKS.md와 비교하�
 ````text
 Review the following documents together:
 
+- AGENTS.md
 - PRODUCT_SPEC.md
+- TECH_STACK.md
 - ARCHITECTURE.md
-- FRAMEWORK.md
+- TASKS.md
 
 Assume you are responsible for implementing the entire product.
 
@@ -77,7 +79,7 @@ Focus on identifying:
 - undefined outputs
 - contradictions between documents
 
-Treat the three documents as a single implementation contract.
+Treat the five documents as a single implementation contract.
 
 A question is valid only if it blocks implementation certainty.
 
