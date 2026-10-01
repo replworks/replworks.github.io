@@ -34,10 +34,9 @@ REPL Works는 프로젝트 기억을 문서와 Git에 저장한다.
     'IDEAS.md',
     'PITCHING_SCRIPT.md',
     'PRODUCT_SPEC.md',
+    'TECH_STACK.md',
     'ARCHITECTURE.md',
-    'FRAMEWORK.md',
     'TASKS.md',
-    'AGENTS.md',
   ]}
 />
 
@@ -126,71 +125,65 @@ REPL Works는 프로젝트 기억을 문서와 Git에 저장한다.
 
 ---
 
-# ARCHITECTURE.md
+# TECH_STACK.md
 
-기술 구조를 정의한다.
+사용 기술과 구현 규칙을 정의한다.
 
 ---
 
 목적
 
-<MissionBox text="How should it be built?" />
+<MissionBox text="Which technologies and rules should be used?" />
+
+---
+
+주요 내용
+
+- 언어와 프레임워크
+- 버전
+- 파일 배치 규칙
+- 네이밍 규칙
+- 구현 제약
+- 테스트 도구
+
+---
+
+TECH_STACK.md는 구현 기술과 규칙의 기준이다.
+
+---
+
+<DocLink href="/documents/tech-stack" />
+
+---
+
+# ARCHITECTURE.md
+
+시스템 구조와 동작을 정의한다.
+
+---
+
+목적
+
+<MissionBox text="How should the system work?" />
 
 ---
 
 주요 내용
 
 - 시스템 구조
-- 콘텐츠 구조
-- 모듈 구조
-- 제약 사항
-- 운영 구조
+- 컴포넌트 책임
+- 데이터 흐름
+- 구현 경계
+- 실패 경계
+- 아키텍처 불변식
 
 ---
 
-ARCHITECTURE.md는 프로젝트의 기술적 진실이다.
+ARCHITECTURE.md는 TECH_STACK.md의 기술 선택이나 구현 규칙을 대체하지 않는다.
 
 ---
 
 <DocLink href="/documents/architecture" />
-
----
-
-# FRAMEWORK.md
-
-기술 스택별 구현 규칙을 정의한다.
-
----
-
-목적
-
-<MissionBox text="How should this stack be used?" />
-
----
-
-주요 내용
-
-- 프로젝트 구조
-- 파일 배치 규칙
-- 라우팅 규칙
-- 컴포넌트 규칙
-- 스타일링 규칙
-- 성능 규칙
-- 생성 규칙
-
----
-
-FRAMEWORK.md는 기술 스택에 대한 구현 가이드다.
-
----
-
-ARCHITECTURE.md가 프로젝트 구조를 설명한다면,
-
-FRAMEWORK.md는 해당 구조를 구현하는 방법을 설명한다.
-
----
-
-<DocLink href="/documents/framework" />
 
 ---
 
@@ -244,6 +237,8 @@ AI 작업 규칙을 정의한다.
 ---
 
 AGENTS.md는 모든 AI의 진입점이다.
+
+문서 생성 순서에는 포함되지 않으며, 모든 작업 전에 읽는 프로젝트 헌법이다.
 
 ---
 
