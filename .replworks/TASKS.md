@@ -200,11 +200,11 @@ Propose TASK update
 
 ## SEARCH
 
-- [ ] T501 Verify search indexing for Prompts
-- [ ] T502 Verify search indexing for Documents
-- [ ] T503 Verify search indexing for Tools
-- [ ] T504 Verify search indexing for Showcase
-- [ ] T505 Verify search indexing for FAQ
+- [x] T501 Verify search indexing for Prompts
+- [x] T502 Verify search indexing for Documents
+- [x] T503 Verify search indexing for Tools
+- [x] T504 Verify search indexing for Showcase
+- [x] T505 Verify search indexing for FAQ
 
 ---
 
