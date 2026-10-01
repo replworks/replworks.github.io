@@ -3,10 +3,10 @@
 ## DOCUMENT_ORDER
 
 1. AGENTS.md
-2. PRODUCT_SPEC.md
-3. TECH_STACK.md
-4. ARCHITECTURE.md
-5. TASKS.md
+2. .replworks/PRODUCT_SPEC.md
+3. .replworks/TECH_STACK.md
+4. .replworks/ARCHITECTURE.md
+5. .replworks/TASKS.md
    Only these documents are authoritative.
 
 ---
@@ -180,7 +180,7 @@ Re-verify mocks when the external system's behavior may have changed.
 
 ---
 
-## PRODUCT_CHANGES
+## PRODUCT_SPEC_CHANGES
 
 If implementation reveals missing product requirements, or a PRODUCT_SPEC.md section is marked UNVERIFIED:
 
