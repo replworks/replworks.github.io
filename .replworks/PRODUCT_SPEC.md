@@ -332,10 +332,6 @@ docs/IDEAS.md
 docs/PITCHING_SCRIPT.md
 ```
 
-`IDEAS.md` and `PITCHING_SCRIPT.md` are created by humans and stored under
-`docs/`. They are not authoritative AI documents and must not be used by AI
-agents as requirements.
-
 ---
 
 ## DOCUMENT_CREATION_ORDER
@@ -353,8 +349,6 @@ AI: .replworks/ARCHITECTURE.md
         ↓
 AI: .replworks/TASKS.md
 ```
-
-The AI document sequence begins with `PRODUCT_SPEC.md`. The human-created documents under `docs/` provide the preceding product context but are outside the AI document loading order.
 
 ---
 
