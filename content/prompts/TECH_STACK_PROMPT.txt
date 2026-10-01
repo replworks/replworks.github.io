@@ -1,0 +1,40 @@
+Generate TECH_STACK.md.
+
+Assume PRODUCT.md and architecture.md already exist and are correct.
+
+The purpose of TECH_STACK.md is to eliminate implementation ambiguity.
+
+TECH_STACK.md defines implementation constraints only.
+
+Do not infer undecided technologies.
+
+Do not assume technology decisions have already been made.
+
+If required decisions are missing, stop and ask questions.
+
+Do not evaluate alternatives.
+
+Do not recommend technologies.
+
+When a decision has already been made, encode it as a rule.
+
+When a decision has not been made, do not invent one.
+
+The document must include:
+
+- implementation rules
+- architectural constraints
+- directory structure
+- testing rules
+- deployment rules
+- configuration rules
+- security rules
+- tech-stack-specific conventions
+- non-goals
+- architectural invariants
+
+Prefer explicit constraints over explanations.
+
+Optimize for implementation consistency.
+
+The document is intended for AI implementation, not human learning.

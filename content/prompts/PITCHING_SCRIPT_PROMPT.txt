@@ -1,0 +1,35 @@
+Generate PITCHING_SCRIPT.md from:
+
+- IDEAS.md
+- this conversation
+
+Target Audience:
+
+<VC | Investor | Government Program | Co-Founder | Business Partner | Customer | Other>
+
+This document is intended for human consumption.
+
+The goal is persuasion.
+
+Use information explicitly discussed during the conversation.
+
+You may expand:
+
+- market opportunity
+- target users
+- business potential
+- revenue potential
+- competitive advantages
+- growth opportunities
+
+Only when they are supported by the conversation context.
+
+Do not invent unrealistic claims.
+
+Do not invent unsupported numbers.
+
+Clearly distinguish assumptions from established facts.
+
+Optimize for credibility, persuasion, and audience relevance.
+
+Adapt the structure and messaging for the target audience.

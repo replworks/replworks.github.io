@@ -1,0 +1,69 @@
+Generate TASKS.md.
+
+Assume PRODUCT_SPEC.md exists.
+
+Assume ARCHITECTURE.md exists.
+
+Assume TECH_STACK.md exists.
+
+The purpose of TASKS.md is to define:
+
+```text
+What remains to be implemented.
+```
+
+TASKS.md is an execution checklist.
+
+Do not describe architecture.
+
+Do not describe technologies.
+
+Do not describe tech stacks.
+
+Do not describe implementation details.
+
+Do not reference specific classes.
+
+Do not reference specific files.
+
+Do not reference specific libraries.
+
+Generate implementation tasks only.
+
+Tasks should represent user-visible capabilities or architectural milestones.
+
+Each task must be independently completable.
+
+Each task must be independently testable.
+
+Organize tasks into phases.
+
+For each phase:
+
+- define tasks
+- define acceptance criteria
+
+Tasks must:
+
+- be actionable
+- be verifiable
+- be implementation-independent
+
+Avoid:
+
+- implementation steps
+- code-level instructions
+- tech-stack-specific instructions
+
+Include:
+
+- MVP
+- Future
+
+Acceptance criteria must be objective.
+
+A task is complete only when acceptance criteria are satisfied.
+
+Optimize for autonomous execution by AI systems.
+
+The document is intended for AI implementation, not human project management.

@@ -1,0 +1,213 @@
+Assume PRODUCT_SPEC.md and ARCHITECTURE.md already exist and are correct.
+
+The purpose of this task is NOT to generate TECH_STACK.md.
+
+The purpose is to discover every implementation decision required to generate TECH_STACK.md.
+
+Do not infer missing decisions.
+
+Do not assume defaults.
+
+Do not recommend technologies unless explicitly asked.
+
+Do not generate TECH_STACK.md.
+
+Do not generate code.
+
+Do not evaluate alternatives unless explicitly requested.
+
+---
+
+Your job is to identify implementation decisions that are still undefined.
+
+For each missing decision:
+
+- explain why the decision is required,
+- explain which parts of the system depend on it,
+- ask a question,
+- wait for an answer.
+
+Do not continue past unanswered decisions.
+
+Do not batch unrelated decisions.
+
+Ask one decision at a time.
+
+Do not make assumptions.
+
+---
+
+The discovery process must cover:
+
+## Platform
+
+Determine:
+
+- target platforms
+- runtime constraints
+- distribution targets
+
+---
+
+## Programming Language
+
+Determine:
+
+- implementation language
+
+---
+
+## UI Tech stack
+
+Determine:
+
+- user interface tech stack
+
+---
+
+## Rendering System
+
+Determine:
+
+- rendering approach
+- graphics constraints
+
+---
+
+## State Management Style
+
+Determine:
+
+- state ownership model
+- mutation model
+
+---
+
+## Persistence
+
+Determine:
+
+- persistence requirements
+- storage boundaries
+
+---
+
+## Directory Structure
+
+Determine:
+
+- project organization rules
+- ownership boundaries
+
+---
+
+## Dependency Rules
+
+Determine:
+
+- external dependency policy
+- dependency ownership
+
+---
+
+## Testing
+
+Determine:
+
+- required test types
+- coverage expectations
+
+---
+
+## Configuration
+
+Determine:
+
+- configuration ownership
+- environment separation rules
+
+---
+
+## Logging
+
+Determine:
+
+- logging rules
+- sensitive information rules
+
+---
+
+## Security
+
+Determine:
+
+- secret handling rules
+- input validation rules
+
+---
+
+## Deployment
+
+Determine:
+
+- deployment targets
+- release environments
+
+---
+
+## Build Rules
+
+Determine:
+
+- build variants
+- build constraints
+
+---
+
+## Performance Constraints
+
+Determine:
+
+- latency requirements
+- throughput requirements
+- memory constraints
+
+---
+
+## Debugging
+
+Determine:
+
+- debugging capabilities
+- observability requirements
+
+---
+
+Output format:
+
+```text
+MISSING DECISION
+
+Name:
+<decision name>
+
+Reason:
+<why this decision is required>
+
+Affected Areas:
+- ...
+
+Question:
+<single question>
+
+WAITING FOR ANSWER
+```
+
+Rules:
+
+- Ask only one question at a time.
+- Never assume missing decisions.
+- Never generate TECH_STACK.md.
+- Never generate code.
+- Never continue automatically.
+- Wait after every answer.
