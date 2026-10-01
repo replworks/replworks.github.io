@@ -57,7 +57,9 @@ describe('REPL Works content invariants', () => {
   });
 
   it('provides raw Markdown endpoints and download links for standards', () => {
-    expect(existsSync(resolve(root, 'src/pages/documents/[slug].md.ts'))).toBe(true);
+    expect(existsSync(resolve(root, 'src/pages/documents/[slug].md.ts'))).toBe(
+      true
+    );
 
     const documentsIndex = read('src/content/documents/index.mdx');
     for (const slug of [

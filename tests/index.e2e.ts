@@ -14,7 +14,10 @@ test('searches every public content collection', async ({ page }) => {
   await page.goto('/search');
 
   const searchInput = page.locator('pagefind-searchbox').locator('input');
-  const resultLink = page.locator('pagefind-results').locator('.pf-result-link').first();
+  const resultLink = page
+    .locator('pagefind-results')
+    .locator('.pf-result-link')
+    .first();
 
   for (const query of [
     'continuous improvement',
@@ -55,5 +58,7 @@ test('keeps primary pages within a mobile viewport', async ({ page }) => {
 
   await page.goto('/');
   await page.locator('summary').click();
-  await expect(page.locator('details nav').getByRole('link', { name: 'Workflow' })).toBeVisible();
+  await expect(
+    page.locator('details nav').getByRole('link', { name: 'Workflow' })
+  ).toBeVisible();
 });
