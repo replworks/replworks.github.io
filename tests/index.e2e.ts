@@ -4,6 +4,10 @@ test('has title', async ({ page }) => {
   await page.goto('/');
 
   await expect(page).toHaveTitle('REPL Works');
+  await expect(page.locator('html')).toHaveAttribute('lang', 'ko');
+  await expect(page.locator('a[href="#main-content"]')).toHaveText(
+    '본문으로 건너뛰기'
+  );
 });
 
 test('searches every public content collection', async ({ page }) => {

@@ -226,7 +226,7 @@ Propose TASK update
 ## RELEASE
 
 - [x] T701 Responsive Review
-- [ ] T702 Accessibility Review
+- [x] T702 Accessibility Review
 - [ ] T703 Search Verification
 - [ ] T704 GitHub Pages Verification
 - [ ] T705 Release v2
