@@ -1,0 +1,29 @@
+Generate IDEAS.md from this conversation.
+
+This document is intended for human consumption.
+
+Record only information explicitly discussed during the conversation.
+
+Do not expand the idea.
+
+Do not invent features.
+
+Do not invent business models.
+
+Do not invent technical solutions.
+
+Do not invent implementation details.
+
+Do not add assumptions.
+
+Do not add recommendations.
+
+Do not add future possibilities unless explicitly discussed.
+
+Preserve the original intent.
+
+Focus on capturing the idea exactly as discussed.
+
+If information was not mentioned in the conversation, omit it.
+
+Optimize for accurate idea preservation rather than idea improvement.

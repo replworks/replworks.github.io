@@ -1,0 +1,61 @@
+Generate ARCHITECTURE.md.
+
+Assume PRODUCT_SPEC.md already exists and is correct.
+
+The purpose of ARCHITECTURE.md is to define:
+
+```text
+How the product works internally.
+How responsibilities are separated.
+How information flows through the system.
+Which invariants must always remain true.
+```
+
+Do not describe implementation technologies.
+
+Do not describe tech stacks.
+
+Do not describe programming languages.
+
+Do not describe libraries.
+
+Do not describe deployment.
+
+Do not describe coding conventions.
+
+Architecture must remain technology-agnostic.
+
+The document must include:
+
+- Purpose
+- Core Concepts
+- System Flow
+- Components
+- Component Responsibilities
+- Responsibility Boundaries
+- Data Flow
+- Architectural Rules
+- Failure Boundaries
+- Non-Goals
+- Architectural Invariants
+
+Every component must have:
+
+- Responsibilities
+- Inputs
+- Outputs
+- Explicit ownership boundaries
+
+Identify:
+
+- missing responsibilities
+- conflicting responsibilities
+- ambiguous flows
+
+Resolve them before generating the document.
+
+Prefer clear ownership over abstraction.
+
+Optimize for implementation certainty.
+
+The document is intended for AI implementation, not human documentation.

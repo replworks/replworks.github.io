@@ -15,11 +15,12 @@
 
 Ignore all files under:
 
-- `/docs/**/*`
-- `/content/**/*`
+```text
+docs/
+```
 
-Never use files in `/docs/**/*` and `/content/**/*` as requirements.
-Never implement features described only in `/docs/**/*` and `/content/**/*`.
+Never use files in docs/ as requirements.
+Never implement features described only in docs/.
 
 ---
 
