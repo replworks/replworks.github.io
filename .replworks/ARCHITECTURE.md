@@ -211,6 +211,8 @@ AGENTS.md
 
 PRODUCT_SPEC.md
 
+TECH_STACK.md
+
 ARCHITECTURE.md
 
 TASKS.md
@@ -470,72 +472,6 @@ Those belong under:
 Prompts
 
 Documents
-```
-
----
-
-## STACK
-
-Required
-
-```text
-Node.js >= 24
-
-npm >= 11
-
-Astro >= 6
-
-TypeScript >= 5
-
-Tailwind CSS >= 4
-```
-
----
-
-Package Manager
-
-```text
-npm
-```
-
----
-
-Framework
-
-```text
-Astro
-```
-
----
-
-Content
-
-```text
-MDX
-```
-
----
-
-Search
-
-```text
-Pagefind
-```
-
----
-
-Hosting
-
-```text
-GitHub Pages
-```
-
----
-
-CI/CD
-
-```text
-GitHub Actions
 ```
 
 ---
