@@ -163,6 +163,7 @@ Propose TASK update
 - [x] T422 Publish PRODUCT_SPEC.md standard
 - [x] T423 Publish ARCHITECTURE.md standard
 - [x] T424 Publish TASKS.md standard
+- [x] T437 Publish TECH_STACK.md standard
 
 ---
 
@@ -214,7 +215,7 @@ Propose TASK update
 - [x] T603 Review Document content
 - [x] T604 Review Tool content
 - [x] T605 Review Showcase content
-- [ ] T605 Review FAQ content
+- [ ] T606 Review FAQ content
 
 ---
 
@@ -227,6 +228,14 @@ Propose TASK update
 - [ ] T703 Search Verification
 - [ ] T704 GitHub Pages Verification
 - [ ] T705 Release v2
+
+---
+
+# PHASE 8
+
+## DOCUMENTATION ALIGNMENT
+
+- [x] T801 Align document naming and structure
 
 ---
 

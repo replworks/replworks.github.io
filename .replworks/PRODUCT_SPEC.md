@@ -315,6 +315,8 @@ AGENTS.md
 
 PRODUCT_SPEC.md
 
+TECH_STACK.md
+
 ARCHITECTURE.md
 
 TASKS.md
@@ -322,12 +324,30 @@ TASKS.md
 
 ---
 
-Optional Documents
+Human-Created Documents
 
 ```text
-IDEAS.md
+docs/IDEAS.md
 
-PITCHING_SCRIPT.md
+docs/PITCHING_SCRIPT.md
+```
+
+---
+
+## DOCUMENT_CREATION_ORDER
+
+```text
+Human: docs/IDEAS.md
+        ↓
+Human: docs/PITCHING_SCRIPT.md
+        ↓
+AI: .replworks/PRODUCT_SPEC.md
+        ↓
+AI: .replworks/TECH_STACK.md
+        ↓
+AI: .replworks/ARCHITECTURE.md
+        ↓
+AI: .replworks/TASKS.md
 ```
 
 ---
