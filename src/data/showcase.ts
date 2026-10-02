@@ -30,7 +30,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     slug: 'ai-issue',
     name: 'AI Issue Publisher',
     description:
-      '대화 맥락을 Execution AI가 즉시 수용할 수 있는 수락 조건 명세 Issue로 변환해 주는 호환 도구 프로젝트',
+      '대화 맥락을 코딩형 AI가 즉시 수용할 수 있는 수락 조건 명세 Issue로 변환해 주는 호환 도구 프로젝트',
     tags: ['Tooling', 'CLI'],
     lesson: '모호한 지시는 에이전트의 환각을 유발합니다.',
     detailUrl: '/showcase/ai-issue',

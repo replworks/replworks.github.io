@@ -47,7 +47,7 @@ REPL Works는 **인간 엔지니어와 AI가 장기간 프로젝트를 지속 �
 | **핵심 질문**      | _"지금 어떤 코드를 작성할까?"_      | _"왜 이 프로덕트를 만들고 어떻게 유지할까?"_ |
 | **결과물**         | 단발성 코드 / 스크립트              | 지속 가능한 프로덕트 자산 및 명세 헌법       |
 
-_AI Agent와 REPL Works는 경쟁 관계가 아닙니다. AI Agent(Execution AI)가 올바른 수락 조건(Acceptance Criteria) 범위 내에서 단일 커밋을 완수하도록 통제해 주는 가이드라인이 REPL Works입니다._
+_AI Agent와 REPL Works는 경쟁 관계가 아닙니다. AI Agent(코딩형 AI)가 올바른 수락 조건(Acceptance Criteria) 범위 내에서 단일 커밋을 완수하도록 통제해 주는 가이드라인이 REPL Works입니다._
 
 ---
 
@@ -65,7 +65,7 @@ REPL Works 호환 프로젝트는 프로젝트 기억을 대화가 아니라 Git
 
 단일 대화창으로 1회성 프로토타입을 만드는 것은 가능합니다. 그러나 **프로젝트 규모가 커지고 기능이 추가될수록 동일한 프로젝트 맥락을 매번 재설명해야 하는 비용 폭발**이 일어납니다.
 
-REPL Works는 ChatGPT/Gemini 같은 **Discussion AI**(기획 및 명세 작성)와 Claude Code/Codex 같은 **Execution AI**(명세 기반 단일 커밋 구현)를 엄격히 분리합니다. 대화 이력 대신 정제된 문서 자산을 통해 반복 설명을 없애줍니다.
+REPL Works는 ChatGPT/Gemini 같은 **대화형 AI**(기획 및 명세 작성)와 Claude Code/Codex 같은 **코딩형 AI**(명세 기반 단일 커밋 구현)를 엄격히 분리합니다. 대화 이력 대신 정제된 문서 자산을 통해 반복 설명을 없애줍니다.
 
 ---
 
@@ -88,8 +88,8 @@ REPL Works는 Git 커밋 및 마크다운 명세서를 **단일 진실 출처(Si
 
 REPL Works 파이프라인에서는:
 
-1. Discussion AI가 검증 가능한 수락 조건이 명시된 **GitHub Issue** 생성 (또는 `ai-issue` 사용)
-2. Execution AI가 1-Task 1-Commit 범위 내에서 작업 후 **Pull Request** 작성
+1. 대화형 AI가 검증 가능한 수락 조건이 명시된 **GitHub Issue** 생성 (또는 `ai-issue` 사용)
+2. 코딩형 AI가 1-Task 1-Commit 범위 내에서 작업 후 **Pull Request** 작성
 3. **Human Reviewer**가 빌드 및 유닛/E2E 테스트 수행 후 최종 Merge 승인
 
 이 과정을 통해 품질과 안전성을 완벽히 확보합니다.
@@ -126,12 +126,12 @@ REPL Works 파이프라인에서는:
 
 ---
 
-### Q9. 왜 Discussion AI와 Execution AI를 엄격히 분리하나요?
+### Q9. 왜 대화형 AI와 코딩형 AI를 엄격히 분리하나요?
 
 두 에이전트 역할을 분리하는 가장 큰 목적은 **1) AI 환각 현상 원천 차단** 및 **2) 토큰 비용 최적화**입니다.
 
-- **Discussion AI**: 제품 요구사항 정의, 아키텍처 토론, 고품질 문서 수립 담당
-- **Execution AI**: 승인된 `AGENTS.md` 헌법과 `TASKS.md`의 단일 태스크만을 읽고 정밀 구현 담당
+- **대화형 AI**: 제품 요구사항 정의, 아키텍처 토론, 고품질 문서 수립 담당
+- **코딩형 AI**: 승인된 `AGENTS.md` 헌법과 `TASKS.md`의 단일 태스크만을 읽고 정밀 구현 담당
 
 구현 에이전트에게 전체 대화 이력을 주지 않고 authoritative 문서만 전달하므로 환각 및 오버 스코프를 완전히 막을 수 있습니다.
 
@@ -156,7 +156,7 @@ REPL Works 파이프라인에서는:
 
 일반적인 대화형 AI 개발에서는 대화가 길어질수록 10만~20만 토큰의 거대한 컨텍스트를 매 프롬프트마다 재전송해야 합니다.
 
-REPL Works는 핵심 명세를 Git 마크다운 문서로 압축 관리하므로, Execution AI는 작업 시 필요한 문항만을 읽어 **프롬프트 입력 토큰 소비량을 최소 70% 이상 절감**합니다.
+REPL Works는 핵심 명세를 Git 마크다운 문서로 압축 관리하므로, 코딩형 AI는 작업 시 필요한 문항만을 읽어 **프롬프트 입력 토큰 소비량을 최소 70% 이상 절감**합니다.
 
 ---
 

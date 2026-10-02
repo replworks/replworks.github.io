@@ -3,27 +3,30 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 import ShowcaseCard from '../components/ShowcaseCard.astro';
 import { showcaseProjects } from '../data/showcase';
 
-// 코어 워크플로 파이프라인 데이터
-const pipelineSteps = [
-  { id: '01', file: 'IDEAS.md', desc: '아이디어 검증 및 동기 정의' },
-  { id: '02', file: 'PITCHING_SCRIPT.md', desc: '프로젝트 핵심 포지셔닝' },
-  { id: '03', file: 'PRODUCT_SPEC.md', desc: '제품 정의 및 요구사항 규격' },
-  { id: '04', file: 'TECH_STACK.md', desc: '기술 스택 및 구현 컨벤션' },
-  { id: '05', file: 'ARCHITECTURE.md', desc: '시스템 구조 및 컴포넌트 설계' },
-  { id: '06', file: 'TASKS.md', desc: '수행 마일스톤 및 세부 작업 계획' },
+// 문서 6종 2단계 그룹 데이터
+const stage1Docs = [
+  { id: '01', file: 'IDEAS.md', desc: '아이디어 검증' },
+  { id: '02', file: 'PITCHING_SCRIPT.md', desc: '프로젝트 포지셔닝' },
 ];
 
-// 다섯 가지 핵심 기반 데이터
+const stage2Docs = [
+  { id: '03', file: 'PRODUCT_SPEC.md', desc: '제품 정의' },
+  { id: '04', file: 'TECH_STACK.md', desc: '기술 구현 규칙' },
+  { id: '05', file: 'ARCHITECTURE.md', desc: '시스템 설계' },
+  { id: '06', file: 'TASKS.md', desc: '수행 계획' },
+];
+
+// 다섯 가지 핵심 기반 데이터 (순서: 프로젝트 지속성 보장 -> 특정 AI 의존성 탈피)
 const benefits = [
   {
     num: '01',
-    title: '특정 AI 의존성 탈피',
-    desc: '프로젝트의 모든 기억과 설계가 Git에 존재하므로 Claude, GPT, Gemini 등 어떤 모델로 교체해도 문서를 읽고 작업을 곧바로 이어받습니다.',
+    title: '프로젝트 지속성 보장',
+    desc: '세션이 끝나거나 담당자가 변경되어도 제품의 원래 의도와 기술적 결정 사항이 사라지지 않고 코드베이스에 보존됩니다.',
   },
   {
     num: '02',
-    title: '프로젝트 지속성 보장',
-    desc: '세션이 끝나거나 담당자가 변경되어도 제품의 원래 의도와 기술적 결정 사항이 사라지지 않고 코드베이스에 보존됩니다.',
+    title: '특정 AI 의존성 탈피',
+    desc: '프로젝트의 모든 기억과 설계가 Git에 존재하므로 Claude, GPT, Gemini 등 어떤 모델로 교체해도 문서를 읽고 작업을 곧바로 이어받습니다.',
   },
   {
     num: '03',
@@ -81,74 +84,81 @@ const benefits = [
     </section>
 
     {/* =========================================================================
-      2. WORKFLOW
+      2. WORKFLOW: REPL Works는 어떻게 작동하는가
       ========================================================================= */}
-    <section class="space-y-6 border-t border-slate-800/80 pt-16">
-      <div class="flex items-center gap-2">
-        <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
-        <p class="text-xs font-mono font-black tracking-widest text-cyan-400 uppercase">CORE METHOD</p>
-      </div>
-      <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-white">
-        작업은 TASKS로 쪼개고,<br class="hidden sm:inline" /> 규칙은 상위 문서에 둡니다
-      </h2>
-      <p class="max-w-3xl text-sm sm:text-base leading-relaxed text-slate-300">
-        AI에게 거대한 과업을 한 번에 지시하면 앞선 결정을 잊고 코드 아키텍처가 왜곡됩니다. REPL Works는 전체 개발을 독립된 TASK로 세분화하고, TASK 실행 시 필요한 기술 규격과 설계 규칙을 Git에 축적된 상위 문서에서 가져오게 만듭니다.
-      </p>
-
-      <div class="mt-8 grid gap-4 md:grid-cols-3">
-        {[
-          { num: '01', title: '상위 문서에 규칙 영구 기록', desc: 'PRODUCT_SPEC, TECH_STACK, ARCHITECTURE에 개발 제약 조건과 아키텍처 명시' },
-          { num: '02', title: '독립 단위 TASK로 분할', desc: 'TASKS.md에 의존성을 명확히 나눈 단일 실행 목표 스코프 정의' },
-          { num: '03', title: 'AI 1-Prompt = 1-Task 실행', desc: 'AI 에이전트가 매번 해당 TASK 규칙만 정밀히 읽고 구현 후 커밋' },
-        ].map((item) => (
-          <article class="glass-card glass-card-hover rounded-2xl p-6 border-slate-800/80 bg-slate-900/40 relative overflow-hidden group">
-            <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/5 rounded-full blur-xl group-hover:bg-cyan-500/10 transition-all"></div>
-            <p class="text-xs font-mono font-black text-cyan-400">{item.num}</p>
-            <h3 class="mt-3 text-base font-extrabold text-white">{item.title}</h3>
-            <p class="mt-2 text-xs text-slate-400 leading-relaxed">{item.desc}</p>
-          </article>
-        ))}
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-t border-slate-800/80 pt-16">
-        <div class="lg:col-span-5 space-y-4">
+    <section class="space-y-8 border-t border-slate-800/80 pt-16">
+      <div class="space-y-4">
         <div class="flex items-center gap-2">
-          <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-          <p class="text-xs font-mono font-black tracking-widest text-emerald-400 uppercase">INFORMATION ARCHITECTURE</p>
+          <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+          <p class="text-xs font-mono font-black tracking-widest text-cyan-400 uppercase">HOW IT WORKS</p>
         </div>
-        <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-white">
-          문서가 답하는 네 가지 핵심 질문
+        <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-white">
+          REPL Works는 어떻게 작동하는가
         </h2>
-        <p class="text-sm text-slate-300 leading-relaxed">
-          REPL Works 프레임워크의 모든 표준 문서는 제품 개발 중 발생하는 근본적인 4가지 질문에 대한 authoritative 답을 제공합니다.
+        <p class="max-w-3xl text-sm sm:text-base leading-relaxed text-slate-300">
+          6개 문서는 모두 대화형 AI와 사람이 함께 작성합니다. 코딩형 AI는 2단계 문서를 스스로 검증하고 수정한 뒤 개발을 진행합니다.
         </p>
+      </div>
 
+      {/* Two Group Document Architecture */}
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-2">
+        {/* Stage 1 Group */}
+        <div class="lg:col-span-4 glass-card rounded-2xl p-6 border-indigo-500/30 bg-indigo-950/20 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-indigo-800/40">
+              <span class="text-xs font-mono font-bold text-indigo-400 uppercase tracking-wider">1단계 · 사람을 위한 문서</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-indigo-900/60 text-indigo-200 border border-indigo-700/50">2종</span>
+            </div>
+            <div class="space-y-3">
+              {stage1Docs.map((doc) => (
+                <div class="p-3.5 rounded-xl border border-indigo-800/40 bg-slate-900/60 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono font-black text-indigo-400">{doc.id}</span>
+                    <span class="font-mono font-bold text-sm text-white">{doc.file}</span>
+                  </div>
+                  <span class="text-xs text-slate-400">{doc.desc}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <p class="text-xs text-indigo-300/80 leading-relaxed pt-2">
+            사람이 비즈니스 동기와 핵심 방향을 잡고 대화형 AI와 함께 정의하는 단계입니다.
+          </p>
+        </div>
+
+        {/* Stage 2 Group */}
+        <div class="lg:col-span-8 glass-card rounded-2xl p-6 border-cyan-500/30 bg-cyan-950/20 flex flex-col justify-between space-y-4">
+          <div>
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-cyan-800/40">
+              <span class="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider">2단계 · AI를 위한 문서</span>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-900/60 text-cyan-200 border border-cyan-700/50">4종</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {stage2Docs.map((doc) => (
+                <div class="p-3.5 rounded-xl border border-cyan-800/40 bg-slate-900/60 flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <span class="text-xs font-mono font-black text-cyan-400">{doc.id}</span>
+                    <span class="font-mono font-bold text-sm text-white">{doc.file}</span>
+                  </div>
+                  <span class="text-xs text-slate-400">{doc.desc}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <p class="text-xs text-cyan-300/80 leading-relaxed pt-2">
+            코딩형 AI가 프롬프트로 스스로 검증하고 수정한 뒤 1-Task 1-Commit 단위로 개발을 수행하는 핵심 규격입니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="pt-2 flex justify-start">
         <a
           href="/workflow"
-          class="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-bold text-cyan-300 bg-cyan-950/60 border border-cyan-800/60 rounded-xl hover:bg-cyan-900/80 hover:text-white transition-all w-fit mt-2"
+          class="inline-flex items-center gap-2 px-5 py-3 text-xs font-bold text-cyan-300 bg-cyan-950/60 border border-cyan-800/60 rounded-xl hover:bg-cyan-900/80 hover:text-white transition-all"
         >
-          <span>전체 워크플로 상세 문서</span>
-          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          <span>전체 워크플로 상세 문서 보기</span>
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
-      </div>
-
-      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {[
-          { q: 'Q1', question: '왜 만드는가?', desc: '프로젝트의 도메인 목적, 비즈니스 동기 및 포지셔닝', docs: 'IDEAS.md, PITCHING_SCRIPT.md' },
-          { q: 'Q2', question: '무엇을 만드는가?', desc: '제품 스펙 명세, 기능 요건 및 요구사항 세부 규격', docs: 'PRODUCT_SPEC.md' },
-          { q: 'Q3', question: '현재 구조는 무엇인가?', desc: '기술 스택 컨벤션, 아키텍처 및 시스템 컴포넌트 관계', docs: 'TECH_STACK.md, ARCHITECTURE.md' },
-          { q: 'Q4', question: '어떤 결정을 내렸는가?', desc: '누적된 테크 마일스톤 및 개별 작업 수행 이력', docs: 'TASKS.md, Git Commit Log' },
-        ].map((item) => (
-          <div class="glass-card glass-card-hover rounded-2xl p-5 border-slate-800/80 bg-slate-900/50 space-y-2">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/60">{item.q}</span>
-              <span class="text-[10px] font-mono text-slate-500">{item.docs}</span>
-            </div>
-            <h3 class="text-base font-extrabold text-white">{item.question}</h3>
-            <p class="text-xs text-slate-400 leading-snug">{item.desc}</p>
-          </div>
-        ))}
-      </div>
       </div>
     </section>
 

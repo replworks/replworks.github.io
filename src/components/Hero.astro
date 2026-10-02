@@ -9,8 +9,8 @@
     class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
   >
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-      {/* Left Column: Startup Value Pitch */}
-      <div class="lg:col-span-7 space-y-6 text-left">
+      {/* Left Column: Core Value Pitch */}
+      <div class="lg:col-span-6 space-y-6 text-left">
         {/* Top Tagline */}
         <span
           class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-[11px] font-mono font-bold tracking-wide text-cyan-400 select-none shadow-inner"
@@ -23,19 +23,15 @@
         <h1
           class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]"
         >
-          AI는 바뀝니다.<br />
-          <span class="text-gradient-cyan">프로젝트는 계속되어야 합니다.</span>
+          AI로 만든 프로젝트가<br />
+          <span class="text-gradient-cyan">산으로 가지 않게</span>
         </h1>
 
-        {/* Core Startup Value Pitch */}
+        {/* Core Subcopy */}
         <p
           class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl"
         >
-          REPL Works는 프로젝트의 목적, 기술 규칙, 구조를 문서 몇 개로 정리해 Git에 두는 개발 방식입니다. 새 채팅을 열어도, 다른 AI로 바꿔도, AI가 그 문서부터 읽고 이어서 작업합니다.
-        </p>
-
-        <p class="max-w-2xl text-sm sm:text-base leading-relaxed text-slate-400">
-          AI와 오래 개발하면 세션이 끊길 때마다 처음부터 다시 설명하게 되고, AI는 버전도 폴더 규칙도 모른 채 코드를 씁니다.
+          대화형 AI로 기획하고 코딩형 AI로 개발하는 방식은 이미 맞습니다. REPL Works는 완료 후 수정과 개선까지 프로젝트가 흐트러지지 않게 하는 문서 방법론입니다.
         </p>
 
         {/* Action CTA Buttons */}
@@ -44,7 +40,7 @@
             href="/workflow"
             class="inline-flex items-center justify-center px-6 py-3.5 text-xs font-extrabold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-xl shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 hover:scale-[1.02] transition-all group shrink-0"
           >
-            <span>워크플로 실행 가이드</span>
+            <span>워크플로 시작하기</span>
             <svg
               class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1"
               fill="none"
@@ -60,61 +56,180 @@
             </svg>
           </a>
           <a
-            href="/documents"
+            href="/showcase"
             class="inline-flex items-center justify-center px-6 py-3.5 text-xs font-extrabold text-slate-200 bg-slate-900/90 border border-slate-800 rounded-xl hover:bg-slate-800 hover:text-white hover:border-slate-700 transition-all shrink-0"
           >
-            표준 문서 구조 보기
+            실제 결과물 보기
           </a>
         </div>
       </div>
 
-      {/* Right Column: 6-Step Pipeline Interactive Glass Card */}
-      <div class="lg:col-span-5 w-full">
-        <div class="glass-card rounded-2xl border border-slate-800/90 bg-[#0c1322]/90 p-5 shadow-2xl relative overflow-hidden">
-          {/* Top Window Bar */}
-          <div class="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-4">
-            <div class="flex items-center gap-2">
-              <span class="h-3 w-3 rounded-full bg-red-500/80 inline-block"></span>
-              <span class="h-3 w-3 rounded-full bg-yellow-500/80 inline-block"></span>
-              <span class="h-3 w-3 rounded-full bg-green-500/80 inline-block"></span>
-            </div>
-            <span class="text-[11px] font-mono font-bold text-slate-400">replworks-pipeline.config</span>
-            <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/60">LIVE PIPELINE</span>
-          </div>
+      {/* Right Column: Triangle Diagram */}
+      <div class="lg:col-span-6 w-full flex justify-center">
+        <div class="glass-card rounded-3xl border border-slate-800/90 bg-[#0c1322]/80 p-6 sm:p-8 shadow-2xl relative w-full max-w-lg">
+          <svg
+            viewBox="0 0 500 420"
+            class="w-full h-auto max-w-full overflow-visible"
+            role="img"
+            aria-label="Human, 대화형 AI, 코딩형 AI의 협업 관계와 문서·Git 자산을 나타내는 삼각형 다이어그램"
+          >
+            <title>Human, 대화형 AI, 코딩형 AI 협업 다이어그램</title>
+            <desc>
+              Human이 상단에서 결정하고 승인하며, 대화형 AI와 함께 기획 및 문서 작성을 하고, 코딩형 AI가 문서를 검증한 뒤 개발을 수행하는 다이어그램. 하단에는 문서·Git 자산이 위치합니다.
+            </desc>
 
-          {/* Pipeline Cards Grid */}
-          <p class="text-[11px] font-mono font-bold text-slate-400 mb-3 tracking-wide uppercase">AUTHORITATIVE DOCUMENT FLOW</p>
-          <div class="space-y-2.5">
-            {[
-              { step: '01', file: 'IDEAS.md', tag: 'Human Input', desc: '아이디어 및 비즈니스 동기', color: 'border-slate-800 bg-slate-900/60 text-slate-300' },
-              { step: '02', file: 'PITCHING_SCRIPT.md', tag: 'Human Input', desc: '제품 핵심 포지셔닝', color: 'border-slate-800 bg-slate-900/60 text-slate-300' },
-              { step: '03', file: 'PRODUCT_SPEC.md', tag: 'Discussion AI', desc: '제품 정의 및 스펙 요구사항', color: 'border-cyan-500/40 bg-cyan-950/30 text-cyan-200' },
-              { step: '04', file: 'TECH_STACK.md', tag: 'Discussion AI', desc: '기술 스택 & 구현 규칙', color: 'border-cyan-500/40 bg-cyan-950/30 text-cyan-200' },
-              { step: '05', file: 'ARCHITECTURE.md', tag: 'Discussion AI', desc: '시스템 설계 및 컴포넌트 구조', color: 'border-cyan-500/40 bg-cyan-950/30 text-cyan-200' },
-              { step: '06', file: 'TASKS.md', tag: 'Execution AI', desc: '실행 계획 & 개별 TASK 마일스톤', color: 'border-emerald-500/50 bg-emerald-950/40 text-emerald-200' },
-            ].map((item) => (
-              <div class={`flex items-center justify-between p-2.5 rounded-xl border ${item.color} transition-all hover:scale-[1.01]`}>
-                <div class="flex items-center gap-2.5 min-w-0">
-                  <span class="text-[10px] font-mono font-extrabold text-slate-500">{item.step}</span>
-                  <span class="font-mono font-black text-xs tracking-tight">{item.file}</span>
-                </div>
-                <span class="text-[9px] font-mono font-bold px-2 py-0.5 rounded bg-slate-950/80 text-slate-400 border border-slate-800">
-                  {item.tag}
-                </span>
-              </div>
-            ))}
-          </div>
+            <defs>
+              {/* Arrow Markers */}
+              <marker
+                id="arrow-cyan"
+                viewBox="0 0 10 10"
+                refX="5"
+                refY="5"
+                markerWidth="6"
+                markerHeight="6"
+                orient="auto-start-reverse"
+              >
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8" />
+              </marker>
+              <marker
+                id="arrow-emerald"
+                viewBox="0 0 10 10"
+                refX="5"
+                refY="5"
+                markerWidth="6"
+                markerHeight="6"
+                orient="auto-start-reverse"
+              >
+                <path d="M 0 1 L 10 5 L 0 9 z" fill="#34d399" />
+              </marker>
 
-          {/* Bottom Execution Status Footer */}
-          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
-            <span class="flex items-center gap-1.5">
-              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-              Execution Rule: One Task = One Commit
-            </span>
-            <span class="text-cyan-400 font-bold">100% Reliable</span>
-          </div>
+              {/* Line Gradients */}
+              <linearGradient id="line-human-discussion" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#818cf8" />
+                <stop offset="100%" stop-color="#38bdf8" />
+              </linearGradient>
+              <linearGradient id="line-human-execution" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#818cf8" />
+                <stop offset="100%" stop-color="#34d399" />
+              </linearGradient>
+            </defs>
+
+            {/* Connecting Line 1: Human <-> 대화형 AI */}
+            <line
+              x1="220"
+              y1="95"
+              x2="135"
+              y2="245"
+              stroke="url(#line-human-discussion)"
+              stroke-width="2.5"
+              stroke-dasharray="6 4"
+              marker-start="url(#arrow-cyan)"
+              marker-end="url(#arrow-cyan)"
+            />
+
+            {/* Connecting Line 2: Human <-> 코딩형 AI */}
+            <line
+              x1="280"
+              y1="95"
+              x2="365"
+              y2="245"
+              stroke="url(#line-human-execution)"
+              stroke-width="2.5"
+              stroke-dasharray="6 4"
+              marker-start="url(#arrow-emerald)"
+              marker-end="url(#arrow-emerald)"
+            />
+
+            {/* Node 1 (Top): Human */}
+            <g transform="translate(170, 30)">
+              <rect
+                x="0"
+                y="0"
+                width="160"
+                height="64"
+                rx="16"
+                fill="#1e1b4b"
+                fill-opacity="0.9"
+                stroke="#6366f1"
+                stroke-width="2"
+              />
+              <text x="80" y="28" text-anchor="middle" fill="#ffffff" font-weight="900" font-size="16">
+                Human
+              </text>
+              <text x="80" y="48" text-anchor="middle" fill="#a5b4fc" font-weight="700" font-size="12">
+                결정하고 승인
+              </text>
+            </g>
+
+            {/* Node 2 (Bottom Left): ① 대화형 AI */}
+            <g transform="translate(15, 235)">
+              <rect
+                x="0"
+                y="0"
+                width="200"
+                height="84"
+                rx="16"
+                fill="#082f49"
+                fill-opacity="0.9"
+                stroke="#38bdf8"
+                stroke-width="2"
+              />
+              <text x="100" y="28" text-anchor="middle" fill="#ffffff" font-weight="900" font-size="15">
+                ① 대화형 AI
+              </text>
+              <text x="100" y="46" text-anchor="middle" fill="#7dd3fc" font-weight="600" font-size="11">
+                (ChatGPT · Claude)
+              </text>
+              <text x="100" y="66" text-anchor="middle" fill="#bae6fd" font-weight="700" font-size="11.5">
+                함께 기획하고 문서 작성
+              </text>
+            </g>
+
+            {/* Node 3 (Bottom Right): ② 코딩형 AI */}
+            <g transform="translate(285, 235)">
+              <rect
+                x="0"
+                y="0"
+                width="200"
+                height="84"
+                rx="16"
+                fill="#064e3b"
+                fill-opacity="0.9"
+                stroke="#34d399"
+                stroke-width="2"
+              />
+              <text x="100" y="28" text-anchor="middle" fill="#ffffff" font-weight="900" font-size="15">
+                ② 코딩형 AI
+              </text>
+              <text x="100" y="46" text-anchor="middle" fill="#6ee7b7" font-weight="600" font-size="11">
+                (Codex · Claude Code)
+              </text>
+              <text x="100" y="66" text-anchor="middle" fill="#a7f3d0" font-weight="700" font-size="11.5">
+                문서를 검증한 뒤 개발
+              </text>
+            </g>
+
+            {/* Bottom Edge Label: 문서 · Git (Text only, no line) */}
+            <g transform="translate(250, 375)">
+              <rect
+                x="-70"
+                y="-18"
+                width="140"
+                height="32"
+                rx="12"
+                fill="#0f172a"
+                fill-opacity="0.9"
+                stroke="#475569"
+                stroke-width="1.5"
+              />
+              <text x="0" y="3" text-anchor="middle" fill="#cbd5e1" font-weight="800" font-size="13" letter-spacing="1">
+                문서 · Git
+              </text>
+            </g>
+          </svg>
         </div>
       </div>
     </div>
   </div>
 </section>
+
