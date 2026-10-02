@@ -1,202 +1,58 @@
 ---
-title: 'AI Issue Publisher'
-version: 'v1'
-description: 'AI Issue Publisher는 REPL Works용 Issue 생성 도구다.'
-publishedAt: '2026-06-12T00:00:00Z'
+title: 'AI Issue Publisher (ai-issue)'
+version: 'v2'
+description: '대화 맥락과 아이디어를 Execution AI가 오버 스코프 없이 즉시 실행할 수 있는 GitHub Issue로 변환하는 자동화 도구'
+publishedAt: '2026-10-02T00:00:00Z'
 ---
 
-아이디어, 대화, 작업 요청을 실행 가능한 GitHub Issue로 변환한다.
+import MissionBox from '../../components/MissionBox.astro';
+import ValueFlow from '../../components/ValueFlow.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import Terminal from '../../components/Terminal.astro';
 
-[GitHub 저장소](https://github.com/replworks/ai-issue)
+`ai-issue`는 생각은 있지만 실행 가능한 구체적 작업 단위가 부족한 문제를 해결하는 REPL Works 공식 이슈 생성 도구입니다.
 
-설치 안내: [macOS Homebrew](https://brew.repl.net) · [Linux APT](https://apt.repl.net)
+<MissionBox text="From Discussion to Actionable Issue (막연한 대화를 실행 가능한 이슈로 변환)" />
+
+<ValueFlow from="Idea / Discussion" to="Actionable GitHub Issue" />
 
 ---
 
 ## Purpose
 
-다음 문제를 해결한다.
+`ai-issue`는 대부분의 AI 활용 개발 시 발생하는 **모호한 작업 지시, 불명확한 범위, 완료 기준 부재** 문제를 해결하기 위해 존재합니다.
 
-```text
-생각은 있다.
+`ai-issue`는 이슈 생성 시 다음 6개 필수 항목을 강제로 구조화하여 Execution AI가 임의로 추측하는 과업 확장을 차단합니다:
 
-하지만 실행 가능한 작업은 없다.
-```
-
----
-
-ai-issue는 이를 다음 형태로 변환한다.
-
-```text
-Idea
-↓
-Issue
-↓
-Execution AI
-```
-
----
-
-## Why It Exists
-
-대부분의 AI 프로젝트는 다음 문제를 겪는다.
-
-```text
-작업 지시가 모호하다.
-
-범위가 불명확하다.
-
-완료 기준이 없다.
-```
-
----
-
-이 경우 Execution AI는
-
-- 범위를 추측한다.
-- 기능을 추가한다.
-- 의도를 오해한다.
-
----
-
-ai-issue는 이러한 문제를 줄인다.
-
----
-
-## Workflow
-
-일반적인 흐름
-
-```text
-Discussion
-↓
-Issue
-↓
-Branch
-↓
-PR
-↓
-Review
-↓
-Merge
-```
-
----
-
-ai-issue는 Discussion과 Issue 사이를 담당한다.
-
----
-
-## Output
-
-생성되는 Issue는 일반적으로 다음을 포함한다.
-
-- Problem
-- Goal
-- Scope
-- Constraints
-- Acceptance Criteria
-- Expected Outcome
-
----
-
-Issue는 Execution AI가 작업을 시작하는 입력이다.
-
-실제 구현은 Issue와 프로젝트의 authoritative 문서를 함께 기준으로 한다.
-
----
-
-## Usage
-
-다음 상황에서 사용한다.
-
-```text
-새로운 기능
-
-버그 수정
-
-문서 작업
-
-리팩토링
-
-운영 작업
-```
-
----
-
-작업을 명확하게 정의해야 할 때 사용한다.
+<SpecGrid
+  items={[
+    '1. Problem Statement (문제 정의)',
+    '2. Goal & Target Outcome (달성 목표)',
+    '3. Scope & Out-of-Scope (포함 및 제외 범위)',
+    '4. Implementation Constraints (구현 제약)',
+    '5. Acceptance Criteria (수락 및 검증 기준)',
+    '6. Expected Files to Touch (작업 대상 파일)',
+  ]}
+/>
 
 ---
 
 ## Installation
 
-운영체제에 맞는 공식 설치 포털을 사용한다.
+운영체제에 맞는 패키지 매니저로 설치할 수 있습니다:
 
-- macOS: [brew.repl.net](https://brew.repl.net)
-- Linux: [apt.repl.net](https://apt.repl.net)
+- **macOS (Homebrew)**: `brew install replworks/tap/ai-issue`
+- **Linux (APT)**: `apt install ai-issue`
 
-설치 후 `ai-issue diagnose`로 로컬 환경을 확인한다.
-
----
-
-## Relationship
-
-```text
-Workflow
-↓
-Issue
-↓
-Execution
-```
-
----
-
-ai-issue는 REPL Works Workflow를 지원하는 도구다.
-
----
-
-REPL Works Workflow와 authoritative 문서를 대체하지 않는다.
+<Terminal command="ai-issue diagnose" />
 
 ---
 
 ## Repository
 
-ai-issue는 REPL Works Compatible 프로젝트에 적용할 수 있다.
+- **공식 GitHub 저장소**: [replworks/ai-issue](https://github.com/replworks/ai-issue)
 
----
-
-프로젝트별로 독립적으로 사용할 수 있다.
-
----
-
-GitHub 기반 워크플로와 함께 사용하는 것을 권장한다.
-
----
-
-## Key Principle
-
-좋은 Issue는 작업을 설명하지 않는다.
-
-좋은 Issue는 작업을 실행 가능하게 만든다.
-
----
-
-## Future Direction
-
-ai-issue는 REPL Works 생태계의 첫 번째 도구다.
-
----
-
-향후 Prompt, Document, Workflow 자동화를 위한 추가 도구가 만들어질 수 있다.
-
----
-
-ai-issue의 목표는 더 많은 이슈를 만드는 것이 아니다.
-
----
-
-더 적은 설명으로,
-
-더 정확하게,
-
-AI가 작업할 수 있게 만드는 것이다.
+```text
+좋은 Issue는 작업을 설명하지 않습니다.
+좋은 Issue는 AI 에이전트가 단 한 번의 프롬프트로 완벽히 실행 가능하도록 만듭니다.
+```

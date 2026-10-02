@@ -7,27 +7,24 @@ const { items } = Astro.props;
 ---
 
 <div
-  class="my-6 rounded-2xl border border-slate-200 bg-gradient-to-b from-slate-50 to-slate-100/70 p-6 shadow-sm"
+  class="my-6 rounded-2xl border border-slate-800 bg-slate-900/60 p-6 shadow-sm"
 >
-  {/* 모바일 가로 폭에 맞춰 유연하게 줄바꿈되는 흐름 레이아웃 */}
   <div class="flex flex-wrap items-center gap-x-3 gap-y-4">
     {
       items.map((item, idx) => (
         <div class="flex items-center gap-3">
-          {/* 번호가 매겨진 세련된 아키텍처 칩 */}
-          <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-slate-300 transition-all">
-            <span class="flex h-5 w-5 items-center justify-center rounded-lg bg-slate-900 text-[10px] font-black text-white">
+          <div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-950 border border-slate-800 shadow-sm hover:border-slate-700 transition-all">
+            <span class="flex h-5 w-5 items-center justify-center rounded-lg bg-cyan-950 text-[10px] font-mono font-black text-cyan-400 border border-cyan-800/80">
               0{idx + 1}
             </span>
-            <span class="text-sm font-extrabold text-slate-800 tracking-tight">
+            <span class="text-xs font-extrabold text-white tracking-tight">
               {item}
             </span>
           </div>
 
-          {/* 단계 연결 화살표 */}
           {idx < items.length - 1 && (
             <svg
-              class="h-4 w-4 text-slate-400 shrink-0"
+              class="h-4 w-4 text-cyan-400 shrink-0"
               fill="none"
               viewBox="0 0 24 24"
               stroke-width="3"

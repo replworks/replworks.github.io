@@ -1,8 +1,8 @@
 ---
-title: '도구(Tools)'
-version: 'v1'
-description: '도구(Tools)는 검증된 REPL Works 작업을 실행하고 자동화한다.'
-publishedAt: '2026-06-12T00:00:00Z'
+title: 'REPL Works Tooling'
+version: 'v2'
+description: '검증된 REPL Works 워크플로와 문서 생성을 결정론적으로 실행하고 자동화하는 공식 도구 모음'
+publishedAt: '2026-10-02T00:00:00Z'
 ---
 
 import SpecGrid from '../../components/SpecGrid.astro';
@@ -10,145 +10,57 @@ import DocumentFlow from '../../components/DocumentFlow.astro';
 import ValueFlow from '../../components/ValueFlow.astro';
 import TerminalGrid from '../../components/TerminalGrid.astro';
 import RelationFlow from '../../components/RelationFlow.astro';
+import DocLink from '../../components/DocLink.astro';
 
-REPL Works의 도구는 독립적인 제품이 아니라, 검증된 Workflow를 실행하기 위한 도구다.
+## 1. 개요 및 왜 도구가 필요한가?
 
-도구는 Workflow, Prompt, Document를 대체하지 않는다.
+REPL Works의 도구(Tools)는 독립된 별개의 유틸리티가 아닙니다. **검증된 Workflow, Prompt, Document 표준을 더 적은 토큰과 더 명확한 실행 단위로 자동화하기 위해 존재**합니다.
 
----
-
-Workflow가 반복되면,
-
-반복되는 작업은 도구가 될 수 있다.
-
----
-
-## Why Tools Exist
-
-REPL Works는 다음을 표준화한다.
-
-<SpecGrid items={['Workflow', 'Prompts', 'Documents']} />
+<SpecGrid
+  items={[
+    'Workflow: 제품 기획부터 릴리즈까지의 파이프라인 자동화',
+    'Prompts: 1-Prompt = 1-Task 검증 프롬프트 표준화',
+    'Documents: 프로젝트 기억 자산 마크다운 문서 자동 생성',
+  ]}
+/>
 
 ---
 
-도구는 이러한 표준을 자동화한다.
+## 2. 도구의 진화 과정 (Tool Evolution)
+
+REPL Works 생태계에서 도구는 수동 프로세스에서 시작하여 충분히 반복 검증된 과업만 순차적으로 자동화 도구로 승격됩니다.
+
+<DocumentFlow documents={['Manual Process', 'Standard Prompt', 'Markdown Document', 'CLI Tool']} />
 
 ---
 
-## Evolution
+## 3. 공식 도구 모음 (Current Official Tools)
 
-일반적으로 다음 순서로 발전한다.
+### 1. AI Issue Publisher (`ai-issue`)
+생각과 아이디어를 Execution AI가 오버 스코프 없이 즉시 실행할 수 있는 GitHub Issue 포맷으로 변환하는 CLI 도구입니다.
 
-<DocumentFlow documents={['Manual Process', 'Prompt', 'Document', 'Tool']} />
+<ValueFlow from="Raw Idea / Discussion" to="Actionable GitHub Issue" />
 
----
-
-충분히 반복되고 검증된 작업만 도구가 된다.
-
----
-
-## Current Tools
-
-### AI Issue Publisher
-
-GitHub Issue를 REPL Works 방식으로 생성하기 위한 도구.
+- **주요 기능**: 이슈 템플릿 자동화, 표준 수락 조건(Acceptance Criteria) 생성, AI 친화적 과업 정의
+- [AI Issue Publisher 도구 상세보기](/tools/ai-issue)
 
 ---
 
-목적
+### 2. REPL CLI (`repl-cli`)
+로컬 프로젝트 실행 환경을 초기화하고, AI 에이전트의 실행 결과를 결정론적으로 관리·검증하는 CLI 도구입니다.
 
-<ValueFlow from="Idea" to="Issue" />
-
-전환을 단순화한다.
-
----
-
-주요 기능
-
-- Issue 생성
-- 템플릿 적용
-- 표준 구조 유지
-- AI 친화적 작업 정의
+- **주요 기능**: 프로젝트 환경 초기화, 세션 실행 관리, AI 렌더링 결과 스키마 검증, 실행 상태 기록
+- [REPL CLI 도구 상세보기](/tools/repl-cli)
 
 ---
 
-[View Tool](/tools/ai-issue)
+## 4. 프레임워크 관계도 (Ecosystem Relationship)
 
----
+도구는 REPL Works 프레임워크를 대체하는 것이 아니라, 프레임워크 준수를 더 빠르고 정확하게 도와주는 서포터입니다.
 
-### REPL CLI
+<RelationFlow items={['Workflow', 'Prompts', 'Documents', 'CLI Tools']} />
 
-AI 실행 결과와 로컬 프로젝트 상태를 결정론적으로 관리하는 CLI 도구.
-
----
-
-주요 기능
-
-- 프로젝트 실행 환경 초기화
-- 작업 실행 세션 관리
-- AI 실행 결과 검증
-- 로컬 실행 상태와 진행 상황 기록
-
----
-
-[View Tool](/tools/repl-cli)
-
----
-
-## Future Tools
-
-REPL Works는 실제 사용 경험을 통해 새로운 도구를 추가할 수 있다.
-
----
-
-예시
-
-<TerminalGrid commands={['ai-prompt']} />
-
----
-
-도구 이름보다 중요한 것은 문제 정의다.
-
----
-
-반복되는 작업이 충분히 검증되면 도구가 된다.
-
----
-
-## Relationship
-
-<RelationFlow items={['Workflow', 'Prompts', 'Documents', 'Tools']} />
-
----
-
-도구는 REPL Works Workflow를 대체하지 않는다.
-
----
-
-도구는 검증된 Workflow를 더 쉽게 실행하게 만든다.
-
----
-
-## Key Principle
-
-좋은 도구는 새로운 프로세스를 만들지 않는다.
-
-좋은 도구는 이미 검증된 프로세스를 자동화한다.
-
----
-
-## Why It Matters
-
-REPL Works의 목표는 더 많은 AI 도구를 만드는 것이 아니다.
-
----
-
-더 적은 비용으로,
-
-더 일관되게,
-
-더 오래 유지되는 프로젝트를 만드는 것이다.
-
----
-
-도구는 그 목표를 지원하기 위해 존재한다.
+```text
+좋은 도구는 새로운 프로세스를 발명하지 않습니다.
+좋은 도구는 이미 검증된 프로세스를 더 적은 비용으로 자동화합니다.
+```
