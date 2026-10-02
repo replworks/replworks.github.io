@@ -1,15 +1,19 @@
 <section class="relative w-full min-h-[85vh] flex items-center overflow-hidden bg-[#090d16] bg-grid-pattern bg-radial-gradient border-b border-slate-800/80 py-16 lg:py-24">
   {/* Ambient Background Glows */}
-  <div class="absolute -top-40 right-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none"></div>
-  <div class="absolute bottom-0 left-10 h-80 w-80 rounded-full bg-indigo-500/10 blur-[100px] pointer-events-none"></div>
+  <div class="absolute -top-40 right-0 h-96 w-96 rounded-full bg-cyan-500/15 blur-[120px] pointer-events-none animate-orb-1"></div>
+  <div class="absolute bottom-0 left-10 h-80 w-80 rounded-full bg-indigo-500/15 blur-[100px] pointer-events-none animate-orb-2"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-emerald-500/5 blur-[140px] pointer-events-none"></div>
 
   <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
       {/* Left Column: Core Value Pitch */}
       <div class="lg:col-span-6 space-y-6 text-left">
         {/* Top Tagline */}
-        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-[11px] font-mono font-bold tracking-wide text-cyan-400 select-none shadow-inner">
-          <span class="h-2 w-2 rounded-full bg-cyan-400 animate-pulse"></span>
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-[11px] font-mono font-bold tracking-wide text-cyan-400 select-none shadow-inner hover:border-cyan-500/50 transition-colors">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+          </span>
           AI-NATIVE PRODUCT DEVELOPMENT FRAMEWORK
         </span>
 
@@ -31,7 +35,7 @@
         <div class="pt-4 flex flex-wrap items-center gap-4">
           <a
             href="/workflow"
-            class="inline-flex items-center justify-center px-6 py-3.5 text-xs font-extrabold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-xl shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 hover:scale-[1.02] transition-all group shrink-0"
+            class="inline-flex items-center justify-center px-6 py-3.5 text-xs font-extrabold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-xl shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/35 hover:scale-[1.02] active:scale-[0.98] transition-all group shrink-0"
           >
             <span>워크플로 시작하기</span>
             <svg
@@ -50,21 +54,25 @@
           </a>
           <a
             href="/showcase"
-            class="inline-flex items-center justify-center px-6 py-3.5 text-xs font-extrabold text-slate-200 bg-slate-900/90 border border-slate-800 rounded-xl hover:bg-slate-800 hover:text-white hover:border-slate-700 transition-all shrink-0"
+            class="inline-flex items-center justify-center px-6 py-3.5 text-xs font-extrabold text-slate-200 bg-slate-900/90 border border-slate-800 rounded-xl hover:bg-slate-800 hover:text-white hover:border-slate-700 hover:shadow-lg hover:shadow-indigo-500/10 transition-all shrink-0"
           >
             실제 결과물 보기
           </a>
         </div>
       </div>
 
-      {/* Right Column: Triangle Diagram */}
+      {/* Right Column: Animated Triangle Diagram */}
       <div class="lg:col-span-6 w-full flex justify-center">
-        <div class="glass-card rounded-3xl border border-slate-800/90 bg-[#0c1322]/80 p-6 sm:p-8 shadow-2xl relative w-full max-w-lg">
+        <div class="glass-card rounded-3xl border border-slate-800/90 bg-[#0c1322]/85 p-6 sm:p-8 shadow-2xl relative w-full max-w-lg overflow-hidden group hover:border-cyan-500/40 transition-colors">
+          {/* Subtle Cyber Corner Accents */}
+          <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all pointer-events-none"></div>
+          <div class="absolute bottom-0 left-0 w-24 h-24 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-all pointer-events-none"></div>
+
           <svg
             viewBox="0 0 500 420"
             class="w-full h-auto max-w-full overflow-visible"
             role="img"
-            aria-label="Human, 대화형 AI, 코딩형 AI의 협업 관계와 문서·Git 자산을 나타내는 삼각형 다이어그램"
+            aria-label="Human, 대화형 AI, 코딩형 AI의 협업 관계와 문서·Git 자산을 나타내는 애니메이션 다이어그램"
           >
             <title>Human, 대화형 AI, 코딩형 AI 협업 다이어그램</title>
             <desc>
@@ -119,9 +127,32 @@
                 <stop offset="0%" stop-color="#818cf8" />
                 <stop offset="100%" stop-color="#34d399" />
               </linearGradient>
+
+              {/* Glow Filters for Nodes */}
+              <filter id="glow-indigo" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+              <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+              <filter id="glow-emerald" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="4" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
             </defs>
 
-            {/* Connecting Line 1: Human <-> 대화형 AI */}
+            {/* Path 1: Human <-> 대화형 AI */}
             <line
               x1="220"
               y1="95"
@@ -130,11 +161,12 @@
               stroke="url(#line-human-discussion)"
               stroke-width="2.5"
               stroke-dasharray="6 4"
+              class="animate-dash-discussion"
               marker-start="url(#arrow-cyan)"
               marker-end="url(#arrow-cyan)"
             />
 
-            {/* Connecting Line 2: Human <-> 코딩형 AI */}
+            {/* Path 2: Human <-> 코딩형 AI */}
             <line
               x1="280"
               y1="95"
@@ -143,12 +175,37 @@
               stroke="url(#line-human-execution)"
               stroke-width="2.5"
               stroke-dasharray="6 4"
+              class="animate-dash-execution"
               marker-start="url(#arrow-emerald)"
               marker-end="url(#arrow-emerald)"
             />
 
+            {/* Animated Traveling Data Pulses */}
+            {/* Line 1 Data Flow (Human -> Discussion AI & back) */}
+            <circle r="4.5" fill="#38bdf8" filter="url(#glow-cyan)">
+              <animateMotion dur="2.4s" repeatCount="indefinite" path="M 220 95 L 135 245" />
+            </circle>
+            <circle r="3.5" fill="#818cf8" filter="url(#glow-indigo)">
+              <animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M 135 245 L 220 95" />
+            </circle>
+
+            {/* Line 2 Data Flow (Human -> Execution AI & back) */}
+            <circle r="4.5" fill="#34d399" filter="url(#glow-emerald)">
+              <animateMotion dur="2.6s" repeatCount="indefinite" path="M 280 95 L 365 245" />
+            </circle>
+            <circle r="3.5" fill="#818cf8" filter="url(#glow-indigo)">
+              <animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite" path="M 365 245 L 280 95" />
+            </circle>
+
             {/* Node 1 (Top): Human */}
             <g transform="translate(170, 30)">
+              <animateTransform
+                attributeName="transform"
+                type="translate"
+                values="170 30; 170 24; 170 30"
+                dur="4s"
+                repeatCount="indefinite"
+              />
               <rect
                 x="0"
                 y="0"
@@ -159,6 +216,7 @@
                 fill-opacity="0.9"
                 stroke="#6366f1"
                 stroke-width="2"
+                filter="url(#glow-indigo)"
               />
               <text
                 x="80"
@@ -184,6 +242,13 @@
 
             {/* Node 2 (Bottom Left): ① 대화형 AI */}
             <g transform="translate(15, 235)">
+              <animateTransform
+                attributeName="transform"
+                type="translate"
+                values="15 235; 15 241; 15 235"
+                dur="4.8s"
+                repeatCount="indefinite"
+              />
               <rect
                 x="0"
                 y="0"
@@ -194,6 +259,7 @@
                 fill-opacity="0.9"
                 stroke="#38bdf8"
                 stroke-width="2"
+                filter="url(#glow-cyan)"
               />
               <text
                 x="100"
@@ -229,6 +295,13 @@
 
             {/* Node 3 (Bottom Right): ② 코딩형 AI */}
             <g transform="translate(285, 235)">
+              <animateTransform
+                attributeName="transform"
+                type="translate"
+                values="285 235; 285 229; 285 235"
+                dur="4.4s"
+                repeatCount="indefinite"
+              />
               <rect
                 x="0"
                 y="0"
@@ -239,6 +312,7 @@
                 fill-opacity="0.9"
                 stroke="#34d399"
                 stroke-width="2"
+                filter="url(#glow-emerald)"
               />
               <text
                 x="100"
@@ -303,3 +377,52 @@
     </div>
   </div>
 </section>
+
+<style>
+  /* Dash Flow Animation for Connection Lines */
+  @keyframes dash-flow {
+    from {
+      stroke-dashoffset: 20;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* Ambient Glow Drift Keyframes */
+  @keyframes orb-drift-1 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(-25px, 20px) scale(1.08);
+    }
+  }
+
+  @keyframes orb-drift-2 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(25px, -20px) scale(1.12);
+    }
+  }
+
+  .animate-dash-discussion {
+    animation: dash-flow 1.4s linear infinite;
+  }
+
+  .animate-dash-execution {
+    animation: dash-flow 1.4s linear infinite reverse;
+  }
+
+  .animate-orb-1 {
+    animation: orb-drift-1 9s ease-in-out infinite;
+  }
+
+  .animate-orb-2 {
+    animation: orb-drift-2 11s ease-in-out infinite;
+  }
+</style>
+
+
