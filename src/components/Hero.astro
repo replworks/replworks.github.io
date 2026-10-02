@@ -163,17 +163,35 @@
 
             {/* Light Data Flow Pulses */}
             <circle r="4" fill="#38bdf8">
-              <animateMotion dur="2.4s" repeatCount="indefinite" path="M 220 95 L 135 245" />
+              <animateMotion
+                dur="2.4s"
+                repeatCount="indefinite"
+                path="M 220 95 L 135 245"
+              />
             </circle>
             <circle r="3" fill="#818cf8">
-              <animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M 135 245 L 220 95" />
+              <animateMotion
+                dur="2.4s"
+                begin="1.2s"
+                repeatCount="indefinite"
+                path="M 135 245 L 220 95"
+              />
             </circle>
 
             <circle r="4" fill="#34d399">
-              <animateMotion dur="2.6s" repeatCount="indefinite" path="M 280 95 L 365 245" />
+              <animateMotion
+                dur="2.6s"
+                repeatCount="indefinite"
+                path="M 280 95 L 365 245"
+              />
             </circle>
             <circle r="3" fill="#818cf8">
-              <animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite" path="M 365 245 L 280 95" />
+              <animateMotion
+                dur="2.6s"
+                begin="1.3s"
+                repeatCount="indefinite"
+                path="M 365 245 L 280 95"
+              />
             </circle>
 
             {/* Node 1 (Top): Human */}
@@ -357,15 +375,24 @@
 <style>
   /* Ultra-light Hardware-Accelerated Radial Orbs (Zero Blur Filter, Zero CPU repaint) */
   .bg-radial-cyan {
-    background: radial-gradient(circle, rgba(56, 189, 248, 0.28) 0%, rgba(56, 189, 248, 0) 70%);
+    background: radial-gradient(
+      circle,
+      rgba(56, 189, 248, 0.28) 0%,
+      rgba(56, 189, 248, 0) 70%
+    );
   }
 
   .bg-radial-indigo {
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.28) 0%, rgba(99, 102, 241, 0) 70%);
+    background: radial-gradient(
+      circle,
+      rgba(99, 102, 241, 0.28) 0%,
+      rgba(99, 102, 241, 0) 70%
+    );
   }
 
   @keyframes gpu-float-1 {
-    0%, 100% {
+    0%,
+    100% {
       transform: translate3d(0, 0, 0);
     }
     50% {
@@ -374,7 +401,8 @@
   }
 
   @keyframes gpu-float-2 {
-    0%, 100% {
+    0%,
+    100% {
       transform: translate3d(0, 0, 0);
     }
     50% {
