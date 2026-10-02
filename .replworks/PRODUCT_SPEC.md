@@ -206,6 +206,54 @@ How does it work?
 Where do I start?
 ```
 
+### HOMEPAGE FIRST-VISIT MESSAGE
+
+The homepage hero must let a first-time visitor understand what REPL Works is
+and why it is needed before reading the workflow section.
+
+Hero title:
+
+```text
+AI는 바뀝니다. 프로젝트는 계속되어야 합니다.
+```
+
+Hero subtitle:
+
+```text
+REPL Works는 프로젝트의 목적, 기술 규칙, 구조를 문서 몇 개로 정리해 Git에 두는 개발 방식입니다. 새 채팅을 열어도, 다른 AI로 바꿔도, AI가 그 문서부터 읽고 이어서 작업합니다.
+```
+
+Hero problem statement:
+
+```text
+AI와 오래 개발하면 세션이 끊길 때마다 처음부터 다시 설명하게 되고, AI는 버전도 폴더 규칙도 모른 채 코드를 씁니다.
+```
+
+The homepage section order is:
+
+```text
+Hero
+Problem
+Workflow
+Five Foundations
+Showcase
+```
+
+The Problem section must describe these concrete situations:
+
+```text
+새 채팅마다 프로젝트를 처음부터 설명합니다.
+
+AI가 엉뚱한 버전이나 폴더에 코드를 넣습니다.
+```
+
+The hero and Problem section must use 합니다체, avoid abstract Sino-Korean
+word stacks, explain abbreviations and internal terms on first use, and keep
+each sentence focused on one point. Negative positioning such as "일회성 Chat
+에이전트가 아닙니다" must not be used in the hero.
+
+The homepage meta description must use the same content as the hero subtitle.
+
 ---
 
 ## WORKFLOW

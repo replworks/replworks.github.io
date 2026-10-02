@@ -241,6 +241,14 @@ Propose TASK update
 
 ---
 
+## PHASE 9
+
+### HOMEPAGE MESSAGE CLARITY
+
+- [x] T901 Rewrite homepage hero and Problem section, and place Problem before Workflow
+
+---
+
 ## COMPLETION
 
 ```text
