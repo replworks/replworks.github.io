@@ -3,35 +3,40 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 
 // 코어 워크플로 파이프라인 데이터
 const pipelineSteps = [
-  { id: '01', file: 'IDEAS.md', desc: '아이디어 검증' },
-  { id: '02', file: 'PITCHING_SCRIPT.md', desc: '프로젝트 포지셔닝' },
-  { id: '03', file: 'PRODUCT_SPEC.md', desc: '제품 정의' },
-  { id: '04', file: 'TECH_STACK.md', desc: '기술 구현 규칙' },
-  { id: '05', file: 'ARCHITECTURE.md', desc: '시스템 설계' },
-  { id: '06', file: 'TASKS.md', desc: '수행 계획' },
+  { id: '01', file: 'IDEAS.md', desc: '아이디어 검증 및 동기 정의' },
+  { id: '02', file: 'PITCHING_SCRIPT.md', desc: '프로젝트 핵심 포지셔닝' },
+  { id: '03', file: 'PRODUCT_SPEC.md', desc: '제품 정의 및 요구사항 규격' },
+  { id: '04', file: 'TECH_STACK.md', desc: '기술 스택 및 구현 컨벤션' },
+  { id: '05', file: 'ARCHITECTURE.md', desc: '시스템 구조 및 컴포넌트 설계' },
+  { id: '06', file: 'TASKS.md', desc: '수행 마일스톤 및 세부 작업 계획' },
 ];
 
 // 다섯 가지 핵심 기반 데이터
 const benefits = [
   {
+    num: '01',
     title: '특정 AI 의존성 탈피',
-    desc: '프로젝트 기억이 Git에 있어 새로운 모델도 이어서 작업합니다.',
+    desc: '프로젝트의 모든 기억과 설계가 Git에 존재하므로 Claude, GPT, Gemini 등 어떤 모델로 교체해도 문서를 읽고 작업을 곧바로 이어받습니다.',
   },
   {
-    title: '프로젝트 지속성',
-    desc: '세션이 끝나도 의도와 구조가 문서로 남습니다.',
+    num: '02',
+    title: '프로젝트 지속성 보장',
+    desc: '세션이 끝나거나 담당자가 변경되어도 제품의 원래 의도와 기술적 결정 사항이 사라지지 않고 코드베이스에 보존됩니다.',
   },
   {
-    title: 'AI 입력 비용 최적화',
-    desc: '오래된 채팅 로그 대신 필요한 문서만 읽힙니다.',
+    num: '03',
+    title: 'AI 토큰 및 비용 최적화',
+    desc: '수만 줄의 이전 채팅 로그나 수십 개 파일 전체를 굶기지 않고, 현재 작업(TASK)에 필요한 해당 상위 문서만 효율적으로 입력합니다.',
   },
   {
-    title: '온보딩 비용 절감',
-    desc: '새 팀원과 새 AI 모두 문서를 읽고 바로 시작합니다.',
+    num: '04',
+    title: '팀 & AI 온보딩 비용 제로',
+    desc: '새로운 개발자나 에이전트가 투입되어도 표준 문서 순서대로 파악하여 몇 분 만에 사이드 이펙트 없는 개발을 시작합니다.',
   },
   {
-    title: 'Git 기반 워크플로',
-    desc: '현재 상태는 문서가, 과거 상태는 커밋이 보존합니다.',
+    num: '05',
+    title: 'Git 단일 진실 출처 (Single Source of Truth)',
+    desc: '현재 시스템 상태는 문서가 설명하고, 과거의 의사결정 이력은 Git 커밋으로 추적 가능하여 구조가 흔들리지 않습니다.',
   },
 ];
 
@@ -39,27 +44,27 @@ const benefits = [
 const showcases = [
   {
     title: 'REPL Works 웹사이트',
-    desc: 'ReplWorks 웹사이트는 본 프레임워크를 실제로 적용하여 관리 중인 첫 번째 REPL Works 호환 프로덕션 프로젝트입니다.',
+    desc: 'REPL Works 웹사이트는 본 프레임워크를 실제로 적용하여 관리 중인 공식 프로덕션 호환 프로젝트입니다.',
     tags: ['Website', 'Dogfooding'],
     link: '/showcase/repl-works-website',
     github: 'https://github.com/replworks/replworks.github.io',
   },
   {
-    title: 'AI 이슈 퍼블리셔',
+    title: 'AI 이슈 퍼블리셔 (ai-issue)',
     desc: 'AI 에이전트와의 토론 컨텍스트를 분석하여, 즉시 개발 및 실행 가능한 GitHub Issue 형태로 자동 변환해 주는 호환 도구입니다.',
-    tags: ['Tooling', 'Issue workflow'],
+    tags: ['Tooling', 'CLI'],
     link: '/showcase/ai-issue',
     github: 'https://github.com/replworks/ai-issue',
   },
   {
-    title: '클래이튜브(ClayTube)',
+    title: '클래이튜브 (ClayTube)',
     desc: 'ClayTube는 장기간에 걸쳐 지속적으로 기능이 개발되고 확장되는 과정을 검증하는 데 초점을 둔 참조 프로젝트입니다.',
-    tags: ['CLI', 'Website Generator'],
+    tags: ['CLI', 'Generator'],
     link: '/showcase/claytube',
     github: 'https://github.com/eternops/claytube',
   },
   {
-    title: '와이파이 노트(WIFI Note)',
+    title: '와이파이 노트 (WIFI Note)',
     desc: '구조화된 프로젝트 기억 자산화를 통해 복잡한 비즈니스 로직을 빌드해 나가는 과정을 보여주는 웹 애플리케이션 프로젝트입니다.',
     tags: ['Commercial', 'Web App'],
     link: '/showcase/wifi-note',
@@ -71,350 +76,192 @@ const showcases = [
   title="REPL Works — 문서 주도 AI 개발 방법론"
   description="REPL Works는 프로젝트의 의도, 결정, 작업 계획을 문서와 Git에 남겨 AI가 바뀌어도 개발을 이어가는 문서 주도 AI 개발 방법론입니다."
 >
-  <div class="mx-auto flex max-w-5xl flex-col gap-16 px-4 sm:gap-24 md:px-6">
-    <section class="order-1 border-b border-slate-100 py-4">
-      <p class="text-xs font-black tracking-widest text-slate-400 uppercase font-mono">METHOD</p>
-      <h2 class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">
-        작업을 쪼개고, 규칙은 문서로 둡니다
+  <div class="mx-auto flex max-w-7xl flex-col gap-20 sm:gap-28 text-slate-100">
+    
+    {/* =========================================================================
+      1. CORE METHODOLOGY PRINCIPLES
+      ========================================================================= */}
+    <section class="space-y-6">
+      <div class="flex items-center gap-2">
+        <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+        <p class="text-xs font-mono font-black tracking-widest text-cyan-400 uppercase">CORE METHOD</p>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black tracking-tight text-white">
+        작업은 TASKS로 쪼개고,<br class="hidden sm:inline" /> 규칙은 상위 문서에 둡니다
       </h2>
-      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600">
-        AI에게 큰 일을 한 번에 시키면 앞의 결정을 잊고 구조가 흔들립니다. REPL Works는 일을 TASKS로 쪼개고, TASK마다 필요한 규칙을 상위 문서에서 가져오게 합니다. 규칙은 채팅이 아니라 Git에 있으므로 AI가 바뀌어도 같은 기준으로 이어집니다.
+      <p class="max-w-3xl text-sm sm:text-base leading-relaxed text-slate-300">
+        AI에게 거대한 과업을 한 번에 지시하면 앞선 결정을 잊고 코드 아키텍처가 왜곡됩니다. REPL Works는 전체 개발을 독립된 TASK로 세분화하고, TASK 실행 시 필요한 기술 규격과 설계 규칙을 Git에 축적된 상위 문서에서 가져오게 만듭니다.
       </p>
-      <div class="mt-8 grid gap-3 md:grid-cols-3">
+
+      <div class="mt-8 grid gap-4 md:grid-cols-3">
         {[
-          '상위 문서에 규칙을 남긴다',
-          '작업을 TASKS로 쪼갠다',
-          'AI가 TASK 하나씩, 해당 규칙만 읽고 실행한다',
-        ].map((title, index) => (
-          <article class="rounded-2xl border border-slate-200/70 bg-slate-50/40 p-5 transition-all hover:border-slate-300 hover:bg-white hover:shadow-sm">
-            <p class="text-xs font-mono font-bold text-slate-400">0{index + 1}</p>
-            <h3 class="mt-3 text-sm font-extrabold leading-relaxed text-slate-800">{title}</h3>
+          { num: '01', title: '상위 문서에 규칙 영구 기록', desc: 'PRODUCT_SPEC, TECH_STACK, ARCHITECTURE에 개발 제약 조건과 아키텍처 명시' },
+          { num: '02', title: '독립 단위 TASK로 분할', desc: 'TASKS.md에 의존성을 명확히 나눈 단일 실행 목표 스코프 정의' },
+          { num: '03', title: 'AI 1-Prompt = 1-Task 실행', desc: 'AI 에이전트가 매번 해당 TASK 규칙만 정밀히 읽고 구현 후 커밋' },
+        ].map((item) => (
+          <article class="glass-card glass-card-hover rounded-2xl p-6 border-slate-800/80 bg-slate-900/40 relative overflow-hidden group">
+            <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/5 rounded-full blur-xl group-hover:bg-cyan-500/10 transition-all"></div>
+            <p class="text-xs font-mono font-black text-cyan-400">{item.num}</p>
+            <h3 class="mt-3 text-base font-extrabold text-white">{item.title}</h3>
+            <p class="mt-2 text-xs text-slate-400 leading-relaxed">{item.desc}</p>
           </article>
         ))}
       </div>
     </section>
-    {
-      /* =========================================================================
-        2. WORKFLOW SECTION
-        ========================================================================= */
-    }
-    <section
-      class="order-2 grid gap-8 border-b border-slate-100 pb-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-start"
-    >
-      <div>
-        <p
-          class="text-xs font-black tracking-widest text-slate-400 uppercase font-mono"
-        >
-          Workflow
-        </p>
-        <h2
-          class="mt-2 text-2xl sm:text-3xl font-black tracking-tight text-slate-900"
-        >
-          REPL Works는 어떻게 작동하는가
-        </h2>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-          위 문서에서 아래 문서가 파생되는 단계형 파이프라인입니다. 앞 단계가 정해져야 다음 단계를 씁니다.
-        </p>
-      </div>
 
-      <div class="space-y-6">
-        {/* 세로 타임라인 트랙 트레일 */}
-        <div
-          class="relative pl-5 my-2 before:absolute before:top-2 before:bottom-2 before:left-[9px] before:w-0.5 before:bg-slate-200"
-        >
-          {
-            pipelineSteps.map((step) => (
-              <div class="relative mb-4 last:mb-0 group flex items-center min-w-0">
-                {/* 불릿 원 노드 포인트 */}
-                <span class="absolute -left-[21px] flex h-3.5 w-3.5 items-center justify-center rounded-full bg-white border-2 border-slate-300 group-hover:border-slate-900 transition-colors z-10">
-                  <span class="h-1 w-1 rounded-full bg-slate-300 group-hover:bg-slate-900 transition-colors" />
-                </span>
-
-                {/* 콘텐츠 행 래퍼 (찌그러짐 원천 차단) */}
-                <div class="flex items-center gap-2 sm:gap-3 w-full min-w-0 text-slate-700">
-                  {/* 정렬용 ID 번호 */}
-                  <span class="text-[10px] font-mono font-bold text-slate-400 select-none w-3 shrink-0 text-right">
-                    {step.id}
-                  </span>
-
-                  {/* 파일명 시그니처 칩 */}
-                  <span class="inline-block px-2 py-0.5 text-[10px] sm:text-[11px] font-black font-mono bg-slate-950 text-slate-100 rounded border border-slate-900 shadow-sm tracking-tight select-none shrink-0">
-                    {step.file}
-                  </span>
-
-                  {/* 데스크톱 가로 연결 화살표 */}
-                  <svg
-                    class="hidden sm:block h-3.5 w-3.5 text-slate-300 shrink-0"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2.5"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                    />
-                  </svg>
-
-                  {/* 한글 기능 가이드 설명 */}
-                  <p class="text-[11px] sm:text-xs font-extrabold text-slate-600 tracking-tight min-w-0 whitespace-normal break-words">
-                    <span class="sm:hidden text-slate-300 mr-1 font-normal">
-                      ·
-                    </span>
-                    {step.desc}
-                  </p>
-                </div>
-              </div>
-            ))
-          }
+    {/* =========================================================================
+      2. WORKFLOW & 4 CORE QUESTIONS DASHBOARD
+      ========================================================================= */}
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-t border-slate-800/80 pt-16">
+      <div class="lg:col-span-5 space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+          <p class="text-xs font-mono font-black tracking-widest text-emerald-400 uppercase">INFORMATION ARCHITECTURE</p>
         </div>
-
-        <p class="text-xs sm:text-sm leading-relaxed text-slate-500">
-          REPL Works 아키텍처는 프로젝트 기억 문서 자산화에서 시작해 Discussion
-          AI, Execution AI를 거쳐 최종 Human Review 파이프라인으로 연결됩니다.
+        <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-white">
+          문서가 답하는 네 가지 핵심 질문
+        </h2>
+        <p class="text-sm text-slate-300 leading-relaxed">
+          REPL Works 프레임워크의 모든 표준 문서는 제품 개발 중 발생하는 근본적인 4가지 질문에 대한 authoritative 답을 제공합니다.
         </p>
 
         <a
           href="/workflow"
-          class="inline-flex items-center justify-center px-4 py-2 text-xs font-black text-slate-700 bg-white border border-slate-200 rounded-xl shadow-sm hover:bg-slate-50 hover:text-slate-900 hover:border-slate-300 transition-all shrink-0 w-fit"
+          class="inline-flex items-center gap-2 px-4 py-2.5 text-xs font-bold text-cyan-300 bg-cyan-950/60 border border-cyan-800/60 rounded-xl hover:bg-cyan-900/80 hover:text-white transition-all w-fit mt-2"
         >
-          워크플로 구조 문서 상세 보기
+          <span>전체 워크플로 상세 문서</span>
+          <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
         </a>
       </div>
-    </section>
 
-    {
-      /* =========================================================================
-        3. PROBLEM SECTION
-        ========================================================================= */
-    }
-    <section class="order-2 py-4">
-      <span
-        class="text-xs font-black tracking-widest text-slate-400 uppercase font-mono block mb-1"
-        >WORKFLOW</span
-      >
-      <h2 class="text-2xl font-black text-slate-900 tracking-tight mb-2">
-        이 문서들이 답하는 네 가지 질문
-      </h2>
-      {/* 2x2 대시보드 그리드 큐브 카드 구조 */}
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-6">
-        <div
-          class="flex items-start gap-3 p-4 rounded-2xl border border-slate-200/70 bg-slate-50/40 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all group"
-        >
-          <span
-            class="text-xs font-mono font-bold text-slate-400 mt-0.5 group-hover:text-slate-900 transition-colors"
-            >Q1</span
-          >
-          <div class="space-y-0.5">
-            <h3 class="text-sm font-extrabold text-slate-800 tracking-tight">
-              왜 만드는가?
-            </h3>
-            <p class="text-xs text-slate-500 tracking-tight">
-              프로젝트의 본질적인 도메인 목적과 비즈니스 동기
-            </p>
-            <p class="text-xs font-mono text-slate-400">IDEAS.md, PITCHING_SCRIPT.md</p>
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {[
+          { q: 'Q1', question: '왜 만드는가?', desc: '프로젝트의 도메인 목적, 비즈니스 동기 및 포지셔닝', docs: 'IDEAS.md, PITCHING_SCRIPT.md' },
+          { q: 'Q2', question: '무엇을 만드는가?', desc: '제품 스펙 명세, 기능 요건 및 요구사항 세부 규격', docs: 'PRODUCT_SPEC.md' },
+          { q: 'Q3', question: '현재 구조는 무엇인가?', desc: '기술 스택 컨벤션, 아키텍처 및 시스템 컴포넌트 관계', docs: 'TECH_STACK.md, ARCHITECTURE.md' },
+          { q: 'Q4', question: '어떤 결정을 내렸는가?', desc: '누적된 테크 마일스톤 및 개별 작업 수행 이력', docs: 'TASKS.md, Git Commit Log' },
+        ].map((item) => (
+          <div class="glass-card glass-card-hover rounded-2xl p-5 border-slate-800/80 bg-slate-900/50 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-cyan-950 text-cyan-400 border border-cyan-800/60">{item.q}</span>
+              <span class="text-[10px] font-mono text-slate-500">{item.docs}</span>
+            </div>
+            <h3 class="text-base font-extrabold text-white">{item.question}</h3>
+            <p class="text-xs text-slate-400 leading-snug">{item.desc}</p>
           </div>
-        </div>
-
-        <div
-          class="flex items-start gap-3 p-4 rounded-2xl border border-slate-200/70 bg-slate-50/40 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all group"
-        >
-          <span
-            class="text-xs font-mono font-bold text-slate-400 mt-0.5 group-hover:text-slate-900 transition-colors"
-            >Q2</span
-          >
-          <div class="space-y-0.5">
-            <h3 class="text-sm font-extrabold text-slate-800 tracking-tight">
-              무엇을 만드는가?
-            </h3>
-            <p class="text-xs text-slate-500 tracking-tight">
-              제품의 스펙 사양 정의 및 상세 요구사항 기능 규격
-            </p>
-            <p class="text-xs font-mono text-slate-400">PRODUCT_SPEC.md</p>
-          </div>
-        </div>
-
-        <div
-          class="flex items-start gap-3 p-4 rounded-2xl border border-slate-200/70 bg-slate-50/40 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all group"
-        >
-          <span
-            class="text-xs font-mono font-bold text-slate-400 mt-0.5 group-hover:text-slate-900 transition-colors"
-            >Q3</span
-          >
-          <div class="space-y-0.5">
-            <h3 class="text-sm font-extrabold text-slate-800 tracking-tight">
-              현재 구조는 무엇인가?
-            </h3>
-            <p class="text-xs text-slate-500 tracking-tight">
-              전체 시스템의 구조와 컴포넌트 관계
-            </p>
-            <p class="text-xs font-mono text-slate-400">TECH_STACK.md, ARCHITECTURE.md</p>
-          </div>
-        </div>
-
-        <div
-          class="flex items-start gap-3 p-4 rounded-2xl border border-slate-200/70 bg-slate-50/40 hover:bg-white hover:border-slate-300 hover:shadow-sm transition-all group"
-        >
-          <span
-            class="text-xs font-mono font-bold text-slate-400 mt-0.5 group-hover:text-slate-900 transition-colors"
-            >Q4</span
-          >
-          <div class="space-y-0.5">
-            <h3 class="text-sm font-extrabold text-slate-800 tracking-tight">
-              어떤 결정을 내렸는가?
-            </h3>
-            <p class="text-xs text-slate-500 tracking-tight">
-              지금까지 누적 도출된 테크니컬 마일스톤과 설계 의사결정 이력
-            </p>
-            <p class="text-xs font-mono text-slate-400">TASKS.md, Git 커밋 이력</p>
-          </div>
-        </div>
+        ))}
       </div>
-
-      <p class="text-xs sm:text-sm text-slate-500 leading-relaxed mt-4">
-        이 네 질문의 답을 상위 문서로 남기고 Git으로 이력을 관리합니다. TASK마다 필요한 규칙은 이 문서에서 가져옵니다.
-      </p>
     </section>
 
-    {
-      /* =========================================================================
-        4. BENEFITS SECTION
-        ========================================================================= */
-    }
-    <section
-      class="order-4 grid gap-8 border-t border-slate-200 pt-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start"
-    >
+    {/* =========================================================================
+      3. FIVE FOUNDATION BENEFITS
+      ========================================================================= */}
+    <section class="border-t border-slate-800/80 pt-16 space-y-8">
       <div>
-        <p
-          class="text-xs font-black tracking-widest text-slate-400 uppercase font-mono"
-        >
-          Benefits
-        </p>
-        <h2
-          class="mt-2 text-2xl sm:text-3xl font-black tracking-tight text-slate-900"
-        >
-          프로젝트를 계속할 수 있게 만드는 다섯 가지 기반
+        <div class="flex items-center gap-2">
+          <span class="h-2 w-2 rounded-full bg-indigo-400"></span>
+          <p class="text-xs font-mono font-black tracking-widest text-indigo-400 uppercase">SYSTEMIC ADVANTAGES</p>
+        </div>
+        <h2 class="mt-2 text-2xl sm:text-3xl font-black tracking-tight text-white">
+          지속 가능한 개발을 완성하는 5가지 기반
         </h2>
       </div>
 
-      <div class="space-y-8">
-        {
-          benefits.map((benefit) => (
-            <article class="border-l-2 border-slate-200 hover:border-slate-900 pl-5 transition-colors group">
-              <h3 class="text-base sm:text-lg font-black text-slate-800 tracking-tight group-hover:text-slate-950 transition-colors">
-                {benefit.title}
-              </h3>
-              <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                {benefit.desc}
-              </p>
-            </article>
-          ))
-        }
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {benefits.map((b) => (
+          <article class="glass-card glass-card-hover rounded-2xl p-6 border-slate-800/80 bg-slate-900/30 space-y-3">
+            <span class="text-xs font-mono font-black text-indigo-400">{b.num}</span>
+            <h3 class="text-base font-extrabold text-white">{b.title}</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">{b.desc}</p>
+          </article>
+        ))}
       </div>
     </section>
 
-    {
-      /* =========================================================================
-        5. SHOWCASE SECTION
-        ========================================================================= */
-    }
-    <section
-      class="order-3 grid gap-8 border-t border-slate-200 pt-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start"
-    >
-      <div>
-        <p
-          class="text-xs font-black tracking-widest text-slate-400 uppercase font-mono"
-        >
-          Showcase
-        </p>
-        <h2
-          class="mt-2 text-2xl sm:text-3xl font-black tracking-tight text-slate-900"
-        >
-          REPL Works 호환 프로젝트
-        </h2>
-        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-          REPL Works를 실제 프로젝트에 적용한 사례입니다.
-        </p>
+    {/* =========================================================================
+      4. SHOWCASE PROJECTS
+      ========================================================================= */}
+    <section class="border-t border-slate-800/80 pt-16 space-y-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+            <p class="text-xs font-mono font-black tracking-widest text-cyan-400 uppercase">COMPATIBLE ECOSYSTEM</p>
+          </div>
+          <h2 class="mt-2 text-2xl sm:text-3xl font-black tracking-tight text-white">
+            REPL Works 호환 프로덕트 사례
+          </h2>
+        </div>
         <a
           href="/showcase"
-          class="mt-6 inline-flex items-center justify-center px-4 py-2 text-xs font-black text-slate-700 bg-white border border-slate-200 rounded-xl shadow-sm hover:bg-slate-50 hover:text-slate-900 hover:border-slate-300 transition-all shrink-0 w-fit"
+          class="inline-flex items-center justify-center px-4 py-2 text-xs font-extrabold text-slate-200 bg-slate-900 border border-slate-700/80 rounded-xl hover:bg-slate-800 hover:text-white transition-all w-fit"
         >
-          전체 쇼케이스 아카이브 보기
+          전체 아카이브 보기
         </a>
       </div>
 
-      <div class="space-y-4 w-full">
-        {
-          showcases.map((project) => (
-            <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-slate-300 hover:shadow-md transition-all duration-200">
-              {/* 프로젝트 유형 테그 그룹 */}
-              <div class="flex flex-wrap items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider font-mono">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        {showcases.map((project) => (
+          <article class="glass-card glass-card-hover rounded-2xl p-5 border-slate-800/80 bg-slate-900/40 flex flex-col justify-between space-y-4">
+            <div class="space-y-3">
+              <div class="flex flex-wrap gap-1.5 font-mono text-[10px]">
                 {project.tags.map((tag, idx) => (
-                  <span
-                    class={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold ${idx === 0 ? 'bg-blue-50 text-blue-700 border border-blue-100' : 'bg-slate-50 text-slate-600 border border-slate-200/60'}`}
-                  >
+                  <span class={`px-2 py-0.5 rounded font-bold ${idx === 0 ? 'bg-cyan-950 text-cyan-300 border border-cyan-800/60' : 'bg-slate-800 text-slate-300'}`}>
                     {tag}
                   </span>
                 ))}
               </div>
+              <h3 class="text-base font-extrabold text-white tracking-tight">{project.title}</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">{project.desc}</p>
+            </div>
 
-              <h3 class="mt-3 text-base sm:text-lg font-black text-slate-900 tracking-tight">
-                {project.title}
-              </h3>
-              <p class="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                {project.desc}
-              </p>
-
-              {/* 실행 링크 버튼 그룹 */}
-              <div class="mt-4 flex items-center gap-2">
+            <div class="flex items-center gap-2 pt-2 border-t border-slate-800/60">
+              <a
+                href={project.link}
+                class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-bold text-slate-200 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors"
+              >
+                상세 정보
+              </a>
+              {project.github && (
                 <a
-                  href={project.link}
-                  class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-extrabold text-slate-700 bg-slate-50 border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-slate-900 transition-colors"
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-bold text-slate-400 hover:text-cyan-300 transition-colors"
                 >
-                  상세 정보
+                  GitHub
                 </a>
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-extrabold text-slate-700 bg-slate-50 border border-slate-200 rounded-lg hover:bg-slate-100 hover:text-slate-900 transition-colors"
-                  >
-                    GitHub 소스
-                  </a>
-                )}
-              </div>
-            </article>
-          ))
-        }
+              )}
+            </div>
+          </article>
+        ))}
       </div>
     </section>
 
-    {
-      /* =========================================================================
-        6. CORE IDEA FOOTER CARD
-        ========================================================================= */
-    }
-    <section
-      class="order-5 my-4 rounded-2xl border border-slate-200 bg-slate-950 p-6 text-slate-50 shadow-sm sm:p-8"
-    >
-      <p
-        class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 font-mono"
-      >
-        Core Idea
-      </p>
-      <div
-        class="mt-4 font-mono text-sm leading-relaxed text-slate-100 bg-slate-900/40 p-4 rounded-xl border border-slate-800/80 max-w-sm select-none"
-      >
-        <p class="font-black text-white text-base tracking-tight">
-          Models forget.
+    {/* =========================================================================
+      5. CORE IDEA BOTTOM CTA CARD
+      ========================================================================= */}
+    <section class="border-t border-slate-800/80 pt-16 pb-8">
+      <div class="glass-card rounded-3xl p-8 sm:p-12 border-cyan-500/30 bg-gradient-to-br from-cyan-950/40 via-slate-950 to-indigo-950/40 text-center relative overflow-hidden shadow-2xl">
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <span class="text-xs font-mono font-black uppercase tracking-[0.3em] text-cyan-400">
+          CORE PHILOSOPHY
+        </span>
+        <h2 class="mt-4 text-3xl sm:text-5xl font-black text-white tracking-tight">
+          Models change.<br />
+          <span class="text-gradient-cyan">Projects survive.</span>
+        </h2>
+        <p class="mt-4 max-w-xl mx-auto text-sm text-slate-300 leading-relaxed">
+          AI 모델의 한계를 극복하는 것은 더 큰 맥락창이 아니라, Git과 표준 문서로 지켜지는 단단한 프로젝트 기억 자산입니다.
         </p>
-        <p
-          class="text-slate-400 font-extrabold text-base tracking-tight mt-0.5"
-        >
-          Projects must not.
-        </p>
+        <div class="mt-8 flex justify-center items-center gap-4">
+          <a
+            href="/documents"
+            class="px-6 py-3.5 text-xs font-black text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-xl shadow-lg shadow-cyan-500/20 hover:scale-105 transition-all"
+          >
+            REPL Works 표준 시작하기
+          </a>
+        </div>
       </div>
     </section>
   </div>
