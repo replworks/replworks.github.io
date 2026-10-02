@@ -1,5 +1,15 @@
 # Release Notes
 
+## v2.10.1 - 2026-10-02
+
+### What's Changed
+
+* refactor: force `.astro` formatting by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/85
+* feat: add badges for CI, deployment, and tools in README by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/86
+* style: enhance hero component with animated elements by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/87
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.10.0...v2.10.1
+
 ## v2.10.0 - 2026-10-02
 
 ### What's Changed
