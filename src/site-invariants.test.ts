@@ -77,12 +77,16 @@ describe('REPL Works content invariants', () => {
   });
 
   it('keeps the public tools and showcase entries complete', () => {
-    for (const tool of ['ai-issue.mdx', 'repl-cli.mdx']) {
-      const content = read(`src/content/tools/${tool}`);
-      expect(content).toContain('## Purpose');
-      expect(content).toContain('## Installation');
-      expect(content).toContain('## Repository');
+    const toolsIndex = read('src/content/tools/index.mdx');
+    for (const repository of [
+      'https://github.com/replworks/repl-cli',
+      'https://github.com/replworks/ai-issue',
+      'https://github.com/replworks/coolrestore',
+    ]) {
+      expect(toolsIndex).toContain(repository);
     }
+    expect(toolsIndex).not.toContain('href="/tools/repl-cli"');
+    expect(toolsIndex).not.toContain('href="/tools/ai-issue"');
 
     const showcaseDirectory = resolve(root, 'src/content/showcase');
     for (const entry of [
