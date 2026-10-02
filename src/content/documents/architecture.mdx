@@ -1,177 +1,49 @@
 ---
 title: 'ARCHITECTURE.md'
-version: 'v1'
-description: 'ARCHITECTURE.md는 시스템 구조와 동작을 정의하는 문서다.'
-publishedAt: '2026-06-12T00:00:00Z'
+version: 'v2'
+description: '시스템 컴포넌트 구조, 모듈 책임, 데이터 플로우 및 건축적 불변식을 규정하는 청사진 표준 문서'
+publishedAt: '2026-10-02T00:00:00Z'
 ---
 
-이 문서의 목적은 제품 요구사항을 정의하는 것이 아니다.
+import MissionBox from '../../components/MissionBox.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import DocLink from '../../components/DocLink.astro';
 
-시스템이 어떤 구조로 구성되고 동작하는지 정의하는 것이다.
+## 1. 개요 및 목적
+
+`ARCHITECTURE.md`는 제품의 청사진(Blueprint)입니다. 시스템이 어떤 구조로 구성되고 각 모듈이 어떻게 상호작용하며 데이터가 흐르는지 정의합니다.
+
+<MissionBox text="How should the system work? (시스템 구조와 컴포넌트는 어떻게 구성되고 동작하는가?)" />
+
+### 설계 정의 사항 (Architectural Specifications)
+
+<SpecGrid
+  items={[
+    '1. 시스템 전체 아키텍처 다이어그램 & 모듈 책임 경계',
+    '2. 라우팅 매핑 & 정보 데이터 흐름 (Data Flow)',
+    '3. 외부 연동 경계 (External Boundaries & Mocks)',
+    '4. 실패 처리 경계 (Failure Boundaries & Recovery)',
+    '5. 절대로 침해할 수 없는 아키텍처 불변식 (Invariants)',
+  ]}
+/>
 
 ---
 
-# Purpose
+## 2. 왜 ARCHITECTURE.md가 결정적인가?
 
-다음 질문에 답한다.
+AI 에이전트는 명확한 아키텍처 설계도가 주어지지 않으면, 프로젝트 전체 구조를 고려하지 않고 **단순 기능 위주의 파편화된 스파게티 코드를 구현하려는 경향**이 있습니다. 
+
+`ARCHITECTURE.md`는 AI가 기존 설계 구조를 유해하지 않고 일관된 패턴으로 시스템을 완성하도록 차단합니다.
+
+---
+
+## 3. 프롬프트 및 예시 문서 (Prompts & Examples)
+
+→ [Architecture Design 프롬프트 바로가기](/prompts/architecture-design)
+
+<DocLink href="/documents/example-architecture" text="ARCHITECTURE.md 작성 예시 보기" />
 
 ```text
-시스템은 어떻게 구성되고 동작하는가?
-
-컴포넌트의 책임은 어떻게 나뉘는가?
-
-데이터는 어떻게 흐르는가?
-
-어떤 경계와 불변식을 따라야 하는가?
-```
-
----
-
-ARCHITECTURE.md는 시스템 구조와 동작의 기준이다.
-
----
-
-# Inputs
-
-일반적으로 다음 정보를 기반으로 작성한다.
-
-- PRODUCT_SPEC.md
-- TECH_STACK.md
-- 승인된 제품 요구사항
-
----
-
-# Outputs
-
-다음 내용을 정의한다.
-
-- 시스템 구조
-- 컴포넌트 책임
-- 데이터 흐름
-- 구현 경계
-- 실패 경계
-- 아키텍처 불변식
-
----
-
-# Lifecycle
-
-PRODUCT_SPEC.md 이후 작성한다.
-
----
-
-제품 구조가 변경될 경우 업데이트한다.
-
----
-
-기술 구조가 변경될 경우 업데이트한다.
-
----
-
-단순 구현 작업으로는 수정하지 않는다.
-
----
-
-# Relationship
-
-```text
-IDEAS.md
-↓
-PITCHING_SCRIPT.md
-↓
-PRODUCT_SPEC.md
-↓
-TECH_STACK.md
-↓
-ARCHITECTURE.md
-↓
-TASKS.md
-```
-
----
-
-PRODUCT_SPEC.md는 무엇을 만들지 정의한다.
-
-TECH_STACK.md는 어떤 기술과 구현 규칙을 사용할지 정의한다.
-
-ARCHITECTURE.md는 시스템이 어떻게 구성되고 동작하는지 정의한다.
-
-TASKS.md는 무엇을 해야 하는지 정의한다.
-
----
-
-# AI Usage
-
-Discussion AI가 반드시 읽어야 하는 문서다.
-
----
-
-Execution AI도 반드시 읽어야 하는 문서다.
-
----
-
-시스템 구조와 동작에 대한 최종 기준은 ARCHITECTURE.md다.
-
----
-
-# Generate With
-
-ARCHITECTURE.md는 일반적으로 다음 프롬프트를 통해 생성한다.
-
-→ [Architecture Design Prompt](/prompts/architecture-design)
-
----
-
-Architecture Design Prompt는 다음을 수행한다.
-
-- 저장소 구조 설계
-- 콘텐츠 구조 설계
-- 라우팅 설계
-- 구현 경계 정의
-- 운영 제약 정의
-
----
-
-# Example
-
-실제 REPL Works Compatible 프로젝트 예시를 통해 ARCHITECTURE.md 작성 방식을 확인할 수 있다.
-
-→ [Example ARCHITECTURE.md](/documents/example-architecture)
-
----
-
-예시는 다음 내용을 포함한다.
-
-- 시스템 구조
-- 콘텐츠 구조
-- 라우팅 구조
-- 모듈 구조
-- 제약 사항
-
----
-
-# Key Principle
-
-좋은 ARCHITECTURE.md는 기능을 설명하지 않는다.
-
-좋은 ARCHITECTURE.md는 구조를 설명한다.
-
----
-
-# Why It Matters
-
-AI는 구조가 없으면 기능 중심으로 구현하려는 경향이 있다.
-
----
-
-ARCHITECTURE.md는 프로젝트 전체 구조를 명확하게 정의한다.
-
----
-
 PRODUCT_SPEC.md가 목적지라면,
-
-ARCHITECTURE.md는 설계도다.
-
----
-
-모든 구현은 ARCHITECTURE.md와 일치해야 한다.
+ARCHITECTURE.md는 목적지로 안내하는 설계도입니다.
+```

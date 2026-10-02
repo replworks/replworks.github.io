@@ -1,212 +1,51 @@
 ---
 title: 'TASKS.md'
-version: 'v1'
-description: 'TASKS.md는 현재 작업 범위를 정의하는 문서다.'
-publishedAt: '2026-06-12T00:00:00Z'
+version: 'v2'
+description: '현재 프로젝트의 위치와 실행할 작업 마일스톤, 완료 여부를 실시간으로 관리하는 작업 실행 표준 문서'
+publishedAt: '2026-10-02T00:00:00Z'
 ---
 
-이 문서의 목적은 프로젝트의 현재 위치를 설명하는 것이다.
+import MissionBox from '../../components/MissionBox.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import DocLink from '../../components/DocLink.astro';
+
+## 1. 개요 및 목적
+
+`TASKS.md`는 프로젝트의 **현재 위치(Current Position)**를 설명하는 실무 실행 문서입니다. `ARCHITECTURE.md`가 최종 목적지라면, `TASKS.md`는 그 목적지로 가기 위한 개별 발자국(Milestones)입니다.
+
+<MissionBox text="What should be done next? (지금 당장 실행해야 할 작업은 무엇인가?)" />
+
+### 작업 관리 내용 (Task Management Rules)
+
+<SpecGrid
+  items={[
+    '1. Phase별 세부 작업 마일스톤 정의 (T001, T002...)',
+    '2. 작업 실행 완료 여부 체크박스 ([x] vs [ ])',
+    '3. One Prompt = One Task = One Commit 원칙 강제',
+    '4. TASKS.md에 없는 작업의 추가 및 오버 스코프 금지',
+    '5. 작업 미존재 시 구현 즉시 중단 및 TASK 업데이트 제안',
+  ]}
+/>
 
 ---
 
-## Purpose
+## 2. Execution AI의 엄격한 스코프 제어 (Scope Control)
 
-다음 질문에 답한다.
+AI 에이전트는 무의식적으로 과업을 확장하거나 미래 기능을 당장 구현하려는 습성이 있습니다. `TASKS.md`는 오직 **선택된 미완료 작업만 구현하도록 스코프를 완벽히 통제**합니다.
 
 ```text
-현재 무엇을 해야 하는가?
-
-어떤 순서로 진행해야 하는가?
-
-무엇이 완료되었는가?
-
-무엇이 아직 남아 있는가?
+미완료 작업 선택 → 상위 문서(SPEC, TECH, ARCH) 읽기 → 구현 및 테스트 → 커밋 및 TASKS.md 갱신
 ```
 
 ---
 
-TASKS.md는 프로젝트의 현재 상태를 설명한다.
+## 3. 프롬프트 및 예시 문서 (Prompts & Examples)
 
----
+→ [Task Generation 프롬프트 바로가기](/prompts/task-generation)
 
-## Inputs
-
-일반적으로 다음 정보를 기반으로 작성한다.
-
-- [PRODUCT_SPEC.md](/documents/product-spec)
-- [TECH_STACK.md](/documents/tech-stack)
-- [ARCHITECTURE.md](/documents/architecture)
-- 현재 프로젝트 상태
-- 승인된 요구사항
-
----
-
-## Outputs
-
-다음 내용을 정의한다.
-
-- 작업 목록
-- 우선순위
-- 실행 순서
-- 진행 상태
-- 완료 상태
-
----
-
-## Lifecycle
-
-ARCHITECTURE.md 이후 작성한다.
-
----
-
-작업 완료 시 지속적으로 업데이트한다.
-
----
-
-새로운 범위가 승인되면 작업을 추가할 수 있다.
-
----
-
-완료된 작업은 기록으로 유지한다.
-
----
-
-## Relationship
+<DocLink href="/documents/example-tasks" text="TASKS.md 작성 예시 보기" />
 
 ```text
-PRODUCT_SPEC.md
-↓
-TECH_STACK.md
-↓
-ARCHITECTURE.md
-↓
-TASKS.md
-↓
-Execution
+좋은 TASKS.md는 막연한 미래 계획을 설명하지 않습니다.
+좋은 TASKS.md는 지금 당장 검증하고 완수할 작업을 명백하게 정의합니다.
 ```
-
----
-
-PRODUCT_SPEC.md는 목적지를 정의한다.
-
----
-
-TECH_STACK.md는 구현 기술과 규칙을 정의한다.
-
----
-
-ARCHITECTURE.md는 시스템 구조와 동작을 정의한다.
-
----
-
-TASKS.md는 현재 위치를 정의한다.
-
----
-
-## AI Usage
-
-Execution AI가 반드시 읽어야 하는 문서다.
-
----
-
-작업 범위에 대한 최종 기준은 TASKS.md다.
-
----
-
-TASKS.md에 없는 작업은 구현해서는 안 된다.
-
----
-
-필요한 작업이 존재하지 않는 경우:
-
-```text
-STOP
-
-Propose TASKS.md update
-```
-
----
-
-## Structure
-
-일반적으로 Phase 기반으로 구성한다.
-
-예시:
-
-```text
-PHASE 1
-
-- [x] Task A
-- [x] Task B
-
-PHASE 2
-
-- [ ] Task C
-- [ ] Task D
-```
-
----
-
-각 작업은 명확하고 검증 가능해야 한다.
-
----
-
-## Generate With
-
-TASKS.md는 일반적으로 다음 프롬프트를 통해 생성한다.
-
-→ [Task Generation Prompt](/prompts/task-generation)
-
----
-
-Task Generation Prompt는 다음을 수행한다.
-
-- 작업 분해
-- 우선순위 설정
-- Phase 구성
-- 실행 순서 정의
-
----
-
-## Example
-
-실제 REPL Works Compatible 프로젝트 예시를 통해 TASKS.md 작성 방식을 확인할 수 있다.
-
-→ [Example TASKS.md](/documents/example-tasks)
-
----
-
-예시는 다음 내용을 포함한다.
-
-- Phase 구조
-- 작업 목록
-- 진행 상태
-- 완료 기준
-
----
-
-## Key Principle
-
-좋은 TASKS.md는 미래 계획을 설명하지 않는다.
-
-좋은 TASKS.md는 현재 해야 할 일을 설명한다.
-
----
-
-## Why It Matters
-
-AI는 범위를 확장하려는 경향이 있다.
-
----
-
-TASKS.md는 이를 방지한다.
-
----
-
-PRODUCT_SPEC.md가 목적지라면,
-
-TASKS.md는 현재 위치다.
-
----
-
-Execution AI는 현재 위치에서 다음 단계만 수행해야 한다.

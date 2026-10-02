@@ -1,10 +1,57 @@
 ---
 title: 'PRODUCT_SPEC.md 예시'
-version: 'v1'
-description: '제품 명세 Prompt로 만든 PRODUCT_SPEC.md 예시입니다.'
-publishedAt: '2026-06-12T00:00:00Z'
+version: 'v2'
+description: 'REPL Works 방법론으로 작성된 실무 PRODUCT_SPEC.md 작성 참조 예시'
+publishedAt: '2026-10-02T00:00:00Z'
 ---
 
+import MissionBox from '../../components/MissionBox.astro';
+import DocLink from '../../components/DocLink.astro';
+
+## 실무 PRODUCT_SPEC.md 작성 예시
+
+아래 예시는 REPL Works 공식 웹사이트를 구축할 때 실제로 사용된 `PRODUCT_SPEC.md` 원본 스펙 규격입니다.
+
+<MissionBox text="PRODUCT_SPEC.md는 제품의 목적, 타겟 유저, 정보 아키텍처 및 성공 기준을 규정하는 단일 진실 출처입니다." />
+
 ```markdown
-준비 중...
+# PRODUCT_SPEC.md
+
+Version 3.0
+
+## PRODUCT
+REPL Works Website
+
+## PRODUCT_TYPE
+Documentation Platform
+
+Purpose:
+- Introduce REPL Works Framework
+- Teach Document-Driven AI Development Methodology
+- Distribute Reusable Prompts and Document Standards
+- Showcase Compatible AI-Native Projects
+
+## TARGET_AUDIENCE
+- Primary: Solo Founders, Indie Hackers, AI-Native Builders
+- Secondary: Startups, Small Technical Teams
+
+## CORE_MESSAGE
+AI can generate code. Projects require structure.
+Models change. Projects survive.
+
+## INFORMATION_ARCHITECTURE
+1. Home
+2. Workflow
+3. Prompts
+4. Documents
+5. Tools
+6. Showcase
+7. FAQ
+
+## SUCCESS_CRITERIA
+- Visitors understand REPL Works methodology in under 2 minutes
+- Visitors can copy standard prompts and download markdown document templates
+- All pages deploy as zero-server static HTML on GitHub Pages
 ```
+
+<DocLink href="/documents/product-spec" text="PRODUCT_SPEC.md 표준 규격으로 돌아가기" />

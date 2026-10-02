@@ -1,148 +1,86 @@
 ---
 title: 'IDEAS.md'
-version: 'v1'
-description: 'IDEAS.md는 프로젝트 아이디어를 검증하고 정제하기 위한 문서다.'
-publishedAt: '2026-06-12T00:00:00Z'
+version: 'v2'
+description: '프로젝트 아이디어를 사업적/도메인 관점에서 검증하고 정제하는 첫 번째 표준 문서 스펙'
+publishedAt: '2026-10-02T00:00:00Z'
 ---
 
-이 문서의 목적은 무엇을 만들지 결정하는 것이 아니다.
+import MissionBox from '../../components/MissionBox.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import DocLink from '../../components/DocLink.astro';
 
-무엇을 만들 가치가 있는지 판단하는 것이다.
+## 1. 개요 및 목적
+
+`IDEAS.md`의 목적은 단순히 "무엇을 만들지" 기술적 기능을 나열하는 것이 아니라, **"무엇을 만들 가치가 있는지" 사업적/도메인 관점에서 검증**하는 것입니다.
+
+<MissionBox text="Should we build this? (우리가 과연 이것을 만들 가치가 있는가?)" />
+
+### 핵심 검증 질문 (Core Questions)
+
+<SpecGrid
+  items={[
+    '1. 우리가 해결하려는 문제가 충분히 중요하고 명확한가?',
+    '2. 이 문제를 실제로 겪고 있는 핵심 타겟 사용자는 누구인가?',
+    '3. 기존 사용자들이 이용 중인 대안(Alternative)은 무엇인가?',
+    '4. 기존 대안 대비 우리 프로젝트만의 압도적 차별성이 존재하는가?',
+    '5. 기술적/사업적으로 장기 유지 및 운영이 가능한가?',
+  ]}
+/>
 
 ---
 
-# Purpose
+## 2. 문서 작성 입출력 (Inputs & Outputs)
 
-아이디어를 사업적 관점에서 검토한다.
+### 입력 (Inputs)
+- 기획자의 초기 아이디어 및 사용자 불편 사항 (Pain Points)
+- 시장 및 경쟁 제품 분석 자료
+- 사업적 가설 및 타겟 도메인 경험
+
+### 출력 (Outputs)
+`IDEAS.md` 문서에는 다음 세부 항목들이 정제되어 작성됩니다.
+- **문제 정의 (Problem Statement)**: 해결하고자 하는 현실적 과제
+- **대상 사용자 (Target Audience)**: 페르소나 및 타겟 그룹
+- **제안하는 해결 방향 (Proposed Solution)**: 해결 방법론
+- **차별성 (Differentiation)**: 독자적 경쟁 우위
+- **위험 요소 & 제약 사항 (Risks & Constraints)**: 예상 장애물
+- **검증 필요 항목 (Validation Checklist)**: 추가 조사 가설
 
 ---
 
-다음을 검증한다.
+## 3. 라이프사이클 & 문서 연관 관계 (Lifecycle & Relationship)
+
+`IDEAS.md`는 프로젝트 전체 문서 파이프라인의 **가장 첫 번째 출발점**입니다.
 
 ```text
-문제가 충분히 중요한가?
-
-누가 이 문제를 가지고 있는가?
-
-기존 대안은 무엇인가?
-
-차별성은 존재하는가?
-
-장기적으로 유지 가능한가?
+IDEAS.md  (아이디어 가설 검증)
+   ↓
+PITCHING_SCRIPT.md  (존재 이유 & 피치)
+   ↓
+PRODUCT_SPEC.md  (제품 스펙 Single Source of Truth)
 ```
 
----
-
-# Inputs
-
-일반적으로 다음 정보를 기반으로 작성한다.
-
-- 초기 아이디어
-- 사용자 불편
-- 시장 관찰
-- 경쟁 제품 분석
-- 개인 경험
-- 사업 가설
+- **생성 시점**: 프로젝트 구상 초기 단계
+- **수정 주기**: 아이디어 가설이 검증 완료될 때까지 반복 수정
+- **전환 시점**: 아이디어 검증 완료 후 `PITCHING_SCRIPT.md` 단계로 이동
 
 ---
 
-# Outputs
+## 4. AI 활용 및 생성 방법 (AI Usage & Generation)
 
-다음 내용을 정리한다.
+- **주요 활용 층**: Discussion AI와 사람이 함께 대화하며 작성하는 문서입니다. (Execution AI가 직접 참조하는 대상은 아닙니다.)
+- **추천 생성 프롬프트**: REPL Works 표준 프롬프트를 통해 대화 형태로 자동 생성할 수 있습니다.
 
-- 문제 정의
-- 대상 사용자
-- 제안하는 방향
-- 차별성
-- 위험 요소
-- 제약 사항
-- 검증이 필요한 항목
+→ [Idea Refinement 프롬프트 바로가기](/prompts/idea-refinement)
 
 ---
 
-# Lifecycle
+## 5. 예시 문서 및 핵심 원칙 (Example & Core Principle)
 
-프로젝트 초기 단계에서 생성한다.
+실제 REPL Works 호환 프로덕트의 작성 예시를 확인하세요.
 
----
-
-IDEAS.md는 아이디어가 충분히 검증될 때까지 반복적으로 수정한다.
-
----
-
-아이디어 검증이 완료되면 PITCHING_SCRIPT.md 작성 단계로 이동한다.
-
----
-
-# Relationship
+<DocLink href="/documents/example-ideas-md" text="IDEAS.md 작성 예시 보기" />
 
 ```text
-IDEAS.md
-↓
-PITCHING_SCRIPT.md
-↓
-PRODUCT_SPEC.md
+좋은 IDEAS.md는 아이디어를 장황하게 설명하지 않습니다.
+좋은 IDEAS.md는 아이디어를 사업적으로 검증합니다.
 ```
-
----
-
-IDEAS.md는 프로젝트의 출발점이다.
-
----
-
-# AI Usage
-
-IDEAS.md는 주로 Discussion AI와 사람이 함께 사용하는 문서다.
-
----
-
-Execution AI가 반드시 읽어야 하는 문서는 아니다.
-
----
-
-프로젝트가 진행되면서 핵심 내용은 이후 문서로 전달된다.
-
----
-
-# Generate With
-
-IDEAS.md는 일반적으로 다음 프롬프트를 통해 생성한다.
-
-→ [아이디어 정제 Prompt](/prompts/idea-refinement)
-
----
-
-아이디어 정제 Prompt는 다음을 수행한다.
-
-- 아이디어 검증
-- 시장성 검토
-- 사용자 분석
-- 위험 요소 식별
-- 장기 지속 가능성 평가
-
----
-
-# Example
-
-실제 REPL Works Compatible 프로젝트 예시를 통해 IDEAS.md 작성 방식을 확인할 수 있다.
-
-→ [Example IDEAS.md](/documents/example-ideas-md)
-
----
-
-예시는 다음 내용을 포함한다.
-
-- 문제 정의
-- 대상 사용자
-- 제안 방향
-- 핵심 가설
-- 위험 요소
-- 검증 결과
-
----
-
-# Key Principle
-
-좋은 IDEAS.md는 아이디어를 설명하지 않는다.
-
-좋은 IDEAS.md는 아이디어를 검증한다.
