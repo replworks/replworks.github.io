@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.10.0 - 2026-10-02
+
+### What's Changed
+
+* feat: enhance footer layout with improved sitemap and navigation links by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/84
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.9.0...v2.10.0
+
 ## v2.9.0 - 2026-10-02
 
 ### What's Changed
