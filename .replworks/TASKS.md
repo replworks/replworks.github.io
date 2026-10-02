@@ -267,6 +267,12 @@ Propose TASK update
 - [x] T1103 Reorder benefits section putting project continuity first
 - [x] T1104 Unify terminology across site replacing Discussion AI and Execution AI with 대화형 AI and 코딩형 AI
 
+## PHASE 12
+
+### HOMEPAGE AND WORKFLOW MESSAGE ALIGNMENT
+
+- [x] T1201 Redesign homepage hero and align Workflow roles, document stages, and terminology
+
 ---
 
 ## COMPLETION

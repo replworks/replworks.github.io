@@ -7,7 +7,6 @@ publishedAt: '2026-10-02T00:00:00Z'
 
 import Workflow from '../../components/Workflow.astro';
 import QuestionGrid from '../../components/QuestionGrid.astro';
-import SpecList from '../../components/SpecList.astro';
 import SpecGrid from '../../components/SpecGrid.astro';
 import InOut from '../../components/InOut.astro';
 import Criteria from '../../components/Criteria.astro';
@@ -31,43 +30,40 @@ REPL Works는 이 문제를 **세션 기억(Session Memory)**과 **프로젝트 
 
 ---
 
-## 2. 전체 3단계 파이프라인 (Overall Pipeline)
+## 2. 전체 파이프라인
 
-REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운영(Review & Loop)**의 3단계 핵심 파이프라인으로 작동합니다.
+REPL Works는 **기획·설계 → 구현 → 검토·운영**의 흐름으로 작동합니다.
 
 <Workflow
   steps={[
     'Human & 대화형 AI',
-    'IDEAS.md',
-    'PITCHING_SCRIPT.md',
-    'PRODUCT_SPEC.md',
-    'TECH_STACK.md',
-    'ARCHITECTURE.md',
-    'TASKS.md',
+    '문서 6종',
     '코딩형 AI',
     'Build & Test Pass',
-    'Human Review',
-    'Merge & Operation',
+    'Human 검토·커밋',
+    '운영',
   ]}
 />
 
-### 3대 역할 분담 (Three Roles)
+### 역할 분담
 
-1. **대화형 AI**: 구현(코드 생성)에 직접 들어가지 않고, 사람(Human)과 토론하며 제품의 요구사항, 아키텍처, 작업 마일스톤을 검증하고 상위 문서를 정제합니다.
-2. **코딩형 AI**: 확정된 상위 문서와 `TASKS.md`의 단일 TASK만 읽고, 오직 해당 작업 범위 내에서 검증 가능한 코드와 테스트를 작성합니다.
-3. **Human Review**: 최종 제품의 의도와 품질이 명세와 일치하는지 최종 검증하고 승인(Merge) 및 운영 결정을 내립니다.
+1. **대화형 AI**: 사람과 함께 제품의 요구사항, 아키텍처, 작업 계획을 검증하고 6개 표준 문서를 작성합니다. 1단계에는 ChatGPT를, 2단계에는 Claude를 추천합니다.
+2. **코딩형 AI**: 확정된 상위 문서와 `TASKS.md`의 단일 TASK를 읽고, 정해진 범위 안에서 코드와 문서를 함께 수정합니다. Codex와 Claude Code를 추천합니다.
+3. **Human**: 기획 단계부터 참여해 결정합니다. 코딩형 AI의 코드와 문서 변경분을 검토하고 커밋합니다.
 
 ---
 
-## 3. 단계별 적용 실무 워크플로 (Step-by-Step Workflow)
+## 3. 기획·설계
 
-### Stage A. 기획 및 표준 문서 확정 (Planning & Specs)
+아이디어 단계부터 개발 준비 완료까지 **6개의 핵심 표준 문서**를 두 묶음으로 작성합니다. 6개 문서는 모두 대화형 AI와 사람이 함께 작성합니다.
 
-아이디어 단계부터 개발 준비 완료까지 6개의 핵심 표준 문서를 파이프라인 순서대로 작성합니다. 위 단계 문서가 확정되어야만 아래 단계 문서를 파생합니다.
+### 1단계 · 사람을 위한 문서
 
-#### Phase 1: 아이디어 정제 및 포지셔닝 (`IDEAS.md`, `PITCHING_SCRIPT.md`)
+대화형 AI로 아이디어와 프로젝트의 방향을 정리합니다. ChatGPT를 추천합니다.
 
-무엇을 왜 만들 것인지 핵심 가설과 비즈니스 포지셔닝을 정의합니다.
+#### `IDEAS.md`, `PITCHING_SCRIPT.md`
+
+무엇을 왜 만들 것인지 핵심 가설과 프로젝트 포지셔닝을 정의합니다.
 
 <QuestionGrid
   questions={[
@@ -78,7 +74,11 @@ REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운
   ]}
 />
 
-#### Phase 2: 제품 정의 (`PRODUCT_SPEC.md`)
+### 2단계 · AI를 위한 문서
+
+대화형 AI로 구현에 필요한 제품과 기술의 기준을 정리합니다. Claude를 추천합니다.
+
+#### `PRODUCT_SPEC.md`
 
 제품이 구체적으로 어떤 기능과 사용자 경험(UX), 네비게이션 구조를 제공할 것인지 정의하는 최상위 원천 명세입니다.
 
@@ -91,9 +91,9 @@ REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운
   ]}
 />
 
-#### Phase 3: 기술 사양 & 아키텍처 설계 (`TECH_STACK.md`, `ARCHITECTURE.md`)
+#### `TECH_STACK.md`, `ARCHITECTURE.md`
 
-사용 언어, 프레임워크 버전, 디렉터리 제약 등 구현 컨벤션과 전체 시스템의 모듈 관계 및 데이터 흐름을 정의합니다.
+사용 언어, 프레임워크 버전, 디렉터리 제약 등 구현 규칙과 전체 시스템의 모듈 관계 및 데이터 흐름을 정의합니다.
 
 <SpecGrid
   items={[
@@ -102,35 +102,51 @@ REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운
   ]}
 />
 
-#### Phase 4: 작업 계획 및 실행 헌법 (`TASKS.md`, `AGENTS.md`)
+#### `TASKS.md`
 
-전체 아키텍처를 독립 실행 가능한 세부 마일스톤(`TASKS.md`)으로 세분화하고, AI가 준수해야 할 실행 헌법(`AGENTS.md`)을 작성합니다.
+전체 아키텍처를 독립 실행 가능한 세부 작업으로 나누고, 다음에 수행할 단일 TASK를 정합니다.
+
+### 공통 문서 · `AGENTS.md`
+
+`AGENTS.md`는 REPL Works가 미리 정의한 공통 규칙입니다. 고정되어 있으며 AI도 사람도 수정할 수 없습니다. 프로젝트마다 작성하거나 커스터마이즈하지 않습니다.
+
+모든 AI는 이 규칙을 따릅니다. 이 규칙은 AI가 2단계 문서 4종을 읽도록 강제합니다.
 
 ---
 
-### Stage B. AI 실행 및 정밀 구현 (Execution)
+## 4. 구현
 
 코딩형 AI는 자율적으로 임의의 기능을 추가하거나 추측하지 않으며, 승인된 TASK 하나만 읽고 개발합니다.
 
-#### 1-Prompt = 1-Task = 1-Commit 원칙
+### 개발 전 문서 검증
+
+코딩형 AI는 REPL Works가 제공하는 9개의 프롬프트(`/prompts`)로 2단계 문서 4종을 스스로 검증하고 수정합니다. 사람은 변경분을 검토하고 커밋한 뒤 개발을 시작합니다.
+
+### 개발 중 동기화
+
+#### 1-Prompt = 1-Task = 1-Commit
+
+코딩형 AI는 TASK 범위 안에서 코드를 수정하면서 `PRODUCT_SPEC.md`, `TECH_STACK.md`, `ARCHITECTURE.md`, `TASKS.md`를 함께 수정합니다. TASK 범위 밖의 기능은 추가하지 않습니다.
+
+사람은 변경된 코드와 문서 전체를 Git diff로 검토하고 커밋한 뒤 다음 TASK로 진행합니다.
 
 <InOut
   type="input"
   items={[
-    'AGENTS.md (실행 규칙)',
-    'PRODUCT_SPEC.md (제품 명세)',
-    'TECH_STACK.md (기술 규칙)',
-    'ARCHITECTURE.md (설계 구조)',
+    'AGENTS.md (공통 규칙, 읽기 전용)',
+    'PRODUCT_SPEC.md',
+    'TECH_STACK.md',
+    'ARCHITECTURE.md',
     'TASKS.md (현재 TASK)',
   ]}
 />
 
 <InOut
   type="output"
-  items={['소스 코드 구현', '단위/E2E 테스트', 'Git Commit / Pull Request']}
+  items={['소스 코드 구현', '단위/E2E 테스트', '4종 문서의 변경분']}
 />
 
-#### 필수 자동 검증 조건 (Verification Gate)
+### 필수 자동 검증 조건
 
 구현 완료 후 다음 기준을 만족해야만 작업이 완료된 것으로 판단합니다.
 
@@ -144,13 +160,15 @@ REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운
 
 ---
 
-### Stage C. 검토, 릴리즈 & 지속적 운영 루프 (Review & Continuous Loop)
+## 5. 검토·운영
 
-개발 완료 후 코드는 인간의 검토를 거쳐 배포되며, 운영 과정에서 얻은 피드백은 다시 상위 문서로 환류됩니다.
+### TASK 검토
 
-#### Phase 8: Human Review (인간 검토)
+사람은 TASK마다 코드와 문서의 Git diff를 검토하고 커밋합니다. 이 검토가 끝난 뒤 다음 TASK로 진행합니다.
 
-최종 책임은 사람(Human)에게 있습니다. 제품 명세와 건축적 기준이 지켜졌는지 최종 검증합니다.
+### 릴리즈 전 최종 검토
+
+릴리즈 전에는 제품 명세와 시스템 기준이 지켜졌는지 최종 검증합니다.
 
 <ReviewGrid
   items={[
@@ -161,7 +179,7 @@ REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운
   ]}
 />
 
-#### Phase 9: Continuous Operation Loop (지속적 운영 루프)
+### 지속적 운영 루프
 
 제품이 배포된 후 사용자 피드백, 버그 리포트, 신규 요구사항이 발생하면 문서를 최신 상태로 업데이트한 뒤 다음 탐색 회차(Next Iteration)를 시작합니다.
 
@@ -178,13 +196,11 @@ REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운
 
 ---
 
-## 4. 결론 (Conclusion)
+## 6. 결론
 
 ```text
 Models change.
 Projects survive.
 ```
 
-REPL Works는 단순한 AI 프롬프트 팁이나 일회성 도구가 아닙니다.
-
-AI 세션이 끝나거나 새로운 모델이 등장하더라도, Git과 표준 문서 자산을 통해 **프로젝트의 지속성과 품질을 100% 보장하는 AI-Native 개발 프레임워크**입니다.
+AI 세션이 끝나거나 새로운 모델이 등장해도, 문서와 Git으로 프로젝트가 수정 과정에서 산으로 가는 것을 막는 AI-Native 개발 프레임워크입니다.
