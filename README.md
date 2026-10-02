@@ -1,5 +1,17 @@
 # REPL Works
 
+[![CI Pipeline](https://github.com/replworks/replworks.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/replworks/replworks.github.io/actions/workflows/ci.yml)
+[![Deploy Astro site to Pages](https://github.com/replworks/replworks.github.io/actions/workflows/astro.yml/badge.svg)](https://github.com/replworks/replworks.github.io/actions/workflows/astro.yml)
+[![update-changelog](https://github.com/replworks/replworks.github.io/actions/workflows/update-changelog.yml/badge.svg)](https://github.com/replworks/replworks.github.io/actions/workflows/update-changelog.yml)
+[![Astro](https://img.shields.io/badge/Astro-BC52EE?style=flat-square&logo=astro&logoColor=white)](https://astro.build)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
+[![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white)](https://eslint.org/)
+[![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=black)](https://prettier.io/)
+[![Vitest](https://img.shields.io/badge/Vitest-6E9F18?style=flat-square&logo=vitest&logoColor=white)](https://vitest.dev/)
+[![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)](https://playwright.dev/)
+[![REPLWorks](https://img.shields.io/badge/with-REPLWorks-3375C6)](https://www.repl.net/)
+
 REPL Works는 AI와 함께 제품을 만들 때 프로젝트의 의도와 결정이 사라지지 않도록 하는 문서 주도 개발 방식이다.
 
 AI는 코드를 빠르게 만들 수 있지만, 프로젝트의 목적과 현재 상태를 자동으로 보존하지는 않는다. REPL Works는 대화에서 결정된 내용을 문서와 Git에 남겨 다음 세션, 다음 모델, 다음 작업자가 같은 프로젝트를 이어갈 수 있게 한다.
