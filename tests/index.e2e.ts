@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 test('has title', async ({ page }) => {
   await page.goto('/');
 
-  await expect(page).toHaveTitle('REPL Works');
+  await expect(page).toHaveTitle('REPL Works — 문서 주도 AI 개발 방법론');
   await expect(page.locator('html')).toHaveAttribute('lang', 'ko');
   await expect(page.locator('a[href="#main-content"]')).toHaveText(
     '본문으로 건너뛰기'

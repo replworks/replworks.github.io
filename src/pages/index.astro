@@ -15,23 +15,23 @@ const pipelineSteps = [
 const benefits = [
   {
     title: '특정 AI 의존성 탈피',
-    desc: '특정 AI 모델에 의존하지 않습니다. 프로젝트 기억은 Git과 문서에 저장되므로 새로운 모델도 프로젝트를 이어갈 수 있습니다.',
+    desc: '프로젝트 기억이 Git에 있어 새로운 모델도 이어서 작업합니다.',
   },
   {
     title: '프로젝트 지속성',
-    desc: '프로젝트는 수개월 또는 수년 동안 유지됩니다. 세션이 종료되어도 프로젝트의 의도와 구조는 온전하게 보존됩니다.',
+    desc: '세션이 끝나도 의도와 구조가 문서로 남습니다.',
   },
   {
     title: 'AI 입력 비용 최적화',
-    desc: '오래된 채팅 로그를 다시 읽게 하는 대신, 필수 정보만 정제된 영구 문서로 남겨 AI가 최소한의 토큰만 읽고 정확히 작업하도록 돕습니다.',
+    desc: '오래된 채팅 로그 대신 필요한 문서만 읽힙니다.',
   },
   {
     title: '온보딩 비용 절감',
-    desc: '새로 합류한 팀원과 새로운 AI 에이전트 모두 구조화된 문서를 읽고 지체 없이 프로젝트를 깊이 이해할 수 있습니다.',
+    desc: '새 팀원과 새 AI 모두 문서를 읽고 바로 시작합니다.',
   },
   {
     title: 'Git 기반 워크플로',
-    desc: '모든 프로젝트 기억은 Git으로 이력 관리됩니다. 현재 상태는 문서가 설명하고, 과거 상태는 Git 커밋이 안전하게 보존합니다.',
+    desc: '현재 상태는 문서가, 과거 상태는 커밋이 보존합니다.',
   },
 ];
 
@@ -68,17 +68,38 @@ const showcases = [
 ---
 
 <HomeLayout
-  title="REPL Works"
-  description="REPL Works는 프로젝트 기억, 모델 독립성, Git 기반 연속성을 갖춘 AI-Native Product Development Framework입니다."
+  title="REPL Works — 문서 주도 AI 개발 방법론"
+  description="REPL Works는 프로젝트의 의도, 결정, 작업 계획을 문서와 Git에 남겨 AI가 바뀌어도 개발을 이어가는 문서 주도 AI 개발 방법론입니다."
 >
-  <div class="space-y-16 sm:space-y-24 max-w-5xl mx-auto px-4 md:px-6">
+  <div class="mx-auto flex max-w-5xl flex-col gap-16 px-4 sm:gap-24 md:px-6">
+    <section class="order-1 border-b border-slate-100 py-4">
+      <p class="text-xs font-black tracking-widest text-slate-400 uppercase font-mono">METHOD</p>
+      <h2 class="mt-2 text-2xl font-black tracking-tight text-slate-900 sm:text-3xl">
+        작업을 쪼개고, 규칙은 문서로 둡니다
+      </h2>
+      <p class="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600">
+        AI에게 큰 일을 한 번에 시키면 앞의 결정을 잊고 구조가 흔들립니다. REPL Works는 일을 TASKS로 쪼개고, TASK마다 필요한 규칙을 상위 문서에서 가져오게 합니다. 규칙은 채팅이 아니라 Git에 있으므로 AI가 바뀌어도 같은 기준으로 이어집니다.
+      </p>
+      <div class="mt-8 grid gap-3 md:grid-cols-3">
+        {[
+          '상위 문서에 규칙을 남긴다',
+          '작업을 TASKS로 쪼갠다',
+          'AI가 TASK 하나씩, 해당 규칙만 읽고 실행한다',
+        ].map((title, index) => (
+          <article class="rounded-2xl border border-slate-200/70 bg-slate-50/40 p-5 transition-all hover:border-slate-300 hover:bg-white hover:shadow-sm">
+            <p class="text-xs font-mono font-bold text-slate-400">0{index + 1}</p>
+            <h3 class="mt-3 text-sm font-extrabold leading-relaxed text-slate-800">{title}</h3>
+          </article>
+        ))}
+      </div>
+    </section>
     {
       /* =========================================================================
         2. WORKFLOW SECTION
         ========================================================================= */
     }
     <section
-      class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start border-b border-slate-100 pb-16"
+      class="order-2 grid gap-8 border-b border-slate-100 pb-16 lg:grid-cols-[0.8fr_1.2fr] lg:items-start"
     >
       <div>
         <p
@@ -92,8 +113,7 @@ const showcases = [
           REPL Works는 어떻게 작동하는가
         </h2>
         <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-          상위 문서 규격이 명확히 정립되면서 하위 마일스톤 단계로 점진적으로
-          파생·확장되는 연속형 누적 파이프라인 프로세스입니다.
+          위 문서에서 아래 문서가 파생되는 단계형 파이프라인입니다. 앞 단계가 정해져야 다음 단계를 씁니다.
         </p>
       </div>
 
@@ -138,7 +158,7 @@ const showcases = [
                   </svg>
 
                   {/* 한글 기능 가이드 설명 */}
-                  <p class="text-[11px] sm:text-xs font-extrabold text-slate-600 tracking-tight min-w-0 truncate">
+                  <p class="text-[11px] sm:text-xs font-extrabold text-slate-600 tracking-tight min-w-0 whitespace-normal break-words">
                     <span class="sm:hidden text-slate-300 mr-1 font-normal">
                       ·
                     </span>
@@ -169,20 +189,14 @@ const showcases = [
         3. PROBLEM SECTION
         ========================================================================= */
     }
-    <section class="py-4">
+    <section class="order-2 py-4">
       <span
         class="text-xs font-black tracking-widest text-slate-400 uppercase font-mono block mb-1"
-        >PROBLEM</span
+        >WORKFLOW</span
       >
       <h2 class="text-2xl font-black text-slate-900 tracking-tight mb-2">
-        REPL Works가 해결하는 문제
+        이 문서들이 답하는 네 가지 질문
       </h2>
-      <p class="text-sm text-slate-600 leading-relaxed max-w-xl mb-6">
-        AI 에이전트는 코드를 정교하게 작성하지만 세션이 끊기면 컨텍스트를
-        망각합니다. 프로젝트 기억은 일회성 채팅방이 아닌 Git 저장소에 영구
-        보존되어야 합니다.
-      </p>
-
       {/* 2x2 대시보드 그리드 큐브 카드 구조 */}
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 my-6">
         <div
@@ -196,9 +210,10 @@ const showcases = [
             <h3 class="text-sm font-extrabold text-slate-800 tracking-tight">
               왜 만드는가?
             </h3>
-            <p class="text-[11px] text-slate-500 tracking-tight">
+            <p class="text-xs text-slate-500 tracking-tight">
               프로젝트의 본질적인 도메인 목적과 비즈니스 동기
             </p>
+            <p class="text-xs font-mono text-slate-400">IDEAS.md, PITCHING_SCRIPT.md</p>
           </div>
         </div>
 
@@ -213,9 +228,10 @@ const showcases = [
             <h3 class="text-sm font-extrabold text-slate-800 tracking-tight">
               무엇을 만드는가?
             </h3>
-            <p class="text-[11px] text-slate-500 tracking-tight">
+            <p class="text-xs text-slate-500 tracking-tight">
               제품의 스펙 사양 정의 및 상세 요구사항 기능 규격
             </p>
+            <p class="text-xs font-mono text-slate-400">PRODUCT_SPEC.md</p>
           </div>
         </div>
 
@@ -230,9 +246,10 @@ const showcases = [
             <h3 class="text-sm font-extrabold text-slate-800 tracking-tight">
               현재 구조는 무엇인가?
             </h3>
-            <p class="text-[11px] text-slate-500 tracking-tight">
+            <p class="text-xs text-slate-500 tracking-tight">
               전체 시스템의 구조와 컴포넌트 관계
             </p>
+            <p class="text-xs font-mono text-slate-400">TECH_STACK.md, ARCHITECTURE.md</p>
           </div>
         </div>
 
@@ -247,16 +264,16 @@ const showcases = [
             <h3 class="text-sm font-extrabold text-slate-800 tracking-tight">
               어떤 결정을 내렸는가?
             </h3>
-            <p class="text-[11px] text-slate-500 tracking-tight">
+            <p class="text-xs text-slate-500 tracking-tight">
               지금까지 누적 도출된 테크니컬 마일스톤과 설계 의사결정 이력
             </p>
+            <p class="text-xs font-mono text-slate-400">TASKS.md, Git 커밋 이력</p>
           </div>
         </div>
       </div>
 
       <p class="text-xs sm:text-sm text-slate-500 leading-relaxed mt-4">
-        REPL Works 프레임워크는 상기 핵심 질문 4가지를 누수 없이 수렴하여 시스템
-        설계 문서로 밀착 압축하고 형상 관리의 자산으로 영속시킵니다.
+        이 네 질문의 답을 상위 문서로 남기고 Git으로 이력을 관리합니다. TASK마다 필요한 규칙은 이 문서에서 가져옵니다.
       </p>
     </section>
 
@@ -266,7 +283,7 @@ const showcases = [
         ========================================================================= */
     }
     <section
-      class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start border-t border-slate-200 pt-12"
+      class="order-4 grid gap-8 border-t border-slate-200 pt-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start"
     >
       <div>
         <p
@@ -303,7 +320,7 @@ const showcases = [
         ========================================================================= */
     }
     <section
-      class="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start border-t border-slate-200 pt-12"
+      class="order-3 grid gap-8 border-t border-slate-200 pt-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start"
     >
       <div>
         <p
@@ -317,8 +334,7 @@ const showcases = [
           REPL Works 호환 프로젝트
         </h2>
         <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-          실제 엔지니어링 생태계 및 대규모 개발 주기에 REPL Works 프레임워크
-          설계 표준을 도입한 실제 증명 케이스입니다.
+          REPL Works를 실제 프로젝트에 적용한 사례입니다.
         </p>
         <a
           href="/showcase"
@@ -381,7 +397,7 @@ const showcases = [
         ========================================================================= */
     }
     <section
-      class="rounded-2xl border border-slate-200 bg-slate-950 p-6 sm:p-8 text-slate-50 shadow-sm my-4"
+      class="order-5 my-4 rounded-2xl border border-slate-200 bg-slate-950 p-6 text-slate-50 shadow-sm sm:p-8"
     >
       <p
         class="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 font-mono"
