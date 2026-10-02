@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.4.2 - 2026-10-02
+
+### What's Changed
+
+* style: update headings in TASKS.md for consistency by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/71
+* feat: update Hero component text for clarity and enhance documentation emphasis by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/72
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.4.1...v2.4.2
+
 ## v2.4.1 - 2026-10-01
 
 ### What's Changed
