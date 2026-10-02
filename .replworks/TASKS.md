@@ -257,6 +257,7 @@ Propose TASK update
 - [x] T1002 Create the shared Showcase card component and connect the homepage
 - [x] T1003 Replace the Showcase page with the seven-project card grid
 - [x] T1004 Move the REPL Works Compatible definition into the FAQ
+
 ## PHASE 11
 
 ### HERO REDESIGN AND TERMINOLOGY UNIFICATION
