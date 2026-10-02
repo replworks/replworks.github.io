@@ -20,7 +20,7 @@ test('searches every public content collection', async ({ page }) => {
     .first();
 
   for (const query of [
-    'continuous improvement',
+    'prompt library',
     'product specification',
     'repl-cli',
     'wifi note',
@@ -73,4 +73,58 @@ test('keeps primary pages within a mobile viewport', async ({ page }) => {
   await expect(
     page.locator('details nav').getByRole('link', { name: 'Workflow' })
   ).toBeVisible();
+});
+
+test('embeds the exact prompt text rendered on every prompt detail page', async ({
+  page,
+}) => {
+  const slugs = [
+    'idea-refinement',
+    'pitch-creation',
+    'product-specification',
+    'tech-stack',
+    'architecture-design',
+    'task-generation',
+    'execution-validation',
+    'architecture-review',
+    'task-review',
+  ];
+
+  await page.goto('/prompts');
+  const cardOrder = await page
+    .locator('button[data-prompt-copy]')
+    .evaluateAll((buttons) =>
+      buttons.map((button) => button.getAttribute('aria-label'))
+    );
+  expect(cardOrder).toEqual([
+    '1번 Idea Refinement 프롬프트 복사',
+    '2번 Pitch Creation 프롬프트 복사',
+    '3번 Product Specification 프롬프트 복사',
+    '4번 Tech Stack 프롬프트 복사',
+    '5번 Architecture Design 프롬프트 복사',
+    '6번 Task Generation 프롬프트 복사',
+    '7번 Execution Validation 프롬프트 복사',
+    '8번 Architecture Review 프롬프트 복사',
+    '9번 Task Review 프롬프트 복사',
+  ]);
+  const embeddedPrompts = new Map<string, string>();
+
+  for (const slug of slugs) {
+    const embedded = await page
+      .locator(`script[data-prompt-source="${slug}"]`)
+      .textContent();
+    expect(embedded).not.toBeNull();
+    embeddedPrompts.set(slug, JSON.parse(embedded as string));
+  }
+
+  for (const slug of slugs) {
+    await page.goto(`/prompts/${slug}`);
+    const renderedPrompt = await page
+      .locator('article pre code')
+      .last()
+      .textContent();
+
+    expect(renderedPrompt).not.toBeNull();
+    expect(embeddedPrompts.get(slug)).toBe(renderedPrompt);
+  }
 });

@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import { promptDefinitions, promptGroups } from '../data/prompts';
+import { extractPromptTextFromSource } from '../utils/promptText';
+import PromptCard from './PromptCard.astro';
+
+const promptEntries = await getCollection('prompts');
+const entriesBySlug = new Map(promptEntries.map((entry) => [entry.id, entry]));
+const promptCards = await Promise.all(
+  promptDefinitions.map(async (prompt) => {
+    const entry = entriesBySlug.get(prompt.slug);
+    if (!entry) throw new Error(`Missing prompt entry: ${prompt.slug}`);
+    if (!entry.body) throw new Error(`Missing prompt source: ${prompt.slug}`);
+
+    return {
+      prompt,
+      promptText: extractPromptTextFromSource(entry.body),
+    };
+  })
+);
+---
+
+<div class="space-y-10">
+  {promptGroups.map((group) => (
+    <section class="space-y-4" aria-labelledby={`prompt-group-${group.charAt(0)}`}>
+      <h2 id={`prompt-group-${group.charAt(0)}`} class="text-xl font-black text-white">{group}</h2>
+      <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
+        {promptCards.filter(({ prompt }) => prompt.group === group).map(({ prompt, promptText }) => (
+          <PromptCard prompt={prompt} promptText={promptText} />
+        ))}
+      </div>
+    </section>
+  ))}
+</div>
