@@ -16,21 +16,33 @@ const serializedPrompt = JSON.stringify(promptText)
 <article class="glass-card rounded-2xl border border-slate-800/80 bg-slate-900/40 p-5 flex flex-col justify-between space-y-5">
   <div class="space-y-4">
     <div class="flex items-start justify-between gap-4">
-      <span class="font-mono text-3xl font-black leading-none text-cyan-300">{String(prompt.number).padStart(2, '0')}</span>
-      <span class="rounded-full border border-slate-700 bg-slate-950/60 px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-slate-300">{prompt.targetLabel}</span>
+      <span class="font-mono text-3xl font-black leading-none text-cyan-300">
+        {String(prompt.number).padStart(2, '0')}
+      </span>
+      <span class="rounded-full border border-slate-700 bg-slate-950/60 px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-slate-300">
+        {prompt.targetLabel}
+      </span>
     </div>
 
     <div class="space-y-1">
-      <h3 class="text-lg font-extrabold tracking-tight text-white">{prompt.name}</h3>
+      <h3 class="text-lg font-extrabold tracking-tight text-white">
+        {prompt.name}
+      </h3>
       <p class="text-sm text-slate-400">{prompt.koreanName}</p>
-      <p class="pt-2 text-sm leading-relaxed text-slate-300">{prompt.description}</p>
+      <p class="pt-2 text-sm leading-relaxed text-slate-300">
+        {prompt.description}
+      </p>
     </div>
 
     <div class="space-y-2">
-      <p class="text-[10px] font-bold uppercase tracking-wider text-slate-500">{prompt.targetLabel}</p>
+      <p class="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+        {prompt.targetLabel}
+      </p>
       <div class="flex flex-wrap gap-2">
         {prompt.targetFiles.map((file) => (
-          <code class="rounded border border-slate-700 bg-slate-950/70 px-2 py-1 text-xs font-mono text-slate-300">{file}</code>
+          <code class="rounded border border-slate-700 bg-slate-950/70 px-2 py-1 text-xs font-mono text-slate-300">
+            {file}
+          </code>
         ))}
       </div>
     </div>
@@ -45,7 +57,11 @@ const serializedPrompt = JSON.stringify(promptText)
     >
       프롬프트 복사
     </button>
-    <span class="sr-only" aria-live="polite" data-prompt-copy-status={prompt.slug}></span>
+    <span
+      class="sr-only"
+      aria-live="polite"
+      data-prompt-copy-status={prompt.slug}
+    ></span>
     <a
       href={`/prompts/${prompt.slug}`}
       class="inline-flex items-center justify-center rounded-lg bg-slate-800 px-3 py-2 text-xs font-bold text-slate-200 transition-colors hover:bg-slate-700"
@@ -55,7 +71,11 @@ const serializedPrompt = JSON.stringify(promptText)
   </div>
 </article>
 
-<script type="application/json" data-prompt-source={prompt.slug} set:html={serializedPrompt}></script>
+<script
+  type="application/json"
+  data-prompt-source={prompt.slug}
+  set:html={serializedPrompt}
+></script>
 
 <script>
   const copyPrompt = async (text: string) => {
@@ -85,17 +105,19 @@ const serializedPrompt = JSON.stringify(promptText)
     const target = event.target;
     if (!(target instanceof Element)) return;
 
-    const button = target.closest<HTMLButtonElement>('button[data-prompt-copy]');
+    const button = target.closest<HTMLButtonElement>(
+      'button[data-prompt-copy]',
+    );
     if (!button) return;
 
     const slug = button.dataset.promptCopy;
     if (!slug) return;
 
     const source = document.querySelector<HTMLScriptElement>(
-      `script[data-prompt-source="${slug}"]`
+      `script[data-prompt-source="${slug}"]`,
     );
     const status = document.querySelector<HTMLElement>(
-      `[data-prompt-copy-status="${slug}"]`
+      `[data-prompt-copy-status="${slug}"]`,
     );
     if (!source || !status) return;
 

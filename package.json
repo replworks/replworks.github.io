@@ -7,9 +7,10 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "dev:stop": "astro dev stop",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "format:check": "prettier --check \"**/*.{ts,tsx}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,astro}\"",
     "test": "vitest run && playwright test",
     "test:unit": "vitest",
     "test:e2e": "playwright test",

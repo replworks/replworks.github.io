@@ -12,7 +12,7 @@ import { showcaseProjects } from '../../data/showcase';
   {showcaseProjects
     .slice()
     .sort(
-      (a, b) => Number(b.featured) - Number(a.featured) || a.order - b.order
+      (a, b) => Number(b.featured) - Number(a.featured) || a.order - b.order,
     )
     .map((project) => (
       <ShowcaseCard project={project} showLesson />

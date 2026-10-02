@@ -16,18 +16,28 @@ const promptCards = await Promise.all(
       prompt,
       promptText: extractPromptTextFromSource(entry.body),
     };
-  })
+  }),
 );
 ---
 
 <div class="space-y-10">
   {promptGroups.map((group) => (
-    <section class="space-y-4" aria-labelledby={`prompt-group-${group.charAt(0)}`}>
-      <h2 id={`prompt-group-${group.charAt(0)}`} class="text-xl font-black text-white">{group}</h2>
+    <section
+      class="space-y-4"
+      aria-labelledby={`prompt-group-${group.charAt(0)}`}
+    >
+      <h2
+        id={`prompt-group-${group.charAt(0)}`}
+        class="text-xl font-black text-white"
+      >
+        {group}
+      </h2>
       <div class="grid grid-cols-1 gap-5 lg:grid-cols-2">
-        {promptCards.filter(({ prompt }) => prompt.group === group).map(({ prompt, promptText }) => (
-          <PromptCard prompt={prompt} promptText={promptText} />
-        ))}
+        {promptCards
+          .filter(({ prompt }) => prompt.group === group)
+          .map(({ prompt, promptText }) => (
+            <PromptCard prompt={prompt} promptText={promptText} />
+          ))}
       </div>
     </section>
   ))}

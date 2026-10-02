@@ -6,34 +6,30 @@ interface Props {
 const { documents } = Astro.props;
 ---
 
-<div
-  class="my-6 rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-sm"
->
+<div class="my-6 rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-sm">
   <div class="flex flex-wrap items-center gap-x-2.5 gap-y-3.5">
-    {
-      documents.map((doc, idx) => (
-        <div class="flex items-center gap-2.5">
-          <span class="inline-block px-3 py-1.5 text-xs font-bold bg-slate-950 text-cyan-300 border border-slate-800 rounded-xl shadow-sm font-mono tracking-tight">
-            {doc}
-          </span>
+    {documents.map((doc, idx) => (
+      <div class="flex items-center gap-2.5">
+        <span class="inline-block px-3 py-1.5 text-xs font-bold bg-slate-950 text-cyan-300 border border-slate-800 rounded-xl shadow-sm font-mono tracking-tight">
+          {doc}
+        </span>
 
-          {idx < documents.length - 1 && (
-            <svg
-              class="h-4 w-4 text-cyan-400 shrink-0"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="3"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-              />
-            </svg>
-          )}
-        </div>
-      ))
-    }
+        {idx < documents.length - 1 && (
+          <svg
+            class="h-4 w-4 text-cyan-400 shrink-0"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="3"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+            />
+          </svg>
+        )}
+      </div>
+    ))}
   </div>
 </div>

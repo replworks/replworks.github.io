@@ -7,21 +7,15 @@ interface Props {
 const { from, to } = Astro.props;
 ---
 
-<div
-  class="my-6 flex flex-wrap items-center gap-x-3 gap-y-3 rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-sm"
->
+<div class="my-6 flex flex-wrap items-center gap-x-3 gap-y-3 rounded-2xl border border-slate-800 bg-slate-900/60 p-5 shadow-sm">
   <div class="flex items-center gap-2">
-    <span
-      class="inline-block px-4 py-2 text-xs font-bold bg-slate-950 text-slate-300 border border-slate-800 rounded-xl shadow-sm"
-    >
+    <span class="inline-block px-4 py-2 text-xs font-bold bg-slate-950 text-slate-300 border border-slate-800 rounded-xl shadow-sm">
       {from}
     </span>
   </div>
 
   <div class="flex flex-col items-center gap-1 min-w-[50px]">
-    <span
-      class="text-[10px] font-mono font-black uppercase tracking-wider text-cyan-300 bg-cyan-950/80 px-2.5 py-0.5 rounded-full border border-cyan-800/80 animate-pulse"
-    >
+    <span class="text-[10px] font-mono font-black uppercase tracking-wider text-cyan-300 bg-cyan-950/80 px-2.5 py-0.5 rounded-full border border-cyan-800/80 animate-pulse">
       Auto
     </span>
     <svg
@@ -34,14 +28,13 @@ const { from, to } = Astro.props;
       <path
         stroke-linecap="round"
         stroke-linejoin="round"
-        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
+        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+      ></path>
     </svg>
   </div>
 
   <div class="flex items-center gap-2">
-    <span
-      class="inline-block px-4 py-2 text-xs font-bold bg-cyan-950 text-cyan-300 border border-cyan-800 rounded-xl shadow-sm"
-    >
+    <span class="inline-block px-4 py-2 text-xs font-bold bg-cyan-950 text-cyan-300 border border-cyan-800 rounded-xl shadow-sm">
       {to}
     </span>
   </div>

@@ -16,7 +16,7 @@ export async function getStaticPaths() {
   for (const collection of contentCollections) {
     const entries = await getCollection(collection);
     paths.push(
-      ...entries.map((entry) => ({ params: { collection, slug: entry.id } }))
+      ...entries.map((entry) => ({ params: { collection, slug: entry.id } })),
     );
   }
 
@@ -42,20 +42,19 @@ const metadata = entry.data ?? {};
 
 <DocumentLayout
   title={metadata.title ?? collectionTitles[collection]}
-  description={metadata.description ??
-    `${collectionTitles[collection]} document.`}
->
-  {
-    rendered ? (
-      <article set:html={rendered.html} class="space-y-6 text-slate-200" />
-    ) : Content ? (
-      <article class="space-y-6 text-slate-200">
-        <Content />
-      </article>
-    ) : (
-      <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
-        <p>This document is available once the collection publish content.</p>
-      </div>
-    )
+  description={
+    metadata.description ?? `${collectionTitles[collection]} document.`
   }
+>
+  {rendered ? (
+    <article set:html={rendered.html} class="space-y-6 text-slate-200" />
+  ) : Content ? (
+    <article class="space-y-6 text-slate-200">
+      <Content />
+    </article>
+  ) : (
+    <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
+      <p>This document is available once the collection publish content.</p>
+    </div>
+  )}
 </DocumentLayout>

@@ -10,7 +10,9 @@ const { type, items } = Astro.props;
 const isInput = type === 'input';
 const bgColor = isInput ? 'bg-slate-900/60' : 'bg-cyan-950/40';
 const borderColor = isInput ? 'border-slate-800' : 'border-cyan-700/60';
-const labelColor = isInput ? 'bg-slate-800 text-slate-300' : 'bg-cyan-950 text-cyan-300 border border-cyan-700';
+const labelColor = isInput
+  ? 'bg-slate-800 text-slate-300'
+  : 'bg-cyan-950 text-cyan-300 border border-cyan-700';
 const iconColor = isInput ? 'text-slate-400' : 'text-cyan-400';
 ---
 
@@ -21,52 +23,51 @@ const iconColor = isInput ? 'text-slate-400' : 'text-cyan-400';
     >
       {type}
     </span>
-    <div class={`h-px flex-1 ${isInput ? 'bg-slate-800' : 'bg-cyan-900/50'}`}>
-    </div>
+    <div
+      class={`h-px flex-1 ${isInput ? 'bg-slate-800' : 'bg-cyan-900/50'}`}
+    ></div>
   </div>
 
   <div class="flex flex-wrap gap-2">
-    {
-      items.map((item) => (
-        <div
-          class={`flex items-center gap-2 px-3 py-1.5 rounded-lg border shadow-sm transition-all ${
-            item.endsWith('.md')
-              ? 'bg-slate-950 text-cyan-300 border-slate-800 font-mono'
-              : 'bg-slate-900 text-white border-slate-700'
-          }`}
-        >
-          {isInput ? (
-            <svg
-              class={`h-3.5 w-3.5 ${iconColor}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="3"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75"
-              />
-            </svg>
-          ) : (
-            <svg
-              class={`h-3.5 w-3.5 ${iconColor}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="3"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.5 12.75l6 6 9-13.5"
-              />
-            </svg>
-          )}
-          <span class="text-xs font-bold tracking-tight">{item}</span>
-        </div>
-      ))
-    }
+    {items.map((item) => (
+      <div
+        class={`flex items-center gap-2 px-3 py-1.5 rounded-lg border shadow-sm transition-all ${
+          item.endsWith('.md')
+            ? 'bg-slate-950 text-cyan-300 border-slate-800 font-mono'
+            : 'bg-slate-900 text-white border-slate-700'
+        }`}
+      >
+        {isInput ? (
+          <svg
+            class={`h-3.5 w-3.5 ${iconColor}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="3"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75"
+            />
+          </svg>
+        ) : (
+          <svg
+            class={`h-3.5 w-3.5 ${iconColor}`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="3"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4.5 12.75l6 6 9-13.5"
+            />
+          </svg>
+        )}
+        <span class="text-xs font-bold tracking-tight">{item}</span>
+      </div>
+    ))}
   </div>
 </div>
