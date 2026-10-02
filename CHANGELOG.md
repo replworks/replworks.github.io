@@ -1,5 +1,15 @@
 # Release Notes
 
+## v2.8.0 - 2026-10-02
+
+### What's Changed
+
+* feat: replace logo placeholders with SVG logo in Header and Footer components by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/79
+* feat: update tools documentation by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/80
+* feat: implement prompt library and card components with extraction utility by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/81
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.7.0...v2.8.0
+
 ## v2.7.0 - 2026-10-02
 
 ### What's Changed
