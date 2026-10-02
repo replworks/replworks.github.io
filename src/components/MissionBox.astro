@@ -7,12 +7,11 @@ const { text } = Astro.props;
 ---
 
 <div
-  class="my-4 overflow-hidden rounded-xl border border-slate-200 bg-gradient-to-r from-slate-50 to-slate-100/50 p-4 shadow-sm"
+  class="my-4 overflow-hidden rounded-xl border border-cyan-500/30 bg-gradient-to-r from-cyan-950/40 via-slate-900 to-indigo-950/40 p-4 shadow-sm"
 >
   <div class="flex items-center gap-3">
-    {/* 나침반/방향을 상징하는 아이콘 */}
     <div
-      class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-900 text-white shadow-sm"
+      class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-cyan-950 text-cyan-400 border border-cyan-800 shadow-sm"
     >
       <svg
         class="h-4 w-4"
@@ -29,8 +28,7 @@ const { text } = Astro.props;
       </svg>
     </div>
 
-    {/* 이타릭체와 두꺼운 폰트로 미션 느낌 강조 */}
-    <p class="text-base font-extrabold italic text-slate-800 tracking-tight">
+    <p class="text-sm font-extrabold italic text-white tracking-tight">
       "{text}"
     </p>
   </div>
