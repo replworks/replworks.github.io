@@ -30,13 +30,21 @@ REPL Works의 도구(Tools)는 독립된 별개의 유틸리티가 아닙니다.
 
 REPL Works 생태계에서 도구는 수동 프로세스에서 시작하여 충분히 반복 검증된 과업만 순차적으로 자동화 도구로 승격됩니다.
 
-<DocumentFlow documents={['Manual Process', 'Standard Prompt', 'Markdown Document', 'CLI Tool']} />
+<DocumentFlow
+  documents={[
+    'Manual Process',
+    'Standard Prompt',
+    'Markdown Document',
+    'CLI Tool',
+  ]}
+/>
 
 ---
 
 ## 3. 공식 도구 모음 (Current Official Tools)
 
 ### 1. AI Issue Publisher (`ai-issue`)
+
 생각과 아이디어를 Execution AI가 오버 스코프 없이 즉시 실행할 수 있는 GitHub Issue 포맷으로 변환하는 CLI 도구입니다.
 
 <ValueFlow from="Raw Idea / Discussion" to="Actionable GitHub Issue" />
@@ -47,6 +55,7 @@ REPL Works 생태계에서 도구는 수동 프로세스에서 시작하여 충�
 ---
 
 ### 2. REPL CLI (`repl-cli`)
+
 로컬 프로젝트 실행 환경을 초기화하고, AI 에이전트의 실행 결과를 결정론적으로 관리·검증하는 CLI 도구입니다.
 
 - **주요 기능**: 프로젝트 환경 초기화, 세션 실행 관리, AI 렌더링 결과 스키마 검증, 실행 상태 기록

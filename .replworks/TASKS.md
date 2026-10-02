@@ -249,6 +249,18 @@ Propose TASK update
 
 ---
 
+## PHASE 10
+
+### SHOWCASE CARD GRID
+
+- [x] T1001 Move Showcase projects into one shared data source
+- [x] T1002 Create the shared Showcase card component and connect the homepage
+- [x] T1003 Replace the Showcase page with the seven-project card grid
+- [x] T1004 Move the REPL Works Compatible definition into the FAQ
+- [x] T1005 Update Showcase tests for the shared data and card structure
+
+---
+
 ## COMPLETION
 
 ```text

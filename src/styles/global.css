@@ -17,13 +17,18 @@
 /* Modern Tech Grid & Glow Backgrounds */
 .bg-grid-pattern {
   background-size: 40px 40px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
 .bg-radial-gradient {
-  background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.12) 0%, rgba(99, 102, 241, 0.06) 50%, transparent 100%);
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(56, 189, 248, 0.12) 0%,
+    rgba(99, 102, 241, 0.06) 50%,
+    transparent 100%
+  );
 }
 
 .glass-card {
@@ -55,4 +60,3 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-

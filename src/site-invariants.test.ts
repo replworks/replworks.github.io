@@ -1,6 +1,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { showcaseProjects } from './data/showcase';
 
 const root = resolve(import.meta.dirname, '..');
 const read = (relativePath: string) =>
@@ -98,6 +99,39 @@ describe('REPL Works content invariants', () => {
       expect(content).toContain('## Tools Used');
       expect(existsSync(resolve(showcaseDirectory, entry))).toBe(true);
     }
+  });
+
+  it('keeps the shared showcase data complete for home and Showcase', () => {
+    expect(showcaseProjects).toHaveLength(7);
+    expect(new Set(showcaseProjects.map((project) => project.slug)).size).toBe(
+      7
+    );
+    expect(showcaseProjects.filter((project) => project.featured)).toHaveLength(
+      4
+    );
+
+    for (const project of showcaseProjects) {
+      expect(project.detailUrl).toMatch(/^\/showcase\//);
+      expect(project.tags.length).toBeGreaterThan(0);
+      expect(project.lesson.length).toBeGreaterThan(0);
+    }
+
+    const home = read('src/pages/index.astro');
+    const card = read('src/components/ShowcaseCard.astro');
+    expect(home).toContain("from '../data/showcase'");
+    expect(home).toContain("from '../components/ShowcaseCard.astro'");
+    expect(card).toContain('showLesson');
+  });
+
+  it('keeps Showcase as a card-first page', () => {
+    const showcase = read('src/content/showcase/index.mdx');
+    expect(showcase).toContain(
+      'REPL Works 방식으로 개발하고 운영 중인 프로젝트들입니다.'
+    );
+    expect(showcase).not.toContain('DOCUMENT SPECIFICATION');
+    expect(showcase).not.toContain('Compatibility Requirements');
+    expect(showcase).not.toContain('Official Projects');
+    expect(showcase).not.toContain('Learn By Example');
   });
 
   it('does not retain the removed frameworks collection or legacy file name', () => {

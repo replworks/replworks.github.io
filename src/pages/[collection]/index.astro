@@ -7,6 +7,7 @@ import {
 } from '../../lib/site';
 import { getCollection, render } from 'astro:content';
 import DocumentLayout from '../../layouts/DocumentLayout.astro';
+import ShowcaseLayout from '../../layouts/ShowcaseLayout.astro';
 
 export async function getStaticPaths() {
   return contentCollections.map((collection) => ({ params: { collection } }));
@@ -29,26 +30,50 @@ const Content = contentResult?.Content ?? null;
 const metadata = entry?.data ?? {};
 ---
 
-<DocumentLayout
-  title={entry ? (metadata.title ?? collectionTitle) : collectionTitle}
-  description={entry
-    ? (metadata.description ?? collectionDescription)
-    : collectionDescription}
->
-  {
-    rendered ? (
-      <article set:html={rendered.html} class="space-y-6 text-slate-200" />
-    ) : Content ? (
-      <article class="space-y-6 text-slate-200">
-        <Content />
-      </article>
-    ) : (
-      <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
-        <p class="text-base">
-          No content has been added yet for {collectionTitle}. This collection
-          route is ready for future documents.
-        </p>
-      </div>
-    )
-  }
-</DocumentLayout>
+{
+  collection === 'showcase' ? (
+    <ShowcaseLayout
+      title={entry ? (metadata.title ?? collectionTitle) : collectionTitle}
+      description={entry
+        ? (metadata.description ?? collectionDescription)
+        : collectionDescription}
+    >
+      {rendered ? (
+        <article set:html={rendered.html} />
+      ) : Content ? (
+        <article>
+          <Content />
+        </article>
+      ) : (
+        <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
+          <p class="text-base">
+            No content has been added yet for {collectionTitle}. This collection
+            route is ready for future documents.
+          </p>
+        </div>
+      )}
+    </ShowcaseLayout>
+  ) : (
+    <DocumentLayout
+      title={entry ? (metadata.title ?? collectionTitle) : collectionTitle}
+      description={entry
+        ? (metadata.description ?? collectionDescription)
+        : collectionDescription}
+    >
+      {rendered ? (
+        <article set:html={rendered.html} class="space-y-6 text-slate-200" />
+      ) : Content ? (
+        <article class="space-y-6 text-slate-200">
+          <Content />
+        </article>
+      ) : (
+        <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
+          <p class="text-base">
+            No content has been added yet for {collectionTitle}. This collection
+            route is ready for future documents.
+          </p>
+        </div>
+      )}
+    </DocumentLayout>
+  )
+}

@@ -31,6 +31,18 @@ test('searches every public content collection', async ({ page }) => {
   }
 });
 
+test('shows all Showcase projects as compatible cards', async ({ page }) => {
+  await page.goto('/showcase');
+
+  await expect(
+    page.getByText('REPL Works 방식으로 개발하고 운영 중인 프로젝트들입니다.')
+  ).toBeVisible();
+  await expect(page.getByText('DOCUMENT SPECIFICATION')).toHaveCount(0);
+  await expect(page.locator('article a[href^="/showcase/"]')).toHaveCount(7);
+  await expect(page.getByText('배운 점')).toHaveCount(7);
+  await expect(page.getByText('REPL Works Compatible')).toHaveCount(7);
+});
+
 test('keeps primary pages within a mobile viewport', async ({ page }) => {
   await page.setViewportSize({ width: 393, height: 852 });
 

@@ -1,0 +1,64 @@
+---
+import type { ShowcaseProject } from '../data/showcase';
+
+interface Props {
+  project: ShowcaseProject;
+  showLesson?: boolean;
+}
+
+const { project, showLesson = false } = Astro.props;
+---
+
+<article class="glass-card glass-card-hover rounded-2xl border border-slate-800/80 bg-slate-900/40 p-5 flex flex-col justify-between space-y-4">
+  <div class="space-y-3">
+    <div class="flex flex-wrap items-center gap-1.5 font-mono text-[10px]">
+      <a
+        href="/faq#repl-works-compatible"
+        class="rounded bg-cyan-950 px-2 py-0.5 font-bold text-cyan-300 border border-cyan-800/60 hover:bg-cyan-900/80"
+      >
+        REPL Works Compatible
+      </a>
+      {project.tags.map((tag, idx) => (
+        <span class={`rounded px-2 py-0.5 font-bold ${idx === 0 ? 'bg-slate-800 text-slate-200' : 'bg-slate-900 text-slate-400 border border-slate-800'}`}>
+          {tag}
+        </span>
+      ))}
+    </div>
+    <h2 class="text-base font-extrabold tracking-tight text-white">{project.name}</h2>
+    <p class="text-xs leading-relaxed text-slate-400">{project.description}</p>
+    {showLesson && (
+      <p class="border-t border-slate-800/80 pt-3 text-xs leading-relaxed text-slate-300">
+        <span class="font-bold text-cyan-300">배운 점</span> {project.lesson}
+      </p>
+    )}
+  </div>
+
+  <div class="flex flex-wrap items-center gap-2 border-t border-slate-800/60 pt-2">
+    <a
+      href={project.detailUrl}
+      class="inline-flex items-center justify-center rounded-lg bg-slate-800 px-3 py-1.5 text-xs font-bold text-slate-200 hover:bg-slate-700 transition-colors"
+    >
+      상세 정보
+    </a>
+    {project.website && (
+      <a
+        href={project.website}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-bold text-cyan-300 hover:text-cyan-200 transition-colors"
+      >
+        서비스 보기
+      </a>
+    )}
+    {project.github && (
+      <a
+        href={project.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-bold text-slate-400 hover:text-cyan-300 transition-colors"
+      >
+        GitHub
+      </a>
+    )}
+  </div>
+</article>

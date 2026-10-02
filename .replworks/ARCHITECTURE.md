@@ -274,6 +274,14 @@ REPL Works Website
 ai-issue
 
 Wifi Note
+
+ClayTube
+
+ETERNOps
+
+ETERN Labs
+
+MMA
 ```
 
 ---
@@ -291,6 +299,44 @@ Documents Used
 
 Tools Used
 ```
+
+Showcase Presentation
+
+```text
+Project data: src/data/showcase.ts
+
+Shared card component: src/components/ShowcaseCard.astro
+
+Homepage: render featured projects only
+
+Showcase page: render all projects in featured-first, explicit-sort order
+```
+
+The shared project data must contain:
+
+```text
+slug
+
+name
+
+description
+
+tags
+
+lesson
+
+detail link
+
+optional GitHub link
+
+featured
+
+sort order
+```
+
+The shared card component must support showing or hiding the lesson summary.
+The Showcase page shows it. The homepage may hide it while preserving the
+same card structure and visual treatment.
 
 ---
 

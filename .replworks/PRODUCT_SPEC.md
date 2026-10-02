@@ -482,6 +482,14 @@ REPL Works Website
 ai-issue
 
 Wifi Note
+
+ClayTube
+
+ETERNOps
+
+ETERN Labs
+
+MMA
 ```
 
 ---
@@ -499,6 +507,52 @@ Documents Used
 
 Tools Used
 ```
+
+The Showcase page presents these entries as a project card grid. Cards are
+ordered by `featured` first and then by an explicit stable sort order.
+
+The homepage and Showcase page must use one shared Showcase project data source
+and one shared project card component. Updating a project in the data source
+must update both pages.
+
+Each Showcase card contains:
+
+```text
+Slug
+
+Name
+
+Short Description
+
+Category Tags
+
+Lessons Learned Summary
+
+Detail Link
+
+GitHub Link when available
+
+REPL Works Compatible badge
+
+Featured flag
+
+Sort order
+```
+
+The homepage displays the four featured projects:
+
+```text
+REPL Works Website
+
+ai-issue
+
+ClayTube
+
+Wifi Note
+```
+
+The Showcase page displays all seven projects. It shows the Lessons Learned
+summary on cards; the homepage may omit that field.
 
 ---
 
@@ -521,6 +575,9 @@ Project uses REPL Works documents.
 
 Project is maintained using REPL Works principles.
 ```
+
+The detailed Compatible definition belongs in the FAQ. Showcase cards link to
+that FAQ answer rather than repeating the full definition.
 
 ---
 
