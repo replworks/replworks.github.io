@@ -4,29 +4,27 @@ import { navItems } from '../lib/site';
 
 <div class="md:hidden">
   <details class="relative">
-    <summary
-      class="flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-3.5 py-1.5 text-xs font-semibold text-slate-200 shadow-sm transition hover:border-slate-700 hover:bg-slate-800 cursor-pointer select-none"
-    >
+    <summary class="flex items-center gap-2 rounded-lg border border-slate-800 bg-slate-900 px-3.5 py-1.5 text-xs font-semibold text-slate-200 shadow-sm transition hover:border-slate-700 hover:bg-slate-800 cursor-pointer select-none">
       Menu
-      <span aria-hidden="true" class="text-cyan-400">▾</span>
+      <span aria-hidden="true" class="text-cyan-400">
+        ▾
+      </span>
     </summary>
     <nav
       aria-label="Primary navigation"
       class="absolute right-0 top-full z-50 mt-2 w-56 max-w-[calc(100vw-2rem)] rounded-xl border border-slate-800 bg-[#0f172a]/95 p-3 shadow-2xl backdrop-blur-xl"
     >
       <ul class="space-y-1 text-xs font-medium text-slate-300">
-        {
-          navItems.map((item) => (
-            <li>
-              <a
-                class="block rounded-lg px-3 py-2 transition hover:bg-slate-800 hover:text-white"
-                href={item.href}
-              >
-                {item.title}
-              </a>
-            </li>
-          ))
-        }
+        {navItems.map((item) => (
+          <li>
+            <a
+              class="block rounded-lg px-3 py-2 transition hover:bg-slate-800 hover:text-white"
+              href={item.href}
+            >
+              {item.title}
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
   </details>

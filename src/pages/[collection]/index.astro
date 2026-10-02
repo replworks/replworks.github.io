@@ -30,50 +30,52 @@ const Content = contentResult?.Content ?? null;
 const metadata = entry?.data ?? {};
 ---
 
-{
-  collection === 'showcase' ? (
-    <ShowcaseLayout
-      title={entry ? (metadata.title ?? collectionTitle) : collectionTitle}
-      description={entry
+{collection === 'showcase' ? (
+  <ShowcaseLayout
+    title={entry ? (metadata.title ?? collectionTitle) : collectionTitle}
+    description={
+      entry
         ? (metadata.description ?? collectionDescription)
-        : collectionDescription}
-    >
-      {rendered ? (
-        <article set:html={rendered.html} />
-      ) : Content ? (
-        <article>
-          <Content />
-        </article>
-      ) : (
-        <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
-          <p class="text-base">
-            No content has been added yet for {collectionTitle}. This collection
-            route is ready for future documents.
-          </p>
-        </div>
-      )}
-    </ShowcaseLayout>
-  ) : (
-    <DocumentLayout
-      title={entry ? (metadata.title ?? collectionTitle) : collectionTitle}
-      description={entry
+        : collectionDescription
+    }
+  >
+    {rendered ? (
+      <article set:html={rendered.html} />
+    ) : Content ? (
+      <article>
+        <Content />
+      </article>
+    ) : (
+      <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
+        <p class="text-base">
+          No content has been added yet for {collectionTitle}. This collection
+          route is ready for future documents.
+        </p>
+      </div>
+    )}
+  </ShowcaseLayout>
+) : (
+  <DocumentLayout
+    title={entry ? (metadata.title ?? collectionTitle) : collectionTitle}
+    description={
+      entry
         ? (metadata.description ?? collectionDescription)
-        : collectionDescription}
-    >
-      {rendered ? (
-        <article set:html={rendered.html} class="space-y-6 text-slate-200" />
-      ) : Content ? (
-        <article class="space-y-6 text-slate-200">
-          <Content />
-        </article>
-      ) : (
-        <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
-          <p class="text-base">
-            No content has been added yet for {collectionTitle}. This collection
-            route is ready for future documents.
-          </p>
-        </div>
-      )}
-    </DocumentLayout>
-  )
-}
+        : collectionDescription
+    }
+  >
+    {rendered ? (
+      <article set:html={rendered.html} class="space-y-6 text-slate-200" />
+    ) : Content ? (
+      <article class="space-y-6 text-slate-200">
+        <Content />
+      </article>
+    ) : (
+      <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
+        <p class="text-base">
+          No content has been added yet for {collectionTitle}. This collection
+          route is ready for future documents.
+        </p>
+      </div>
+    )}
+  </DocumentLayout>
+)}

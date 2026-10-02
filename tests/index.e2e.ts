@@ -6,7 +6,7 @@ test('has title', async ({ page }) => {
   await expect(page).toHaveTitle('REPL Works — 문서 주도 AI 개발 방법론');
   await expect(page.locator('html')).toHaveAttribute('lang', 'ko');
   await expect(page.locator('a[href="#main-content"]')).toHaveText(
-    '본문으로 건너뛰기'
+    '본문으로 건너뛰기',
   );
 });
 
@@ -35,7 +35,7 @@ test('shows all Showcase projects as compatible cards', async ({ page }) => {
   await page.goto('/showcase');
 
   await expect(
-    page.getByText('REPL Works 방식으로 개발하고 운영 중인 프로젝트들입니다.')
+    page.getByText('REPL Works 방식으로 개발하고 운영 중인 프로젝트들입니다.'),
   ).toBeVisible();
   await expect(page.getByText('DOCUMENT SPECIFICATION')).toHaveCount(0);
   await expect(page.locator('article a[href^="/showcase/"]')).toHaveCount(7);
@@ -58,20 +58,20 @@ test('keeps primary pages within a mobile viewport', async ({ page }) => {
   ]) {
     await page.goto(path);
     const width = await page.evaluate(
-      () => document.documentElement.scrollWidth
+      () => document.documentElement.scrollWidth,
     );
     const viewportWidth = await page.evaluate(
-      () => document.documentElement.clientWidth
+      () => document.documentElement.clientWidth,
     );
     expect(width, `${path} overflows horizontally`).toBeLessThanOrEqual(
-      viewportWidth + 1
+      viewportWidth + 1,
     );
   }
 
   await page.goto('/');
   await page.locator('summary').click();
   await expect(
-    page.locator('details nav').getByRole('link', { name: 'Workflow' })
+    page.locator('details nav').getByRole('link', { name: 'Workflow' }),
   ).toBeVisible();
 });
 
@@ -94,7 +94,7 @@ test('embeds the exact prompt text rendered on every prompt detail page', async 
   const cardOrder = await page
     .locator('button[data-prompt-copy]')
     .evaluateAll((buttons) =>
-      buttons.map((button) => button.getAttribute('aria-label'))
+      buttons.map((button) => button.getAttribute('aria-label')),
     );
   expect(cardOrder).toEqual([
     '1번 Idea Refinement 프롬프트 복사',

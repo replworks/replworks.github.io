@@ -6,29 +6,25 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<div
-  class="my-4 rounded-xl border border-emerald-800/60 bg-emerald-950/30 p-4 shadow-sm"
->
+<div class="my-4 rounded-xl border border-emerald-800/60 bg-emerald-950/30 p-4 shadow-sm">
   <div class="flex flex-wrap gap-2.5">
-    {
-      items.map((item) => (
-        <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-emerald-700/80 bg-slate-900 text-emerald-300 shadow-sm transition-all hover:border-emerald-500">
-          <svg
-            class="h-4 w-4 shrink-0 text-emerald-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="3"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4.5 12.75l6 6 9-13.5"
-            />
-          </svg>
-          <span class="text-xs font-bold tracking-tight">{item}</span>
-        </div>
-      ))
-    }
+    {items.map((item) => (
+      <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-emerald-700/80 bg-slate-900 text-emerald-300 shadow-sm transition-all hover:border-emerald-500">
+        <svg
+          class="h-4 w-4 shrink-0 text-emerald-400"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="3"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4.5 12.75l6 6 9-13.5"
+          />
+        </svg>
+        <span class="text-xs font-bold tracking-tight">{item}</span>
+      </div>
+    ))}
   </div>
 </div>

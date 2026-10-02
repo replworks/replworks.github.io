@@ -33,13 +33,13 @@ describe('REPL Works content invariants', () => {
       const currentIndex = index.indexOf(`'${documentName}'`);
       expect(
         currentIndex,
-        `${documentName} is missing from DocumentFlow`
+        `${documentName} is missing from DocumentFlow`,
       ).toBeGreaterThan(previousIndex);
       previousIndex = currentIndex;
       expect(
         existsSync(
-          resolve(root, `src/content/documents/${documentPaths[documentName]}`)
-        )
+          resolve(root, `src/content/documents/${documentPaths[documentName]}`),
+        ),
       ).toBe(true);
     }
   });
@@ -52,14 +52,14 @@ describe('REPL Works content invariants', () => {
       'task-generation.mdx',
     ]) {
       expect(existsSync(resolve(root, `src/content/prompts/${prompt}`))).toBe(
-        true
+        true,
       );
     }
   });
 
   it('provides raw Markdown endpoints and download links for standards', () => {
     expect(existsSync(resolve(root, 'src/pages/documents/[slug].md.ts'))).toBe(
-      true
+      true,
     );
 
     const documentsIndex = read('src/content/documents/index.mdx');
@@ -108,10 +108,10 @@ describe('REPL Works content invariants', () => {
   it('keeps the shared showcase data complete for home and Showcase', () => {
     expect(showcaseProjects).toHaveLength(7);
     expect(new Set(showcaseProjects.map((project) => project.slug)).size).toBe(
-      7
+      7,
     );
     expect(showcaseProjects.filter((project) => project.featured)).toHaveLength(
-      4
+      4,
     );
 
     for (const project of showcaseProjects) {
@@ -130,7 +130,7 @@ describe('REPL Works content invariants', () => {
   it('keeps Showcase as a card-first page', () => {
     const showcase = read('src/content/showcase/index.mdx');
     expect(showcase).toContain(
-      'REPL Works 방식으로 개발하고 운영 중인 프로젝트들입니다.'
+      'REPL Works 방식으로 개발하고 운영 중인 프로젝트들입니다.',
     );
     expect(showcase).not.toContain('DOCUMENT SPECIFICATION');
     expect(showcase).not.toContain('Compatibility Requirements');

@@ -6,14 +6,10 @@ interface Props {
 const { docs } = Astro.props;
 ---
 
-<div
-  class="my-5 flex flex-wrap gap-2 rounded-xl bg-slate-900/60 border border-slate-800 p-4 shadow-sm"
->
-  {
-    docs.map((doc) => (
-      <span class="inline-block px-3 py-1.5 text-xs font-bold bg-slate-950 text-cyan-300 border border-slate-800 rounded-xl shadow-sm font-mono tracking-tight transition-all hover:border-slate-700">
-        {doc}
-      </span>
-    ))
-  }
+<div class="my-5 flex flex-wrap gap-2 rounded-xl bg-slate-900/60 border border-slate-800 p-4 shadow-sm">
+  {docs.map((doc) => (
+    <span class="inline-block px-3 py-1.5 text-xs font-bold bg-slate-950 text-cyan-300 border border-slate-800 rounded-xl shadow-sm font-mono tracking-tight transition-all hover:border-slate-700">
+      {doc}
+    </span>
+  ))}
 </div>

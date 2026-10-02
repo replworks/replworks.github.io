@@ -25,21 +25,17 @@ const defaultIcon =
   '<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-1.57-3.379A3.751 3.751 0 006 18a3.75 3.75 0 006 0zm0 0V3.375" /></svg>';
 ---
 
-<div
-  class="border border-slate-100 rounded-2xl bg-slate-50/50 p-6 my-6 space-y-3.5"
->
-  {
-    items.map((item) => (
-      <div class="flex items-center gap-3">
-        {/* 아이콘 배지: text-slate-500으로 은은하게 */}
-        <div
-          class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white border border-slate-200 text-slate-500 shadow-sm"
-          set:html={iconMap[item] || defaultIcon}
-        />
-        <span class="text-sm font-semibold text-slate-800 tracking-tight">
-          {item}
-        </span>
-      </div>
-    ))
-  }
+<div class="border border-slate-100 rounded-2xl bg-slate-50/50 p-6 my-6 space-y-3.5">
+  {items.map((item) => (
+    <div class="flex items-center gap-3">
+      {/* 아이콘 배지: text-slate-500으로 은은하게 */}
+      <div
+        class="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white border border-slate-200 text-slate-500 shadow-sm"
+        set:html={iconMap[item] || defaultIcon}
+      />
+      <span class="text-sm font-semibold text-slate-800 tracking-tight">
+        {item}
+      </span>
+    </div>
+  ))}
 </div>

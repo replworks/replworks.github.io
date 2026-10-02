@@ -7,16 +7,14 @@ const { questions } = Astro.props;
 ---
 
 <div class="grid gap-3 sm:grid-cols-2 my-6">
-  {
-    questions.map((question, idx) => (
-      <div class="flex items-center gap-3.5 p-4 rounded-xl border border-slate-800 bg-slate-900/60 shadow-sm transition-all hover:border-slate-700 hover:bg-slate-900/90 min-h-[64px]">
-        <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800/80 text-[11px] font-mono font-black select-none">
-          {idx + 1}
-        </span>
-        <p class="text-sm font-extrabold text-white leading-snug tracking-tight">
-          {question}
-        </p>
-      </div>
-    ))
-  }
+  {questions.map((question, idx) => (
+    <div class="flex items-center gap-3.5 p-4 rounded-xl border border-slate-800 bg-slate-900/60 shadow-sm transition-all hover:border-slate-700 hover:bg-slate-900/90 min-h-[64px]">
+      <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-cyan-950 text-cyan-400 border border-cyan-800/80 text-[11px] font-mono font-black select-none">
+        {idx + 1}
+      </span>
+      <p class="text-sm font-extrabold text-white leading-snug tracking-tight">
+        {question}
+      </p>
+    </div>
+  ))}
 </div>

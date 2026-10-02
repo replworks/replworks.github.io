@@ -7,13 +7,11 @@ const { items } = Astro.props;
 ---
 
 <div class="grid gap-3 sm:grid-cols-2 my-6">
-  {
-    items.map((item) => (
-      <div class="flex items-center px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/60 shadow-sm border-l-4 border-l-cyan-400 transition-all hover:border-slate-700 hover:bg-slate-900/90">
-        <p class="text-sm font-extrabold text-white tracking-tight leading-tight">
-          {item}
-        </p>
-      </div>
-    ))
-  }
+  {items.map((item) => (
+    <div class="flex items-center px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/60 shadow-sm border-l-4 border-l-cyan-400 transition-all hover:border-slate-700 hover:bg-slate-900/90">
+      <p class="text-sm font-extrabold text-white tracking-tight leading-tight">
+        {item}
+      </p>
+    </div>
+  ))}
 </div>
