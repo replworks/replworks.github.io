@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.6.0 - 2026-10-02
+
+### What's Changed
+
+* feat: enhance homepage messaging for clarity and structure by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/76
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.5.0...v2.6.0
+
 ## v2.5.0 - 2026-10-02
 
 ### What's Changed
