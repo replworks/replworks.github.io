@@ -1,5 +1,15 @@
 # Release Notes
 
+## v2.5.0 - 2026-10-02
+
+### What's Changed
+
+* chore: update GitHub Actions to use latest versions of checkout, setup-node, configure-pages, and upload-pages-artifact by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/73
+* feat: update content and titles for clarity by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/74
+* style: Revamp UI components and layouts for a modern aesthetic by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/75
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.4.2...v2.5.0
+
 ## v2.4.2 - 2026-10-02
 
 ### What's Changed
