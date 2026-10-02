@@ -1,164 +1,69 @@
 ---
-title: 'AI 이슈 퍼블리셔(AI Issue Publisher)'
-version: 'v1'
-description: 'AI와의 토론을 바로 실행 가능한 Github Issue로 변환해 주는 REPL Works 호환 도구.'
-publishedAt: '2026-06-12T00:00:00Z'
+title: 'AI Issue Publisher 쇼케이스'
+version: 'v2'
+description: '대화 맥락을 Execution AI가 즉시 수용할 수 있는 수락 조건 명세 Issue로 변환해 주는 호환 도구 프로젝트'
+publishedAt: '2026-10-02T00:00:00Z'
 ---
 
----
+import MissionBox from '../../components/MissionBox.astro';
+import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import DocLink from '../../components/DocLink.astro';
 
-## Overview
+## 1. 개요 (Overview)
 
-AI 이슈 퍼블리셔(AI Issue Publisher 줄여서 `ai-issue`)는 아이디어, 토론, 작업 요청을 실행 가능한 GitHub Issue로 변환하기 위한 도구다.
+`ai-issue`는 REPL Works 프레임워크의 첫 번째 호환 CLI 도구입니다. 막연한 대화나 아이디어를 Execution AI가 추측 없이 실행할 수 있는 표준 구조의 GitHub Issue로 자동 작성해 줍니다.
 
-REPL Works 워크플로에서 Discussion AI와 Execution AI 사이를 연결하는 역할을 수행한다.
-
----
-
-## Why REPL Works
-
-많은 AI 프로젝트는 구현보다 작업 정의에서 더 많은 시간을 소비한다.
-
-무엇을 만들어야 하는지 명확하지 않으면 AI는 범위를 추측하고, 불필요한 기능을 추가하며, 의도와 다른 결과를 만들 수 있다.
-
-`ai-issue`는 이러한 문제를 줄이기 위해 만들어졌다.
+<MissionBox text="Ideal to Issue: 모호한 작업 지시로 인한 오버 스코프 및 억측 구현을 원천 차단합니다." />
 
 ---
 
-## Website / Repository
+## 2. 사용된 표준 문서 (Documents Used)
 
-Website
-
-```text
-No public website
-```
-
-Repository
-
-[https://github.com/replworks/ai-issue](https://github.com/replworks/ai-issue)
+<DocBadgeGrid
+  docs={[
+    'PRODUCT_SPEC.md',
+    'TECH_STACK.md',
+    'ARCHITECTURE.md',
+    'TASKS.md',
+    'AGENTS.md',
+  ]}
+/>
 
 ---
 
 ## Workflow Usage
 
+`ai-issue` 도구 개발 시 다음과 같은 REPL Works 워크플로를 적용했습니다:
+
 ```text
-Discussion
-↓
-Issue
-↓
-Execution AI
-↓
-PR
-↓
-Review
-↓
-Merge
+Discussion AI (이슈 구조화 가이드라인 설계)
+       ↓
+PRODUCT_SPEC.md & ARCHITECTURE.md (CLI 구조 수립)
+       ↓
+Execution AI (Homebrew / APT 설치 가능한 CLI 빌드)
+       ↓
+Human Review (로컬 환경 터미널 검증 및 Release)
 ```
-
----
-
-`ai-issue`는 Discussion과 Issue 사이를 담당한다.
 
 ---
 
 ## Tools Used
 
-```text
-ai-issue
-```
-
-이 Showcase는 ai-issue 도구 자체의 실제 적용 사례를 설명한다.
+- **Go / Rust CLI**: 초경량 교차 플랫폼 CLI 바이너리 런타임
+- **GitHub CLI (gh)**: GitHub API 이슈 자동 발행 액션
+- **REPL Works Issue Template**: 수락 조건 표준 템플릿
 
 ---
 
-## Documents Used
+## 5. 학습된 레슨 (Lessons Learned)
 
-`ai-issue`는 일반적으로 다음 문서를 기반으로 작업한다.
+<SpecGrid
+  items={[
+    '모호한 지시는 에이전트의 환각을 유발합니다.',
+    'Acceptance Criteria(수락 기준)가 명시된 이슈만이 정밀한 구현을 보장합니다.',
+    'CLI 도구도 REPL Works 문서 헌법을 따를 때 장기 유지가 용이해집니다.',
+  ]}
+/>
 
-```text
-IDEAS.md
-
-PITCHING_SCRIPT.md
-
-PRODUCT_SPEC.md
-
-ARCHITECTURE.md
-
-TECH_STACK.md
-
-TASKS.md
-
-AGENTS.md
-```
-
----
-
-Issue는 프로젝트 문서와 일관성을 유지해야 한다.
-
----
-
-## Lessons Learned
-
-### Good Execution Starts With Good Tasks
-
-좋은 구현은 좋은 작업 정의에서 시작된다.
-
-작업 범위가 명확할수록 AI의 결과도 안정적이다.
-
----
-
-### Issues Become Reusable Prompts
-
-잘 작성된 Issue는 단순한 작업 요청이 아니다.
-
-Execution AI가 바로 사용할 수 있는 프롬프트 역할을 수행한다.
-
----
-
-### Discussion And Execution Should Be Separate
-
-계획과 구현을 분리하면 품질이 향상된다.
-
-Discussion AI는 무엇을 해야 하는지 정의하고,
-
-Execution AI는 정의된 작업을 수행한다.
-
----
-
-### Structure Reduces Hallucination
-
-명확한 Problem, Goal, Scope, Acceptance Criteria는 AI가 추측해야 할 영역을 줄여준다.
-
-결과적으로 구현 품질이 향상되고 리뷰 비용도 감소한다.
-
----
-
-## Current Status
-
-운영 중.
-
-REPL Works 프로젝트에서 실제 이슈 생성과 작업 계획에 사용되고 있다.
-
----
-
-## What This Project Proves
-
-`ai-issue`는 REPL Works가 단순한 문서 체계가 아니라,
-
-아이디어를 실행 가능한 작업으로 변환하는 실용적인 워크플로임을 보여준다.
-
----
-
-## Key Insight
-
-```text
-Idea
-↓
-Issue
-↓
-Execution AI
-```
-
-좋은 Issue는 작업을 설명하지 않는다.
-
-좋은 Issue는 작업을 실행 가능하게 만든다.
+<DocLink href="https://github.com/replworks/ai-issue" text="ai-issue GitHub 저장소 이동" />
