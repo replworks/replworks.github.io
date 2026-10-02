@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.9.0 - 2026-10-02
+
+### What's Changed
+
+* refactor: terminology from discussion ai and excution ai to korean by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/82
+* feat: update documentation and components for improved clarity and alignment with project terminology by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/83
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.8.0...v2.9.0
+
 ## v2.8.0 - 2026-10-02
 
 ### What's Changed
