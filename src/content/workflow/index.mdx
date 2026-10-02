@@ -37,14 +37,14 @@ REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운
 
 <Workflow
   steps={[
-    'Human & Discussion AI',
+    'Human & 대화형 AI',
     'IDEAS.md',
     'PITCHING_SCRIPT.md',
     'PRODUCT_SPEC.md',
     'TECH_STACK.md',
     'ARCHITECTURE.md',
     'TASKS.md',
-    'Execution AI',
+    '코딩형 AI',
     'Build & Test Pass',
     'Human Review',
     'Merge & Operation',
@@ -53,8 +53,8 @@ REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운
 
 ### 3대 역할 분담 (Three Roles)
 
-1. **Discussion AI**: 구현(코드 생성)에 직접 들어가지 않고, 사람(Human)과 토론하며 제품의 요구사항, 아키텍처, 작업 마일스톤을 검증하고 상위 문서를 정제합니다.
-2. **Execution AI**: 확정된 상위 문서와 `TASKS.md`의 단일 TASK만 읽고, 오직 해당 작업 범위 내에서 검증 가능한 코드와 테스트를 작성합니다.
+1. **대화형 AI**: 구현(코드 생성)에 직접 들어가지 않고, 사람(Human)과 토론하며 제품의 요구사항, 아키텍처, 작업 마일스톤을 검증하고 상위 문서를 정제합니다.
+2. **코딩형 AI**: 확정된 상위 문서와 `TASKS.md`의 단일 TASK만 읽고, 오직 해당 작업 범위 내에서 검증 가능한 코드와 테스트를 작성합니다.
 3. **Human Review**: 최종 제품의 의도와 품질이 명세와 일치하는지 최종 검증하고 승인(Merge) 및 운영 결정을 내립니다.
 
 ---
@@ -110,7 +110,7 @@ REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운
 
 ### Stage B. AI 실행 및 정밀 구현 (Execution)
 
-Execution AI는 자율적으로 임의의 기능을 추가하거나 추측하지 않으며, 승인된 TASK 하나만 읽고 개발합니다.
+코딩형 AI는 자율적으로 임의의 기능을 추가하거나 추측하지 않으며, 승인된 TASK 하나만 읽고 개발합니다.
 
 #### 1-Prompt = 1-Task = 1-Commit 원칙
 

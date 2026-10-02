@@ -21,7 +21,7 @@ export const promptDefinitions: PromptDefinition[] = [
     name: 'Idea Refinement',
     koreanName: '아이디어 정제',
     description:
-      '기획자와 Discussion AI가 대화하며 아이디어와 비즈니스 가설을 다듬고 정제합니다.',
+      '기획자와 대화형 AI가 대화하며 아이디어와 비즈니스 가설을 다듬고 정제합니다.',
     group: 'A. 기획 및 아이디어 정의 단계 (Planning Phase)',
     targetLabel: '생성 대상',
     targetFiles: ['IDEAS.md'],

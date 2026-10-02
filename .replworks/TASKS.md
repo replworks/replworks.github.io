@@ -257,7 +257,14 @@ Propose TASK update
 - [x] T1002 Create the shared Showcase card component and connect the homepage
 - [x] T1003 Replace the Showcase page with the seven-project card grid
 - [x] T1004 Move the REPL Works Compatible definition into the FAQ
-- [x] T1005 Update Showcase tests for the shared data and card structure
+## PHASE 11
+
+### HERO REDESIGN AND TERMINOLOGY UNIFICATION
+
+- [x] T1101 Redesign homepage hero with new copy, CTAs, and inline SVG triangle diagram
+- [x] T1102 Update homepage workflow section into two document stage groups
+- [x] T1103 Reorder benefits section putting project continuity first
+- [x] T1104 Unify terminology across site replacing Discussion AI and Execution AI with 대화형 AI and 코딩형 AI
 
 ---
 

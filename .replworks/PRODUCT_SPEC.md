@@ -291,9 +291,9 @@ Continuous Improvement
 Must explain:
 
 ```text
-Discussion AI
+대화형 AI
 
-Execution AI
+코딩형 AI
 
 Human Review
 ```
