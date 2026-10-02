@@ -1,123 +1,53 @@
 ---
 title: 'TECH_STACK.md'
-version: 'v1'
-description: 'TECH_STACK.md는 사용 기술과 구현 규칙을 정의하는 문서다.'
-publishedAt: '2026-06-12T00:00:00Z'
+version: 'v2'
+description: '프로젝트에 적용되는 사용 기술, 버저닝, 구현 제약 및 네이밍 규칙을 정의하는 표준 문서'
+publishedAt: '2026-10-02T00:00:00Z'
 ---
 
-이 문서의 목적은 제품 요구사항이나 시스템 구조를 정의하는 것이 아니다.
+import MissionBox from '../../components/MissionBox.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import DocLink from '../../components/DocLink.astro';
 
-어떤 기술과 구현 규칙을 사용할지 명확하게 정의하는 것이다.
+## 1. 개요 및 목적
+
+`TECH_STACK.md`는 제품의 요구사항이나 시스템 컴포넌트 간 관계를 설명하는 문서가 아닙니다. **어떤 기술 스택과 버저닝, 디렉터리 제약 및 코드 규칙으로 구현할 것인지 명확히 제약**하는 기준 문서입니다.
+
+<MissionBox text="Which technologies and rules should be used? (어떤 기술 스택과 구현 규칙을 따라야 하는가?)" />
+
+### 규정 범위 (Scope of Tech Stack Rules)
+
+<SpecGrid
+  items={[
+    '1. 필수/선택 사용 언어 및 주요 프레임워크',
+    '2. 패키지 버저닝 정책 (Package.json 단일 출처)',
+    '3. 프로젝트 디렉터리 구조 & 파일 위치 규칙',
+    '4. 컴포넌트, 유틸리티, 데이터 파일 Naming Rules',
+    '5. 테스트 도구, 린터 및 빌드/실행 환경',
+  ]}
+/>
 
 ---
 
-# Purpose
+## 2. 문서 연관 관계 및 규칙 준수 (Relationship & AI Compliance)
 
-다음 질문에 답한다.
+- **Execution AI 필수 참조**: Execution AI는 구현 시 오직 `TECH_STACK.md`에 선언된 기술과 규칙만 사용해야 하며, 허가되지 않은 패키지나 상이한 스타일을 임의로 도입할 수 없습니다.
 
 ```text
-어떤 언어와 프레임워크를 사용하는가?
-
-어떤 버전을 사용하는가?
-
-파일은 어디에 위치하는가?
-
-어떤 네이밍과 구현 규칙을 따라야 하는가?
+PRODUCT_SPEC.md (무엇을 만들지 정의)
+       ↓
+TECH_STACK.md (어떤 기술 제약과 규칙으로 만들지 정의)
+       ↓
+ARCHITECTURE.md (시스템이 어떻게 구성되고 동작하는지 정의)
 ```
 
 ---
 
-TECH_STACK.md는 구현 기술과 규칙의 기준이다.
+## 3. 프롬프트 및 예시 (Prompts & Examples)
 
-컴포넌트 간 관계와 데이터 흐름은 ARCHITECTURE.md에서 정의한다.
-
----
-
-# Inputs
-
-일반적으로 다음 정보를 기반으로 작성한다.
-
-- PRODUCT_SPEC.md
-- 프로젝트의 실행 환경
-- 승인된 기술 제약
-- 검증된 운영 요구사항
-
----
-
-# Outputs
-
-다음 내용을 정의한다.
-
-- 언어와 프레임워크
-- 라이브러리
-- 버전
-- 파일 배치 규칙
-- 네이밍 규칙
-- 구현 제약
-- 테스트 도구
-
----
-
-# Lifecycle
-
-PRODUCT_SPEC.md 이후, ARCHITECTURE.md 이전에 작성한다.
-
----
-
-기술 선택이나 구현 규칙이 변경될 경우 업데이트한다.
-
-제품 기능이나 컴포넌트 관계를 변경하는 문서는 아니다.
-
----
-
-# Relationship
+→ [Tech Stack 프롬프트 바로가기](/prompts/tech-stack)
 
 ```text
-IDEAS.md
-↓
-PITCHING_SCRIPT.md
-↓
-PRODUCT_SPEC.md
-↓
-TECH_STACK.md
-↓
-ARCHITECTURE.md
-↓
-TASKS.md
+좋은 TECH_STACK.md는 기능 개발을 다루지 않습니다.
+좋은 TECH_STACK.md는 코드베이스 구현을 일관되게 지켜주는 명시적인 가이드라인을 제공합니다.
 ```
-
----
-
-PRODUCT_SPEC.md는 무엇을 만들지 정의한다.
-
-TECH_STACK.md는 어떤 기술과 규칙을 사용할지 정의한다.
-
-ARCHITECTURE.md는 시스템이 어떻게 구성되고 동작하는지 정의한다.
-
-TASKS.md는 현재 무엇을 해야 하는지 정의한다.
-
----
-
-# AI Usage
-
-Execution AI가 반드시 읽어야 하는 문서다.
-
----
-
-구현 기술과 규칙에 대한 최종 기준은 TECH_STACK.md다.
-
----
-
-# Generate With
-
-TECH_STACK.md는 일반적으로 다음 프롬프트를 통해 생성한다.
-
-→ [TECH_STACK Prompt](/prompts/tech-stack)
-
----
-
-# Key Principle
-
-좋은 TECH_STACK.md는 제품 기능이나 시스템 구조를 설명하지 않는다.
-
-좋은 TECH_STACK.md는 구현을 일관되게 만드는 명시적인 규칙을 제공한다.

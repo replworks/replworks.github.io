@@ -1,8 +1,8 @@
 ---
-title: 'Workflow'
-version: 'v1'
-description: 'REPL Works를 이용한 AI-Native Product Development Workflow'
-publishedAt: '2026-06-12T00:00:00Z'
+title: 'Workflow Guide'
+version: 'v2'
+description: 'REPL Works 방법론을 적용하여 프로젝트의 시작부터 완성, 지속적 운영까지 완수하는 전체 워크플로 가이드'
+publishedAt: '2026-10-02T00:00:00Z'
 ---
 
 import Workflow from '../../components/Workflow.astro';
@@ -14,546 +14,161 @@ import Criteria from '../../components/Criteria.astro';
 import MemoryGrid from '../../components/MemoryGrid.astro';
 import ReviewGrid from '../../components/ReviewGrid.astro';
 
-대부분의 AI 프로젝트는 같은 문제를 반복한다.
+## 1. 기존 AI 개발의 문제점과 REPL Works의 해법
 
-처음에는 모든 것이 명확하다.
+대부분의 AI 활용 개발 프로젝트는 개발 중반 이후 동일한 한계에 부딪힙니다.
 
-무엇을 만들고 있는지,
-왜 만들고 있는지,
-어떤 구조를 선택했는지 모두 알고 있다.
+- **채팅 세션이 길어지면**: AI가 앞선 아키텍처 설계와 구현 컨벤션을 잊어버리고 환각(Hallucination)이 발생합니다.
+- **AI 모델이나 런타임을 교체하면**: 기존 대화 맥락이 잘려 나가 처음부터 모든 프로젝트 전후 사정을 다시 설명해야 합니다.
+- **세션이 종료되면**: 프로젝트가 어떤 방향과 구조로 개발되었는지 기록이 남지 않습니다.
 
----
-
-하지만 시간이 지나면 상황이 달라진다.
-
-새로운 채팅을 시작한다.
-
-다른 모델을 사용한다.
-
-프로젝트를 몇 주 동안 중단했다가 다시 돌아온다.
-
-새로운 사람이 프로젝트에 참여한다.
-
----
-
-그 순간부터 동일한 설명이 반복된다.
-
-<QuestionGrid
-  questions={[
-    '왜 만들고 있지?',
-    '현재 상태가 뭐지?',
-    '왜 이렇게 설계했지?',
-    '지속 가능한가?',
-    '다음 작업은 뭐지?',
-  ]}
-/>
-
----
-
-REPL Works는 이 문제를 해결하기 위해 만들어졌다.
-
----
-
-REPL Works의 목표는 단순히 AI로 코드를 생성하는 것이 아니다.
-
-프로젝트가 세션보다 오래 살아남을 수 있도록 만드는 것이다.
-
----
-
-# 핵심 아이디어
-
-REPL Works는 프로젝트 기억(Project Memory)과 세션 기억(Session Memory)을 구분한다.
-
----
+REPL Works는 이 문제를 **세션 기억(Session Memory)**과 **프로젝트 기억(Project Memory)**을 명확히 분리함으로써 해결합니다.
 
 <MemoryGrid />
 
----
-
-세션 기억은 언제든 사라질 수 있다.
-
-프로젝트 기억은 Git에 남아야 한다.
+- **세션 기억(Session Memory)**: AI 런타임이나 대화 창에 존재하는 휘발성 맥락입니다. 언제든 사라질 수 있습니다.
+- **프로젝트 기억(Project Memory)**: Git과 Markdown 표준 문서로 코드베이스에 영구 보존되는 단일 진실 출처(Single Source of Truth)입니다.
 
 ---
 
-어떤 모델을 사용하더라도,
+## 2. 전체 3단계 파이프라인 (Overall Pipeline)
 
-어떤 세션을 시작하더라도,
-
-프로젝트는 다시 복원될 수 있어야 한다.
-
----
-
-# 전체 흐름
+REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운영(Review & Loop)**의 3단계 핵심 파이프라인으로 작동합니다.
 
 <Workflow
   steps={[
-    'Human / Discussion AI',
+    'Human & Discussion AI',
     'IDEAS.md',
     'PITCHING_SCRIPT.md',
     'PRODUCT_SPEC.md',
     'TECH_STACK.md',
     'ARCHITECTURE.md',
     'TASKS.md',
-    'Issue',
     'Execution AI',
-    'Pull Request',
+    'Build & Test Pass',
     'Human Review',
-    'Release',
-    'Merge',
-    'Operation',
-    'Document Updates',
-    'Next Iteration',
+    'Merge & Operation',
   ]}
 />
 
----
+### 3대 역할 분담 (Three Roles)
 
-이 흐름은 제품 개발부터 운영까지 동일하게 유지된다.
-
-REPL Works는 개발 단계와 운영 단계를 분리하지 않는다.
-
-제품이 진화하면 문서도 함께 진화해야 한다.
+1. **Discussion AI**: 구현(코드 생성)에 직접 들어가지 않고, 사람(Human)과 토론하며 제품의 요구사항, 아키텍처, 작업 마일스톤을 검증하고 상위 문서를 정제합니다.
+2. **Execution AI**: 확정된 상위 문서와 `TASKS.md`의 단일 TASK만 읽고, 오직 해당 작업 범위 내에서 검증 가능한 코드와 테스트를 작성합니다.
+3. **Human Review**: 최종 제품의 의도와 품질이 명세와 일치하는지 최종 검증하고 승인(Merge) 및 운영 결정을 내립니다.
 
 ---
 
-# Phase 1. 아이디어 정제
+## 3. 단계별 적용 실무 워크플로 (Step-by-Step Workflow)
 
-## 목적
+### Stage A. 기획 및 표준 문서 확정 (Planning & Specs)
 
-무엇을 만들 것인지 결정한다.
+아이디어 단계부터 개발 준비 완료까지 6개의 핵심 표준 문서를 파이프라인 순서대로 작성합니다. 위 단계 문서가 확정되어야만 아래 단계 문서를 파생합니다.
 
----
-
-Human은 Discussion AI와 반복적으로 대화하며 아이디어를 검증한다.
-
-최종 판단과 문서 작성은 Human이 담당한다.
-
-이 단계에서는 구현보다 문제와 시장을 이해하는 것이 중요하다.
-
----
-
-주요 질문
+#### Phase 1: 아이디어 정제 및 포지셔닝 (`IDEAS.md`, `PITCHING_SCRIPT.md`)
+무엇을 왜 만들 것인지 핵심 가설과 비즈니스 포지셔닝을 정의합니다.
 
 <QuestionGrid
   questions={[
     '누구를 위한 제품인가?',
-    '왜 존재해야 하는가?',
-    '사용자가 원하는가?',
-    '지속 가능한가?',
-    '사업적으로 의미가 있는가?',
+    '기존 솔루션 대비 어떤 차별적 가치를 제공하는가?',
+    '사용자가 실제로 지속 이용할 명확한 동기가 있는가?',
+    '사업적/기술적으로 지속 가능한 프로젝트인가?',
   ]}
 />
 
----
-
-## 산출물
-
-### IDEAS.md
-
-아이디어와 핵심 가설을 정리한다.
-
----
-
-### PITCHING_SCRIPT.md
-
-제품을 짧고 명확하게 설명할 수 있도록 정리한다.
-
----
-
-# Phase 2. 제품 정의
-
-## 목적
-
-무엇을 만들 것인지 명확하게 정의한다.
-
----
-
-좋은 아이디어만으로는 제품을 만들 수 없다.
-
-제품이 어떤 경험을 제공해야 하는지 구체적으로 정의해야 한다.
-
----
-
-## 산출물
-
-### PRODUCT_SPEC.md
-
-제품의 Source of Truth이다.
-
----
-
-포함 내용
+#### Phase 2: 제품 정의 (`PRODUCT_SPEC.md`)
+제품이 구체적으로 어떤 기능과 사용자 경험(UX), 네비게이션 구조를 제공할 것인지 정의하는 최상위 원천 명세입니다.
 
 <SpecGrid
   items={[
-    'Vision',
-    'User Journey',
-    'Navigation',
-    'Features',
-    'Content Structure',
-    'Success Criteria',
+    '제품 비전 & 타겟 유저',
+    '정보 아키텍처 & 네비게이션',
+    '핵심 기능 요구사항 목록',
+    '콘텐츠 구조 & 성공 기준',
   ]}
 />
 
----
-
-PRODUCT_SPEC.md는 제품의 목적과 요구사항을 정의한다. Execution AI는 구현할 때
-TECH_STACK.md, ARCHITECTURE.md, TASKS.md, AGENTS.md도 함께 읽어야 한다.
-
----
-
-# Phase 3. 기술 사양 정의
-
-## 목적
-
-어떤 기술과 구현 규칙으로 만들 것인지 정의한다.
-
----
-
-제품 정의가 끝나면 사용 기술과 구현 제약을 정리한다.
-
----
-
-## 산출물
-
-### TECH_STACK.md
-
-구현 기술 제약의 기준이다.
-
----
-
-포함 내용
+#### Phase 3: 기술 사양 & 아키텍처 설계 (`TECH_STACK.md`, `ARCHITECTURE.md`)
+사용 언어, 프레임워크 버전, 디렉터리 제약 등 구현 컨벤션과 전체 시스템의 모듈 관계 및 데이터 흐름을 정의합니다.
 
 <SpecGrid
   items={[
-    'Languages',
-    'Versions',
-    'File Placement',
-    'Naming Rules',
-    'Implementation Constraints',
+    'TECH_STACK: 언어, 버전, Naming Rule, 파일 배치 규칙',
+    'ARCHITECTURE: 시스템 구조, 데이터 흐름, 모듈 책임 경계',
   ]}
 />
 
----
-
-TECH_STACK.md는 시스템의 컴포넌트 관계나 동작을 정의하지 않는다.
-
----
-
-# Phase 4. 아키텍처 설계
-
-## 목적
-
-어떻게 만들 것인지 정의한다.
+#### Phase 4: 작업 계획 및 실행 헌법 (`TASKS.md`, `AGENTS.md`)
+전체 아키텍처를 독립 실행 가능한 세부 마일스톤(`TASKS.md`)으로 세분화하고, AI가 준수해야 할 실행 헌법(`AGENTS.md`)을 작성합니다.
 
 ---
 
-제품 정의가 끝나면 기술 구조를 설계한다.
+### Stage B. AI 실행 및 정밀 구현 (Execution)
 
----
+Execution AI는 자율적으로 임의의 기능을 추가하거나 추측하지 않으며, 승인된 TASK 하나만 읽고 개발합니다.
 
-## 산출물
-
-### ARCHITECTURE.md
-
-시스템 구조와 동작의 기준이다.
-
----
-
-포함 내용
-
-<SpecGrid
-  items={[
-    'Project Structure',
-    'Routing',
-    'Content Model',
-    'Data Flow',
-    'Deployment',
-    'Constraints',
-  ]}
-/>
-
----
-
-PRODUCT_SPEC.md가 무엇을 정의하고 TECH_STACK.md가 어떤 구현 규칙을 정의한다면,
-
-ARCHITECTURE.md는 어떻게를 정의한다.
-
----
-
-# Phase 5. 작업 계획
-
-## 목적
-
-현재 개발 상태를 정의한다.
-
----
-
-큰 프로젝트도 결국 작은 작업들의 집합이다.
-
----
-
-## 산출물
-
-### TASKS.md
-
-현재 위치를 설명하는 문서이다.
-
----
-
-예시
-
-```text
-Phase 1
-
-- [ ]
-
-Phase 2
-
-- [ ]
-```
-
----
-
-ARCHITECTURE.md는 목적지다.
-
-TASKS.md는 현재 위치다.
-
----
-
-작업은 항상 TASKS.md 기준으로 수행한다.
-
----
-
-# AGENTS.md
-
-## 목적
-
-AI가 따라야 하는 규칙을 정의한다.
-
----
-
-프로젝트 헌법이다.
-
----
-
-AI는 항상 AGENTS.md부터 읽는다.
-
----
-
-포함 내용
-
-<SpecGrid
-  items={[
-    '문서 우선순위',
-    '구현 규칙',
-    '테스트 규칙',
-    '파일 생성 규칙',
-    '아키텍처 변경 규칙',
-  ]}
-/>
-
----
-
-# Phase 6. 계획 수립
-
-## Discussion AI
-
-Discussion AI는 구현보다 이해에 집중한다.
-
----
-
-역할
-
-<SpecGrid
-  items={[
-    '요구사항 분석',
-    '문서 검토',
-    'Task 검증',
-    'Issue 작성',
-    'Architecture 검토',
-  ]}
-/>
-
----
-
-Discussion과 Execution은 분리한다.
-
----
-
-REPL Works는 설계되지 않은 구현을 지양한다.
-
----
-
-# Phase 7. 구현
-
-## Execution AI
-
-Execution AI는 승인된 작업을 구현한다.
-
----
-
-**입력**
+#### 1-Prompt = 1-Task = 1-Commit 원칙
 
 <InOut
   type="input"
   items={[
-    'PRODUCT_SPEC.md',
-    'TECH_STACK.md',
-    'ARCHITECTURE.md',
-    'TASKS.md',
-    'AGENTS.md',
-    'Issue',
+    'AGENTS.md (실행 규칙)',
+    'PRODUCT_SPEC.md (제품 명세)',
+    'TECH_STACK.md (기술 규칙)',
+    'ARCHITECTURE.md (설계 구조)',
+    'TASKS.md (현재 TASK)',
   ]}
 />
 
----
+<InOut type="output" items={['소스 코드 구현', '단위/E2E 테스트', 'Git Commit / Pull Request']} />
 
-**출력**
+#### 필수 자동 검증 조건 (Verification Gate)
+구현 완료 후 다음 기준을 만족해야만 작업이 완료된 것으로 판단합니다.
 
-<InOut type="output" items={['Code', 'Tests', 'Pull Request']} />
-
----
-
-필수 조건
-
-<Criteria items={['Build Success', 'Lint Success', 'Test Success']} />
+<Criteria items={['Build Success (빌드 성공)', 'Lint Check Pass (코드 컨벤션)', 'Test Pass (단위/E2E 테스트)']} />
 
 ---
 
-구현이 완료되면 Pull Request를 생성한다.
+### Stage C. 검토, 릴리즈 & 지속적 운영 루프 (Review & Continuous Loop)
 
----
+개발 완료 후 코드는 인간의 검토를 거쳐 배포되며, 운영 과정에서 얻은 피드백은 다시 상위 문서로 환류됩니다.
 
-# Phase 8. 검토
-
-## Human Review
-
-최종 책임은 사람에게 있다.
-
----
-
-Human Review는 다음을 확인한다.
+#### Phase 8: Human Review (인간 검토)
+최종 책임은 사람(Human)에게 있습니다. 제품 명세와 건축적 기준이 지켜졌는지 최종 검증합니다.
 
 <ReviewGrid
   items={[
-    '요구사항 충족 여부',
-    '제품 방향 일치 여부',
-    '사용자 경험',
-    '품질',
-    '릴리즈 준비 상태',
+    'PRODUCT_SPEC 요구사항 충족 여부',
+    '제품 방향성 및 UX 사용자 경험 일치',
+    '코드 품질 및 보안/성능 검증',
+    '릴리즈 준비 상태 및 커밋 이력',
   ]}
 />
 
----
-
-승인 후 Merge를 수행한다.
-
----
-
-# Phase 9. 운영
-
-## Operation
-
-배포는 끝이 아니다.
-
-실제 제품 개발은 운영 단계에서 계속된다.
-
----
-
-운영 과정에서는 새로운 학습이 발생한다.
-
-<SpecGrid
-  items={[
-    '사용자 피드백',
-    '버그 리포트',
-    '신규 요구사항',
-    '제품 개선 아이디어',
-  ]}
-/>
-
----
-
-이 변화는 반드시 프로젝트 문서에 반영되어야 한다.
-
----
-
-# 운영 루프
+#### Phase 9: Continuous Operation Loop (지속적 운영 루프)
+제품이 배포된 후 사용자 피드백, 버그 리포트, 신규 요구사항이 발생하면 문서를 최신 상태로 업데이트한 뒤 다음 탐색 회차(Next Iteration)를 시작합니다.
 
 <Workflow
   steps={[
-    'Operate',
-    'Learn',
+    'Operate (운영)',
+    'Feedback & Bug Report',
     'Update PRODUCT_SPEC.md',
     'Update ARCHITECTURE.md',
     'Update TASKS.md',
-    'Next Iteration',
+    'Next Execution Loop',
   ]}
 />
 
 ---
 
-REPL Works는 문서를 한 번 작성하고 버리는 방식이 아니다.
+## 4. 결론 (Conclusion)
 
-문서는 프로젝트의 현재 상태를 지속적으로 반영해야 한다.
+```text
+Models change.
+Projects survive.
+```
 
----
+REPL Works는 단순한 AI 프롬프트 팁이나 일회성 도구가 아닙니다. 
 
-# Benefits
-
-REPL Works는 다음과 같은 효과를 목표로 한다.
-
----
-
-## Model Independence
-
-특정 AI 모델에 의존하지 않는다.
-
----
-
-## Project Continuity
-
-세션 종료 이후에도 프로젝트를 이어갈 수 있다.
-
----
-
-## Reduced Context Cost
-
-반복 설명을 줄이고 컨텍스트 비용을 줄인다.
-
----
-
-## Reduced Onboarding Cost
-
-새로운 사람이나 새로운 모델이 빠르게 프로젝트를 이해할 수 있다.
-
----
-
-## Git-Native Workflow
-
-Git을 중심으로 프로젝트 기억을 관리한다.
-
----
-
-# 결론
-
-REPL Works는 AI 도구가 아니다.
-
----
-
-REPL Works는 AI-Native Product Development Framework이다.
-
----
-
-프로젝트 기억을 Git과 문서에 저장하고,
-
-Discussion AI, Execution AI, Human Review를 통해
-
-장기적으로 유지 가능한 제품 개발 프로세스를 제공한다.
-
----
-
-Models forget.
-
-Projects must not.
+AI 세션이 끝나거나 새로운 모델이 등장하더라도, Git과 표준 문서 자산을 통해 **프로젝트의 지속성과 품질을 100% 보장하는 AI-Native 개발 프레임워크**입니다.

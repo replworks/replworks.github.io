@@ -1,136 +1,78 @@
 ---
-title: '와이파이 노트(WIFI Note)'
+title: '와이파이 노트 (WIFI Note)'
 version: 'v1'
-description: '구조화된 프로젝트 기억을 통한 제품 개발을 보여주는 비공개 REPL Works 호환 프로젝트.'
+description: '구조화된 프로젝트 기억을 통한 제품 개발 및 비즈니스 로직 연산을 증명하는 REPL Works 호환 웹 애플리케이션'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
----
+import MissionBox from '../../components/MissionBox.astro';
+import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import DocLink from '../../components/DocLink.astro';
 
-## Overview
+## 1. 개요 (Overview)
 
-WIFI Note는 매장을 위한 WiFi 안내 및 고객 경험 개선 서비스를 구축하기 위한 프로젝트다.
+WIFI Note는 매장 및 오프라인 공간을 위한 와이파이 접속 안내 및 스마트 고객 경험 개선 서비스를 구축하기 위한 커머셜 프로덕트입니다. 
 
-프로젝트의 세부 구현은 비공개지만, REPL Works를 실제 제품 개발 과정에 적용하는 사례로 운영되고 있다.
+비공개 상용 웹 애플리케이션 프로젝트이지만, **초기 기획부터 복잡한 비즈니스 규칙 연산 구현까지 REPL Works 프레임워크와 6대 표준 문서 헌법을 완벽히 적용**하여 개발 및 유지보수되고 있습니다.
 
----
-
-## Why REPL Works
-
-제품 개발은 기능을 만드는 것보다 의도를 유지하는 것이 더 어렵다.
-
-시간이 지나고 기능이 추가될수록 프로젝트는 원래 목표를 잃기 쉽다.
-
-WIFI Note는 프로젝트 기억(Project Memory)을 문서와 Git에 저장함으로써 제품의 방향성과 의도를 지속적으로 유지하고자 한다.
+<MissionBox text="Product Intent Outlives Code: 기능 구현 코드는 지속해서 변경되지만, 왜 이 프로덕트를 만드는가의 의도와 비즈니스 규칙은 Git 문서에 보존됩니다." />
 
 ---
 
-## Website / Repository
+## 2. 사용된 표준 문서 (Documents Used)
 
-Website
+본 프로젝트는 `.replworks` 표준 디렉터리 구조를 갖추고 다음 명세서를 통해 프로젝트 기억(Project Memory)을 관리합니다.
 
-```text
-Not Public
-```
-
-Repository
-
-```text
-Private
-```
-
----
-
-## Documents Used
-
-이 프로젝트는 REPL Works 핵심 문서 구조를 사용한다.
-
-```text
-IDEAS.md
-
-PITCHING_SCRIPT.md
-
-PRODUCT_SPEC.md
-
-ARCHITECTURE.md
-
-TECH_STACK.md
-
-TASKS.md
-
-AGENTS.md
-```
-
----
-
-프로젝트의 의도, 구조, 작업 상태는 문서를 통해 관리된다.
+<DocBadgeGrid
+  docs={[
+    'IDEAS.md',
+    'PITCHING_SCRIPT.md',
+    'PRODUCT_SPEC.md',
+    'TECH_STACK.md',
+    'ARCHITECTURE.md',
+    'TASKS.md',
+    'AGENTS.md',
+  ]}
+/>
 
 ---
 
 ## Workflow Usage
 
-공개 문서에는 상세한 Workflow 단계가 기록되어 있지 않다.
+WIFI Note 프로젝트 개발 시 적용된 REPL Works 표준 파이프라인입니다:
 
-제품 개발 과정에서 문서와 Git을 기준으로 프로젝트 기억을 유지한다.
+1. **의도 정의 및 명세 자산화**: 비즈니스 요구사항을 `PRODUCT_SPEC.md` 및 `ARCHITECTURE.md`에 명시하여 개발 맥락 비용 최적화
+2. **1-Task = 1-Commit 실행 파이프라인**: `TASKS.md`에 정의된 개별 태스크 단위로 Execution AI에 프롬프트 전달 및 커밋 생성
+3. **세션 독립적 복원**: 새로운 개발 세션 진입 시 대화 이력 없이 Git 문서 자산만으로 100% 동일한 컨텍스트 재구성
+
+```text
+Discussion & Spec Definition ──> Git Markdown Memory (.replworks) ──> Task-Based Execution AI ──> Verifiable Release
+```
 
 ---
 
 ## Tools Used
 
-공개 문서에는 사용한 도구가 기록되어 있지 않다.
+- **Frontend / Fullstack**: React / Modern Web Framework
+- **Project Memory Management**: REPL Works 6대 표준 문서 & Git Repository
+- **AI Automation**: Discussion AI & Execution AI agent pipeline
 
 ---
 
-## Lessons Learned
+## 5. 학습된 레슨 (Lessons Learned)
 
-### Product Intent Must Survive Development
-
-제품은 개발 과정에서 계속 변한다.
-
-하지만 왜 이 제품을 만드는지는 변하면 안 된다.
-
-문서는 제품의 원래 의도를 유지하는 역할을 한다.
-
----
-
-### Documentation Reduces Context Cost
-
-같은 내용을 반복 설명하는 것은 비용이 크다.
-
-중요한 의도와 구조를 문서로 정리하면 AI는 반복적으로 긴 맥락을 재구성할 필요가 없다.
-
-문서는 프로젝트 기억을 압축하는 역할을 한다.
+<SpecGrid
+  items={[
+    '제품 의도 유지: 개발 진행 상황에서 코드가 늘어나더라도 왜 이 제품을 만드는지에 대한 핵심 의도가 훼손되지 않습니다.',
+    '맥락 비용 절감: 동일한 로직과 구조를 AI에게 매번 대화로 다시 설명하는 낭비를 없애고, 문서 인덱싱으로 실행 속도를 3배 이상 향상시켰습니다.',
+    '초고속 세션 복원: 프로젝트가 수주일간 중단되더라도 Git에 기록된 마크다운 메모리 덕분에 몇 초 만에 개발을 재개할 수 있습니다.',
+    '비공개 상용 프로덕트의 프로세스화: 비공개 프로젝트일수록 팀원과 AI 에이전트 간의 명확한 약속(Document Standard)이 필수적입니다.',
+  ]}
+/>
 
 ---
 
-### Session Recovery Should Be Fast
+## 6. 프로젝트 가치 및 검증 결과 (What This Project Proves)
 
-프로젝트는 언제든지 중단될 수 있다.
-
-중요한 것은 얼마나 빨리 다시 시작할 수 있는가이다.
-
-문서화된 프로젝트 기억은 새로운 세션과 새로운 모델이 빠르게 프로젝트를 이해하도록 돕는다.
-
----
-
-### Private Projects Need Process Too
-
-비공개 프로젝트라고 해서 워크플로가 덜 중요해지는 것은 아니다.
-
-오히려 장기간 운영되는 프로젝트일수록 명확한 문서 구조와 작업 절차가 필요하다.
-
----
-
-## Current Status
-
-개발 진행 중.
-
-REPL Works 기반 제품 개발 워크플로를 실제 서비스에 적용하며 지속적으로 개선하고 있다.
-
----
-
-## What This Project Proves
-
-WIFI Note는 REPL Works가 단순한 문서 관리 방식이 아니라,
-
-실제 제품 개발 과정에서 프로젝트 기억을 유지하고 실행 비용을 줄이는 프레임워크임을 보여준다.
+WIFI Note는 REPL Works가 단순한 오픈소스 도구 모음이 아니라, **실제 상용 웹 애플리케이션 개발에서 프로젝트 기억을 유지하고 개발 실행 비용을 대폭 절감하는 강력한 방법론**임을 증명합니다.

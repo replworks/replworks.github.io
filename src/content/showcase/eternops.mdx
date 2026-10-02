@@ -1,120 +1,77 @@
 ---
-title: '이터놉스(ETERNOps)'
+title: '이터놉스 (ETERNOps)'
 version: 'v1'
-description: '장기간 운영에 포커스를 맞춘 ReplWorks 호환 프로젝트.'
+description: '엔터프라이즈 운영 자동화 및 장기적인 서비스 구축 시스템을 준수하는 REPL Works 호환 프로덕트'
 publishedAt: '2026-06-07T00:00:00Z'
 ---
 
-## Overview
+import MissionBox from '../../components/MissionBox.astro';
+import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import DocLink from '../../components/DocLink.astro';
 
-이터놉스는 장기간 운영되는 비즈니스를 위한 웹사이트 제작 및 운영 프로젝트다.
+## 1. 개요 (Overview)
 
-프로젝트의 목표는 단순히 웹사이트를 만드는 것이 아니라, 시간이 지나도 유지 가능한 운영 시스템을 구축하는 것이다.
+이터놉스(ETERNOps)는 장기간 지속되는 엔터프라이즈 비즈니스를 위한 인프라 관리, 웹사이트 제작 및 서비스 운영 시스템을 구축하기 위한 프로젝트입니다.
 
----
+단순히 웹사이트나 스크립트를 하나 만드는 것에 그치지 않고, **시간이 흐르고 담당자와 AI 도구가 변경되어도 유지 가능한 안정적 운영 체계를 구축**하는 데 초점을 맞추고 있습니다.
 
-## Why REPL Works
-
-이터놉스는 AI와 사람이 함께 장기간 프로젝트를 운영하는 환경을 전제로 한다.
-
-프로젝트가 성장할수록 대화 기록만으로는 의도와 구조를 유지하기 어렵다.
-
-REPL Works는 프로젝트 기억(Project Memory)을 문서와 Git에 저장함으로써 이러한 문제를 해결한다.
+<MissionBox text="Project Memory > Session Memory: 채팅 세션은 언제든 종료될 수 있지만, 비즈니스 운영 시스템과 기억은 Git 문서로 유효합니다." />
 
 ---
 
-## Website / Repository
+## 2. 사용된 표준 문서 (Documents Used)
 
-Website
+이터놉스 시스템은 REPL Works 6대 핵심 명세서를 표준 관리 체계로 활용합니다.
 
-[https://www.etern.co.kr](https://www.etern.co.kr)
-
-Repository
-
-```text
-Private
-```
-
----
-
-## Documents Used
-
-이 프로젝트는 REPL Works 핵심 문서 구조를 사용한다.
-
-```text
-IDEAS.md
-
-PITCHING_SCRIPT.md
-
-PRODUCT_SPEC.md
-
-ARCHITECTURE.md
-
-TECH_STACK.md
-
-TASKS.md
-
-AGENTS.md
-```
-
----
-
-프로젝트 의도, 구조, 작업 상태는 문서를 통해 관리된다.
+<DocBadgeGrid
+  docs={[
+    'IDEAS.md',
+    'PITCHING_SCRIPT.md',
+    'PRODUCT_SPEC.md',
+    'TECH_STACK.md',
+    'ARCHITECTURE.md',
+    'TASKS.md',
+    'AGENTS.md',
+  ]}
+/>
 
 ---
 
 ## Workflow Usage
 
-공개 문서에는 상세한 Workflow 단계가 기록되어 있지 않다.
+이터놉스의 운영 자동화 워크플로 체계입니다:
 
-프로젝트 의도, 시스템 구조와 작업 상태를 문서와 Git으로 관리한다.
+1. **운영 헌법 작성**: 서비스 가용성 요구조건 및 운영 정책을 `PRODUCT_SPEC.md` 및 `ARCHITECTURE.md`에 정의
+2. **에이전트 권한 및 경계 설정**: `AGENTS.md`를 통해 에이전트가 수행할 수 있는 명령과 수락 기준(Acceptance Criteria) 명시
+3. **지속적 통합 검증**: AI 작업 결과를 E2E 및 유닛 테스트로 검증 후 Git에 반영
+
+```text
+Operations Policy ──> AGENTS.md Boundary ──> Execution AI Task Processing ──> Automated Verification
+```
 
 ---
 
 ## Tools Used
 
-공개 문서에는 사용한 도구가 기록되어 있지 않다.
+- **Official Website**: [ETERNOps 공식 사이트](https://www.etern.co.kr)
+- **Deployment & Cloud Infrastructure**: Automated CI/CD & Cloud Native Tooling
+- **Project Memory Management**: REPL Works Markdown Spec Suite
 
 ---
 
-## Lessons Learned
+## 5. 학습된 레슨 (Lessons Learned)
 
-### Project Memory Is More Important Than Session Memory
-
-대화는 종료될 수 있다.
-
-프로젝트는 계속 운영되어야 한다.
-
-문서는 프로젝트 기억을 유지하는 가장 안정적인 방법이었다.
-
----
-
-### Git Becomes The Source Of Truth
-
-프로젝트 상태는 채팅이 아니라 Git 저장소에 남아야 한다.
-
-Git은 변경 이력과 의사결정을 함께 보존한다.
+<SpecGrid
+  items={[
+    '프로젝트 기억이 세션 기억보다 우월합니다: 일시적인 대화 내역에 의존하지 않고 Git에 명세화된 시스템이 운영의 안정성을 제공합니다.',
+    'Git이 단일 진실 출처(Single Source of Truth)가 됩니다: 모든 시스템 구성 및 운영 이력이 Git 커밋에 기록되어 투명성이 확보됩니다.',
+    '문서 중심 개발의 스케일링 효율: 시스템 규모가 확장될수록 문서화된 아키텍처가 AI와 엔지니어 모두의 이해 속도를 높여줍니다.',
+  ]}
+/>
 
 ---
 
-### Content First Scales Better
+## 6. 프로젝트 가치 및 검증 결과 (What This Project Proves)
 
-프로젝트가 커질수록 콘텐츠와 문서가 중요해진다.
-
-문서가 명확할수록 AI와 사람 모두 더 빠르게 프로젝트를 이해할 수 있다.
-
----
-
-## Current Status
-
-운영 중.
-
-REPL Works 워크플로를 기반으로 지속적으로 개선되고 있다.
-
----
-
-## What This Project Proves
-
-이터놉스는 REPL Works가 단순한 문서화 방식이 아니라,
-
-실제 비즈니스 프로젝트를 장기간 운영하기 위한 프레임워크임을 보여준다.
+이터놉스는 REPL Works가 단순한 코드 생성을 넘어, **실제 엔터프라이즈 비즈니스와 운용 시스템을 장기간 안정적으로 지탱해주는 운영 프레임워크**임을 보여줍니다.

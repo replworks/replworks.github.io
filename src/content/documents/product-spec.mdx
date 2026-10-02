@@ -1,166 +1,62 @@
 ---
 title: 'PRODUCT_SPEC.md'
-version: 'v1'
-description: 'PRODUCT_SPEC.md는 제품의 진실(Source of Truth)이다.'
-publishedAt: '2026-06-12T00:00:00Z'
+version: 'v2'
+description: '제품 요구사항과 사용자 경험, 성공 기준을 규정하는 단일 진실 출처(Source of Truth) 표준 문서'
+publishedAt: '2026-10-02T00:00:00Z'
 ---
 
-이 문서의 목적은 기술 구조를 정의하는 것이 아니다.
+import MissionBox from '../../components/MissionBox.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import DocLink from '../../components/DocLink.astro';
 
-무엇을 만들어야 하는지 정의하는 것이다.
+## 1. 개요 및 목적
+
+`PRODUCT_SPEC.md`는 **제품에 대한 단일 진실 출처(Single Source of Truth)**입니다. 기술적 구현 방법이 아니라, "무엇을 만들 것인가"에 관한 요구사항과 사용자 경험(UX)을 명확하게 규정합니다.
+
+<MissionBox text="What should be built? (무엇을 어떻게 만들고 경험하게 할 것인가?)" />
+
+### 명세 정의 내용 (Specification Content)
+
+<SpecGrid
+  items={[
+    '1. 제품 비전 & 타겟 유저 정의',
+    '2. 사용자 여정 (User Journey) & 흐름',
+    '3. 정보 구조 (IA) & 페이지/화면 역할',
+    '4. 포함 범위 (In-Scope) & 제외 범위 (Out-of-Scope)',
+    '5. 정량적/정성적 성공 기준 (Success Criteria)',
+  ]}
+/>
 
 ---
 
-# Purpose
+## 2. 라이프사이클 및 우선순위 (Priority & Lifecycle)
 
-다음 질문에 답한다.
+`PRODUCT_SPEC.md`는 기술적 구현 문서(`TECH_STACK.md`, `ARCHITECTURE.md`)나 실행 문서(`TASKS.md`)보다 상위에 위치하며 **언제나 기술 구현보다 우선**합니다.
 
 ```text
-무엇을 만들 것인가?
-
-누구를 위한 것인가?
-
-왜 중요한가?
-
-사용자는 무엇을 경험해야 하는가?
+IDEAS.md → PITCHING_SCRIPT.md
+              ↓
+      PRODUCT_SPEC.md  (최상위 요구사항 규격)
+              ↓
+TECH_STACK.md → ARCHITECTURE.md → TASKS.md
 ```
 
----
-
-PRODUCT_SPEC.md는 제품 관점의 기준 문서다.
-
----
-
-# Inputs
-
-일반적으로 다음 정보를 기반으로 작성한다.
-
-- PITCHING_SCRIPT.md
-- 사용자 요구사항
-- 비즈니스 목표
-- 시장 이해
-- 프로젝트 방향성
+- **Discussion AI & Execution AI 모두 반드시 필수로 준수**해야 하는 문서입니다.
+- 제품의 본질적 유저 경험이나 핵심 요구사항이 변경될 때 수정을 진행합니다.
 
 ---
 
-# Outputs
+## 3. AI 활용 및 생성 방법 (AI Usage & Generation)
 
-다음 내용을 정의한다.
-
-- 제품 정의
-- 대상 사용자
-- 핵심 가치
-- 핵심 메시지
-- 사용자 여정
-- 정보 구조
-- 화면 또는 페이지 역할
-- 기능 범위
-- 제외 범위
-- 성공 기준
+→ [Product Specification 프롬프트 바로가기](/prompts/product-specification)
 
 ---
 
-# Lifecycle
+## 4. 예시 문서 및 핵심 원칙 (Example & Core Principle)
 
-PITCHING_SCRIPT.md 이후 작성한다.
-
----
-
-제품의 의미가 변경될 때 업데이트한다.
-
----
-
-사용자 경험이 변경될 경우 업데이트한다.
-
----
-
-기능 추가만으로는 반드시 수정할 필요는 없다.
-
----
-
-# Relationship
+<DocLink href="/documents/example-product-spec" text="PRODUCT_SPEC.md 작성 예시 보기" />
 
 ```text
-IDEAS.md
-↓
-PITCHING_SCRIPT.md
-↓
-PRODUCT_SPEC.md
-↓
-TECH_STACK.md
-↓
-ARCHITECTURE.md
-↓
-TASKS.md
+좋은 PRODUCT_SPEC.md는 코딩 스택을 설명하지 않습니다.
+좋은 PRODUCT_SPEC.md는 어떤 기능과 가치를 완성할 것인지 명확히 규정합니다.
 ```
-
----
-
-PRODUCT_SPEC.md는 기술 구현보다 우선한다.
-
----
-
-TECH_STACK.md와 ARCHITECTURE.md는 PRODUCT_SPEC.md를 구현하기 위해 존재한다.
-
----
-
-TASKS.md는 PRODUCT_SPEC.md를 실현하기 위해 존재한다.
-
----
-
-# AI Usage
-
-Discussion AI가 반드시 읽어야 하는 문서다.
-
----
-
-Execution AI도 반드시 읽어야 하는 문서다.
-
----
-
-제품 요구사항에 대한 최종 기준은 PRODUCT_SPEC.md다.
-
----
-
-# Generate With
-
-PRODUCT_SPEC.md는 일반적으로 다음 프롬프트를 통해 생성한다.
-
-→ [제품 명세 Prompt](/prompts/product-specification)
-
----
-
-제품 명세 Prompt는 다음을 수행한다.
-
-- 제품 정의
-- 사용자 정의
-- 사용자 여정 설계
-- 정보 구조 설계
-- 범위 정의
-- 성공 기준 정의
-
----
-
-# Example
-
-실제 REPL Works Compatible 프로젝트 예시를 통해 PRODUCT_SPEC.md 작성 방식을 확인할 수 있다.
-
-→ [Example PRODUCT_SPEC.md](/documents/example-product-spec)
-
----
-
-예시는 다음 내용을 포함한다.
-
-- 제품 정의
-- 사용자 여정
-- 정보 구조
-- 범위 정의
-- 성공 기준
-
----
-
-# Key Principle
-
-좋은 PRODUCT_SPEC.md는 구현 방법을 설명하지 않는다.
-
-좋은 PRODUCT_SPEC.md는 무엇을 만들어야 하는지 설명한다.

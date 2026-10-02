@@ -1,33 +1,28 @@
 ---
-title: 'Documents'
-version: 'v1'
-description: 'Document standards used by the REPL Works framework.'
-publishedAt: '2026-06-12T00:00:00Z'
+title: 'Document Standards'
+version: 'v2'
+description: 'REPL Works 프레임워크가 정의하는 7대 표준 문서 명세 및 작성 표준'
+publishedAt: '2026-10-02T00:00:00Z'
 ---
 
 import DocumentFlow from '../../components/DocumentFlow.astro';
 import MissionBox from '../../components/MissionBox.astro';
 import DocLink from '../../components/DocLink.astro';
 
-REPL Works는 문서를 단순한 기록으로 보지 않는다.
+## 1. REPL Works 문서의 역할
 
-문서는 프로젝트 기억(Project Memory)의 일부이다.
+REPL Works는 문서를 지나간 개발의 단순 기록이나 종이 서류로 다루지 않습니다.
 
----
+- **프로젝트는 수개월, 수년 동안 유지됩니다.**
+- **AI 채팅 세션은 몇 시간, 몇 주 안에 종료됩니다.**
 
-프로젝트는 수개월 또는 수년 동안 유지된다.
-
-세션은 몇 시간 또는 몇 주 안에 종료된다.
-
----
-
-REPL Works는 프로젝트 기억을 문서와 Git에 저장한다.
-
-이를 통해 모델이 바뀌어도 프로젝트를 이어갈 수 있다.
+REPL Works는 프로젝트의 모든 핵심 의도와 건축적 의사결정을 **Git과 Markdown 문서로 보존**합니다. 이를 통해 새로운 AI 에이전트나 새로운 사람 개발자가 투입되더라도 세션 복원 시간 없이 즉시 동일한 품질로 개발을 연속할 수 있습니다.
 
 ---
 
-# Document Flow
+## 2. 권위 있는 문서 파이프라인 (Document Flow)
+
+REPL Works의 권위 있는(Authoritative) 표준 문서는 아래 순서대로 상위 문서에서 하위 문서가 정의·파생됩니다.
 
 <DocumentFlow
   documents={[
@@ -42,259 +37,59 @@ REPL Works는 프로젝트 기억을 문서와 Git에 저장한다.
 
 ---
 
-각 문서는 서로 다른 책임을 가진다.
+## 3. 7대 핵심 표준 문서 명세
 
-문서는 서로를 대체하지 않는다.
+각 문서는 고유하고 명확한 하나의 책임(Responsibility)만 가집니다.
 
----
-
-# IDEAS.md
-
-아이디어를 검증하고 정제한다.
-
----
-
-목적
-
-<MissionBox text="Should we build this?" />
-
----
-
-주요 내용
-
-- 문제 정의
-- 대상 사용자
-- 시장성
-- 위험 요소
-- 제약 사항
-
----
-
+### 1. IDEAS.md (아이디어 정의)
+제품의 아이디어와 핵심 가설을 검증하고 정리합니다.
+<MissionBox text="Should we build this? (우리가 이것을 만들어야 하는가?)" />
+- **주요 내용**: 문제 정의, 대상 사용자, 시장성, 제약 사항 및 위험 요소
 <DocLink href="/documents/ideas" downloadHref="/documents/ideas.md" />
 
----
+### 2. PITCHING_SCRIPT.md (피치 정의)
+프로젝트가 왜 존재하는지 짧고 명확하게 설명할 수 있도록 정리합니다.
+<MissionBox text="Why does this project exist? (이 프로젝트는 왜 존재하는가?)" />
+- **주요 내용**: 프로젝트 정의, 핵심 차별 가치, 제품 비전 및 전달 메시지
+<DocLink href="/documents/pitching-script" downloadHref="/documents/pitching-script.md" />
 
-# PITCHING_SCRIPT.md
+### 3. PRODUCT_SPEC.md (제품 명세)
+제품의 모든 기능과 경험에 관한 단일 진실 출처(Source of Truth)입니다.
+<MissionBox text="What should be built? (무엇을 만들어야 하는가?)" />
+- **주요 내용**: 제품 비전, 사용자 여정(User Journey), 정보 구조, 기능 규격, 성공 기준
+<DocLink href="/documents/product-spec" downloadHref="/documents/product-spec.md" />
 
-프로젝트를 설명한다.
-
----
-
-목적
-
-<MissionBox text="Why does this project exist?" />
-
----
-
-주요 내용
-
-- 프로젝트 정의
-- 핵심 가치
-- 차별성
-- 비전
-
----
-
-<DocLink
-  href="/documents/pitching-script"
-  downloadHref="/documents/pitching-script.md"
-/>
-
----
-
-# PRODUCT_SPEC.md
-
-제품 요구사항을 정의한다.
-
----
-
-목적
-
-<MissionBox text="What should be built?" />
-
----
-
-주요 내용
-
-- 제품 정의
-- 사용자 여정
-- 정보 구조
-- 범위
-- 성공 기준
-
----
-
-<DocLink
-  href="/documents/product-spec"
-  downloadHref="/documents/product-spec.md"
-/>
-
----
-
-# TECH_STACK.md
-
-사용 기술과 구현 규칙을 정의한다.
-
----
-
-목적
-
-<MissionBox text="Which technologies and rules should be used?" />
-
----
-
-주요 내용
-
-- 언어와 프레임워크
-- 버전
-- 파일 배치 규칙
-- 네이밍 규칙
-- 구현 제약
-- 테스트 도구
-
----
-
-TECH_STACK.md는 구현 기술과 규칙의 기준이다.
-
----
-
+### 4. TECH_STACK.md (기술 스택 & 컨벤션)
+사용 언어, 프레임워크 버전, Naming Rule, 파일 배치 제약 등 구현 기술의 기준입니다.
+<MissionBox text="Which technologies and rules should be used? (어떤 기술과 규칙으로 만드는가?)" />
+- **주요 내용**: 사용 언어 및 버전, 파일 구조 제약, 네이밍 규칙, 테스트 도구 및 린팅 규칙
 <DocLink href="/documents/tech-stack" downloadHref="/documents/tech-stack.md" />
 
----
+### 5. ARCHITECTURE.md (시스템 아키텍처)
+시스템 모듈 관계, 컴포넌트 책임 경계 및 데이터 흐름을 정의합니다.
+<MissionBox text="How should the system work? (시스템은 어떻게 동작하는가?)" />
+- **주요 내용**: 시스템 구조도, 모듈 책임, 데이터 플로우, 실패 경계, 아키텍처 불변식
+<DocLink href="/documents/architecture" downloadHref="/documents/architecture.md" />
 
-# ARCHITECTURE.md
-
-시스템 구조와 동작을 정의한다.
-
----
-
-목적
-
-<MissionBox text="How should the system work?" />
-
----
-
-주요 내용
-
-- 시스템 구조
-- 컴포넌트 책임
-- 데이터 흐름
-- 구현 경계
-- 실패 경계
-- 아키텍처 불변식
-
----
-
-ARCHITECTURE.md는 TECH_STACK.md의 기술 선택이나 구현 규칙을 대체하지 않는다.
-
----
-
-<DocLink
-  href="/documents/architecture"
-  downloadHref="/documents/architecture.md"
-/>
-
----
-
-# TASKS.md
-
-현재 작업 상태를 정의한다.
-
----
-
-목적
-
-<MissionBox text="What should be done next?" />
-
----
-
-주요 내용
-
-- 작업 목록
-- 진행 상태
-- 현재 우선순위
-
----
-
-TASKS.md는 현재 위치를 설명한다.
-
----
-
+### 6. TASKS.md (작업 계획)
+현재 개발 위치와 수행할 작업 마일스톤을 정의합니다. (ARCHITECTURE가 목적지라면 TASKS는 현재 위치입니다.)
+<MissionBox text="What should be done next? (지금 당장 무엇을 해야 하는가?)" />
+- **주요 내용**: 마일스톤 작업 목록, 수행 완료 여부, 현재 작업 스코프
 <DocLink href="/documents/tasks" downloadHref="/documents/tasks.md" />
 
----
-
-# AGENTS.md
-
-AI 작업 규칙을 정의한다.
-
----
-
-목적
-
-<MissionBox text="How should AI work?" />
-
----
-
-주요 내용
-
-- 문서 읽기 순서
-- 구현 규칙
-- 범위 제어
-- 작업 절차
-
----
-
-AGENTS.md는 모든 AI의 진입점이다.
-
-문서 생성 순서에는 포함되지 않으며, 모든 작업 전에 읽는 프로젝트 헌법이다.
-
----
-
+### 7. AGENTS.md (AI 실행 헌법)
+모든 AI 에이전트의 진입점이자 개발 프로세스 헌법입니다.
+<MissionBox text="How should AI work? (AI는 어떻게 작업해야 하는가?)" />
+- **주요 내용**: 문서 읽기 순서, 구현 규칙, 테스트 검증 절차, 아키텍처 변경 수칙
 <DocLink href="/documents/agents" downloadHref="/documents/agents.md" />
 
 ---
 
-# Living Documents
+## 4. 살아있는 문서 (Living Documentation)
 
-REPL Works 문서는 버전 문서가 아니다.
+REPL Works의 문서는 한 번 작성하고 고정되는 정적 서류가 아닙니다.
 
----
+- **과거의 의사결정 이력**: Git 커밋 이력이 영구 보존합니다.
+- **현재 시스템의 실제 상태**: Markdown 표준 문서가 실시간으로 설명합니다.
 
-문서는 항상 현재 상태를 설명해야 한다.
-
----
-
-제품이 운영 단계에 진입한 이후에도 계속 갱신된다.
-
----
-
-과거 상태는 Git이 보존한다.
-
-현재 상태는 문서가 설명한다.
-
----
-
-# 핵심 원칙
-
-## Project Memory
-
-문서는 프로젝트 기억이다.
-
----
-
-## Git-Native
-
-문서는 Git과 함께 관리된다.
-
----
-
-## Living Documentation
-
-문서는 최신 상태를 유지한다.
-
----
-
-## Model Independent
-
-어떤 AI라도 문서를 읽고 프로젝트를 이해할 수 있어야 한다.
+제품이 개발을 거쳐 배포 및 운영 단계에 진입하더라도, 새로운 요구사항이나 변경 사항이 발생하면 반드시 상위 문서를 업데이트한 뒤 개발을 시작합니다.

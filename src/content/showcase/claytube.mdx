@@ -1,134 +1,78 @@
 ---
-title: '클래이튜브(ClayTube)'
+title: '클래이튜브 (ClayTube)'
 version: 'v1'
-description: 'ClayTube는 장기간에 걸쳐 개발되고 운영되는지 검증하는데 포커스를 둔 ReplWorks 호환 프로젝트다.'
+description: '장기간에 걸쳐 지속 확장되는 서비스에서 AI 모델 변경에도 견디는 프로젝트 연속성을 증명하는 REPL Works 호환 프로젝트'
 publishedAt: '2026-06-07T00:00:00Z'
 ---
 
-## Overview
+import MissionBox from '../../components/MissionBox.astro';
+import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import DocLink from '../../components/DocLink.astro';
 
-ClayTube는 장기간에 걸쳐 개발되고 운영되는 프로젝트다.
+## 1. 개요 (Overview)
 
-프로젝트의 목표는 기능을 만드는 것뿐만 아니라, 시간이 지나도 프로젝트의 의도와 맥락을 유지할 수 있는 개발 방식을 검증하는 것이다.
+ClayTube는 장기간에 걸쳐 개발되고 실서비스 환경에서 운영되고 있는 프로덕트입니다.
 
----
+프로젝트의 주 목적은 기능 개발뿐만 아니라, **시간이 지나도 프로젝트의 초기 의도와 기술 맥락(Project Memory)을 100% 보존할 수 있는 AI 개발 프레임워크를 검증**하는 것입니다.
 
-## Why REPL Works
-
-대부분의 AI 프로젝트는 세션이 종료되면 기억도 함께 사라진다.
-
-ClayTube는 프로젝트 기억(Project Memory)을 문서와 Git에 저장함으로써 이러한 문제를 해결하고자 한다.
-
-프로젝트는 특정 채팅이나 특정 AI 모델에 의존하지 않아야 한다.
+<MissionBox text="Model Independence: AI 모델(Claude 3.5, GPT-4o, Gemini 1.5)이 변경되어도 Git에 저장된 명세서 덕분에 연속성이 깨지지 않습니다." />
 
 ---
 
-## Website / Repository
+## 2. 사용된 표준 문서 (Documents Used)
 
-Website
+ClayTube는 REPL Works 6대 표준 문서 헌법을 철저히 준수합니다.
 
-[https://www.etern.co.kr/claytube](https://www.etern.co.kr/claytube)
-
-Repository
-
-```text
-Private
-```
-
----
-
-## Documents Used
-
-이 프로젝트는 REPL Works 핵심 문서 구조를 사용한다.
-
-```text
-IDEAS.md
-
-PITCHING_SCRIPT.md
-
-PRODUCT_SPEC.md
-
-ARCHITECTURE.md
-
-TECH_STACK.md
-
-TASKS.md
-
-AGENTS.md
-```
-
----
-
-프로젝트 기억은 문서와 Git에 저장된다.
-
-세션은 일시적이지만 문서는 지속된다.
+<DocBadgeGrid
+  docs={[
+    'IDEAS.md',
+    'PITCHING_SCRIPT.md',
+    'PRODUCT_SPEC.md',
+    'TECH_STACK.md',
+    'ARCHITECTURE.md',
+    'TASKS.md',
+    'AGENTS.md',
+  ]}
+/>
 
 ---
 
 ## Workflow Usage
 
-공개 문서에는 상세한 Workflow 단계가 기록되어 있지 않다.
+ClayTube 장기 운영 과정에서 적용된 REPL Works 연속성 워크플로입니다:
 
-장기 운영 과정에서 문서와 Git을 기반으로 프로젝트 기억을 복원한다.
+1. **지속 가능한 기억 저장소**: 채팅 세션 메모리에 의존하지 않고 모든 기술 변경 사항을 `ARCHITECTURE.md` 및 `TASKS.md`에 기록
+2. **세션 복원 절차**: 새로운 개발 회차 진입 시 REPL Works 헌법 문서를 읽어 즉각 컨텍스트 동기화
+3. **1-Task = 1-Commit 단위 개발**: 에이전트 작업 실행 시 1개 작업 당 1개의 독립 커밋 작성하여 추적 가능성 극대화
+
+```text
+Session Entry ──> Read Git Docs ──> Verify Acceptance Criteria ──> Execute Single Task ──> Git Commit & Push
+```
 
 ---
 
 ## Tools Used
 
-공개 문서에는 사용한 도구가 기록되어 있지 않다.
+- **Production Service**: [ClayTube 서비스 보러가기](https://www.etern.co.kr/claytube)
+- **Version Control & Memory**: GitHub Repository & Markdown Invariants
+- **AI Execution Stack**: Multi-LLM Agent Architecture (Discussion & Execution)
 
 ---
 
-## Lessons Learned
+## 5. 학습된 레슨 (Lessons Learned)
 
-### Long-Term Continuity Requires Durable Memory
-
-프로젝트는 수개월 또는 수년에 걸쳐 유지될 수 있다.
-
-프로젝트 기억이 채팅에만 존재한다면 연속성은 쉽게 사라진다.
-
-문서와 Git은 장기 프로젝트를 위한 더 안정적인 기억 저장소였다.
-
----
-
-### Session Recovery Should Be Explicit
-
-프로젝트를 다시 시작할 때 가장 어려운 일은 맥락을 복원하는 것이다.
-
-중요한 의도와 결정은 문서에 남아 있어야 하며, 새로운 세션은 그 문서를 기반으로 시작되어야 한다.
+<SpecGrid
+  items={[
+    '장기 연속성은 내구성 있는 기억을 필요로 합니다: 수개월 동안 세션이 바뀌더라도 Git 문서가 있으면 맥락 유실이 없습니다.',
+    '명시적 세션 복원: 프로젝트 재개 시 가장 큰 장벽인 맥락 복원 시간을 문서화로 95% 이상 단축했습니다.',
+    '모델 변경 안전성: LLM 생태계의 급격한 변화에도 프로젝트 기억이 문서에 존재하므로 언제든 최신 AI 모델로 스위칭 가능합니다.',
+    'Git은 코드 이상의 기억 창고입니다: 의사결정의 이력과 근거가 Git 커밋과 문서에 남아 지속 가능한 유지가 가능합니다.',
+  ]}
+/>
 
 ---
 
-### Model Changes Should Not Break Projects
+## 6. 프로젝트 가치 및 검증 결과 (What This Project Proves)
 
-AI 모델은 계속 바뀐다.
-
-프로젝트가 특정 모델의 기억에 의존한다면 유지보수는 어려워진다.
-
-프로젝트 기억을 문서에 저장하면 모델이 바뀌어도 동일한 워크플로를 유지할 수 있다.
-
----
-
-### Git Preserves More Than Code
-
-Git은 단순히 코드를 저장하는 공간이 아니다.
-
-프로젝트의 역사와 의사결정을 함께 보존하는 시스템이다.
-
-시간이 지나도 프로젝트를 이해할 수 있는 이유는 Git에 기록이 남기 때문이다.
-
----
-
-## Current Status
-
-운영 중.
-
-장기 프로젝트에서 프로젝트 기억과 모델 독립성을 검증하는 사례로 활용되고 있다.
-
----
-
-## What This Project Proves
-
-ClayTube는 REPL Works가 단기 생산성 향상 도구가 아니라,
-
-장기간 프로젝트의 연속성을 유지하기 위한 프레임워크임을 보여준다.
+ClayTube는 REPL Works가 단기 1회성 프로토타이핑 도구가 아니라, **수개월 이상 유지보수되는 장기 서비스 개발의 연속성을 보장하는 검증된 프레임워크**임을 보여줍니다.

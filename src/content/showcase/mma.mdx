@@ -1,134 +1,78 @@
 ---
-title: 'MMA'
+title: 'MMA (Multi-Model Agent)'
 version: 'v1'
-description: '인간과 AI 간의 구조화된 협업을 보여주는 비공개 REPL Works 호환 프로젝트.'
+description: '인간 엔지니어와 다중 AI 에이전트 간 역할 분담 및 협업 구조를 보여주는 REPL Works 호환 프로젝트'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
-## Overview
+import MissionBox from '../../components/MissionBox.astro';
+import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import DocLink from '../../components/DocLink.astro';
 
-MMA는 비공개로 운영되는 프로젝트다.
+## 1. 개요 (Overview)
 
-프로젝트 자체에 대한 상세 정보는 공개되지 않지만, REPL Works 워크플로를 실제로 적용하고 검증하는 사례 중 하나이다.
+MMA(Multi-Model Agent)는 사람과 복수의 AI 에이전트(Discussion AI, Execution AI, Reviewer AI)가 결합하여 단일 프로덕트를 수명 주기 동안 협업 개발하는 시스템 사례입니다.
 
----
+특정 엔지니어 개인이나 단일 AI 세션에 프로젝트 기억을 위임하지 않고, **공동의 Git 마크다운 문서 헌법을 통해 다중 주체가 100% 동일한 컨텍스트로 일관되게 개발을 수행**하도록 구성되어 있습니다.
 
-## Why REPL Works
-
-복잡한 프로젝트일수록 프로젝트 기억(Project Memory)은 특정 사람이나 특정 AI에 의존해서는 안 된다.
-
-MMA는 의도, 구조, 작업 상태를 문서와 Git에 저장함으로써 여러 사람과 여러 AI가 동일한 프로젝트를 지속적으로 운영할 수 있도록 설계되었다.
-
----
-
-## Website / Repository
-
-Website
-
-```text
-Not Public
-```
-
-Repository
-
-```text
-Private
-```
+<MissionBox text="Shared Memory Layer: 사람과 여러 AI 모델이 각기 다른 세션에서 작업하더라도 동일한 Git 명세서를 진실의 출처로 공유합니다." />
 
 ---
 
-## Documents Used
+## 2. 사용된 표준 문서 (Documents Used)
 
-이 프로젝트는 REPL Works 핵심 문서 구조를 사용한다.
+MMA 프로젝트는 6대 표준 문서 체계를 가동하여 인간-AI 협업 인터페이스를 조율합니다.
 
-```text
-IDEAS.md
-
-PITCHING_SCRIPT.md
-
-PRODUCT_SPEC.md
-
-ARCHITECTURE.md
-
-TECH_STACK.md
-
-TASKS.md
-
-AGENTS.md
-```
-
----
-
-프로젝트 상태는 대화가 아니라 문서를 통해 공유된다.
+<DocBadgeGrid
+  docs={[
+    'IDEAS.md',
+    'PITCHING_SCRIPT.md',
+    'PRODUCT_SPEC.md',
+    'TECH_STACK.md',
+    'ARCHITECTURE.md',
+    'TASKS.md',
+    'AGENTS.md',
+  ]}
+/>
 
 ---
 
 ## Workflow Usage
 
-공개 문서에는 상세한 Workflow 단계가 기록되어 있지 않다.
+MMA 다중 에이전트 협업 파이프라인 워크플로입니다:
 
-사람과 AI가 같은 문서와 Git 저장소를 기준으로 협업한다.
+1. **기획 & 토론 (Discussion AI & Human)**: 요구사항 분석 후 `PRODUCT_SPEC.md` 및 `ARCHITECTURE.md` 작성
+2. **태스크 할당 (Execution AI)**: `TASKS.md`의 단위 태스크를 실행 에이전트에 스코프 지정하여 커밋 단위 구현
+3. **인간 리뷰 및 통합 (Human Reviewer)**: 자동화 테스트 검증 후 최종 코드를 메인 브랜치로 병합
+
+```text
+Human + Discussion AI ──> Git Spec Repository (.replworks) ──> Execution AI Agents ──> Review & Merge
+```
 
 ---
 
 ## Tools Used
 
-공개 문서에는 사용한 도구가 기록되어 있지 않다.
+- **System Classification**: Private Enterprise Agent System
+- **Agent Orchestration**: Multi-Model Routing (Claude 3.5 Sonnet / OpenAI o1 / Gemini 1.5 Pro)
+- **Shared Memory Layer**: REPL Works Standard Documents & Git Repository
 
 ---
 
-## Lessons Learned
+## 5. 학습된 레슨 (Lessons Learned)
 
-### Shared Memory Matters
-
-협업에서 가장 중요한 것은 동일한 기억을 공유하는 것이다.
-
-사람과 AI는 같은 문서를 읽고 같은 기준으로 작업해야 한다.
-
----
-
-### Decisions Should Be Explicit
-
-중요한 결정은 채팅 기록에 남아서는 안 된다.
-
-프로젝트의 방향과 구조에 영향을 주는 결정은 문서에 기록되어야 한다.
-
-문서화된 결정은 검토 가능하고 추적 가능하다.
+<SpecGrid
+  items={[
+    '공유 기억의 필수성: 팀과 에이전트가 완벽히 동일한 문서를 참조하지 않으면 오버 스코프와 상충된 구현이 발생합니다.',
+    '명시적 의사결정 기록: 구두나 대화창에서 결정된 아키텍처 변경점은 반드시 Git 마크다운 문서에 기록되어야 지속됩니다.',
+    '기획과 구현 활동의 분리: 요구사항을 정의하는 파이프라인과 코드를 작성하는 파이프라인을 엄격히 분리할 때 결함률이 가장 낮습니다.',
+    'Git 저장소가 협업 조율 레이어: 세션을 공유할 수 없더라도 Git 저장소를 공유함으로써 완벽한 조율이 가능합니다.',
+  ]}
+/>
 
 ---
 
-### Planning And Execution Are Different Activities
+## 6. 프로젝트 가치 및 검증 결과 (What This Project Proves)
 
-계획과 구현은 서로 다른 작업이다.
-
-계획은 무엇을 해야 하는지를 정의하고,
-
-구현은 정의된 작업을 수행한다.
-
-이 둘을 분리할수록 프로젝트는 더 안정적으로 운영된다.
-
----
-
-### Repository Becomes The Coordination Layer
-
-프로젝트 참여자는 같은 세션을 공유하지 않는다.
-
-하지만 같은 저장소는 공유할 수 있다.
-
-Git 저장소는 프로젝트 상태를 전달하고 협업을 조정하는 중심 역할을 수행한다.
-
----
-
-## Current Status
-
-비공개 운영 중.
-
-REPL Works 기반 협업 방식과 프로젝트 기억 관리 방식을 지속적으로 검증하고 있다.
-
----
-
-## What This Project Proves
-
-MMA는 REPL Works가 개인 프로젝트뿐만 아니라,
-
-사람과 AI가 함께 참여하는 협업 환경에서도 효과적으로 작동할 수 있음을 보여준다.
+MMA는 REPL Works가 1인 개발자의 단일 세션 보조도구를 넘어, **인간과 다중 AI 에이전트가 함께 참여하는 복합 협업 환경에서 표준 운영체제로 작용함**을 증명합니다.

@@ -1,134 +1,78 @@
 ---
-title: '이턴랩스(ETERN Labs)'
+title: '이턴랩스 (ETERN Labs)'
 version: 'v1'
-description: '이턴랩스(ETERN Labs)는 새로운 아이디어와 제품을 실험하고 검증하기 위한 ReplWorks 호환 프로젝트다.'
+description: '불확실성이 높은 신규 아이디어 및 R&D 실험 프로젝트에 적용하여 빠른 검증과 연속성을 제공하는 REPL Works 호환 프로젝트'
 publishedAt: '2026-06-07T00:00:00Z'
 ---
 
-## Overview
+import MissionBox from '../../components/MissionBox.astro';
+import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import DocLink from '../../components/DocLink.astro';
 
-ETERN Labs는 새로운 아이디어와 제품을 실험하고 검증하기 위한 프로젝트다.
+## 1. 개요 (Overview)
 
-빠르게 시도하고, 학습하고, 반복하는 과정에서 프로젝트의 의도와 구조를 잃지 않는 것을 목표로 한다.
+ETERN Labs는 새로운 아이디어, 프로토타입 및 R&D 기술을 빠르게 실험하고 검증하기 위한 프로젝트 공간입니다.
 
----
+실험 프로젝트는 요구사항과 방향성이 빠르게 변경되지만, **빠른 시도 속에서도 프로젝트의 핵심 목적과 검증 가설을 잃지 않는 것**을 핵심 목표로 하고 있습니다.
 
-## Why REPL Works
-
-실험 프로젝트는 빠르게 변화한다.
-
-기능은 자주 바뀌고 방향도 수정된다.
-
-하지만 프로젝트가 왜 존재하는지, 무엇을 검증하고 있는지는 유지되어야 한다.
-
-REPL Works는 이러한 프로젝트 기억(Project Memory)을 문서와 Git에 저장하여 실험 과정에서도 연속성을 유지할 수 있도록 돕는다.
+<MissionBox text="Agile Experiments with Rigid Memory: 가설 수립과 실패 과정에서도 학습된 교훈과 설계 원칙은 Git 문서로 자산화됩니다." />
 
 ---
 
-## Website / Repository
+## 2. 사용된 표준 문서 (Documents Used)
 
-Website
+ETERN Labs는 실험 프로젝트에 맞게 REPL Works 명세서를 활용합니다.
 
-[https://www.etern.co.kr/labs](https://www.etern.co.kr/labs)
-
-Repository
-
-```text
-Private
-```
-
----
-
-## Documents Used
-
-이 프로젝트는 REPL Works 핵심 문서 구조를 사용한다.
-
-```text
-IDEAS.md
-
-PITCHING_SCRIPT.md
-
-PRODUCT_SPEC.md
-
-ARCHITECTURE.md
-
-TECH_STACK.md
-
-TASKS.md
-
-AGENTS.md
-```
-
----
-
-문서는 단순한 기록이 아니라 프로젝트의 기억으로 사용된다.
+<DocBadgeGrid
+  docs={[
+    'IDEAS.md',
+    'PITCHING_SCRIPT.md',
+    'PRODUCT_SPEC.md',
+    'TECH_STACK.md',
+    'ARCHITECTURE.md',
+    'TASKS.md',
+    'AGENTS.md',
+  ]}
+/>
 
 ---
 
 ## Workflow Usage
 
-공개 문서에는 상세한 Workflow 단계가 기록되어 있지 않다.
+ETERN Labs 실험 파이프라인 워크플로입니다:
 
-아이디어와 제품을 실험하는 과정에서 문서와 Git으로 프로젝트 기억을 유지한다.
+1. **아이디어 발상 및 피칭**: `IDEAS.md` 및 `PITCHING_SCRIPT.md`에 검증할 가설 작성
+2. **최소 실행 가능 스펙 작성**: `PRODUCT_SPEC.md`에 빠른 검증을 위한 핵심 범위 명시
+3. **반복적 태스크 실행 및 회고**: `TASKS.md` 명세를 기반으로 AI 에이전트 실행 및 실험 결과 문서화
+
+```text
+Hypothesis (IDEAS.md) ──> Minimal Spec Definition ──> Fast AI Prototyping ──> Learnings & Architecture Update
+```
 
 ---
 
 ## Tools Used
 
-공개 문서에는 사용한 도구가 기록되어 있지 않다.
+- **Labs Hub**: [ETERN Labs 랩스 페이지](https://www.etern.co.kr/labs)
+- **Experimental Stack**: Modern Frontend & AI Prototyping Engines
+- **Project Memory Management**: REPL Works 6대 표준 문서 헌법
 
 ---
 
-## Lessons Learned
+## 5. 학습된 레슨 (Lessons Learned)
 
-### Architecture Creates Stability
-
-실험은 자유롭게 진행될 수 있다.
-
-하지만 구조는 안정적으로 유지되어야 한다.
-
-ARCHITECTURE.md는 프로젝트가 성장하더라도 일관된 방향을 유지할 수 있도록 도와준다.
-
----
-
-### Tasks Reduce Ambiguity
-
-큰 목표는 실행하기 어렵다.
-
-작업을 명확한 태스크로 분해하면 AI와 사람이 같은 목표를 공유할 수 있다.
-
-작은 단위의 작업은 더 빠른 검증과 더 명확한 진척도를 제공한다.
+<SpecGrid
+  items={[
+    '아키텍처가 빠른 실험을 안정화합니다: 자유로운 실험 과정에서도 ARCHITECTURE.md가 기본 뼈대를 유지하여 무질서한 코드 누적을 방지합니다.',
+    '명확한 태스크 분해의 효과: 거대한 가설을 작고 명확한 수락 기준 태스크로 나눌수록 AI 에이전트의 완성 속도가 극대화됩니다.',
+    '모델 독립성의 가치: 새로운 AI 모델 출시 시 기존 실험 프로젝트 문서 메모리를 그대로 투입하여 즉각적인 성능 향상을 테스트할 수 있습니다.',
+    '대화를 넘어서는 결정 기록: 중요한 실험 결과와 방향 전환(Pivot) 사유가 마크다운 문서로 남아 자산이 됩니다.',
+  ]}
+/>
 
 ---
 
-### Model Independence Matters
+## 6. 프로젝트 가치 및 검증 결과 (What This Project Proves)
 
-프로젝트는 특정 AI 모델에 의존해서는 안 된다.
-
-문서와 Git에 저장된 프로젝트 기억은 모델이 바뀌어도 유지된다.
-
-중요한 것은 어떤 모델을 사용하는지가 아니라, 프로젝트를 복원할 수 있는가이다.
-
----
-
-### Decisions Should Survive Conversations
-
-좋은 결정은 채팅 기록에 묻혀서는 안 된다.
-
-중요한 의사결정은 문서에 남아야 하며, 이후의 작업은 그 문서를 기준으로 진행되어야 한다.
-
----
-
-## Current Status
-
-운영 중.
-
-새로운 아이디어와 제품을 지속적으로 실험하며 REPL Works 워크플로를 검증하고 있다.
-
----
-
-## What This Project Proves
-
-ETERN Labs는 REPL Works가 완성된 제품뿐만 아니라,
-
-불확실성이 높은 실험 단계의 프로젝트에서도 효과적으로 작동할 수 있음을 보여준다.
+ETERN Labs는 REPL Works가 이미 완성된 정적 프로덕트뿐만 아니라, **불확실성이 높고 빠른 피벗(Pivot)이 필요한 초기 R&D/실험 프로젝트에서도 강력한 가이드라인**을 제공한다는 점을 증명합니다.

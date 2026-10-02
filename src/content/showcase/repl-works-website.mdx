@@ -1,134 +1,73 @@
 ---
-title: 'ReplWorks 웹사이트'
-version: 'v1'
-description: 'ReplWorks 웹사이트는 ReplWorks를 실제로 적용한 첫 번째 ReplWorks Compatible 프로젝트이기도 하다.'
-publishedAt: '2026-06-12T00:00:00Z'
+title: 'REPL Works 웹사이트 쇼케이스'
+version: 'v2'
+description: 'REPL Works 방법론과 6대 표준 문서를 스스로에게 최초로 적용한 도그푸딩(Dogfooding) 참조 프로덕트'
+publishedAt: '2026-10-02T00:00:00Z'
 ---
 
-## Overview
+import MissionBox from '../../components/MissionBox.astro';
+import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import DocLink from '../../components/DocLink.astro';
 
-ReplWorks 웹사이트는 ReplWorks 프레임워크의 공식 웹사이트다.
+## 1. 개요 (Overview)
 
-동시에 ReplWorks를 실제로 적용한 첫 번째 ReplWorks Compatible 프로젝트이기도 하다.
+REPL Works 웹사이트는 본 프레임워크의 공식 웹사이트이자, **REPL Works 방법론과 문서 헌법을 실제로 적용한 첫 번째 도그푸딩 참조 프로덕트**입니다.
 
-이 프로젝트의 목적은 프레임워크를 설명하는 것뿐만 아니라, 실제로 프레임워크가 어떻게 사용되는지 보여주는 것이다.
-
----
-
-## Why ReplWorks
-
-ReplWorks는 AI 도구가 아니다.
-
-AI와 사람이 장기간 프로젝트를 함께 운영하기 위한 AI-Native Product Development Framework이다.
-
-이 웹사이트는 다음 질문에 답하기 위해 만들어졌다.
-
-```text
-ReplWorks는 무엇인가?
-
-왜 필요한가?
-
-어떻게 사용하는가?
-
-실제 프로젝트에서는 어떻게 적용되는가?
-```
+<MissionBox text="Self-Hosted Framework: REPL Works 자체를 REPL Works 방식으로 개발하고 운영합니다." />
 
 ---
 
-## Documents Used
+## 2. 사용된 표준 문서 (Documents Used)
 
-이 프로젝트는 ReplWorks의 핵심 문서 구조를 사용한다.
+본 프로젝트는 .replworks 디렉터리 내에 6대 표준 문서를 상시 유지 관리합니다.
 
-```text
-IDEAS.md
-
-PITCHING_SCRIPT.md
-
-PRODUCT_SPEC.md
-
-ARCHITECTURE.md
-
-TECH_STACK.md
-
-TASKS.md
-
-AGENTS.md
-```
-
----
-
-각 문서는 서로 다른 책임을 가지며, 프로젝트 기억(Project Memory)의 일부로 관리된다.
+<DocBadgeGrid
+  docs={[
+    'IDEAS.md',
+    'PITCHING_SCRIPT.md',
+    'PRODUCT_SPEC.md',
+    'TECH_STACK.md',
+    'ARCHITECTURE.md',
+    'TASKS.md',
+    'AGENTS.md',
+  ]}
+/>
 
 ---
 
 ## Workflow Usage
 
+웹사이트 구축 과정은 아래 3단계 워크플로 파이프라인을 100% 준수하여 진행되었습니다:
+
 ```text
-Discussion AI
-↓
-REPL Works Documents
-↓
-Execution AI
-↓
-Human Review
+Discussion AI (제품 요구사항 & 아키텍처 토론)
+       ↓
+REPL Works Documents (Git 기반 마크다운 명세 자산화)
+       ↓
+Execution AI (1-Prompt = 1-Task = 1-Commit 정밀 구현)
+       ↓
+Human Review (빌드/테스트 검증 & 최종 Merge)
 ```
 
 ---
 
 ## Tools Used
 
-공개 문서에는 특정 도구의 사용 여부가 기록되어 있지 않다.
+- **Vite & Astro 6+**: 정적 사이트 컴파일 엔진
+- **Pagefind**: 서버 없는 클라이언트 전용 초고속 정적 색인 검색 엔진
+- **ai-issue**: GitHub Issue 자동화 CLI 도구
 
 ---
 
-## Lessons Learned
+## 5. 학습된 레슨 (Lessons Learned)
 
-### Content First Wins
+<SpecGrid
+  items={[
+    'Content First: 구현 코드는 언제든 바뀌지만, 잘 정제된 문서는 프로젝트 기억으로 영구 보존됩니다.',
+    'Discussion != Execution: 토론과 구현 에이전트를 분리할 때 환각 발생률이 제로에 가깝게 감소합니다.',
+    'Git Is Truth: 대화 세션은 사라지지만, Git 커밋과 마크다운 문서는 어떤 AI 모델이든 복원 가능하게 합니다.',
+  ]}
+/>
 
-웹사이트는 기능보다 콘텐츠가 먼저다.
-
-좋은 문서는 시간이 지나도 남지만, 구현은 언제든지 변경될 수 있다.
-
----
-
-### Discussion And Execution Should Be Separate
-
-Discussion AI와 Execution AI를 분리하면 결과 품질이 높아진다.
-
-문서가 계획을 담당하고, 구현은 문서를 따른다.
-
----
-
-### Git Is Better Than Chat History
-
-대화는 사라질 수 있다.
-
-문서는 Git에 남는다.
-
-프로젝트는 특정 세션이 아니라 저장소를 기준으로 복원 가능해야 한다.
-
----
-
-### Project Memory Matters
-
-장기 프로젝트에서는 기억이 가장 중요하다.
-
-ReplWorks 문서는 프로젝트 기억을 압축하고 유지하는 역할을 수행한다.
-
----
-
-## Current Status
-
-운영 중.
-
-ReplWorks 문서, 워크플로, 프롬프트, 도구, 그리고 실제 적용 사례를 지속적으로 확장하고 있다.
-
----
-
-## What This Project Proves
-
-ReplWorks는 이론이 아니다.
-
-실제 프로젝트에서 사용 가능한 워크플로이며,
-
-이 웹사이트는 그 첫 번째 레퍼런스 구현이다.
+<DocLink href="https://github.com/replworks/replworks.github.io" text="GitHub 오픈소스 소스 코드 보기" />

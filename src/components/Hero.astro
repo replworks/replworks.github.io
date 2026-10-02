@@ -1,166 +1,131 @@
 <section
-  class="relative w-full min-h-[70vh] sm:min-h-[85vh] flex items-center overflow-hidden bg-white border-b border-slate-100"
+  class="relative w-full min-h-[85vh] flex items-center overflow-hidden bg-[#090d16] bg-grid-pattern bg-radial-gradient border-b border-slate-800/80 py-16 lg:py-24"
 >
-  <div class="absolute inset-0 z-0 pointer-events-none select-none">
-    <svg
-      aria-hidden="true"
-      class="absolute right-0 top-0 h-full w-full md:w-[60%] text-slate-200/40"
-      viewBox="0 0 800 600"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M500 0L580 120L480 250L620 320L520 500L680 600"
-        stroke="currentColor"
-        stroke-width="1"></path>
-      <path
-        d="M580 120L700 80L800 180L620 320"
-        stroke="currentColor"
-        stroke-width="1"></path>
-      <path
-        d="M480 250L380 340L420 480L520 500"
-        stroke="currentColor"
-        stroke-width="1"></path>
-      <path d="M620 320L750 380L680 600" stroke="currentColor" stroke-width="1"
-      ></path>
-      <path
-        d="M700 80L800 0M800 180L850 280M750 380L820 450M420 480L350 600"
-        stroke="currentColor"
-        stroke-width="1"
-        stroke-dasharray="4 4"></path>
-
-      <circle cx="500" cy="0" r="4" fill="currentColor"></circle>
-      <circle cx="580" cy="120" r="4" fill="currentColor"></circle>
-      <circle cx="480" cy="250" r="4" fill="currentColor"></circle>
-      <circle cx="620" cy="320" r="4" fill="currentColor"></circle>
-      <circle cx="520" cy="500" r="4" fill="currentColor"></circle>
-      <circle cx="680" cy="600" r="4" fill="currentColor"></circle>
-      <circle cx="700" cy="80" r="3" fill="currentColor"></circle>
-      <circle cx="800" cy="180" r="3" fill="currentColor"></circle>
-      <circle cx="380" cy="340" r="3" fill="currentColor"></circle>
-      <circle cx="420" cy="480" r="3" fill="currentColor"></circle>
-      <circle cx="750" cy="380" r="3" fill="currentColor"></circle>
-    </svg>
-
-    <div
-      class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent md:to-transparent"
-    >
-    </div>
-  </div>
+  {/* Ambient Background Glows */}
+  <div class="absolute -top-40 right-0 h-96 w-96 rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none"></div>
+  <div class="absolute bottom-0 left-10 h-80 w-80 rounded-full bg-indigo-500/10 blur-[100px] pointer-events-none"></div>
 
   <div
-    class="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-12"
+    class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
   >
-    <div class="max-w-2xl">
-      {/* 탑 라벨 서브타이틀 */}
-      <span
-        class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 border border-slate-200/60 text-[10px] sm:text-[11px] font-black tracking-wide text-slate-600 font-mono mb-6 select-none shadow-sm"
-      >
-        <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse"
-        ></span>
-        DOCUMENT-DRIVEN AI DEVELOPMENT METHOD
-      </span>
-
-      {/* 메인 카피라인 */}
-      <h1
-        class="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-[1.12] mb-6"
-      >
-        AI가 바뀌어도<br />
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      {/* Left Column: Startup Value Pitch */}
+      <div class="lg:col-span-7 space-y-6 text-left">
+        {/* Top Tagline */}
         <span
-          class="bg-gradient-to-r from-slate-950 via-slate-800 to-slate-600 bg-clip-text text-transparent"
+          class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-[11px] font-mono font-bold tracking-wide text-cyan-400 select-none shadow-inner"
         >
-          프로젝트는 계속됩니다.
+          <span class="h-2 w-2 rounded-full bg-cyan-400 animate-pulse"></span>
+          AI-NATIVE PRODUCT DEVELOPMENT FRAMEWORK
         </span>
-      </h1>
 
-      {/* 코어 설명 */}
-      <p
-        class="text-base sm:text-lg font-normal text-slate-600 leading-relaxed max-w-xl mb-8"
-      >
-        REPL Works는 AI와 함께 개발할 때 프로젝트의 의도, 제품 정의, 기술 결정,
-        작업 계획을 문서와 Git에 축적하는 <strong
-          class="font-extrabold text-slate-900 shadow-[inset_0_-4px_0_rgba(14,165,233,0.1)]"
-          >문서 주도 AI 개발 방법론</strong
-        >입니다. AI 세션이 끝나도 프로젝트의 기억은 남고, 새로운 AI나 사람이 문서를
-        읽고 작업을 이어갈 수 있습니다.
-      </p>
-
-      <div class="grid gap-3 border-y border-slate-200/80 py-5 text-sm leading-relaxed sm:grid-cols-2">
-        <div>
-          <p class="font-black text-slate-900">문제</p>
-          <p class="mt-1 text-slate-600">
-            프롬프트를 거듭할수록 AI는 앞의 결정을 잊고, 코드는 산으로 갑니다.
-          </p>
-        </div>
-        <div>
-          <p class="font-black text-slate-900">해결</p>
-          <p class="mt-1 text-slate-600">
-            작업을 TASKS로 쪼개고, TASK마다 필요한 규칙을 상위 문서로 남겨 AI가 매번 같은 기준으로 끝까지 개발하게 합니다.
-          </p>
-        </div>
-      </div>
-
-      {/* 핵심 가치 배지 보드 */}
-      <div class="mb-10">
-        <span
-          class="text-[10px] font-black tracking-widest text-slate-400 uppercase font-mono block mb-3.5"
-          >WHAT REPL WORKS LEAVES BEHIND</span
+        {/* Main Headline */}
+        <h1
+          class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]"
         >
-        <div class="flex flex-wrap gap-2.5 max-w-xl">
-          <span
-            class="inline-flex items-center px-3 py-1.5 rounded-xl border border-slate-200/80 bg-white text-xs font-semibold text-slate-700 hover:border-slate-300 hover:shadow-sm transition-all select-none"
-          >
-            🧭 프로젝트 의도
+          AI가 바뀌어도<br />
+          <span class="text-gradient-cyan">
+            프로젝트는 계속됩니다.
           </span>
-          <span
-            class="inline-flex items-center px-3 py-1.5 rounded-xl border border-slate-200/80 bg-white text-xs font-semibold text-slate-700 hover:border-slate-300 hover:shadow-sm transition-all select-none"
+        </h1>
+
+        {/* Core Startup Value Pitch */}
+        <p
+          class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl"
+        >
+          REPL Works는 프롬프트에 의존하던 개발 방식에서 벗어나, 프로젝트의 <strong class="text-cyan-300 font-semibold">의도·제품 정의·기술 설계·작업 계획</strong>을 Git 표준 문서로 체계화하는 문서 주도 AI 개발 프레임워크입니다.
+        </p>
+
+        {/* Problem vs Solution Comparison Card */}
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+          <div class="glass-card rounded-2xl p-4 border-slate-800/90 bg-slate-950/60">
+            <span class="text-[10px] font-mono font-bold text-red-400 uppercase tracking-widest block mb-1">Traditional AI Dev</span>
+            <h3 class="text-xs font-bold text-slate-200">채팅 세션 종료시 맥락 유실</h3>
+            <p class="text-[11px] text-slate-400 mt-1 leading-snug">채팅이 길어질수록 환각 발생, 프롬프트 파편화 및 이전 설계 기억 손실</p>
+          </div>
+          <div class="glass-card rounded-2xl p-4 border-cyan-500/30 bg-cyan-950/20">
+            <span class="text-[10px] font-mono font-bold text-cyan-400 uppercase tracking-widest block mb-1">REPL Works Method</span>
+            <h3 class="text-xs font-bold text-white">Git 기반 문서 보존 & 연속성</h3>
+            <p class="text-[11px] text-slate-300 mt-1 leading-snug">모든 개발 규칙과 세부 작업을 Markdown 문서로 보존하여 다음 세션도 즉시 시작</p>
+          </div>
+        </div>
+
+        {/* Action CTA Buttons */}
+        <div class="pt-4 flex flex-wrap items-center gap-4">
+          <a
+            href="/workflow"
+            class="inline-flex items-center justify-center px-6 py-3.5 text-xs font-extrabold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-xl shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/30 hover:scale-[1.02] transition-all group shrink-0"
           >
-            📋 제품 정의
-          </span>
-          <span
-            class="inline-flex items-center px-3 py-1.5 rounded-xl border border-slate-200/80 bg-white text-xs font-semibold text-slate-700 hover:border-slate-300 hover:shadow-sm transition-all select-none"
+            <span>워크플로 실행 가이드</span>
+            <svg
+              class="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="3"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
+              ></path>
+            </svg>
+          </a>
+          <a
+            href="/documents"
+            class="inline-flex items-center justify-center px-6 py-3.5 text-xs font-extrabold text-slate-200 bg-slate-900/90 border border-slate-800 rounded-xl hover:bg-slate-800 hover:text-white hover:border-slate-700 transition-all shrink-0"
           >
-            🏗️ 기술 결정
-          </span>
-          <span
-            class="inline-flex items-center px-3 py-1.5 rounded-xl border border-slate-200/80 bg-white text-xs font-semibold text-slate-700 hover:border-slate-300 hover:shadow-sm transition-all select-none"
-          >
-            ✅ 작업 계획
-          </span>
-          <span
-            class="inline-flex items-center px-3 py-1.5 rounded-xl border border-slate-200/80 bg-white text-xs font-semibold text-slate-700 hover:border-slate-300 hover:shadow-sm transition-all select-none"
-          >
-            📦 Git 기록
-          </span>
+            표준 문서 구조 보기
+          </a>
         </div>
       </div>
 
-      {/* 액션 버튼 */}
-      <div class="flex flex-wrap items-center gap-3">
-        <a
-          href="/workflow"
-          class="inline-flex items-center justify-center px-6 py-3 text-xs font-black text-white bg-slate-950 rounded-xl shadow-md hover:bg-slate-900 hover:-translate-y-0.5 transition-all group shrink-0"
-        >
-          <span>작동 방식 보기</span>
-          <svg
-            class="h-3.5 w-3.5 ml-1.5 text-slate-400 transition-transform group-hover:translate-x-1"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="3"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"></path>
-          </svg>
-        </a>
-        <a
-          href="/documents"
-          class="inline-flex items-center justify-center px-6 py-3 text-xs font-black text-slate-700 bg-white border border-slate-200 rounded-xl shadow-sm hover:bg-slate-50 hover:border-slate-300 hover:-translate-y-0.5 transition-all shrink-0"
-        >
-          문서 구조 보기
-        </a>
+      {/* Right Column: 6-Step Pipeline Interactive Glass Card */}
+      <div class="lg:col-span-5 w-full">
+        <div class="glass-card rounded-2xl border border-slate-800/90 bg-[#0c1322]/90 p-5 shadow-2xl relative overflow-hidden">
+          {/* Top Window Bar */}
+          <div class="flex items-center justify-between border-b border-slate-800/80 pb-3 mb-4">
+            <div class="flex items-center gap-2">
+              <span class="h-3 w-3 rounded-full bg-red-500/80 inline-block"></span>
+              <span class="h-3 w-3 rounded-full bg-yellow-500/80 inline-block"></span>
+              <span class="h-3 w-3 rounded-full bg-green-500/80 inline-block"></span>
+            </div>
+            <span class="text-[11px] font-mono font-bold text-slate-400">replworks-pipeline.config</span>
+            <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800/60">LIVE PIPELINE</span>
+          </div>
+
+          {/* Pipeline Cards Grid */}
+          <p class="text-[11px] font-mono font-bold text-slate-400 mb-3 tracking-wide uppercase">AUTHORITATIVE DOCUMENT FLOW</p>
+          <div class="space-y-2.5">
+            {[
+              { step: '01', file: 'IDEAS.md', tag: 'Human Input', desc: '아이디어 및 비즈니스 동기', color: 'border-slate-800 bg-slate-900/60 text-slate-300' },
+              { step: '02', file: 'PITCHING_SCRIPT.md', tag: 'Human Input', desc: '제품 핵심 포지셔닝', color: 'border-slate-800 bg-slate-900/60 text-slate-300' },
+              { step: '03', file: 'PRODUCT_SPEC.md', tag: 'Discussion AI', desc: '제품 정의 및 스펙 요구사항', color: 'border-cyan-500/40 bg-cyan-950/30 text-cyan-200' },
+              { step: '04', file: 'TECH_STACK.md', tag: 'Discussion AI', desc: '기술 스택 & 구현 규칙', color: 'border-cyan-500/40 bg-cyan-950/30 text-cyan-200' },
+              { step: '05', file: 'ARCHITECTURE.md', tag: 'Discussion AI', desc: '시스템 설계 및 컴포넌트 구조', color: 'border-cyan-500/40 bg-cyan-950/30 text-cyan-200' },
+              { step: '06', file: 'TASKS.md', tag: 'Execution AI', desc: '실행 계획 & 개별 TASK 마일스톤', color: 'border-emerald-500/50 bg-emerald-950/40 text-emerald-200' },
+            ].map((item) => (
+              <div class={`flex items-center justify-between p-2.5 rounded-xl border ${item.color} transition-all hover:scale-[1.01]`}>
+                <div class="flex items-center gap-2.5 min-w-0">
+                  <span class="text-[10px] font-mono font-extrabold text-slate-500">{item.step}</span>
+                  <span class="font-mono font-black text-xs tracking-tight">{item.file}</span>
+                </div>
+                <span class="text-[9px] font-mono font-bold px-2 py-0.5 rounded bg-slate-950/80 text-slate-400 border border-slate-800">
+                  {item.tag}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Execution Status Footer */}
+          <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-mono text-slate-400">
+            <span class="flex items-center gap-1.5">
+              <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+              Execution Rule: One Task = One Commit
+            </span>
+            <span class="text-cyan-400 font-bold">100% Reliable</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
