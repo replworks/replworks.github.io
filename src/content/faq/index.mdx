@@ -51,7 +51,17 @@ REPL Works는 **인간 엔지니어와 AI가 장기간 프로젝트를 지속 �
 
 ---
 
-### Q4. ChatGPT나 Claude 대화창만으로 개발하면 안 되나요?
+<a id="repl-works-compatible"></a>
+
+### Q4. REPL Works 호환 프로젝트란 무엇인가요?
+
+REPL Works 호환 프로젝트는 프로젝트 기억을 대화가 아니라 Git의 문서(`PRODUCT_SPEC.md`, `TECH_STACK.md`, `ARCHITECTURE.md`, `TASKS.md`, `AGENTS.md`)로 관리하는 프로젝트입니다.
+
+이 프로젝트는 REPL Works 방식을 따라 문서를 유지하고, 그 문서를 기준으로 AI와 사람이 작업합니다.
+
+---
+
+### Q5. ChatGPT나 Claude 대화창만으로 개발하면 안 되나요?
 
 단일 대화창으로 1회성 프로토타입을 만드는 것은 가능합니다. 그러나 **프로젝트 규모가 커지고 기능이 추가될수록 동일한 프로젝트 맥락을 매번 재설명해야 하는 비용 폭발**이 일어납니다.
 
@@ -61,7 +71,7 @@ REPL Works는 ChatGPT/Gemini 같은 **Discussion AI**(기획 및 명세 작성)�
 
 ## 2. 핵심 작동 방식 (How It Works)
 
-### Q5. 왜 대화 이력(Chat History) 대신 Git과 문서를 사용하나요?
+### Q6. 왜 대화 이력(Chat History) 대신 Git과 문서를 사용하나요?
 
 채팅 대화 이력은 일시적인 커뮤니케이션 수단에 불과합니다. 수개월 동안 유지 관리되는 실제 프로덕트에서는 다음 한계가 명확합니다:
 
@@ -72,7 +82,7 @@ REPL Works는 Git 커밋 및 마크다운 명세서를 **단일 진실 출처(Si
 
 ---
 
-### Q6. 왜 GitHub Issue 및 Pull Request 절차를 따르나요?
+### Q7. 왜 GitHub Issue 및 Pull Request 절차를 따르나요?
 
 검증되지 않은 에이전트의 코드 생성을 메인 브랜치에 직접 적용하면 코드베이스가 쉽게 오염됩니다.
 
@@ -85,7 +95,7 @@ REPL Works 파이프라인에서는:
 
 ---
 
-### Q7. 왜 6대 표준 문서로 역할을 분리했나요?
+### Q8. 왜 6대 표준 문서로 역할을 분리했나요?
 
 단일 거대 문서나 무질서한 파편화 문서는 AI와 사람 모두에게 혼란을 줍니다. REPL Works는 수많은 개발 문서를 AI가 가장 잘 이해하는 **6대 표준 명세 헌법**으로 정량화했습니다:
 
@@ -115,7 +125,7 @@ REPL Works 파이프라인에서는:
 
 ---
 
-### Q8. 왜 Discussion AI와 Execution AI를 엄격히 분리하나요?
+### Q9. 왜 Discussion AI와 Execution AI를 엄격히 분리하나요?
 
 두 에이전트 역할을 분리하는 가장 큰 목적은 **1) AI 환각 현상 원천 차단** 및 **2) 토큰 비용 최적화**입니다.
 
@@ -128,7 +138,7 @@ REPL Works 파이프라인에서는:
 
 ## 3. 아키텍처 & 원칙 (Architecture & Principles)
 
-### Q9. `PRODUCT_SPEC.md`는 왜 필요한가요?
+### Q10. `PRODUCT_SPEC.md`는 왜 필요한가요?
 
 `PRODUCT_SPEC.md`는 기획, 비즈니스, UI/UX 수락 기준을 통합한 제품 요구사항 기준 문서입니다.
 
@@ -140,7 +150,7 @@ REPL Works 파이프라인에서는:
 
 ---
 
-### Q10. REPL Works는 어떻게 토큰 및 컨텍스트 비용을 절감하나요?
+### Q11. REPL Works는 어떻게 토큰 및 컨텍스트 비용을 절감하나요?
 
 일반적인 대화형 AI 개발에서는 대화가 길어질수록 10만~20만 토큰의 거대한 컨텍스트를 매 프롬프트마다 재전송해야 합니다.
 
@@ -148,7 +158,7 @@ REPL Works는 핵심 명세를 Git 마크다운 문서로 압축 관리하므로
 
 ---
 
-### Q11. 특정 AI 모델이나 개발 기술 스택에 종속되나요?
+### Q12. 특정 AI 모델이나 개발 기술 스택에 종속되나요?
 
 **종속되지 않습니다.** REPL Works의 핵심 원칙 중 하나는 **모델 독립성(Model Independence)**입니다.
 

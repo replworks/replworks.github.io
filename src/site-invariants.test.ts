@@ -123,6 +123,17 @@ describe('REPL Works content invariants', () => {
     expect(card).toContain('showLesson');
   });
 
+  it('keeps Showcase as a card-first page', () => {
+    const showcase = read('src/content/showcase/index.mdx');
+    expect(showcase).toContain(
+      "REPL Works 방식으로 개발하고 운영 중인 프로젝트들입니다."
+    );
+    expect(showcase).not.toContain('DOCUMENT SPECIFICATION');
+    expect(showcase).not.toContain('Compatibility Requirements');
+    expect(showcase).not.toContain('Official Projects');
+    expect(showcase).not.toContain('Learn By Example');
+  });
+
   it('does not retain the removed frameworks collection or legacy file name', () => {
     const sourceFiles = [
       'src/content.config.ts',

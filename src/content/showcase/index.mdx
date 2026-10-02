@@ -1,90 +1,16 @@
 ---
 title: 'REPL Works Showcase'
-version: 'v2'
-description: 'REPL Works 방법론과 6대 표준 문서를 실제로 도입하여 지속 가능한 프로덕트로 개발 및 운영 중인 호환(Compatible) 프로젝트 모음'
+version: 'v3'
+description: 'REPL Works 방식으로 개발하고 운영 중인 프로젝트들입니다.'
 publishedAt: '2026-10-02T00:00:00Z'
 ---
 
-import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
-import MissionBox from '../../components/MissionBox.astro';
-import SpecGrid from '../../components/SpecGrid.astro';
-import DocLink from '../../components/DocLink.astro';
+import ShowcaseCard from '../../components/ShowcaseCard.astro';
+import { showcaseProjects } from '../../data/showcase';
 
-## 1. 개요 및 REPL Works Compatible 정의
-
-REPL Works는 단순한 이론이 아닙니다. 이 페이지는 **REPL Works 방법론과 표준 문서를 실제 프로덕트에 적용하여 프로젝트 지속성과 개발 효율을 증명한 호환(Compatible) 프로젝트 사례**를 소개합니다.
-
-<MissionBox text="Projects outlive humans, sessions, and models. (호환 프로젝트는 모델이 바뀌어도 Git 문서로 완수됩니다.)" />
-
-### 호환 프로젝트의 핵심 요건 (Compatibility Requirements)
-
-<DocBadgeGrid
-  docs={[
-    'PRODUCT_SPEC.md',
-    'TECH_STACK.md',
-    'ARCHITECTURE.md',
-    'TASKS.md',
-    'AGENTS.md',
-  ]}
-/>
-
-<SpecGrid
-  items={[
-    '단일 진실 출처 준수: 대화 세션이 아닌 Git에 저장된 마크다운 문서로 프로젝트 기억(Project Memory)을 관리합니다.',
-    '1-Task = 1-Commit 원칙: 오버 스코프 없이 검증 가능한 작업 마일스톤 단위로 에이전트 개발을 수행합니다.',
-    '모델 독립성 확보: AI 모델(Claude, GPT, Gemini)이나 CLI 도구가 변경되어도 프로젝트 기억이 영구 보존됩니다.',
-  ]}
-/>
-
----
-
-## 2. 공식 호환 프로덕트 (Official Projects)
-
-### 1. REPL Works 공식 웹사이트 (`replworks.github.io`)
-본 웹사이트 자체가 REPL Works 방법론과 6대 문서 헌법을 적용해 지속 관리 중인 첫 번째 도그푸딩(Dogfooding) 호환 프로덕션 프로젝트입니다.
-- **분류**: Website · Open Source
-- **주요 특징**: Astro 6+, Glassmorphic Dark UI, Client-side Search, Site Invariant Test Suite
-- [REPL Works 공식 웹사이트 방문](https://www.repl.net)
-- [REPL Works 웹사이트 쇼케이스 보기](/showcase/repl-works-website)
-
-### 2. AI Issue Publisher (`ai-issue`)
-대화 맥락을 Execution AI가 오버 스코프 없이 실행할 수 있는 GitHub Issue 형태로 자동 변환해 주는 전용 CLI 도구입니다.
-- **분류**: Tooling · CLI Tool
-- **주요 특징**: Go / Rust CLI, GitHub API 연동, 수락 조건(Acceptance Criteria) 자동 구조화
-- [AI Issue Publisher 쇼케이스 보기](/showcase/ai-issue)
-
-### 3. 와이파이 노트 (WIFI Note)
-구조화된 프로젝트 기억 자산화를 통해 복잡한 비즈니스 로직을 지속 확장해 나가는 과정을 보여주는 커머셜 웹 애플리케이션 사례입니다.
-- **분류**: Commercial · Web App
-- **주요 특징**: 비공개 비즈니스 로직, 6대 표준 문서 기반 의도 유지 및 세션 복원
-- [WIFI Note 서비스 방문](https://wifinote.net)
-- [WIFI Note 쇼케이스 보기](/showcase/wifi-note)
-
----
-
-## 3. 에코시스템 및 참조 프로덕트 (Ecosystem & Partner Projects)
-
-<SpecGrid
-  items={[
-    '클래이튜브 (ClayTube): 장기 운영에 포커스를 둔 프로젝트 기억 복원 검증 사례 — /showcase/claytube',
-    '이터놉스 (ETERNOps): 엔터프라이즈 비즈니스 및 서비스 운영 시스템 통합 사례 — /showcase/eternops',
-    '이턴랩스 (ETERN Labs): 높은 불확실성 속 실험/R&D 프로젝트에 적용한 워크플로 사례 — /showcase/etern-labs',
-    'MMA (Multi-Model Agent): 사람과 다중 AI 에이전트 간 역할 분담 및 협업 구조 사례 — /showcase/mma',
-  ]}
-/>
-
-- [ClayTube 서비스 방문](https://www.palgle.com/claytube/)
-
----
-
-## 4. 사례를 통한 학습 (Learn By Example)
-
-각 쇼케이스 상세 페이지에는 다음 명세 항목이 포함되어 있습니다:
-
-- **1. 개요 (Overview)**: 프로젝트 목적 및 비전
-- **2. 사용된 표준 문서 (Documents Used)**: 프로젝트에 적용된 REPL Works 표준 문서 헌법
-- **3. Workflow Usage**: Discussion → Document → Execution → Human Review 4단계 워크플로 적용 방식
-- **4. Tools Used**: 런타임 기술 스택 및 빌드/배포 도구
-- **5. 학습된 레슨 (Lessons Learned)**: 프로젝트 개발 및 운영 과정에서 얻은 핵심 교훈
-
-<DocLink href="/documents" text="6대 표준 문서 양식 및 명세서 보기" />
+<div class="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+  {showcaseProjects
+    .slice()
+    .sort((a, b) => Number(b.featured) - Number(a.featured) || a.order - b.order)
+    .map((project) => <ShowcaseCard project={project} showLesson />)}
+</div>
