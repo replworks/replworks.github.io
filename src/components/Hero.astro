@@ -1,8 +1,16 @@
-<section class="relative w-full min-h-[85vh] flex items-center overflow-hidden bg-[#090d16] bg-grid-pattern animate-grid-slow bg-radial-gradient border-b border-slate-800/80 py-16 lg:py-24">
-  {/* Ambient Background Glows */}
-  <div class="absolute -top-40 right-0 h-96 w-96 rounded-full bg-cyan-500/15 blur-[120px] pointer-events-none animate-orb-1"></div>
-  <div class="absolute bottom-0 left-10 h-80 w-80 rounded-full bg-indigo-500/15 blur-[100px] pointer-events-none animate-orb-2"></div>
-  <div class="absolute top-1/2 left-1/2 h-[500px] w-[500px] rounded-full bg-emerald-500/10 blur-[140px] pointer-events-none animate-orb-3"></div>
+---
+---
+
+<section class="relative w-full min-h-[85vh] flex items-center overflow-hidden bg-[#070a12] border-b border-slate-800/80 py-16 lg:py-24">
+  {/* Layer 1: Static Cyber Grid Pattern across the ENTIRE Hero Backdrop (0 CPU overhead) */}
+  <div class="absolute inset-0 bg-grid-pattern opacity-70 pointer-events-none"></div>
+
+  {/* Layer 2: Static Radial Gradient Spotlight (0 CPU overhead) */}
+  <div class="absolute inset-0 bg-radial-gradient opacity-90 pointer-events-none"></div>
+
+  {/* Layer 3: Ultra-light GPU-accelerated Soft Gradient Orbs (No CSS Blur Filter, 100% GPU composited) */}
+  <div class="absolute -top-10 -right-10 w-[550px] h-[550px] rounded-full bg-radial-cyan opacity-60 pointer-events-none animate-gpu-float-1"></div>
+  <div class="absolute -bottom-10 -left-10 w-[600px] h-[600px] rounded-full bg-radial-indigo opacity-60 pointer-events-none animate-gpu-float-2"></div>
 
   <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -61,18 +69,14 @@
         </div>
       </div>
 
-      {/* Right Column: Animated Triangle Diagram */}
+      {/* Right Column: Lightweight Animated Triangle Diagram */}
       <div class="lg:col-span-6 w-full flex justify-center">
-        <div class="glass-card rounded-3xl border border-slate-800/90 bg-[#0c1322]/85 p-6 sm:p-8 shadow-2xl relative w-full max-w-lg overflow-hidden group hover:border-cyan-500/40 transition-colors">
-          {/* Subtle Cyber Corner Accents */}
-          <div class="absolute top-0 right-0 w-24 h-24 bg-cyan-500/10 rounded-full blur-2xl group-hover:bg-cyan-500/20 transition-all pointer-events-none"></div>
-          <div class="absolute bottom-0 left-0 w-24 h-24 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-all pointer-events-none"></div>
-
+        <div class="glass-card rounded-3xl border border-slate-800/90 p-6 sm:p-8 shadow-2xl relative w-full max-w-lg overflow-hidden group hover:border-cyan-500/40 transition-colors">
           <svg
             viewBox="0 0 500 420"
             class="w-full h-auto max-w-full overflow-visible"
             role="img"
-            aria-label="Human, 대화형 AI, 코딩형 AI의 협업 관계와 문서·Git 자산을 나타내는 애니메이션 다이어그램"
+            aria-label="Human, 대화형 AI, 코딩형 AI의 협업 관계와 문서·Git 자산을 나타내는 다이어그램"
           >
             <title>Human, 대화형 AI, 코딩형 AI 협업 다이어그램</title>
             <desc>
@@ -127,29 +131,6 @@
                 <stop offset="0%" stop-color="#818cf8" />
                 <stop offset="100%" stop-color="#34d399" />
               </linearGradient>
-
-              {/* Glow Filters for Nodes */}
-              <filter id="glow-indigo" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="4" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-              <filter id="glow-cyan" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="4" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-              <filter id="glow-emerald" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="4" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
             </defs>
 
             {/* Path 1: Human <-> 대화형 AI */}
@@ -180,20 +161,18 @@
               marker-end="url(#arrow-emerald)"
             />
 
-            {/* Animated Traveling Data Pulses */}
-            {/* Line 1 Data Flow (Human -> Discussion AI & back) */}
-            <circle r="4.5" fill="#38bdf8" filter="url(#glow-cyan)">
+            {/* Light Data Flow Pulses */}
+            <circle r="4" fill="#38bdf8">
               <animateMotion dur="2.4s" repeatCount="indefinite" path="M 220 95 L 135 245" />
             </circle>
-            <circle r="3.5" fill="#818cf8" filter="url(#glow-indigo)">
+            <circle r="3" fill="#818cf8">
               <animateMotion dur="2.4s" begin="1.2s" repeatCount="indefinite" path="M 135 245 L 220 95" />
             </circle>
 
-            {/* Line 2 Data Flow (Human -> Execution AI & back) */}
-            <circle r="4.5" fill="#34d399" filter="url(#glow-emerald)">
+            <circle r="4" fill="#34d399">
               <animateMotion dur="2.6s" repeatCount="indefinite" path="M 280 95 L 365 245" />
             </circle>
-            <circle r="3.5" fill="#818cf8" filter="url(#glow-indigo)">
+            <circle r="3" fill="#818cf8">
               <animateMotion dur="2.6s" begin="1.3s" repeatCount="indefinite" path="M 365 245 L 280 95" />
             </circle>
 
@@ -213,10 +192,9 @@
                 height="64"
                 rx="16"
                 fill="#1e1b4b"
-                fill-opacity="0.9"
+                fill-opacity="0.95"
                 stroke="#6366f1"
                 stroke-width="2"
-                filter="url(#glow-indigo)"
               />
               <text
                 x="80"
@@ -256,10 +234,9 @@
                 height="84"
                 rx="16"
                 fill="#082f49"
-                fill-opacity="0.9"
+                fill-opacity="0.95"
                 stroke="#38bdf8"
                 stroke-width="2"
-                filter="url(#glow-cyan)"
               />
               <text
                 x="100"
@@ -309,10 +286,9 @@
                 height="84"
                 rx="16"
                 fill="#064e3b"
-                fill-opacity="0.9"
+                fill-opacity="0.95"
                 stroke="#34d399"
                 stroke-width="2"
-                filter="url(#glow-emerald)"
               />
               <text
                 x="100"
@@ -346,7 +322,7 @@
               </text>
             </g>
 
-            {/* Bottom Edge Label: 문서 · Git (Text only, no line) */}
+            {/* Bottom Edge Label: 문서 · Git */}
             <g transform="translate(250, 375)">
               <rect
                 x="-70"
@@ -355,7 +331,7 @@
                 height="32"
                 rx="12"
                 fill="#0f172a"
-                fill-opacity="0.9"
+                fill-opacity="0.95"
                 stroke="#475569"
                 stroke-width="1.5"
               />
@@ -379,18 +355,41 @@
 </section>
 
 <style>
-  /* Slow Sliding Motion for Tech Grid Pattern */
-  @keyframes grid-move {
-    0% {
-      background-position: 0 0;
+  /* Ultra-light Hardware-Accelerated Radial Orbs (Zero Blur Filter, Zero CPU repaint) */
+  .bg-radial-cyan {
+    background: radial-gradient(circle, rgba(56, 189, 248, 0.28) 0%, rgba(56, 189, 248, 0) 70%);
+  }
+
+  .bg-radial-indigo {
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.28) 0%, rgba(99, 102, 241, 0) 70%);
+  }
+
+  @keyframes gpu-float-1 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
     }
-    100% {
-      background-position: 40px 40px;
+    50% {
+      transform: translate3d(-80px, 50px, 0);
     }
   }
 
-  .animate-grid-slow {
-    animation: grid-move 20s linear infinite;
+  @keyframes gpu-float-2 {
+    0%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+    50% {
+      transform: translate3d(90px, -50px, 0);
+    }
+  }
+
+  .animate-gpu-float-1 {
+    will-change: transform;
+    animation: gpu-float-1 14s ease-in-out infinite;
+  }
+
+  .animate-gpu-float-2 {
+    will-change: transform;
+    animation: gpu-float-2 16s ease-in-out infinite;
   }
 
   /* Dash Flow Animation for Connection Lines */
@@ -403,60 +402,11 @@
     }
   }
 
-  /* Ambient Glow Drift Keyframes */
-  @keyframes orb-drift-1 {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-      opacity: 0.6;
-    }
-    50% {
-      transform: translate(-35px, 25px) scale(1.15);
-      opacity: 0.9;
-    }
-  }
-
-  @keyframes orb-drift-2 {
-    0%, 100% {
-      transform: translate(0, 0) scale(1);
-      opacity: 0.6;
-    }
-    50% {
-      transform: translate(35px, -25px) scale(1.18);
-      opacity: 0.85;
-    }
-  }
-
-  @keyframes orb-drift-3 {
-    0%, 100% {
-      transform: translate(-50%, -50%) scale(0.9);
-      opacity: 0.3;
-    }
-    50% {
-      transform: translate(-50%, -50%) scale(1.2);
-      opacity: 0.65;
-    }
-  }
-
   .animate-dash-discussion {
-    animation: dash-flow 1.4s linear infinite;
+    animation: dash-flow 1.6s linear infinite;
   }
 
   .animate-dash-execution {
-    animation: dash-flow 1.4s linear infinite reverse;
-  }
-
-  .animate-orb-1 {
-    animation: orb-drift-1 10s ease-in-out infinite;
-  }
-
-  .animate-orb-2 {
-    animation: orb-drift-2 12s ease-in-out infinite;
-  }
-
-  .animate-orb-3 {
-    animation: orb-drift-3 14s ease-in-out infinite;
+    animation: dash-flow 1.6s linear infinite reverse;
   }
 </style>
-
-
-
