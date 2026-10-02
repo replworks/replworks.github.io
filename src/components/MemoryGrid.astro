@@ -2,26 +2,26 @@
 // src/components/MemoryGrid.astro
 ---
 
-<div class="grid gap-4 sm:grid-cols-2 my-6">
+<div class="grid gap-5 sm:grid-cols-2 my-6">
   {/* 1. Session Memory Card */}
   <div
-    class="flex flex-col p-5 rounded-2xl border border-slate-200 bg-slate-50/50 shadow-sm"
+    class="flex flex-col p-5 rounded-2xl border border-red-900/40 bg-red-950/20 shadow-sm"
   >
     <div class="flex items-center gap-2 mb-3">
-      <span class="flex h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
-      <h4 class="text-sm font-black uppercase tracking-wider text-slate-500">
-        Session Memory
+      <span class="flex h-2 w-2 rounded-full bg-red-400 animate-pulse"></span>
+      <h4 class="text-xs font-mono font-black uppercase tracking-wider text-red-400">
+        Session Memory (휘발성 컨텍스트)
       </h4>
     </div>
-    <p class="text-xs text-slate-500 mb-4 leading-relaxed">
-      현재 세션이 끝나면 사라질 수 있는 휘발성 컨텍스트입니다.
+    <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+      세션 종료시 사라질 수 있으며, 대화가 길어질수록 과거의 결정 사항을 잊고 환각이 발생합니다.
     </p>
 
     <div class="flex flex-wrap gap-2">
       {
-        ['현재 채팅', '현재 Context Window', '현재 Agent Runtime'].map(
+        ['현재 채팅 세션', 'Context Window', 'Agent Runtime'].map(
           (item) => (
-            <span class="inline-block px-3 py-1.5 text-xs font-bold bg-white text-slate-700 border border-slate-200 rounded-lg shadow-sm">
+            <span class="inline-block px-3 py-1.5 text-xs font-bold bg-slate-900 text-slate-300 border border-slate-800 rounded-lg shadow-sm">
               {item}
             </span>
           )
@@ -32,22 +32,22 @@
 
   {/* 2. Project Memory Card */}
   <div
-    class="flex flex-col p-5 rounded-2xl border border-slate-800 bg-slate-950 shadow-md"
+    class="flex flex-col p-5 rounded-2xl border border-emerald-500/40 bg-emerald-950/20 shadow-md"
   >
     <div class="flex items-center gap-2 mb-3">
       <span class="flex h-2 w-2 rounded-full bg-emerald-400"></span>
-      <h4 class="text-sm font-black uppercase tracking-wider text-slate-400">
-        Project Memory
+      <h4 class="text-xs font-mono font-black uppercase tracking-wider text-emerald-400">
+        Project Memory (영구 자산)
       </h4>
     </div>
-    <p class="text-xs text-slate-400 mb-4 leading-relaxed">
-      Git과 마크다운 문서로 영구히 보존되는 프로젝트의 핵심 기억입니다.
+    <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+      Git과 마크다운 표준 문서로 영구 보존되어 세션이 끝나도 어떤 모델이든 개발을 이어갑니다.
     </p>
 
     <div class="flex flex-wrap gap-2">
       {
         [
-          'Git',
+          'Git Commit',
           'PRODUCT_SPEC.md',
           'ARCHITECTURE.md',
           'TASKS.md',
@@ -56,8 +56,8 @@
           <span
             class={`inline-block px-3 py-1.5 text-xs font-bold rounded-lg border ${
               item.endsWith('.md')
-                ? 'bg-slate-900 text-slate-100 border-slate-800 font-mono'
-                : 'bg-white text-slate-900 border-transparent'
+                ? 'bg-slate-950 text-cyan-300 border-slate-800 font-mono'
+                : 'bg-emerald-950 text-emerald-300 border-emerald-800/80'
             } shadow-sm`}
           >
             {item}

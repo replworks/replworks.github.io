@@ -9,9 +9,8 @@ const { items } = Astro.props;
 <div class="grid gap-3 sm:grid-cols-2 my-6">
   {
     items.map((item) => (
-      <div class="flex items-center px-4 py-3 rounded-xl border border-slate-200 bg-white shadow-sm border-l-4 border-l-slate-950 transition-all hover:border-slate-300 hover:shadow-md">
-        {/* 텍스트 크기를 text-base로 키우고, font-bold와 tracking-tight로 가독성 향상 */}
-        <p class="text-base font-bold text-slate-900 tracking-tight leading-tight">
+      <div class="flex items-center px-4 py-3 rounded-xl border border-slate-800 bg-slate-900/60 shadow-sm border-l-4 border-l-cyan-400 transition-all hover:border-slate-700 hover:bg-slate-900/90">
+        <p class="text-sm font-extrabold text-white tracking-tight leading-tight">
           {item}
         </p>
       </div>
