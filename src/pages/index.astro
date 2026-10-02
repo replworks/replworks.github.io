@@ -1,5 +1,7 @@
 ---
 import HomeLayout from '../layouts/HomeLayout.astro';
+import ShowcaseCard from '../components/ShowcaseCard.astro';
+import { showcaseProjects } from '../data/showcase';
 
 // 코어 워크플로 파이프라인 데이터
 const pipelineSteps = [
@@ -40,39 +42,6 @@ const benefits = [
   },
 ];
 
-// 쇼케이스 프로젝트 데이터
-const showcases = [
-  {
-    title: 'REPL Works 웹사이트',
-    desc: 'REPL Works 웹사이트는 본 프레임워크를 실제로 적용하여 관리 중인 공식 프로덕션 호환 프로젝트입니다.',
-    tags: ['Website', 'Dogfooding'],
-    link: '/showcase/repl-works-website',
-    website: 'https://www.repl.net',
-    github: 'https://github.com/replworks/replworks.github.io',
-  },
-  {
-    title: 'AI 이슈 퍼블리셔 (ai-issue)',
-    desc: 'AI 에이전트와의 토론 컨텍스트를 분석하여, 즉시 개발 및 실행 가능한 GitHub Issue 형태로 자동 변환해 주는 호환 도구입니다.',
-    tags: ['Tooling', 'CLI'],
-    link: '/showcase/ai-issue',
-    github: 'https://github.com/replworks/ai-issue',
-  },
-  {
-    title: '클래이튜브 (ClayTube)',
-    desc: 'ClayTube는 장기간에 걸쳐 지속적으로 기능이 개발되고 확장되는 과정을 검증하는 데 초점을 둔 참조 프로젝트입니다.',
-    tags: ['CLI', 'Generator'],
-    link: '/showcase/claytube',
-    website: 'https://www.palgle.com/claytube/',
-    github: 'https://github.com/eternops/claytube',
-  },
-  {
-    title: '와이파이 노트 (WIFI Note)',
-    desc: '구조화된 프로젝트 기억 자산화를 통해 복잡한 비즈니스 로직을 빌드해 나가는 과정을 보여주는 웹 애플리케이션 프로젝트입니다.',
-    tags: ['Commercial', 'Web App'],
-    link: '/showcase/wifi-note',
-    website: 'https://wifinote.net',
-  },
-];
 ---
 
 <HomeLayout
@@ -231,50 +200,10 @@ const showcases = [
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-        {showcases.map((project) => (
-          <article class="glass-card glass-card-hover rounded-2xl p-5 border-slate-800/80 bg-slate-900/40 flex flex-col justify-between space-y-4">
-            <div class="space-y-3">
-              <div class="flex flex-wrap gap-1.5 font-mono text-[10px]">
-                {project.tags.map((tag, idx) => (
-                  <span class={`px-2 py-0.5 rounded font-bold ${idx === 0 ? 'bg-cyan-950 text-cyan-300 border border-cyan-800/60' : 'bg-slate-800 text-slate-300'}`}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <h3 class="text-base font-extrabold text-white tracking-tight">{project.title}</h3>
-              <p class="text-xs text-slate-400 leading-relaxed">{project.desc}</p>
-            </div>
-
-            <div class="flex items-center gap-2 pt-2 border-t border-slate-800/60">
-              <a
-                href={project.link}
-                class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-bold text-slate-200 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors"
-              >
-                상세 정보
-              </a>
-              {project.website && (
-                <a
-                  href={project.website}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-bold text-cyan-300 hover:text-cyan-200 transition-colors"
-                >
-                  서비스 보기
-                </a>
-              )}
-              {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center px-3 py-1.5 text-xs font-bold text-slate-400 hover:text-cyan-300 transition-colors"
-                >
-                  GitHub
-                </a>
-              )}
-            </div>
-          </article>
-        ))}
+        {showcaseProjects
+          .filter((project) => project.featured)
+          .sort((a, b) => a.order - b.order)
+          .map((project) => <ShowcaseCard project={project} />)}
       </div>
     </section>
 
