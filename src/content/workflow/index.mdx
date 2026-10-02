@@ -66,6 +66,7 @@ REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운
 아이디어 단계부터 개발 준비 완료까지 6개의 핵심 표준 문서를 파이프라인 순서대로 작성합니다. 위 단계 문서가 확정되어야만 아래 단계 문서를 파생합니다.
 
 #### Phase 1: 아이디어 정제 및 포지셔닝 (`IDEAS.md`, `PITCHING_SCRIPT.md`)
+
 무엇을 왜 만들 것인지 핵심 가설과 비즈니스 포지셔닝을 정의합니다.
 
 <QuestionGrid
@@ -78,6 +79,7 @@ REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운
 />
 
 #### Phase 2: 제품 정의 (`PRODUCT_SPEC.md`)
+
 제품이 구체적으로 어떤 기능과 사용자 경험(UX), 네비게이션 구조를 제공할 것인지 정의하는 최상위 원천 명세입니다.
 
 <SpecGrid
@@ -90,6 +92,7 @@ REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운
 />
 
 #### Phase 3: 기술 사양 & 아키텍처 설계 (`TECH_STACK.md`, `ARCHITECTURE.md`)
+
 사용 언어, 프레임워크 버전, 디렉터리 제약 등 구현 컨벤션과 전체 시스템의 모듈 관계 및 데이터 흐름을 정의합니다.
 
 <SpecGrid
@@ -100,6 +103,7 @@ REPL Works는 **기획·설계(Discussion) → 구현(Execution) → 검토·운
 />
 
 #### Phase 4: 작업 계획 및 실행 헌법 (`TASKS.md`, `AGENTS.md`)
+
 전체 아키텍처를 독립 실행 가능한 세부 마일스톤(`TASKS.md`)으로 세분화하고, AI가 준수해야 할 실행 헌법(`AGENTS.md`)을 작성합니다.
 
 ---
@@ -121,12 +125,22 @@ Execution AI는 자율적으로 임의의 기능을 추가하거나 추측하지
   ]}
 />
 
-<InOut type="output" items={['소스 코드 구현', '단위/E2E 테스트', 'Git Commit / Pull Request']} />
+<InOut
+  type="output"
+  items={['소스 코드 구현', '단위/E2E 테스트', 'Git Commit / Pull Request']}
+/>
 
 #### 필수 자동 검증 조건 (Verification Gate)
+
 구현 완료 후 다음 기준을 만족해야만 작업이 완료된 것으로 판단합니다.
 
-<Criteria items={['Build Success (빌드 성공)', 'Lint Check Pass (코드 컨벤션)', 'Test Pass (단위/E2E 테스트)']} />
+<Criteria
+  items={[
+    'Build Success (빌드 성공)',
+    'Lint Check Pass (코드 컨벤션)',
+    'Test Pass (단위/E2E 테스트)',
+  ]}
+/>
 
 ---
 
@@ -135,6 +149,7 @@ Execution AI는 자율적으로 임의의 기능을 추가하거나 추측하지
 개발 완료 후 코드는 인간의 검토를 거쳐 배포되며, 운영 과정에서 얻은 피드백은 다시 상위 문서로 환류됩니다.
 
 #### Phase 8: Human Review (인간 검토)
+
 최종 책임은 사람(Human)에게 있습니다. 제품 명세와 건축적 기준이 지켜졌는지 최종 검증합니다.
 
 <ReviewGrid
@@ -147,6 +162,7 @@ Execution AI는 자율적으로 임의의 기능을 추가하거나 추측하지
 />
 
 #### Phase 9: Continuous Operation Loop (지속적 운영 루프)
+
 제품이 배포된 후 사용자 피드백, 버그 리포트, 신규 요구사항이 발생하면 문서를 최신 상태로 업데이트한 뒤 다음 탐색 회차(Next Iteration)를 시작합니다.
 
 <Workflow
@@ -169,6 +185,6 @@ Models change.
 Projects survive.
 ```
 
-REPL Works는 단순한 AI 프롬프트 팁이나 일회성 도구가 아닙니다. 
+REPL Works는 단순한 AI 프롬프트 팁이나 일회성 도구가 아닙니다.
 
 AI 세션이 끝나거나 새로운 모델이 등장하더라도, Git과 표준 문서 자산을 통해 **프로젝트의 지속성과 품질을 100% 보장하는 AI-Native 개발 프레임워크**입니다.

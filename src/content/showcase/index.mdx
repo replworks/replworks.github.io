@@ -11,6 +11,10 @@ import { showcaseProjects } from '../../data/showcase';
 <div class="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
   {showcaseProjects
     .slice()
-    .sort((a, b) => Number(b.featured) - Number(a.featured) || a.order - b.order)
-    .map((project) => <ShowcaseCard project={project} showLesson />)}
+    .sort(
+      (a, b) => Number(b.featured) - Number(a.featured) || a.order - b.order
+    )
+    .map((project) => (
+      <ShowcaseCard project={project} showLesson />
+    ))}
 </div>

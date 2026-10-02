@@ -37,12 +37,16 @@ REPL Works는 개발 파이프라인 단계에 맞춰 **총 9개의 표준 프�
 ### A. 기획 및 아이디어 정의 단계 (Planning Phase)
 
 #### 1. Idea Refinement (아이디어 정제)
+
 기획자와 Discussion AI가 대화하며 아이디어와 비즈니스 가설을 다듬고 정제합니다. 최종 확정 및 문서 작성은 기획자가 담당합니다.
+
 - **생성 대상**: `IDEAS.md`
 - [Idea Refinement 프롬프트 보기](/prompts/idea-refinement)
 
 #### 2. Pitch Creation (피치 작성)
+
 프로젝트의 목적과 차별성을 핵심 카피라인과 짧은 피치 스크립트로 압축 정리합니다.
+
 - **생성 대상**: `PITCHING_SCRIPT.md`
 - [Pitch Creation 프롬프트 보기](/prompts/pitch-creation)
 
@@ -51,22 +55,30 @@ REPL Works는 개발 파이프라인 단계에 맞춰 **총 9개의 표준 프�
 ### B. 제품 및 시스템 사양 정의 단계 (Specification Phase)
 
 #### 3. Product Specification (제품 정의 명세)
+
 제품의 도메인 비전, 타겟 유저, 정보 아키텍처 및 세부 기능 요구사항 규격을 구조화합니다.
+
 - **생성 대상**: `PRODUCT_SPEC.md`
 - [Product Specification 프롬프트 보기](/prompts/product-specification)
 
 #### 4. Tech Stack (기술 사양 정의)
+
 사용 기술, 언어 버전, 파일 배치 규칙, Naming Rule 등 구현 컨벤션을 정의합니다.
+
 - **생성 대상**: `TECH_STACK.md`
 - [Tech Stack 프롬프트 보기](/prompts/tech-stack)
 
 #### 5. Architecture Design (아키텍처 설계)
+
 시스템 컴포넌트 구조, 모듈 간 관계, 데이터 흐름 및 라우팅 설계를 정의합니다.
+
 - **생성 대상**: `ARCHITECTURE.md`
 - [Architecture Design 프롬프트 보기](/prompts/architecture-design)
 
 #### 6. Task Generation (작업 계획 수립)
+
 아키텍처와 제품 명세를 바탕으로, Execution AI가 1-Prompt = 1-Task로 즉시 수행 가능한 실행 마일스톤 목록을 생성합니다.
+
 - **생성 대상**: `TASKS.md`
 - [Task Generation 프롬프트 보기](/prompts/task-generation)
 
@@ -75,17 +87,23 @@ REPL Works는 개발 파이프라인 단계에 맞춰 **총 9개의 표준 프�
 ### C. 검증 및 리뷰 단계 (Review & Validation Phase)
 
 #### 7. Execution Validation (구현 준비 상태 검증)
+
 Execution AI가 임의 추측 없이 코드 구현을 시작할 수 있도록, 5대 상위 문서 간의 충돌이나 빠진 영역이 없는지 사전 검증합니다.
+
 - **검증 대상**: `PRODUCT_SPEC.md`, `TECH_STACK.md`, `ARCHITECTURE.md`, `TASKS.md`, `AGENTS.md`
 - [Execution Validation 프롬프트 보기](/prompts/execution-validation)
 
 #### 8. Architecture Review (아키텍처 명세 검토)
+
 작성된 `ARCHITECTURE.md`가 `PRODUCT_SPEC.md` 요구사항 및 `TECH_STACK.md` 구현 제약을 충족하는지 검토합니다.
+
 - **검토 대상**: `PRODUCT_SPEC.md`, `TECH_STACK.md`, `ARCHITECTURE.md`
 - [Architecture Review 프롬프트 보기](/prompts/architecture-review)
 
 #### 9. Task Review (작업 계획 검토)
+
 `TASKS.md`에 나열된 마일스톤이 제품 요구사항과 아키텍처 설계를 빠짐없이 반영하고 있는지 검토합니다.
+
 - **검토 대상**: `PRODUCT_SPEC.md`, `TECH_STACK.md`, `ARCHITECTURE.md`, `TASKS.md`
 - [Task Review 프롬프트 보기](/prompts/task-review)
 

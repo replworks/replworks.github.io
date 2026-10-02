@@ -30,7 +30,7 @@ REPL Works는 **프로젝트 기억을 대화창이 아닌 Git에 마크다운 �
 
 REPL Works는 [AI Issue Publisher](/tools/ai-issue)와 [REPL CLI](/tools/repl-cli) 같은 전용 CLI 도구를 제공하지만, 단순한 소프트웨어 도구에 국한되지 않습니다.
 
-REPL Works는 **인간 엔지니어와 AI가 장기간 프로젝트를 지속 가능하게 운영하기 위한 AI-Native 프로덕트 개발 방법론(Framework)**입니다. 
+REPL Works는 **인간 엔지니어와 AI가 장기간 프로젝트를 지속 가능하게 운영하기 위한 AI-Native 프로덕트 개발 방법론(Framework)**입니다.
 
 문서 헌법, Git 커밋 규칙, 4단계 파이프라인(Discussion → Document → Execution → Human Review)을 통해 개발 속도를 높이고 세션 비용을 극대화 절감합니다.
 
@@ -38,16 +38,16 @@ REPL Works는 **인간 엔지니어와 AI가 장기간 프로젝트를 지속 �
 
 ### Q3. 일반 AI Agent와 REPL Works의 차이점은 무엇인가요?
 
-| 비교 항목 | 일반 AI Agent (Action Focus) | REPL Works (Memory & Workflow) |
-| :--- | :--- | :--- |
-| **핵심 목적** | 일회성 작업 및 코드 자동 생성 | 프로젝트 수명 주기 지속성 및 의도 유지 |
-| **기억 저장 위치** | 일시적 대화 세션, Vector DB, 런타임 | Git 저장소 + Markdown 6대 표준 문서 |
-| **모델 의존성** | 높음 (특정 LLM 맥락에 강하게 의존) | 매우 낮음 (문서 기반 모델 독립성 확보) |
-| **모델 변경 시** | 프롬프트 재설정 및 세션 재구성 필요 | 마크다운 명세서 읽기로 즉각 복원 가능 |
-| **핵심 질문** | *"지금 어떤 코드를 작성할까?"* | *"왜 이 프로덕트를 만들고 어떻게 유지할까?"* |
-| **결과물** | 단발성 코드 / 스크립트 | 지속 가능한 프로덕트 자산 및 명세 헌법 |
+| 비교 항목          | 일반 AI Agent (Action Focus)        | REPL Works (Memory & Workflow)               |
+| :----------------- | :---------------------------------- | :------------------------------------------- |
+| **핵심 목적**      | 일회성 작업 및 코드 자동 생성       | 프로젝트 수명 주기 지속성 및 의도 유지       |
+| **기억 저장 위치** | 일시적 대화 세션, Vector DB, 런타임 | Git 저장소 + Markdown 6대 표준 문서          |
+| **모델 의존성**    | 높음 (특정 LLM 맥락에 강하게 의존)  | 매우 낮음 (문서 기반 모델 독립성 확보)       |
+| **모델 변경 시**   | 프롬프트 재설정 및 세션 재구성 필요 | 마크다운 명세서 읽기로 즉각 복원 가능        |
+| **핵심 질문**      | _"지금 어떤 코드를 작성할까?"_      | _"왜 이 프로덕트를 만들고 어떻게 유지할까?"_ |
+| **결과물**         | 단발성 코드 / 스크립트              | 지속 가능한 프로덕트 자산 및 명세 헌법       |
 
-*AI Agent와 REPL Works는 경쟁 관계가 아닙니다. AI Agent(Execution AI)가 올바른 수락 조건(Acceptance Criteria) 범위 내에서 단일 커밋을 완수하도록 통제해 주는 가이드라인이 REPL Works입니다.*
+_AI Agent와 REPL Works는 경쟁 관계가 아닙니다. AI Agent(Execution AI)가 올바른 수락 조건(Acceptance Criteria) 범위 내에서 단일 커밋을 완수하도록 통제해 주는 가이드라인이 REPL Works입니다._
 
 ---
 
@@ -87,6 +87,7 @@ REPL Works는 Git 커밋 및 마크다운 명세서를 **단일 진실 출처(Si
 검증되지 않은 에이전트의 코드 생성을 메인 브랜치에 직접 적용하면 코드베이스가 쉽게 오염됩니다.
 
 REPL Works 파이프라인에서는:
+
 1. Discussion AI가 검증 가능한 수락 조건이 명시된 **GitHub Issue** 생성 (또는 `ai-issue` 사용)
 2. Execution AI가 1-Task 1-Commit 범위 내에서 작업 후 **Pull Request** 작성
 3. **Human Reviewer**가 빌드 및 유닛/E2E 테스트 수행 후 최종 Merge 승인
@@ -143,6 +144,7 @@ REPL Works 파이프라인에서는:
 `PRODUCT_SPEC.md`는 기획, 비즈니스, UI/UX 수락 기준을 통합한 제품 요구사항 기준 문서입니다.
 
 이 문서는 다음 4가지 핵심 질문에 명확히 답할 수 있어야 합니다:
+
 1. **What the product is**: 이 프로덕트는 무엇인가?
 2. **What the product does**: 이 프로덕트가 수행하는 핵심 가치는 무엇인가?
 3. **What the user can do**: 사용자가 실행할 수 있는 작업 범위는 무엇인가?
@@ -179,4 +181,7 @@ REPL Works는 핵심 명세를 Git 마크다운 문서로 압축 관리하므로
   ]}
 />
 
-<DocLink href="/documents" text="REPL Works 6대 표준 문서 가이드 및 예시 보기" />
+<DocLink
+  href="/documents"
+  text="REPL Works 6대 표준 문서 가이드 및 예시 보기"
+/>

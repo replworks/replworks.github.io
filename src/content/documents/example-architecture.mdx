@@ -20,23 +20,31 @@ import DocLink from '../../components/DocLink.astro';
 Version 3.0
 
 ## PROJECT
+
 REPL Works Website
 
 ## PURPOSE
+
 Documentation Platform for REPL Works Framework
 
 ## PRIMARY NAVIGATION
+
 Home, Workflow, Prompts, Documents, Tools, Showcase, FAQ
 
 ## CONTENT MODEL & ROUTING
+
 - Framework: Astro 6+ (Static Generation)
 - Content Source: MDX Collections (`src/content/`)
 - Content Routes: `/workflow`, `/prompts`, `/documents`, `/tools`, `/showcase`, `/faq`
 
 ## ARCHITECTURAL INVARIANTS
+
 1. Static Export First: 모든 페이지는 GitHub Pages 배포를 위해 완전한 정적 HTML로 컴파일되어야 함
 2. Content Independence: 대용량 문서는 컴포넌트 내에 하드코딩하지 않고 MDX 수집함으로 분리
 3. No External Server Dependency: 백엔드 서버 DB 없이 완결적인 정적 클라이언트 아키텍처 유지
 ```
 
-<DocLink href="/documents/architecture" text="ARCHITECTURE.md 표준 규격으로 돌아가기" />
+<DocLink
+  href="/documents/architecture"
+  text="ARCHITECTURE.md 표준 규격으로 돌아가기"
+/>
