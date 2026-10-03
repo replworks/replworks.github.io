@@ -2,6 +2,7 @@
 import {
   collectionDescriptions,
   collectionTitles,
+  collectionLabels,
   contentCollections,
   isContentCollection,
 } from '../../lib/site';
@@ -33,7 +34,7 @@ const metadata = entry?.data ?? {};
 {collection === 'showcase' ? (
   <ShowcaseLayout
     title={entry ? (metadata.title ?? collectionTitle) : collectionTitle}
-    label={metadata.label}
+    label={metadata.label ?? collectionLabels[collection]}
     description={
       entry
         ? (metadata.description ?? collectionDescription)
@@ -58,7 +59,7 @@ const metadata = entry?.data ?? {};
 ) : (
   <DocumentLayout
     title={entry ? (metadata.title ?? collectionTitle) : collectionTitle}
-    label={metadata.label}
+    label={metadata.label ?? collectionLabels[collection]}
     description={
       entry
         ? (metadata.description ?? collectionDescription)

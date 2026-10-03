@@ -3,6 +3,7 @@ import type { ContentCollection } from '../../lib/site';
 import {
   contentCollections,
   collectionTitles,
+  collectionLabels,
   isContentCollection,
 } from '../../lib/site';
 import { getCollection, getEntry, render } from 'astro:content';
@@ -49,6 +50,7 @@ const promptDef =
 
 <DocumentLayout
   title={metadata.title ?? collectionTitles[collection]}
+  label={metadata.label ?? collectionLabels[collection]}
   description={
     metadata.description ?? `${collectionTitles[collection]} document.`
   }
