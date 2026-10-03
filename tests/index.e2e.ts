@@ -27,6 +27,35 @@ test('labels document links in Korean with a download icon', async ({
   await expect(downloadLink.locator('svg')).toBeVisible();
 });
 
+test('renders document explanations without code controls', async ({
+  page,
+}) => {
+  const documentSlugs = [
+    'agents',
+    'architecture',
+    'ideas',
+    'pitching-script',
+    'product-spec',
+    'tasks',
+    'tech-stack',
+  ];
+
+  for (const slug of documentSlugs) {
+    await page.goto(`/documents/${slug}`);
+    await expect(page.locator('.expressive-code')).toHaveCount(0);
+  }
+
+  await page.goto('/documents/ideas');
+  await expect(
+    page.getByText('IDEAS.md (아이디어 가설 검증)', { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.locator('blockquote').filter({
+      hasText: '좋은 IDEAS.md는 아이디어를 장황하게 설명하지 않습니다.',
+    }),
+  ).toBeVisible();
+});
+
 test('applies the light theme to detail pages', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('theme', 'light'));
   await page.goto('/prompts/idea-refinement');

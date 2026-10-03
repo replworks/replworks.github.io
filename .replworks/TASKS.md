@@ -279,6 +279,7 @@ Propose TASK update
 
 - [x] T1301 Use templates/prompts as the canonical build-time prompt source
 - [x] T1302 Render prompt output artifacts without code-block controls
+- [x] T1303 Render explanatory flows and principle text across document detail pages without code-block controls
 
 ---
 

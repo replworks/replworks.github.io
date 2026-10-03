@@ -8,6 +8,7 @@ publishedAt: '2026-10-02T00:00:00Z'
 import MissionBox from '../../components/MissionBox.astro';
 import SpecGrid from '../../components/SpecGrid.astro';
 import DocLink from '../../components/DocLink.astro';
+import DocumentFlow from '../../components/DocumentFlow.astro';
 
 ## 1. 개요 및 목적
 
@@ -33,13 +34,13 @@ import DocLink from '../../components/DocLink.astro';
 
 - **코딩형 AI 필수 참조**: 코딩형 AI는 구현 시 오직 `TECH_STACK.md`에 선언된 기술과 규칙만 사용해야 하며, 허가되지 않은 패키지나 상이한 스타일을 임의로 도입할 수 없습니다.
 
-```text
-PRODUCT_SPEC.md (무엇을 만들지 정의)
-       ↓
-TECH_STACK.md (어떤 기술 제약과 규칙으로 만들지 정의)
-       ↓
-ARCHITECTURE.md (시스템이 어떻게 구성되고 동작하는지 정의)
-```
+<DocumentFlow
+  documents={[
+    'PRODUCT_SPEC.md (무엇을 만들지 정의)',
+    'TECH_STACK.md (어떤 기술 제약과 규칙으로 만들지 정의)',
+    'ARCHITECTURE.md (시스템이 어떻게 구성되고 동작하는지 정의)',
+  ]}
+/>
 
 ---
 
@@ -47,7 +48,5 @@ ARCHITECTURE.md (시스템이 어떻게 구성되고 동작하는지 정의)
 
 → [Tech Stack 프롬프트 바로가기](/prompts/tech-stack)
 
-```text
-좋은 TECH_STACK.md는 기능 개발을 다루지 않습니다.
-좋은 TECH_STACK.md는 코드베이스 구현을 일관되게 지켜주는 명시적인 가이드라인을 제공합니다.
-```
+> 좋은 TECH_STACK.md는 기능 개발을 다루지 않습니다.\
+> 좋은 TECH_STACK.md는 코드베이스 구현을 일관되게 지켜주는 명시적인 가이드라인을 제공합니다.
