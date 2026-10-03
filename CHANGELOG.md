@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.11.0 - 2026-10-03
+
+### What's Changed
+
+* style: update button styles by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/100
+* feat: enhance prompt management by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/101
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.10.9...v2.11.0
+
 ## v2.10.9 - 2026-10-03
 
 ### What's Changed
