@@ -3,8 +3,12 @@ import { resolve } from 'node:path';
 
 const promptSourceDirectory = resolve(process.cwd(), 'templates/prompts');
 
+export function getPromptSourceFilename(slug: string): string {
+  return `${slug.replaceAll('-', '_').toUpperCase()}_PROMPT.txt`;
+}
+
 export function getPromptSource(slug: string): string {
-  const sourceFilename = `${slug.replaceAll('-', '_').toUpperCase()}_PROMPT.txt`;
+  const sourceFilename = getPromptSourceFilename(slug);
   const sourcePath = resolve(promptSourceDirectory, sourceFilename);
 
   if (!existsSync(sourcePath)) {

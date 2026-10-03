@@ -222,6 +222,9 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
     await expect(
       page.locator('article .expressive-code .copy button').first(),
     ).toBeVisible();
+    await expect(
+      page.locator('article .expressive-code .title').last(),
+    ).toHaveText(`${slug.replaceAll('-', '_').toUpperCase()}_PROMPT.txt`);
 
     const expectedText = embeddedPrompts.get(slug);
     expect(expectedText).toBeDefined();
