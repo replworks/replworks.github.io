@@ -71,11 +71,11 @@ test('keeps primary pages within a mobile viewport', async ({ page }) => {
   await page.goto('/');
   await page.locator('summary').click();
   await expect(
-    page.locator('details nav').getByRole('link', { name: 'Workflow' }),
+    page.locator('details nav').getByRole('link', { name: '워크플로우' }),
   ).toBeVisible();
 });
 
-test('embeds the exact prompt text rendered on every prompt detail page', async ({
+test('embeds the exact prompt text rendered on every prompt detail page and has detail copy button', async ({
   page,
 }) => {
   const slugs = [
@@ -119,6 +119,10 @@ test('embeds the exact prompt text rendered on every prompt detail page', async 
 
   for (const slug of slugs) {
     await page.goto(`/prompts/${slug}`);
+    await expect(
+      page.locator('article pre .code-copy-btn').first(),
+    ).toBeVisible();
+
     const renderedPrompt = await page
       .locator('article pre code')
       .last()
