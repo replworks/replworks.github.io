@@ -95,8 +95,20 @@ Design Second
 Content Source
 
 ```text
-MDX
+MDX for explanatory and collection content
+
+templates/prompts/*.txt for prompt source text
 ```
+
+Prompt source files under `templates/prompts/` are the canonical source for
+the prompt text shown and copied by the Prompts collection. Prompt source
+filenames use the human-authored constant convention
+`<UPPER_SNAKE_CASE_SLUG>_PROMPT.txt`; for example,
+`PRODUCT_SPECIFICATION_PROMPT.txt` is the source for the
+`product-specification` prompt. The public slug is derived from the filename
+by removing `_PROMPT.txt`, lowercasing, and replacing underscores with
+hyphens. Prompt source text is read during the Astro build and is not fetched
+from a runtime service.
 
 ---
 
@@ -373,7 +385,9 @@ faq/
 All content must be stored as:
 
 ```text
-MDX
+MDX for explanatory and collection content
+
+TXT files under templates/prompts/ for prompt source text
 ```
 
 ---

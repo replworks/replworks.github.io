@@ -9,8 +9,10 @@ import {
 import { getCollection, getEntry, render } from 'astro:content';
 import DocumentLayout from '../../layouts/DocumentLayout.astro';
 import PromptDetailHeader from '../../components/PromptDetailHeader.astro';
+import PromptSource from '../../components/PromptSource.astro';
 import CollectionSidebar from '../../components/CollectionSidebar.astro';
 import { promptDefinitions } from '../../data/prompts';
+import { getPromptSource } from '../../utils/promptSource';
 
 export async function getStaticPaths() {
   const paths: Array<{
@@ -47,6 +49,7 @@ const promptDef =
   collection === 'prompts'
     ? (promptDefinitions.find((p) => p.slug === slug) ?? null)
     : null;
+const promptText = promptDef ? getPromptSource(promptDef.slug) : null;
 ---
 
 <DocumentLayout
@@ -61,13 +64,17 @@ const promptDef =
       {promptDef && <PromptDetailHeader prompt={promptDef} />}
 
       {rendered ? (
-        <article
-          set:html={rendered.html}
-          class="space-y-6 text-slate-700 dark:text-slate-200"
-        />
+        <div class="space-y-6">
+          <article
+            set:html={rendered.html}
+            class="space-y-6 text-slate-700 dark:text-slate-200"
+          />
+          {promptText && <PromptSource promptText={promptText} />}
+        </div>
       ) : Content ? (
         <article class="space-y-6 text-slate-700 dark:text-slate-200">
           <Content />
+          {promptText && <PromptSource promptText={promptText} />}
         </article>
       ) : (
         <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">

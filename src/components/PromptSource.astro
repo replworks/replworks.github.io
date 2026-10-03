@@ -1,0 +1,22 @@
+---
+interface Props {
+  promptText: string;
+}
+
+import { Code } from 'astro-expressive-code/components';
+
+const { promptText } = Astro.props;
+---
+
+<section class="space-y-3" aria-labelledby="prompt-source-title">
+  <h2
+    id="prompt-source-title"
+    class="text-xl font-black text-slate-900 dark:text-white"
+  >
+    🤖 AI 프롬프트 원문
+  </h2>
+  <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+    아래 프롬프트를 복사하여 AI 대화창 첫 메시지로 전달해 보세요.
+  </p>
+  <Code code={promptText} lang="text" />
+</section>

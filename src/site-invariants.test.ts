@@ -1,7 +1,9 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { promptDefinitions } from './data/prompts';
 import { showcaseProjects } from './data/showcase';
+import { getPromptSource } from './utils/promptSource';
 
 const root = resolve(import.meta.dirname, '..');
 const read = (relativePath: string) =>
@@ -53,6 +55,15 @@ describe('REPL Works content invariants', () => {
     ]) {
       expect(existsSync(resolve(root, `src/content/prompts/${prompt}`))).toBe(
         true,
+      );
+    }
+  });
+
+  it('keeps every published prompt backed by its slug-named source file', () => {
+    for (const prompt of promptDefinitions) {
+      const source = getPromptSource(prompt.slug);
+      expect(source.length, `${prompt.slug} source is empty`).toBeGreaterThan(
+        0,
       );
     }
   });

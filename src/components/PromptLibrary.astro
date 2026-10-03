@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { promptDefinitions, promptGroups } from '../data/prompts';
-import { extractPromptTextFromSource } from '../utils/promptText';
+import { getPromptSource } from '../utils/promptSource';
 import PromptCard from './PromptCard.astro';
 
 const promptEntries = await getCollection('prompts');
@@ -10,11 +10,9 @@ const promptCards = await Promise.all(
   promptDefinitions.map(async (prompt) => {
     const entry = entriesBySlug.get(prompt.slug);
     if (!entry) throw new Error(`Missing prompt entry: ${prompt.slug}`);
-    if (!entry.body) throw new Error(`Missing prompt source: ${prompt.slug}`);
-
     return {
       prompt,
-      promptText: extractPromptTextFromSource(entry.body),
+      promptText: getPromptSource(prompt.slug),
     };
   }),
 );
