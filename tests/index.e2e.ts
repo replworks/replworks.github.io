@@ -26,6 +26,22 @@ test('applies the light theme to detail pages', async ({ page }) => {
   );
 });
 
+test('applies the light theme to the homepage', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('theme', 'light'));
+  await page.goto('/');
+
+  await expect(page.locator('html')).toHaveClass(/light/);
+  await expect(page.locator('html')).not.toHaveClass(/dark/);
+  await expect(page.locator('h1').first()).toHaveCSS(
+    'color',
+    'oklch(0.208 0.042 265.755)',
+  );
+  await expect(page.locator('main')).toHaveCSS(
+    'color',
+    'oklch(0.208 0.042 265.755)',
+  );
+});
+
 test('searches every public content collection', async ({ page }) => {
   await page.goto('/search');
 

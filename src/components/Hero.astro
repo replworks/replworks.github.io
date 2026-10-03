@@ -1,7 +1,7 @@
 ---
 ---
 
-<section class="relative w-full min-h-none sm:min-h-[85vh] flex items-center overflow-hidden bg-[#070a12] border-b border-slate-800/80 pt-8 pb-14 sm:py-16 lg:py-24">
+<section class="relative w-full min-h-none sm:min-h-[85vh] flex items-center overflow-hidden bg-slate-50 dark:bg-[#070a12] border-b border-slate-200 dark:border-slate-800/80 pt-8 pb-14 sm:py-16 lg:py-24 transition-colors duration-200">
   {/* Layer 1: Static Cyber Grid Pattern across the ENTIRE Hero Backdrop (0 CPU overhead) */}
   <div class="absolute inset-0 bg-grid-pattern opacity-70 pointer-events-none"></div>
 
@@ -17,7 +17,7 @@
       {/* Left Column: Core Value Pitch */}
       <div class="lg:col-span-6 space-y-6 text-left">
         {/* Top Tagline */}
-        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 text-[11px] font-mono font-bold tracking-wide text-cyan-400 select-none shadow-inner hover:border-cyan-500/50 transition-colors">
+        <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 text-[11px] font-mono font-bold tracking-wide text-cyan-700 dark:text-cyan-400 select-none shadow-inner hover:border-cyan-500/50 transition-colors">
           <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
@@ -26,14 +26,14 @@
         </span>
 
         {/* Main Headline */}
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12]">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.12]">
           AI로 만든 프로젝트가
           <br />
           <span class="text-gradient-cyan">산으로 가지 않게</span>
         </h1>
 
         {/* Core Subcopy */}
-        <p class="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl">
+        <p class="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-normal max-w-2xl">
           대화형 AI로 기획하고 코딩형 AI로 개발하는 방식은 이미 맞습니다. REPL
           Works는 완료 후 수정과 개선까지 프로젝트가 흐트러지지 않게 하는 문서
           방법론입니다.
@@ -62,7 +62,7 @@
           </a>
           <a
             href="/showcase"
-            class="inline-flex items-center justify-center px-6 py-3.5 text-xs font-extrabold text-slate-200 bg-slate-900/90 border border-slate-800 rounded-xl hover:bg-slate-800 hover:text-white hover:border-slate-700 hover:shadow-lg hover:shadow-indigo-500/10 transition-all shrink-0"
+            class="inline-flex items-center justify-center px-6 py-3.5 text-xs font-extrabold text-slate-800 dark:text-slate-200 bg-white/90 dark:bg-slate-900/90 border border-slate-300 dark:border-slate-800 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-950 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-700 hover:shadow-lg hover:shadow-indigo-500/10 transition-all shrink-0"
           >
             실제 결과물 보기
           </a>
@@ -71,7 +71,7 @@
 
       {/* Right Column: Lightweight Animated Triangle Diagram */}
       <div class="lg:col-span-6 w-full flex justify-center">
-        <div class="glass-card rounded-3xl border border-slate-800/90 p-3.5 sm:p-8 shadow-2xl relative w-full max-w-lg overflow-hidden group hover:border-cyan-500/40 transition-colors">
+        <div class="glass-card rounded-3xl border border-slate-200 dark:border-slate-800/90 p-3.5 sm:p-8 shadow-2xl relative w-full max-w-lg overflow-hidden group hover:border-cyan-500/40 transition-colors">
           <svg
             viewBox="0 0 500 445"
             class="w-full h-auto max-w-full overflow-visible"
@@ -209,16 +209,16 @@
                 width="200"
                 height="85"
                 rx="20"
-                fill="#1e1b4b"
+                fill="var(--hero-human-fill)"
                 fill-opacity="0.95"
-                stroke="#6366f1"
+                stroke="var(--hero-human-stroke)"
                 stroke-width="2.5"
               />
               <text
                 x="100"
                 y="38"
                 text-anchor="middle"
-                fill="#ffffff"
+                fill="var(--hero-node-title)"
                 font-weight="900"
                 font-size="24"
               >
@@ -228,7 +228,7 @@
                 x="100"
                 y="66"
                 text-anchor="middle"
-                fill="#a5b4fc"
+                fill="var(--hero-human-copy)"
                 font-weight="700"
                 font-size="18"
               >
@@ -251,16 +251,16 @@
                 width="235"
                 height="114"
                 rx="20"
-                fill="#082f49"
+                fill="var(--hero-discussion-fill)"
                 fill-opacity="0.95"
-                stroke="#38bdf8"
+                stroke="var(--hero-discussion-stroke)"
                 stroke-width="2.5"
               />
               <text
                 x="117.5"
                 y="36"
                 text-anchor="middle"
-                fill="#ffffff"
+                fill="var(--hero-node-title)"
                 font-weight="900"
                 font-size="24"
               >
@@ -270,7 +270,7 @@
                 x="117.5"
                 y="62"
                 text-anchor="middle"
-                fill="#7dd3fc"
+                fill="var(--hero-discussion-copy)"
                 font-weight="600"
                 font-size="16"
               >
@@ -280,7 +280,7 @@
                 x="117.5"
                 y="92"
                 text-anchor="middle"
-                fill="#bae6fd"
+                fill="var(--hero-discussion-detail)"
                 font-weight="700"
                 font-size="18"
               >
@@ -303,16 +303,16 @@
                 width="235"
                 height="114"
                 rx="20"
-                fill="#064e3b"
+                fill="var(--hero-execution-fill)"
                 fill-opacity="0.95"
-                stroke="#34d399"
+                stroke="var(--hero-execution-stroke)"
                 stroke-width="2.5"
               />
               <text
                 x="117.5"
                 y="36"
                 text-anchor="middle"
-                fill="#ffffff"
+                fill="var(--hero-node-title)"
                 font-weight="900"
                 font-size="24"
               >
@@ -322,7 +322,7 @@
                 x="117.5"
                 y="62"
                 text-anchor="middle"
-                fill="#6ee7b7"
+                fill="var(--hero-execution-copy)"
                 font-weight="600"
                 font-size="16"
               >
@@ -332,7 +332,7 @@
                 x="117.5"
                 y="92"
                 text-anchor="middle"
-                fill="#a7f3d0"
+                fill="var(--hero-execution-detail)"
                 font-weight="700"
                 font-size="18"
               >
@@ -348,16 +348,16 @@
                 width="180"
                 height="44"
                 rx="16"
-                fill="#0f172a"
+                fill="var(--hero-assets-fill)"
                 fill-opacity="0.95"
-                stroke="#475569"
+                stroke="var(--hero-assets-stroke)"
                 stroke-width="1.5"
               />
               <text
                 x="0"
                 y="7"
                 text-anchor="middle"
-                fill="#cbd5e1"
+                fill="var(--hero-assets-copy)"
                 font-weight="800"
                 font-size="20"
                 letter-spacing="1"
@@ -373,6 +373,42 @@
 </section>
 
 <style>
+  :global(:root) {
+    --hero-human-fill: #1e1b4b;
+    --hero-human-stroke: #6366f1;
+    --hero-node-title: #ffffff;
+    --hero-human-copy: #a5b4fc;
+    --hero-discussion-fill: #082f49;
+    --hero-discussion-stroke: #38bdf8;
+    --hero-discussion-copy: #7dd3fc;
+    --hero-discussion-detail: #bae6fd;
+    --hero-execution-fill: #064e3b;
+    --hero-execution-stroke: #34d399;
+    --hero-execution-copy: #6ee7b7;
+    --hero-execution-detail: #a7f3d0;
+    --hero-assets-fill: #0f172a;
+    --hero-assets-stroke: #475569;
+    --hero-assets-copy: #cbd5e1;
+  }
+
+  :global(html.light) {
+    --hero-human-fill: #e0e7ff;
+    --hero-human-stroke: #6366f1;
+    --hero-node-title: #1e1b4b;
+    --hero-human-copy: #4338ca;
+    --hero-discussion-fill: #e0f2fe;
+    --hero-discussion-stroke: #0284c7;
+    --hero-discussion-copy: #0369a1;
+    --hero-discussion-detail: #075985;
+    --hero-execution-fill: #d1fae5;
+    --hero-execution-stroke: #059669;
+    --hero-execution-copy: #047857;
+    --hero-execution-detail: #065f46;
+    --hero-assets-fill: #f1f5f9;
+    --hero-assets-stroke: #64748b;
+    --hero-assets-copy: #334155;
+  }
+
   /* Ultra-light Hardware-Accelerated Radial Orbs (Zero Blur Filter, Zero CPU repaint) */
   .bg-radial-cyan {
     background: radial-gradient(
