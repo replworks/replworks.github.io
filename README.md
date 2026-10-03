@@ -119,18 +119,30 @@ AI agent는 먼저 `AGENTS.md`를 읽고, 그 문서가 선언한 순서에 따�
 
 `templates/`는 웹사이트가 직접 렌더링하는 콘텐츠 디렉터리가 아니다.
 
-`templates/`에는 REPLWorks 방식으로 실무를 진행할 때 AI가 참고하는 프롬프트와 미리 만들어 놓은 예제 `TECH_STACK.md`를 둔다. 실무에서 이 파일들을 수정하면, AI는 해당 내용을 참고해 웹사이트의 실제 콘텐츠와 구현을 `src/**`에 반영한다.
+`templates/`에는 REPLWorks 방식으로 실무를 진행할 때 사용하는 프롬프트와 미리 만들어 놓은 예제 `TECH_STACK.md`를 둔다.
+
+`templates/prompts/`의 프롬프트 파일은 웹사이트에 표시하고 복사하는 원문의 canonical source다. Astro는 사이트를 빌드할 때 이 파일을 읽어 정적 페이지에 포함한다. 실행 중인 사이트가 `templates/`를 직접 읽는 것은 아니다.
+
+프롬프트 원본 파일명은 사람이 관리하는 산출물이라는 의미를 보존하기 위해 다음 규칙을 사용한다.
+
+```text
+<UPPER_SNAKE_CASE_SLUG>_PROMPT.txt
+```
+
+예를 들어 `PRODUCT_SPECIFICATION_PROMPT.txt`는 사이트의
+`product-specification` 프롬프트 원본이다. 별도의 파일 매핑 없이 파일명에서 사이트 slug를 계산한다.
 
 ```text
 templates/
-├── prompts/       # 실무에서 사용하는 재사용 프롬프트
+├── prompts/       # 사이트 원문으로도 사용하는 재사용 프롬프트
 └── tech-stacks/   # 프레임워크별 `TECH_STACK.md` 템플릿
 
 src/
-└── ...            # Astro가 실제로 빌드하고 웹사이트에 렌더링하는 파일
+├── content/prompts/ # 프롬프트 설명, 목적, 사용 방법
+└── ...              # Astro가 빌드하고 웹사이트에 렌더링하는 파일
 ```
 
-따라서 `templates/`는 Astro content collection이나 public asset으로 등록하지 않는다. `templates/`의 파일을 웹사이트에 그대로 노출하거나 raw endpoint로 제공하지 않는다.
+`templates/`는 Astro content collection이나 public asset으로 등록하지 않는다. 원본 파일을 raw endpoint로 제공하지 않으며, 빌드 결과에 필요한 프롬프트 텍스트만 정적으로 포함한다.
 
 ## 이 저장소
 
@@ -170,7 +182,36 @@ npm run test
 npm run build
 ```
 
-배포 대상은 GitHub Pages이며, 배포 방식은 저장소의 GitHub Actions 설정을 따른다.
+프롬프트 원문을 수정한 경우에는 다음 명령으로 사이트에 반영되는 결과를 확인한다.
+
+```bash
+npm run build
+npm run preview
+```
+
+`templates/prompts/`는 Astro의 일반 콘텐츠 디렉터리 바깥에 있으므로 개발 서버가 변경을 자동으로 갱신하지 않을 수 있다. 변경이 바로 보이지 않으면 개발 서버를 재시작한다.
+
+## 배포
+
+프롬프트 원문 수정은 실행 중인 배포 사이트에 즉시 반영되지 않는다. 원본 수정 후 Astro 빌드가 다시 실행되어야 한다.
+
+배포 흐름은 다음과 같다.
+
+```text
+templates/prompts/ 원본 수정
+    ↓
+변경 사항 커밋 및 push
+    ↓
+GitHub Actions CI가 빌드 검증
+    ↓
+Release 발행 또는 Deploy workflow 수동 실행
+    ↓
+Astro가 원본 프롬프트를 읽어 dist 생성
+    ↓
+GitHub Pages 배포
+```
+
+배포된 사이트는 `templates/` 파일을 직접 읽지 않는다. GitHub Actions가 빌드한 `dist/` 정적 결과물만 제공한다. 배포 workflow는 Release 발행 또는 GitHub Actions의 수동 실행으로 시작한다.
 
 ## 핵심 문장
 
