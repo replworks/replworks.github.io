@@ -8,6 +8,7 @@ publishedAt: '2026-10-02T00:00:00Z'
 import MissionBox from '../../components/MissionBox.astro';
 import SpecGrid from '../../components/SpecGrid.astro';
 import DocLink from '../../components/DocLink.astro';
+import DocumentFlow from '../../components/DocumentFlow.astro';
 
 ## 1. 개요 및 목적
 
@@ -33,13 +34,16 @@ import DocLink from '../../components/DocLink.astro';
 
 `PRODUCT_SPEC.md`는 기술적 구현 문서(`TECH_STACK.md`, `ARCHITECTURE.md`)나 실행 문서(`TASKS.md`)보다 상위에 위치하며 **언제나 기술 구현보다 우선**합니다.
 
-```text
-IDEAS.md → PITCHING_SCRIPT.md
-              ↓
-      PRODUCT_SPEC.md  (최상위 요구사항 규격)
-              ↓
-TECH_STACK.md → ARCHITECTURE.md → TASKS.md
-```
+<DocumentFlow
+  documents={[
+    'IDEAS.md',
+    'PITCHING_SCRIPT.md',
+    'PRODUCT_SPEC.md (최상위 요구사항 규격)',
+    'TECH_STACK.md',
+    'ARCHITECTURE.md',
+    'TASKS.md',
+  ]}
+/>
 
 - **대화형 AI & 코딩형 AI 모두 반드시 필수로 준수**해야 하는 문서입니다.
 - 제품의 본질적 유저 경험이나 핵심 요구사항이 변경될 때 수정을 진행합니다.
@@ -59,7 +63,5 @@ TECH_STACK.md → ARCHITECTURE.md → TASKS.md
   text="PRODUCT_SPEC.md 작성 예시 보기"
 />
 
-```text
-좋은 PRODUCT_SPEC.md는 코딩 스택을 설명하지 않습니다.
-좋은 PRODUCT_SPEC.md는 어떤 기능과 가치를 완성할 것인지 명확히 규정합니다.
-```
+> 좋은 PRODUCT_SPEC.md는 코딩 스택을 설명하지 않습니다.\
+> 좋은 PRODUCT_SPEC.md는 어떤 기능과 가치를 완성할 것인지 명확히 규정합니다.

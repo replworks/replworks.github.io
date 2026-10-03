@@ -9,6 +9,7 @@ import MissionBox from '../../components/MissionBox.astro';
 import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
 import SpecGrid from '../../components/SpecGrid.astro';
 import DocLink from '../../components/DocLink.astro';
+import WorkflowFlow from '../../components/WorkflowFlow.astro';
 
 ## 1. 개요 (Overview)
 
@@ -40,15 +41,14 @@ REPL Works 웹사이트는 본 프레임워크의 공식 웹사이트이자, **R
 
 웹사이트 구축 과정은 아래 3단계 워크플로 파이프라인을 100% 준수하여 진행되었습니다:
 
-```text
-대화형 AI (제품 요구사항 & 아키텍처 토론)
-       ↓
-REPL Works Documents (Git 기반 마크다운 명세 자산화)
-       ↓
-코딩형 AI (1-Prompt = 1-Task = 1-Commit 정밀 구현)
-       ↓
-Human Review (빌드/테스트 검증 & 최종 Merge)
-```
+<WorkflowFlow
+  steps={[
+    '대화형 AI (제품 요구사항 & 아키텍처 토론)',
+    'REPL Works Documents (Git 기반 마크다운 명세 자산화)',
+    '코딩형 AI (1-Prompt = 1-Task = 1-Commit 정밀 구현)',
+    'Human Review (빌드/테스트 검증 & 최종 Merge)',
+  ]}
+/>
 
 ---
 

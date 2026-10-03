@@ -27,6 +27,35 @@ test('labels document links in Korean with a download icon', async ({
   await expect(downloadLink.locator('svg')).toBeVisible();
 });
 
+test('renders document explanations without code controls', async ({
+  page,
+}) => {
+  const documentSlugs = [
+    'agents',
+    'architecture',
+    'ideas',
+    'pitching-script',
+    'product-spec',
+    'tasks',
+    'tech-stack',
+  ];
+
+  for (const slug of documentSlugs) {
+    await page.goto(`/documents/${slug}`);
+    await expect(page.locator('.expressive-code')).toHaveCount(0);
+  }
+
+  await page.goto('/documents/ideas');
+  await expect(
+    page.getByText('IDEAS.md (아이디어 가설 검증)', { exact: true }),
+  ).toBeVisible();
+  await expect(
+    page.locator('blockquote').filter({
+      hasText: '좋은 IDEAS.md는 아이디어를 장황하게 설명하지 않습니다.',
+    }),
+  ).toBeVisible();
+});
+
 test('applies the light theme to detail pages', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('theme', 'light'));
   await page.goto('/prompts/idea-refinement');
@@ -137,6 +166,26 @@ test('shows all Showcase projects as compatible cards', async ({ page }) => {
   await expect(page.getByText('REPL Works Compatible')).toHaveCount(7);
 });
 
+test('renders showcase workflow usage without code controls', async ({
+  page,
+}) => {
+  for (const slug of [
+    'ai-issue',
+    'claytube',
+    'etern-labs',
+    'eternops',
+    'mma',
+    'repl-works-website',
+    'wifi-note',
+  ]) {
+    await page.goto(`/showcase/${slug}`);
+    await expect(
+      page.getByRole('heading', { name: 'Workflow Usage' }),
+    ).toBeVisible();
+    await expect(page.locator('.expressive-code')).toHaveCount(0);
+  }
+});
+
 test('keeps primary pages within a mobile viewport', async ({ page }) => {
   await page.setViewportSize({ width: 393, height: 852 });
 
@@ -186,6 +235,17 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
     'architecture-review',
     'task-review',
   ];
+  const outputArtifacts = new Map([
+    ['idea-refinement', 'IDEAS.md'],
+    ['pitch-creation', 'PITCHING_SCRIPT.md'],
+    ['product-specification', 'PRODUCT_SPEC.md'],
+    ['tech-stack', 'TECH_STACK.md'],
+    ['architecture-design', 'ARCHITECTURE.md'],
+    ['task-generation', 'TASKS.md'],
+    ['execution-validation', 'Validation Report'],
+    ['architecture-review', 'Architecture Review Report'],
+    ['task-review', 'Task Review Report'],
+  ]);
 
   await page.goto('/prompts');
   await expect(
@@ -222,6 +282,9 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
     await expect(
       page.locator('article .expressive-code .copy button').first(),
     ).toBeVisible();
+    await expect(page.locator('[data-output-artifact]')).toHaveText(
+      outputArtifacts.get(slug) ?? '',
+    );
     await expect(
       page.locator('article .expressive-code .title').last(),
     ).toHaveText(`${slug.replaceAll('-', '_').toUpperCase()}_PROMPT.txt`);

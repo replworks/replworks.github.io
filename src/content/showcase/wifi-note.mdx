@@ -9,6 +9,7 @@ import MissionBox from '../../components/MissionBox.astro';
 import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
 import SpecGrid from '../../components/SpecGrid.astro';
 import DocLink from '../../components/DocLink.astro';
+import WorkflowFlow from '../../components/WorkflowFlow.astro';
 
 ## 1. 개요 (Overview)
 
@@ -48,9 +49,14 @@ WIFI Note 프로젝트 개발 시 적용된 REPL Works 표준 파이프라인입
 2. **1-Task = 1-Commit 실행 파이프라인**: `TASKS.md`에 정의된 개별 태스크 단위로 코딩형 AI에 프롬프트 전달 및 커밋 생성
 3. **세션 독립적 복원**: 새로운 개발 세션 진입 시 대화 이력 없이 Git 문서 자산만으로 100% 동일한 컨텍스트 재구성
 
-```text
-대화형 AI & Spec Definition ──> Git Markdown Memory (.replworks) ──> Task-Based 코딩형 AI ──> Verifiable Release
-```
+<WorkflowFlow
+  steps={[
+    '대화형 AI & Spec Definition',
+    'Git Markdown Memory (.replworks)',
+    'Task-Based 코딩형 AI',
+    'Verifiable Release',
+  ]}
+/>
 
 ---
 

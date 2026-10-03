@@ -9,6 +9,7 @@ import MissionBox from '../../components/MissionBox.astro';
 import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
 import SpecGrid from '../../components/SpecGrid.astro';
 import DocLink from '../../components/DocLink.astro';
+import WorkflowFlow from '../../components/WorkflowFlow.astro';
 
 ## 1. 개요 (Overview)
 
@@ -46,9 +47,14 @@ ETERN Labs 실험 파이프라인 워크플로입니다:
 2. **최소 실행 가능 스펙 작성**: `PRODUCT_SPEC.md`에 빠른 검증을 위한 핵심 범위 명시
 3. **반복적 태스크 실행 및 회고**: `TASKS.md` 명세를 기반으로 AI 에이전트 실행 및 실험 결과 문서화
 
-```text
-Hypothesis (IDEAS.md) ──> Minimal Spec Definition ──> Fast AI Prototyping ──> Learnings & Architecture Update
-```
+<WorkflowFlow
+  steps={[
+    'Hypothesis (IDEAS.md)',
+    'Minimal Spec Definition',
+    'Fast AI Prototyping',
+    'Learnings & Architecture Update',
+  ]}
+/>
 
 ---
 

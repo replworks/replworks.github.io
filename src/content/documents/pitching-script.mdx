@@ -8,6 +8,7 @@ publishedAt: '2026-10-02T00:00:00Z'
 import MissionBox from '../../components/MissionBox.astro';
 import SpecGrid from '../../components/SpecGrid.astro';
 import DocLink from '../../components/DocLink.astro';
+import DocumentFlow from '../../components/DocumentFlow.astro';
 
 ## 1. 개요 및 목적
 
@@ -49,13 +50,13 @@ import DocLink from '../../components/DocLink.astro';
 
 `PITCHING_SCRIPT.md`는 아이디어 검증(`IDEAS.md`)과 제품 명세(`PRODUCT_SPEC.md`)를 연결하는 브릿지 문서입니다.
 
-```text
-IDEAS.md  (아이디어 가설 검증)
-   ↓
-PITCHING_SCRIPT.md  (존재 이유 & 핵심 피치)
-   ↓
-PRODUCT_SPEC.md  (제품 스펙 Single Source of Truth)
-```
+<DocumentFlow
+  documents={[
+    'IDEAS.md (아이디어 가설 검증)',
+    'PITCHING_SCRIPT.md (존재 이유 & 핵심 피치)',
+    'PRODUCT_SPEC.md (제품 스펙 Single Source of Truth)',
+  ]}
+/>
 
 ---
 
@@ -75,7 +76,5 @@ PRODUCT_SPEC.md  (제품 스펙 Single Source of Truth)
   text="PITCHING_SCRIPT.md 작성 예시 보기"
 />
 
-```text
-좋은 PITCHING_SCRIPT.md는 제품 복잡성을 설명하지 않습니다.
-좋은 PITCHING_SCRIPT.md는 프로젝트의 본질적인 존재 이유를 설득합니다.
-```
+> 좋은 PITCHING_SCRIPT.md는 제품 복잡성을 설명하지 않습니다.\
+> 좋은 PITCHING_SCRIPT.md는 프로젝트의 본질적인 존재 이유를 설득합니다.

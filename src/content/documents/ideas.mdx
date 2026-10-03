@@ -8,6 +8,7 @@ publishedAt: '2026-10-02T00:00:00Z'
 import MissionBox from '../../components/MissionBox.astro';
 import SpecGrid from '../../components/SpecGrid.astro';
 import DocLink from '../../components/DocLink.astro';
+import DocumentFlow from '../../components/DocumentFlow.astro';
 
 ## 1. 개요 및 목적
 
@@ -54,13 +55,13 @@ import DocLink from '../../components/DocLink.astro';
 
 `IDEAS.md`는 프로젝트 전체 문서 파이프라인의 **가장 첫 번째 출발점**입니다.
 
-```text
-IDEAS.md  (아이디어 가설 검증)
-   ↓
-PITCHING_SCRIPT.md  (존재 이유 & 피치)
-   ↓
-PRODUCT_SPEC.md  (제품 스펙 Single Source of Truth)
-```
+<DocumentFlow
+  documents={[
+    'IDEAS.md (아이디어 가설 검증)',
+    'PITCHING_SCRIPT.md (존재 이유 & 피치)',
+    'PRODUCT_SPEC.md (제품 스펙 Single Source of Truth)',
+  ]}
+/>
 
 - **생성 시점**: 프로젝트 구상 초기 단계
 - **수정 주기**: 아이디어 가설이 검증 완료될 때까지 반복 수정
@@ -83,7 +84,5 @@ PRODUCT_SPEC.md  (제품 스펙 Single Source of Truth)
 
 <DocLink href="/documents/example-ideas-md" text="IDEAS.md 작성 예시 보기" />
 
-```text
-좋은 IDEAS.md는 아이디어를 장황하게 설명하지 않습니다.
-좋은 IDEAS.md는 아이디어를 사업적으로 검증합니다.
-```
+> 좋은 IDEAS.md는 아이디어를 장황하게 설명하지 않습니다.\
+> 좋은 IDEAS.md는 아이디어를 사업적으로 검증합니다.
