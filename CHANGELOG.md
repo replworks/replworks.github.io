@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.11.1 - 2026-10-03
+
+### What's Changed
+
+* feat: add source filename to prompt source component and utility functions by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/102
+* style: integrate the OutputArtifact, DocumentFlow, and WorkflowFlow components by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/103
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.11.0...v2.11.1
+
 ## v2.11.0 - 2026-10-03
 
 ### What's Changed
