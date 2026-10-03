@@ -62,7 +62,9 @@ describe('REPL Works content invariants', () => {
   it('keeps every published prompt backed by its slug-named source file', () => {
     for (const prompt of promptDefinitions) {
       const source = getPromptSource(prompt.slug);
-      expect(source.length, `${prompt.slug} source is empty`).toBeGreaterThan(0);
+      expect(source.length, `${prompt.slug} source is empty`).toBeGreaterThan(
+        0,
+      );
     }
   });
 

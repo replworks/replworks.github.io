@@ -233,9 +233,9 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
       .locator('pre code .ec-line')
       .allTextContents();
 
-    expect(renderedLines.map((line) => line.replace(/\n$/, '')).join('\n')).toBe(
-      expectedText,
-    );
+    expect(
+      renderedLines.map((line) => line.replace(/\n$/, '')).join('\n'),
+    ).toBe(expectedText);
   }
 });
 
