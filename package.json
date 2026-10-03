@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@expressive-code/plugin-frames": "^0.44.2",
     "@playwright/test": "^1.60.0",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.3.3",
@@ -32,6 +33,7 @@
     "@typescript-eslint/parser": "^8.71.0",
     "astro": "^7.3.5",
     "astro-broken-links-checker": "^1.1.0",
+    "astro-expressive-code": "^0.44.2",
     "astro-pagefind": "^2.0.0",
     "eslint": "^10.11.0",
     "eslint-config-prettier": "^10.1.8",

@@ -1,14 +1,30 @@
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import astroExpressiveCode from 'astro-expressive-code';
+import { pluginFramesTexts } from '@expressive-code/plugin-frames';
 import pagefind from 'astro-pagefind';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import astroBrokenLinksChecker from 'astro-broken-links-checker';
 
+pluginFramesTexts.overrideTexts(undefined, {
+  copyButtonTooltip: '복사',
+  copyButtonCopied: '복사됨',
+});
+
 export default defineConfig({
   site: 'https://www.repl.net',
   integrations: [
+    astroExpressiveCode({
+      themes: ['vitesse-dark', 'github-light'],
+      useDarkModeMediaQuery: false,
+      themeCssSelector: (theme) =>
+        theme.type === 'dark' ? "[data-theme='dark']" : "[data-theme='light']",
+      frames: {
+        showCopyToClipboardButton: true,
+      },
+    }),
     mdx(),
     pagefind(),
     sitemap({
@@ -25,13 +41,6 @@ export default defineConfig({
     }),
   ],
   vite: {
-    // 빈 옵션 객체를 전달해 봅니다.
     plugins: [tailwindcss()],
-  },
-  markdown: {
-    shikiConfig: {
-      // 테마 설정 (예: 'github-dark', 'dracula', 'vitesse-dark')
-      theme: 'vitesse-dark',
-    },
   },
 });

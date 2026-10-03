@@ -26,6 +26,42 @@ test('applies the light theme to detail pages', async ({ page }) => {
   );
 });
 
+test('renders expressive code blocks with a localized copy button', async ({
+  page,
+}) => {
+  await page.addInitScript(() => localStorage.setItem('theme', 'light'));
+  await page.goto('/prompts/idea-refinement');
+
+  const copyButton = page.locator('.expressive-code .copy button').first();
+  await expect(copyButton).toBeVisible();
+  await expect(copyButton).toHaveAttribute('title', '복사');
+  await expect(page.locator('.code-copy-btn')).toHaveCount(0);
+
+  await copyButton.click();
+  await expect(page.locator('.expressive-code .feedback').first()).toHaveText(
+    '복사됨',
+  );
+
+  const lightBackground = await page
+    .locator('.expressive-code pre')
+    .first()
+    .evaluate((element) => getComputedStyle(element).backgroundColor);
+
+  await page.evaluate(() => {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.remove('light');
+    document.documentElement.classList.add('dark');
+  });
+  await expect(page.locator('html')).toHaveClass(/dark/);
+
+  const darkBackground = await page
+    .locator('.expressive-code pre')
+    .first()
+    .evaluate((element) => getComputedStyle(element).backgroundColor);
+
+  expect(darkBackground).not.toBe(lightBackground);
+});
+
 test('applies the light theme to the homepage', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('theme', 'light'));
   await page.goto('/');
@@ -159,7 +195,7 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
   for (const slug of slugs) {
     await page.goto(`/prompts/${slug}`);
     await expect(
-      page.locator('article pre .code-copy-btn').first(),
+      page.locator('article .expressive-code .copy button').first(),
     ).toBeVisible();
 
     const expectedText = embeddedPrompts.get(slug);
