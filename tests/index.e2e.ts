@@ -109,6 +109,9 @@ test('keeps primary pages within a mobile viewport', async ({ page }) => {
   await expect(
     page.locator('details nav').getByRole('link', { name: '워크플로우' }),
   ).toBeVisible();
+
+  await page.mouse.click(20, 700);
+  await expect(page.locator('details nav')).toBeHidden();
 });
 
 test('embeds the exact prompt text rendered on every prompt detail page and has detail copy button', async ({
