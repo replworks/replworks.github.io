@@ -278,6 +278,7 @@ Propose TASK update
 ### PROMPT SOURCE ALIGNMENT
 
 - [x] T1301 Use templates/prompts as the canonical build-time prompt source
+- [x] T1302 Render prompt output artifacts without code-block controls
 
 ---
 

@@ -186,6 +186,17 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
     'architecture-review',
     'task-review',
   ];
+  const outputArtifacts = new Map([
+    ['idea-refinement', 'IDEAS.md'],
+    ['pitch-creation', 'PITCHING_SCRIPT.md'],
+    ['product-specification', 'PRODUCT_SPEC.md'],
+    ['tech-stack', 'TECH_STACK.md'],
+    ['architecture-design', 'ARCHITECTURE.md'],
+    ['task-generation', 'TASKS.md'],
+    ['execution-validation', 'Validation Report'],
+    ['architecture-review', 'Architecture Review Report'],
+    ['task-review', 'Task Review Report'],
+  ]);
 
   await page.goto('/prompts');
   await expect(
@@ -222,6 +233,9 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
     await expect(
       page.locator('article .expressive-code .copy button').first(),
     ).toBeVisible();
+    await expect(page.locator('[data-output-artifact]')).toHaveText(
+      outputArtifacts.get(slug) ?? '',
+    );
     await expect(
       page.locator('article .expressive-code .title').last(),
     ).toHaveText(`${slug.replaceAll('-', '_').toUpperCase()}_PROMPT.txt`);
