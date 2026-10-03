@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.11.2 - 2026-10-03
+
+### What's Changed
+
+* feat: add social media and contact links to footer by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/104
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.11.1...v2.11.2
+
 ## v2.11.1 - 2026-10-03
 
 ### What's Changed
