@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.10.9 - 2026-10-03
+
+### What's Changed
+
+* feat: enhance mobile navigation with click and escape functionality by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/98
+* feat: integrate expressive code plugin by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/99
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.10.8...v2.10.9
+
 ## v2.10.8 - 2026-10-03
 
 ### What's Changed
