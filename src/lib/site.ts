@@ -28,6 +28,15 @@ export const collectionTitles: Record<ContentCollection, string> = {
   faq: '자주 묻는 질문',
 };
 
+export const collectionLabels: Record<ContentCollection, string> = {
+  workflow: 'WORKFLOW GUIDE',
+  prompts: 'PROMPT SPECIFICATION',
+  documents: 'DOCUMENT SPECIFICATION',
+  tools: 'TOOL SPECIFICATION',
+  showcase: 'SHOWCASE SPECIFICATION',
+  faq: 'FAQ SPECIFICATION',
+};
+
 export const collectionDescriptions: Record<ContentCollection, string> = {
   workflow: 'The workflow and process guidance for using REPL Works.',
   prompts: 'Reusable prompts for AI-native product development.',
