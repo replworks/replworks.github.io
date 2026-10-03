@@ -36,6 +36,11 @@ test('renders expressive code blocks with a localized copy button', async ({
   await expect(copyButton).toBeVisible();
   await expect(copyButton).toHaveAttribute('title', '복사');
   await expect(page.locator('.code-copy-btn')).toHaveCount(0);
+  expect(
+    Number(
+      await copyButton.evaluate((element) => getComputedStyle(element).opacity),
+    ),
+  ).toBeGreaterThan(0);
 
   await copyButton.click();
   await expect(page.locator('.expressive-code .feedback').first()).toHaveText(

@@ -40,6 +40,17 @@
   }
 }
 
+/* Copy is the primary action for prompt code blocks, so keep it discoverable. */
+.expressive-code .frame .copy button {
+  opacity: 0.75;
+}
+
+.expressive-code .frame .copy button:hover,
+.expressive-code .frame .copy button:focus-visible,
+.expressive-code .frame .copy button:active {
+  opacity: 1;
+}
+
 /* Tailwind CSS v4 Custom Utilities */
 @utility bg-grid-pattern {
   background-size: 40px 40px;
