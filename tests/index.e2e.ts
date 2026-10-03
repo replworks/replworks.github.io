@@ -137,3 +137,17 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
     expect(renderedPrompt).toBe(expectedText);
   }
 });
+
+test('renders sidebar navigation on detail pages', async ({ page }) => {
+  await page.goto('/prompts/idea-refinement');
+  await expect(page.locator('aside nav')).toBeVisible();
+  await expect(
+    page.locator('aside nav').getByRole('link', { name: /피치 작성/ }),
+  ).toBeVisible();
+
+  await page.goto('/showcase/repl-works-website');
+  await expect(page.locator('aside nav')).toBeVisible();
+  await expect(
+    page.locator('aside nav').getByRole('link', { name: /클래이튜브/ }),
+  ).toBeVisible();
+});

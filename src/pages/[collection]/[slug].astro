@@ -9,6 +9,7 @@ import {
 import { getCollection, getEntry, render } from 'astro:content';
 import DocumentLayout from '../../layouts/DocumentLayout.astro';
 import PromptDetailHeader from '../../components/PromptDetailHeader.astro';
+import CollectionSidebar from '../../components/CollectionSidebar.astro';
 import { promptDefinitions } from '../../data/prompts';
 
 export async function getStaticPaths() {
@@ -55,19 +56,29 @@ const promptDef =
     metadata.description ?? `${collectionTitles[collection]} document.`
   }
 >
-  {promptDef && <PromptDetailHeader prompt={promptDef} />}
+  <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+    <div class="lg:col-span-8 space-y-6">
+      {promptDef && <PromptDetailHeader prompt={promptDef} />}
 
-  {rendered ? (
-    <article set:html={rendered.html} class="space-y-6 text-slate-200" />
-  ) : Content ? (
-    <article class="space-y-6 text-slate-200">
-      <Content />
-    </article>
-  ) : (
-    <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
-      <p>This document is available once the collection publish content.</p>
+      {rendered ? (
+        <article set:html={rendered.html} class="space-y-6 text-slate-200" />
+      ) : Content ? (
+        <article class="space-y-6 text-slate-200">
+          <Content />
+        </article>
+      ) : (
+        <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
+          <p>This document is available once the collection publish content.</p>
+        </div>
+      )}
     </div>
-  )}
+
+    <div class="lg:col-span-4">
+      <div class="lg:sticky lg:top-24">
+        <CollectionSidebar collection={collection} currentSlug={slug} />
+      </div>
+    </div>
+  </div>
 </DocumentLayout>
 
 <script>
