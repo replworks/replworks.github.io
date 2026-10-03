@@ -67,9 +67,12 @@ const metadata = entry?.data ?? {};
     }
   >
     {rendered ? (
-      <article set:html={rendered.html} class="space-y-6 text-slate-200" />
+      <article
+        set:html={rendered.html}
+        class="space-y-6 text-slate-700 dark:text-slate-200"
+      />
     ) : Content ? (
-      <article class="space-y-6 text-slate-200">
+      <article class="space-y-6 text-slate-700 dark:text-slate-200">
         <Content />
       </article>
     ) : (
