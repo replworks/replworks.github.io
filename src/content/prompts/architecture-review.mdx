@@ -1,19 +1,36 @@
 ---
-title: '아키텍처 검토'
+title: '아키텍처 명세 검토'
 version: 'v1'
 description: 'ARCHITECTURE.md가 제품 요구사항과 기술 스택을 충족하는지 검토하기 위한 프롬프트'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
-## 목적
+## 🎯 프롬프트 목적
 
-ARCHITECTURE.md가 PRODUCT_SPEC.md와 TECH_STACK.md를 정확하게 반영하는지 검토한다.
+작성된 `ARCHITECTURE.md`가 상위 문서인 `PRODUCT_SPEC.md` 및 `TECH_STACK.md`의 제약 조건과 제품 요구사항을 충실히 충족하고 있는지 전용 교차 검토를 진행합니다.
 
-새로운 구조를 제안하거나 문서를 다시 작성하지 않는다.
+이 프롬프트는 임의로 시스템 아키텍처를 재설계하는 것이 아닙니다. **누락된 데이터 흐름이나 미정의 책임 경계, 기술 스택과의 충돌 지점만을 정확히 밝혀내는 것**에 목적이 있습니다.
 
 ---
 
-## Prompt
+## 📦 생성 산출물
+
+```text
+Architecture Review Report
+```
+
+---
+
+## 💡 사용 방법 & 대화 가이드
+
+1. **사전 준비**: `PRODUCT_SPEC.md`, `TECH_STACK.md`, `ARCHITECTURE.md` 3종 문서가 작성 완료된 후 검토 시 사용합니다.
+2. **독립적 검증**: AI가 아키텍처 구조 상 구현 차단(Blocker) 요소가 있는지 정밀 검사하여 결과 리포트를 출력합니다.
+
+---
+
+## 🤖 AI 프롬프트 원문
+
+아래 프롬프트를 복사하여 AI 대화창 첫 메시지로 전달해 보세요.
 
 ````text
 Review these documents together:

@@ -1,7 +1,7 @@
 export function extractPromptTextFromSource(source: string): string {
   const lines = source.replace(/\r\n/g, '\n').split('\n');
   const headingIndex = lines.findIndex((line) =>
-    /^#{1,6} (?:프롬프트|Prompt)$/.test(line.trim()),
+    /^#{1,6} .*(?:프롬프트|Prompt).*$/.test(line.trim()),
   );
   const openingIndex = lines.findIndex(
     (line, index) =>
