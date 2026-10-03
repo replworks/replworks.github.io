@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.10.8 - 2026-10-03
+
+### What's Changed
+
+* style: implement theme toggle functionality by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/96
+* style: add theme variables for font weights by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/97
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.10.7...v2.10.8
+
 ## v2.10.7 - 2026-10-03
 
 ### What's Changed
