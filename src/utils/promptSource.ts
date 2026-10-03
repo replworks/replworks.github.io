@@ -4,11 +4,12 @@ import { resolve } from 'node:path';
 const promptSourceDirectory = resolve(process.cwd(), 'templates/prompts');
 
 export function getPromptSource(slug: string): string {
-  const sourcePath = resolve(promptSourceDirectory, `${slug}.txt`);
+  const sourceFilename = `${slug.replaceAll('-', '_').toUpperCase()}_PROMPT.txt`;
+  const sourcePath = resolve(promptSourceDirectory, sourceFilename);
 
   if (!existsSync(sourcePath)) {
     throw new Error(
-      `Missing prompt source for "${slug}": templates/prompts/${slug}.txt`,
+      `Missing prompt source for "${slug}": templates/prompts/${sourceFilename}`,
     );
   }
 
