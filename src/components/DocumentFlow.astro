@@ -6,7 +6,7 @@ interface Props {
 const { documents } = Astro.props;
 ---
 
-<div class="my-6 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900/60 p-5 shadow-sm">
+<div class="my-6 -mx-4 sm:mx-0 rounded-none sm:rounded-2xl border-y sm:border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-900/60 p-5 shadow-sm">
   <div class="flex flex-wrap items-center gap-x-2.5 gap-y-3.5">
     {documents.map((doc, idx) => (
       <div class="flex items-center gap-2.5">
