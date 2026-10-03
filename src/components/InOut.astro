@@ -22,7 +22,9 @@ const iconColor = isInput
   : 'text-cyan-600 dark:text-cyan-400';
 ---
 
-<div class={`my-4 rounded-2xl border ${borderColor} ${bgColor} p-5 shadow-sm`}>
+<div
+  class={`my-4 rounded-none sm:rounded-2xl border-y sm:border ${borderColor} ${bgColor} p-5 shadow-sm`}
+>
   <div class="mb-4 flex items-center gap-2">
     <span
       class={`px-2.5 py-0.5 text-[10px] font-mono font-black uppercase tracking-wider rounded-full ${labelColor}`}

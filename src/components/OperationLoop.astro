@@ -6,7 +6,7 @@ interface Props {
 const { steps } = Astro.props;
 ---
 
-<div class="my-6 rounded-2xl border border-cyan-500/30 bg-gradient-to-r from-cyan-950/30 to-indigo-950/30 p-5 shadow-sm">
+<div class="my-6 rounded-none sm:rounded-2xl border-y sm:border border-cyan-500/30 bg-gradient-to-r from-cyan-950/30 to-indigo-950/30 p-5 shadow-sm">
   <div class="flex flex-wrap items-center gap-x-3 gap-y-3.5">
     {steps.map((step, idx) => (
       <div class="flex items-center gap-3">
