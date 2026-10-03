@@ -4,6 +4,11 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @custom-variant light (&:where(.light, .light *));
 
+@theme {
+  --font-weight-extrabold: 750;
+  --font-weight-black: 800;
+}
+
 @layer base {
   :root {
     --bg-page: #f8fafc;
