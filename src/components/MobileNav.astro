@@ -3,7 +3,7 @@ import { navItems } from '../lib/site';
 import ThemeToggle from './ThemeToggle.astro';
 ---
 
-<div class="md:hidden">
+<div class="md:hidden" data-mobile-nav>
   <details class="relative">
     <summary class="flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-3.5 py-1.5 text-xs font-semibold text-slate-700 shadow-sm transition hover:border-slate-400 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-700 dark:hover:bg-slate-800 cursor-pointer select-none">
       Menu
@@ -32,3 +32,23 @@ import ThemeToggle from './ThemeToggle.astro';
     </nav>
   </details>
 </div>
+
+<script>
+  const mobileNav = document.querySelector<HTMLElement>('[data-mobile-nav]');
+  const menu = mobileNav?.querySelector<HTMLDetailsElement>('details');
+
+  if (menu) {
+    document.addEventListener('click', (event) => {
+      if (event.target instanceof Node && !menu.contains(event.target)) {
+        menu.removeAttribute('open');
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.open) {
+        menu.removeAttribute('open');
+        menu.querySelector<HTMLElement>('summary')?.focus();
+      }
+    });
+  }
+</script>
