@@ -226,15 +226,16 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
     const expectedText = embeddedPrompts.get(slug);
     expect(expectedText).toBeDefined();
 
-    const promptCodeElement = page
-      .locator('article pre code')
+    const renderedLines = await page
+      .locator('article .expressive-code')
       .filter({ hasText: expectedText?.slice(0, 20) ?? '' })
-      .first();
+      .last()
+      .locator('pre code .ec-line')
+      .allTextContents();
 
-    const renderedPrompt = await promptCodeElement.textContent();
-
-    expect(renderedPrompt).not.toBeNull();
-    expect(renderedPrompt).toBe(expectedText);
+    expect(renderedLines.map((line) => line.replace(/\n$/, '')).join('\n')).toBe(
+      expectedText,
+    );
   }
 });
 
