@@ -71,9 +71,9 @@
 
       {/* Right Column: Lightweight Animated Triangle Diagram */}
       <div class="lg:col-span-6 w-full flex justify-center">
-        <div class="glass-card rounded-3xl border border-slate-800/90 p-6 sm:p-8 shadow-2xl relative w-full max-w-lg overflow-hidden group hover:border-cyan-500/40 transition-colors">
+        <div class="glass-card rounded-3xl border border-slate-800/90 p-3.5 sm:p-8 shadow-2xl relative w-full max-w-lg overflow-hidden group hover:border-cyan-500/40 transition-colors">
           <svg
-            viewBox="0 0 500 420"
+            viewBox="0 0 500 445"
             class="w-full h-auto max-w-full overflow-visible"
             role="img"
             aria-label="Human, 대화형 AI, 코딩형 AI의 협업 관계와 문서·Git 자산을 나타내는 다이어그램"
@@ -135,10 +135,10 @@
 
             {/* Path 1: Human <-> 대화형 AI */}
             <line
-              x1="220"
-              y1="95"
-              x2="135"
-              y2="245"
+              x1="210"
+              y1="105"
+              x2="122.5"
+              y2="220"
               stroke="url(#line-human-discussion)"
               stroke-width="2.5"
               stroke-dasharray="6 4"
@@ -149,10 +149,10 @@
 
             {/* Path 2: Human <-> 코딩형 AI */}
             <line
-              x1="280"
-              y1="95"
-              x2="365"
-              y2="245"
+              x1="290"
+              y1="105"
+              x2="377.5"
+              y2="220"
               stroke="url(#line-human-execution)"
               stroke-width="2.5"
               stroke-dasharray="6 4"
@@ -162,192 +162,192 @@
             />
 
             {/* Light Data Flow Pulses */}
-            <circle r="4" fill="#38bdf8">
+            <circle r="4.5" fill="#38bdf8">
               <animateMotion
                 dur="2.4s"
                 repeatCount="indefinite"
-                path="M 220 95 L 135 245"
+                path="M 210 105 L 122.5 220"
               />
             </circle>
-            <circle r="3" fill="#818cf8">
+            <circle r="3.5" fill="#818cf8">
               <animateMotion
                 dur="2.4s"
                 begin="1.2s"
                 repeatCount="indefinite"
-                path="M 135 245 L 220 95"
+                path="M 122.5 220 L 210 105"
               />
             </circle>
 
-            <circle r="4" fill="#34d399">
+            <circle r="4.5" fill="#34d399">
               <animateMotion
                 dur="2.6s"
                 repeatCount="indefinite"
-                path="M 280 95 L 365 245"
+                path="M 290 105 L 377.5 220"
               />
             </circle>
-            <circle r="3" fill="#818cf8">
+            <circle r="3.5" fill="#818cf8">
               <animateMotion
                 dur="2.6s"
                 begin="1.3s"
                 repeatCount="indefinite"
-                path="M 365 245 L 280 95"
+                path="M 377.5 220 L 290 105"
               />
             </circle>
 
             {/* Node 1 (Top): Human */}
-            <g transform="translate(170, 30)">
+            <g transform="translate(150, 20)">
               <animateTransform
                 attributeName="transform"
                 type="translate"
-                values="170 30; 170 24; 170 30"
+                values="150 20; 150 14; 150 20"
                 dur="4s"
                 repeatCount="indefinite"
               />
               <rect
                 x="0"
                 y="0"
-                width="160"
-                height="64"
-                rx="16"
+                width="200"
+                height="85"
+                rx="20"
                 fill="#1e1b4b"
                 fill-opacity="0.95"
                 stroke="#6366f1"
-                stroke-width="2"
+                stroke-width="2.5"
               />
               <text
-                x="80"
-                y="28"
+                x="100"
+                y="38"
                 text-anchor="middle"
                 fill="#ffffff"
                 font-weight="900"
-                font-size="16"
+                font-size="24"
               >
                 Human
               </text>
               <text
-                x="80"
-                y="48"
+                x="100"
+                y="66"
                 text-anchor="middle"
                 fill="#a5b4fc"
                 font-weight="700"
-                font-size="12"
+                font-size="18"
               >
                 결정하고 검토·커밋
               </text>
             </g>
 
             {/* Node 2 (Bottom Left): ① 대화형 AI */}
-            <g transform="translate(15, 235)">
+            <g transform="translate(5, 220)">
               <animateTransform
                 attributeName="transform"
                 type="translate"
-                values="15 235; 15 241; 15 235"
+                values="5 220; 5 226; 5 220"
                 dur="4.8s"
                 repeatCount="indefinite"
               />
               <rect
                 x="0"
                 y="0"
-                width="200"
-                height="84"
-                rx="16"
+                width="235"
+                height="114"
+                rx="20"
                 fill="#082f49"
                 fill-opacity="0.95"
                 stroke="#38bdf8"
-                stroke-width="2"
+                stroke-width="2.5"
               />
               <text
-                x="100"
-                y="28"
+                x="117.5"
+                y="36"
                 text-anchor="middle"
                 fill="#ffffff"
                 font-weight="900"
-                font-size="15"
+                font-size="24"
               >
                 ① 대화형 AI
               </text>
               <text
-                x="100"
-                y="46"
+                x="117.5"
+                y="62"
                 text-anchor="middle"
                 fill="#7dd3fc"
                 font-weight="600"
-                font-size="11"
+                font-size="16"
               >
                 (ChatGPT · Claude)
               </text>
               <text
-                x="100"
-                y="66"
+                x="117.5"
+                y="92"
                 text-anchor="middle"
                 fill="#bae6fd"
                 font-weight="700"
-                font-size="11.5"
+                font-size="18"
               >
                 함께 기획하고 문서 작성
               </text>
             </g>
 
             {/* Node 3 (Bottom Right): ② 코딩형 AI */}
-            <g transform="translate(285, 235)">
+            <g transform="translate(260, 220)">
               <animateTransform
                 attributeName="transform"
                 type="translate"
-                values="285 235; 285 229; 285 235"
+                values="260 220; 260 214; 260 220"
                 dur="4.4s"
                 repeatCount="indefinite"
               />
               <rect
                 x="0"
                 y="0"
-                width="200"
-                height="84"
-                rx="16"
+                width="235"
+                height="114"
+                rx="20"
                 fill="#064e3b"
                 fill-opacity="0.95"
                 stroke="#34d399"
-                stroke-width="2"
+                stroke-width="2.5"
               />
               <text
-                x="100"
-                y="28"
+                x="117.5"
+                y="36"
                 text-anchor="middle"
                 fill="#ffffff"
                 font-weight="900"
-                font-size="15"
+                font-size="24"
               >
                 ② 코딩형 AI
               </text>
               <text
-                x="100"
-                y="46"
+                x="117.5"
+                y="62"
                 text-anchor="middle"
                 fill="#6ee7b7"
                 font-weight="600"
-                font-size="11"
+                font-size="16"
               >
                 (Codex · Claude Code)
               </text>
               <text
-                x="100"
-                y="66"
+                x="117.5"
+                y="92"
                 text-anchor="middle"
                 fill="#a7f3d0"
                 font-weight="700"
-                font-size="11.5"
+                font-size="18"
               >
                 문서와 코드를 함께 수정
               </text>
             </g>
 
             {/* Bottom Edge Label: 문서 · Git */}
-            <g transform="translate(250, 375)">
+            <g transform="translate(250, 408)">
               <rect
-                x="-70"
-                y="-18"
-                width="140"
-                height="32"
-                rx="12"
+                x="-90"
+                y="-22"
+                width="180"
+                height="44"
+                rx="16"
                 fill="#0f172a"
                 fill-opacity="0.95"
                 stroke="#475569"
@@ -355,11 +355,11 @@
               />
               <text
                 x="0"
-                y="3"
+                y="7"
                 text-anchor="middle"
                 fill="#cbd5e1"
                 font-weight="800"
-                font-size="13"
+                font-size="20"
                 letter-spacing="1"
               >
                 문서 · Git
