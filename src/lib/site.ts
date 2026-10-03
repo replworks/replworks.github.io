@@ -20,12 +20,12 @@ export const navItems = [
 ] as const;
 
 export const collectionTitles: Record<ContentCollection, string> = {
-  workflow: 'Workflow',
-  prompts: 'Prompts',
-  documents: 'Documents',
-  tools: 'Tools',
-  showcase: 'Showcase',
-  faq: 'FAQ',
+  workflow: '워크플로우',
+  prompts: '프롬프트',
+  documents: '문서',
+  tools: '도구',
+  showcase: '쇼케이스',
+  faq: '자주 묻는 질문',
 };
 
 export const collectionDescriptions: Record<ContentCollection, string> = {

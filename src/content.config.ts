@@ -4,6 +4,7 @@ import { z } from 'astro/zod';
 
 const baseCollectionSchema = z.object({
   title: z.string(),
+  label: z.string().optional(),
   description: z.string(),
   version: z.string(),
   publishedAt: z.iso.datetime(),
