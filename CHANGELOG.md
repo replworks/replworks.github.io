@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.10.5 - 2026-10-03
+
+### What's Changed
+
+* style: add optional label field and translate titles to Korean in content files by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/92
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.10.4...v2.10.5
+
 ## v2.10.4 - 2026-10-03
 
 ### What's Changed
