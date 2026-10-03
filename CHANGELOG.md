@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.10.7 - 2026-10-03
+
+### What's Changed
+
+* feat: add `promptDetailHeader` component by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/94
+* style: update prompt documents for clarity by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/95
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.10.6...v2.10.7
+
 ## v2.10.6 - 2026-10-03
 
 ### What's Changed
