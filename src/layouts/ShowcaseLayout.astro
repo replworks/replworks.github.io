@@ -5,8 +5,8 @@ const { title, description } = Astro.props;
 ---
 
 <SiteLayout title={title} description={description}>
-  <div class="w-full glass-card rounded-3xl p-6 sm:p-10 border border-slate-800/80 shadow-2xl">
-    <header class="mb-8 border-b border-slate-800 pb-6">
+  <div class="w-full sm:glass-card sm:rounded-3xl p-0 sm:p-10 sm:border sm:border-slate-800/80 sm:shadow-2xl">
+    <header class="px-4 pt-6 mb-8 border-b border-slate-800 pb-6 sm:px-0 sm:pt-0">
       <h1 class="break-all text-3xl font-black tracking-tight text-white sm:text-4xl">
         {title}
       </h1>
@@ -14,7 +14,7 @@ const { title, description } = Astro.props;
         {description}
       </p>
     </header>
-    <div class="max-w-none text-slate-300">
+    <div class="px-4 pb-6 max-w-none text-slate-300 sm:px-0 sm:pb-0">
       <slot />
     </div>
   </div>

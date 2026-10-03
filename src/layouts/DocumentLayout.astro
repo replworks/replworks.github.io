@@ -5,8 +5,8 @@ const { title = 'Document', description = 'Document content placeholder.' } =
 ---
 
 <SiteLayout title={title} description={description}>
-  <div class="w-full glass-card rounded-3xl p-6 sm:p-10 border border-slate-800/80 shadow-2xl">
-    <header class="mb-8 border-b border-slate-800 pb-6">
+  <div class="w-full sm:glass-card sm:rounded-3xl p-0 sm:p-10 sm:border sm:border-slate-800/80 sm:shadow-2xl">
+    <header class="px-4 pt-6 mb-8 border-b border-slate-800 pb-6 sm:px-0 sm:pt-0">
       <p class="text-xs font-mono font-bold uppercase tracking-[0.3em] text-cyan-400">
         DOCUMENT SPECIFICATION
       </p>
@@ -17,7 +17,7 @@ const { title = 'Document', description = 'Document content placeholder.' } =
         {description}
       </p>
     </header>
-    <div class="prose prose-invert prose-slate max-w-none space-y-6 text-slate-300">
+    <div class="px-4 pb-6 prose prose-invert prose-slate max-w-none space-y-6 text-slate-300 sm:px-0 sm:pb-0">
       <slot />
     </div>
   </div>
