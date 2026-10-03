@@ -12,7 +12,10 @@ import PromptDetailHeader from '../../components/PromptDetailHeader.astro';
 import PromptSource from '../../components/PromptSource.astro';
 import CollectionSidebar from '../../components/CollectionSidebar.astro';
 import { promptDefinitions } from '../../data/prompts';
-import { getPromptSource } from '../../utils/promptSource';
+import {
+  getPromptSource,
+  getPromptSourceFilename,
+} from '../../utils/promptSource';
 
 export async function getStaticPaths() {
   const paths: Array<{
@@ -50,6 +53,9 @@ const promptDef =
     ? (promptDefinitions.find((p) => p.slug === slug) ?? null)
     : null;
 const promptText = promptDef ? getPromptSource(promptDef.slug) : null;
+const promptSourceFilename = promptDef
+  ? getPromptSourceFilename(promptDef.slug)
+  : null;
 ---
 
 <DocumentLayout
@@ -69,12 +75,22 @@ const promptText = promptDef ? getPromptSource(promptDef.slug) : null;
             set:html={rendered.html}
             class="space-y-6 text-slate-700 dark:text-slate-200"
           />
-          {promptText && <PromptSource promptText={promptText} />}
+          {promptText && promptSourceFilename && (
+            <PromptSource
+              promptText={promptText}
+              sourceFilename={promptSourceFilename}
+            />
+          )}
         </div>
       ) : Content ? (
         <article class="space-y-6 text-slate-700 dark:text-slate-200">
           <Content />
-          {promptText && <PromptSource promptText={promptText} />}
+          {promptText && promptSourceFilename && (
+            <PromptSource
+              promptText={promptText}
+              sourceFilename={promptSourceFilename}
+            />
+          )}
         </article>
       ) : (
         <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
