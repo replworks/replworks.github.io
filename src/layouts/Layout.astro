@@ -8,7 +8,7 @@ import GoogleTag from '../components/GoogleTag.astro';
 ---
 
 <!doctype html>
-<html lang="ko">
+<html lang="ko" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,9 +21,29 @@ import GoogleTag from '../components/GoogleTag.astro';
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        const systemDark = window.matchMedia(
+          '(prefers-color-scheme: dark)',
+        ).matches;
+        const theme = stored || 'system';
+        const resolved =
+          theme === 'system' ? (systemDark ? 'dark' : 'light') : theme;
+        document.documentElement.setAttribute('data-theme', resolved);
+        document.documentElement.setAttribute('data-theme-setting', theme);
+        if (resolved === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.classList.remove('light');
+        } else {
+          document.documentElement.classList.add('light');
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
     <GoogleTag />
   </head>
-  <body>
+  <body class="bg-slate-50 text-slate-900 dark:bg-[#090d16] dark:text-slate-100 transition-colors duration-200">
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-slate-950 focus:px-4 focus:py-3 focus:text-sm focus:font-semibold focus:text-white"
@@ -46,7 +66,5 @@ import GoogleTag from '../components/GoogleTag.astro';
       BlinkMacSystemFont,
       'Segoe UI',
       sans-serif;
-    background: #090d16;
-    color: #f8fafc;
   }
 </style>

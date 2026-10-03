@@ -10,6 +10,42 @@ test('has title', async ({ page }) => {
   );
 });
 
+test('applies the light theme to detail pages', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('theme', 'light'));
+  await page.goto('/prompts/idea-refinement');
+
+  await expect(page.locator('html')).toHaveClass(/light/);
+  await expect(page.locator('html')).not.toHaveClass(/dark/);
+  await expect(page.locator('h1').first()).toHaveCSS(
+    'color',
+    'oklch(0.208 0.042 265.755)',
+  );
+  await expect(page.locator('footer')).toHaveCSS(
+    'background-color',
+    'oklch(0.984 0.003 247.858)',
+  );
+});
+
+test('applies the light theme to the homepage', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('theme', 'light'));
+  await page.goto('/');
+
+  await expect(page.locator('html')).toHaveClass(/light/);
+  await expect(page.locator('html')).not.toHaveClass(/dark/);
+  await expect(page.locator('h1').first()).toHaveCSS(
+    'color',
+    'oklch(0.208 0.042 265.755)',
+  );
+  await expect(page.locator('main')).toHaveCSS(
+    'color',
+    'oklch(0.208 0.042 265.755)',
+  );
+  await expect(page.locator('svg text').first()).toHaveCSS(
+    'fill',
+    'rgb(30, 27, 75)',
+  );
+});
+
 test('searches every public content collection', async ({ page }) => {
   await page.goto('/search');
 

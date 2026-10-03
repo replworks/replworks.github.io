@@ -1,14 +1,15 @@
 ---
 import { navItems } from '../lib/site';
+import ThemeToggle from './ThemeToggle.astro';
 ---
 
 <nav
   aria-label="Primary navigation"
-  class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-400"
+  class="hidden md:flex items-center gap-5 text-sm font-medium text-slate-600 dark:text-slate-400"
 >
   {navItems.map((item) => (
     <a
-      class="transition-colors hover:text-cyan-400 text-xs font-semibold"
+      class="transition-colors hover:text-cyan-600 dark:hover:text-cyan-400 text-xs font-semibold"
       href={item.href}
     >
       {item.title}
@@ -18,9 +19,13 @@ import { navItems } from '../lib/site';
     href="https://github.com/replworks/replworks.github.io"
     target="_blank"
     rel="noopener noreferrer"
-    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700/80 text-xs font-bold text-slate-200 hover:text-white hover:border-slate-500 transition-all shadow-sm"
+    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-100 border border-slate-300/80 text-xs font-bold text-slate-700 hover:text-slate-900 hover:border-slate-400 dark:bg-slate-900 dark:border-slate-700/80 dark:text-slate-200 dark:hover:text-white dark:hover:border-slate-500 transition-all shadow-sm"
   >
-    <svg class="h-4 w-4 text-slate-300" fill="currentColor" viewBox="0 0 24 24">
+    <svg
+      class="h-4 w-4 text-slate-600 dark:text-slate-300"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"
@@ -29,4 +34,6 @@ import { navItems } from '../lib/site';
     </svg>
     <span>GitHub</span>
   </a>
+
+  <ThemeToggle variant="desktop" />
 </nav>

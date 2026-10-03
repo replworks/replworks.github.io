@@ -9,26 +9,26 @@ publishedAt: '2026-10-03T00:00:00Z'
 REPL Works 방식으로 개발하는 서비스들은 필요한 CLI 도구를 직접 만들어 실제 개발과 운영에 사용합니다(dogfooding). 이 페이지에서는 그렇게 만들고 오픈소스로 공개한 도구를 소개합니다.
 
 <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
-  <article class="glass-card rounded-2xl border border-slate-800/80 bg-slate-900/40 p-6 space-y-6">
+  <article class="glass-card rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 p-6 space-y-6">
     <header class="space-y-3">
       <div class="flex flex-wrap items-center gap-2">
-        <span class="rounded-full border border-cyan-800/60 bg-cyan-950/70 px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-300">Workflow</span>
+        <span class="rounded-full border border-cyan-300 dark:border-cyan-800/60 bg-cyan-50 dark:bg-cyan-950/70 px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-700 dark:text-cyan-300">Workflow</span>
         <span class="text-xs font-mono text-slate-500">repl-cli</span>
       </div>
-      <h2 class="text-2xl font-black text-white">REPL CLI</h2>
-      <p class="text-sm leading-relaxed text-slate-300">REPL Works 방식의 개발 과정을 명령어로 진행하며, 리플웍스가 REPL Works 프로젝트를 개발할 때 실제로 사용합니다.</p>
+      <h2 class="text-2xl font-black text-slate-900 dark:text-white">REPL CLI</h2>
+      <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">REPL Works 방식의 개발 과정을 명령어로 진행하며, 리플웍스가 REPL Works 프로젝트를 개발할 때 실제로 사용합니다.</p>
     </header>
 
     <section class="space-y-3">
-      <h3 class="text-sm font-bold text-white">지원 환경</h3>
-      <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-300">
-        <span class="rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2">macOS · Homebrew</span>
-        <span class="rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2">Linux · apt 공식 패키지 미확인</span>
+      <h3 class="text-sm font-bold text-slate-900 dark:text-white">지원 환경</h3>
+      <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-700 dark:text-slate-300">
+        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">macOS · Homebrew</span>
+        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">Linux · apt 공식 패키지 미확인</span>
       </div>
     </section>
 
     <section class="space-y-3">
-      <h3 class="text-sm font-bold text-white">대표 명령</h3>
+      <h3 class="text-sm font-bold text-slate-900 dark:text-white">대표 명령</h3>
       ```bash
       repl init
       repl runtime apply
@@ -36,64 +36,64 @@ REPL Works 방식으로 개발하는 서비스들은 필요한 CLI 도구를 직
       ```
     </section>
 
-    <div class="flex flex-wrap gap-3 border-t border-slate-800/80 pt-4 text-xs font-bold">
-      <a class="text-slate-400 hover:text-cyan-300" href="https://github.com/replworks/repl-cli" target="_blank" rel="noopener noreferrer">GitHub →</a>
+    <div class="flex flex-wrap gap-3 border-t border-slate-200 dark:border-slate-800/80 pt-4 text-xs font-bold">
+      <a class="text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-300" href="https://github.com/replworks/repl-cli" target="_blank" rel="noopener noreferrer">GitHub →</a>
     </div>
 
   </article>
 
-  <article class="glass-card rounded-2xl border border-slate-800/80 bg-slate-900/40 p-6 space-y-6">
+  <article class="glass-card rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 p-6 space-y-6">
     <header class="space-y-3">
       <div class="flex flex-wrap items-center gap-2">
-        <span class="rounded-full border border-cyan-800/60 bg-cyan-950/70 px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-300">Workflow</span>
+        <span class="rounded-full border border-cyan-300 dark:border-cyan-800/60 bg-cyan-50 dark:bg-cyan-950/70 px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-cyan-700 dark:text-cyan-300">Workflow</span>
         <span class="text-xs font-mono text-slate-500">ai-issue</span>
       </div>
-      <h2 class="text-2xl font-black text-white">AI Issue Publisher</h2>
-      <p class="text-sm leading-relaxed text-slate-300">대화형 대규모 언어 모델(LLM)과 토론해 만든 GitHub Issue를 클립보드에서 읽어 AI 봇 계정으로 등록합니다. 리플웍스의 REPL Works 프로젝트 전체에서 이슈 관리에 실제로 사용합니다.</p>
+      <h2 class="text-2xl font-black text-slate-900 dark:text-white">AI Issue Publisher</h2>
+      <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">대화형 대규모 언어 모델(LLM)과 토론해 만든 GitHub Issue를 클립보드에서 읽어 AI 봇 계정으로 등록합니다. 리플웍스의 REPL Works 프로젝트 전체에서 이슈 관리에 실제로 사용합니다.</p>
     </header>
 
     <section class="space-y-3">
-      <h3 class="text-sm font-bold text-white">지원 환경</h3>
-      <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-300">
-        <span class="rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2">macOS · Homebrew</span>
-        <span class="rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2">Linux · apt</span>
+      <h3 class="text-sm font-bold text-slate-900 dark:text-white">지원 환경</h3>
+      <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-700 dark:text-slate-300">
+        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">macOS · Homebrew</span>
+        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">Linux · apt</span>
       </div>
     </section>
 
     <section class="space-y-3">
-      <h3 class="text-sm font-bold text-white">대표 명령</h3>
+      <h3 class="text-sm font-bold text-slate-900 dark:text-white">대표 명령</h3>
       ```bash
       ai-issue
       ai-issue --dry-run
       ```
     </section>
 
-    <div class="flex flex-wrap gap-3 border-t border-slate-800/80 pt-4 text-xs font-bold">
-      <a class="text-slate-400 hover:text-cyan-300" href="https://github.com/replworks/ai-issue" target="_blank" rel="noopener noreferrer">GitHub →</a>
+    <div class="flex flex-wrap gap-3 border-t border-slate-200 dark:border-slate-800/80 pt-4 text-xs font-bold">
+      <a class="text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-300" href="https://github.com/replworks/ai-issue" target="_blank" rel="noopener noreferrer">GitHub →</a>
     </div>
 
   </article>
 
-  <article class="glass-card rounded-2xl border border-slate-800/80 bg-slate-900/40 p-6 space-y-6 lg:col-span-2">
+  <article class="glass-card rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 p-6 space-y-6 lg:col-span-2">
     <header class="space-y-3">
       <div class="flex flex-wrap items-center gap-2">
-        <span class="rounded-full border border-emerald-800/60 bg-emerald-950/70 px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-300">Operations</span>
+        <span class="rounded-full border border-emerald-300 dark:border-emerald-800/60 bg-emerald-50 dark:bg-emerald-950/70 px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">Operations</span>
         <span class="text-xs font-mono text-slate-500">coolrestore</span>
       </div>
-      <h2 class="text-2xl font-black text-white">Cool Restore</h2>
-      <p class="text-sm leading-relaxed text-slate-300">리플웍스의 모든 서비스를 관리하는 Coolify의 S3 백업 파일을 미리 확인하고 복구하는 데 실제로 사용합니다.</p>
+      <h2 class="text-2xl font-black text-slate-900 dark:text-white">Cool Restore</h2>
+      <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">리플웍스의 모든 서비스를 관리하는 Coolify의 S3 백업 파일을 미리 확인하고 복구하는 데 실제로 사용합니다.</p>
     </header>
 
     <section class="space-y-3">
-      <h3 class="text-sm font-bold text-white">지원 환경</h3>
-      <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-300">
-        <span class="rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2">macOS · Homebrew</span>
-        <span class="rounded-lg border border-slate-700 bg-slate-950/60 px-3 py-2">Linux · apt</span>
+      <h3 class="text-sm font-bold text-slate-900 dark:text-white">지원 환경</h3>
+      <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-700 dark:text-slate-300">
+        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">macOS · Homebrew</span>
+        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">Linux · apt</span>
       </div>
     </section>
 
     <section class="space-y-3">
-      <h3 class="text-sm font-bold text-white">대표 명령</h3>
+      <h3 class="text-sm font-bold text-slate-900 dark:text-white">대표 명령</h3>
       ```bash
       coolrestore \
         --source /backups/coolify-storage.tar.gz \
@@ -101,8 +101,8 @@ REPL Works 방식으로 개발하는 서비스들은 필요한 CLI 도구를 직
       ```
     </section>
 
-    <div class="flex flex-wrap gap-3 border-t border-slate-800/80 pt-4 text-xs font-bold">
-      <a class="text-slate-400 hover:text-cyan-300" href="https://github.com/replworks/coolrestore" target="_blank" rel="noopener noreferrer">GitHub →</a>
+    <div class="flex flex-wrap gap-3 border-t border-slate-200 dark:border-slate-800/80 pt-4 text-xs font-bold">
+      <a class="text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-300" href="https://github.com/replworks/coolrestore" target="_blank" rel="noopener noreferrer">GitHub →</a>
     </div>
 
   </article>
