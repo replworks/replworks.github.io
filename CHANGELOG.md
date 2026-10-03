@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.10.6 - 2026-10-03
+
+### What's Changed
+
+* style: swap prompt name and Korean name display in PromptCard component by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/93
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.10.5...v2.10.6
+
 ## v2.10.5 - 2026-10-03
 
 ### What's Changed
