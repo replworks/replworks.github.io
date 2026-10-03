@@ -123,12 +123,17 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
       page.locator('article pre .code-copy-btn').first(),
     ).toBeVisible();
 
-    const renderedPrompt = await page
+    const expectedText = embeddedPrompts.get(slug);
+    expect(expectedText).toBeDefined();
+
+    const promptCodeElement = page
       .locator('article pre code')
-      .last()
-      .textContent();
+      .filter({ hasText: expectedText?.slice(0, 20) ?? '' })
+      .first();
+
+    const renderedPrompt = await promptCodeElement.textContent();
 
     expect(renderedPrompt).not.toBeNull();
-    expect(embeddedPrompts.get(slug)).toBe(renderedPrompt);
+    expect(renderedPrompt).toBe(expectedText);
   }
 });

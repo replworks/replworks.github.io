@@ -1,19 +1,19 @@
 ---
-title: 'Task 생성'
+title: '작업 계획 수립'
 version: 'v1'
-description: 'TASKS.md는 프로젝트의 현재 위치(Current Position)를 설명하는 문서다.'
+description: 'TASKS.md 작성을 위한 구현 실행 작업 생성 프롬프트'
 publishedAt: '2026-06-12T00:00:00Z'
 ---
 
-## 목적
+## 🎯 프롬프트 목적
 
-TASKS.md를 생성한다.
+제품 명세와 아키텍처 설계를 기반으로, AI 개발 에이전트가 단독으로 하나씩 구현하고 검증할 수 있는 단위 실행 체크리스트(`TASKS.md`)를 작성합니다.
 
-TASKS.md는 프로젝트의 현재 위치(Current Position)를 설명하는 문서다.
+`TASKS.md`는 프로젝트의 현재 구현 상태와 **앞으로 완성해야 할 구체적인 작업 마일스톤**을 명시하는 가이드가 됩니다.
 
 ---
 
-## 산출물
+## 📦 생성 산출물
 
 ```text
 TASKS.md
@@ -21,15 +21,16 @@ TASKS.md
 
 ---
 
-## 사용 방법
+## 💡 사용 방법 & 대화 가이드
 
-ARCHITECTURE.md가 완성된 이후 사용한다.
-
-AI는 PRODUCT_SPEC.md와 ARCHITECTURE.md 요구사항을 지키는 TASKS를 체크리스트로 정리해야 한다.
+1. **사전 준비**: `PRODUCT_SPEC.md`, `TECH_STACK.md`, `ARCHITECTURE.md` 작성이 모두 완료된 후 사용하세요.
+2. **독립적 수립 유도**: 각 태스크가 독립적으로 완료 가능하고 객관적 수용 기준(Acceptance Criteria)을 갖추도록 AI에게 작성을 요청합니다.
 
 ---
 
-## Prompt
+## 🤖 AI 프롬프트 원문
+
+아래 프롬프트를 복사하여 AI 대화창 첫 메시지로 전달해 보세요.
 
 ````text
 # TASKS_PROMPT.md
