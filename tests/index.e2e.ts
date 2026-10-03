@@ -10,6 +10,23 @@ test('has title', async ({ page }) => {
   );
 });
 
+test('labels document links in Korean with a download icon', async ({
+  page,
+}) => {
+  await page.goto('/documents');
+
+  await expect(
+    page.getByRole('link', { name: '문서 표준 보기' }).first(),
+  ).toBeVisible();
+
+  const downloadLink = page
+    .getByRole('link', { name: 'Markdown 다운로드' })
+    .first();
+  await expect(downloadLink).toBeVisible();
+  await expect(downloadLink).toHaveAttribute('download', '');
+  await expect(downloadLink.locator('svg')).toBeVisible();
+});
+
 test('applies the light theme to detail pages', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('theme', 'light'));
   await page.goto('/prompts/idea-refinement');
@@ -171,6 +188,9 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
   ];
 
   await page.goto('/prompts');
+  await expect(
+    page.locator('button[data-prompt-copy]').first().locator('svg'),
+  ).toBeVisible();
   const cardOrder = await page
     .locator('button[data-prompt-copy]')
     .evaluateAll((buttons) =>

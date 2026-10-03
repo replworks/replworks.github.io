@@ -5,7 +5,7 @@ interface Props {
   text?: string;
   downloadHref?: string;
 }
-const { href, text = 'View Document Standard', downloadHref } = Astro.props;
+const { href, text = '문서 표준 보기', downloadHref } = Astro.props;
 ---
 
 <div class="my-4 flex flex-wrap gap-2.5">
@@ -32,9 +32,23 @@ const { href, text = 'View Document Standard', downloadHref } = Astro.props;
     <a
       href={downloadHref}
       download
-      class="inline-flex items-center gap-1.5 rounded-xl border border-cyan-300 dark:border-cyan-800/80 bg-cyan-50 dark:bg-cyan-950/60 px-3.5 py-2 text-xs font-bold text-cyan-700 dark:text-cyan-300 no-underline transition-all hover:bg-cyan-100 dark:hover:bg-cyan-900/80 hover:text-cyan-950 dark:hover:text-white"
+      class="group inline-flex items-center gap-1.5 rounded-xl border border-cyan-300 dark:border-cyan-800/80 bg-cyan-50 dark:bg-cyan-950/60 px-3.5 py-2 text-xs font-bold text-cyan-700 dark:text-cyan-300 no-underline transition-all hover:bg-cyan-100 dark:hover:bg-cyan-900/80 hover:text-cyan-950 dark:hover:text-white"
     >
-      Download Markdown
+      <svg
+        class="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2.5"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 10.5L12 15m0 0l4.5-4.5M12 15V3"
+        ></path>
+      </svg>
+      <span>Markdown 다운로드</span>
     </a>
   )}
 </div>
