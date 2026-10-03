@@ -40,6 +40,10 @@ test('applies the light theme to the homepage', async ({ page }) => {
     'color',
     'oklch(0.208 0.042 265.755)',
   );
+  await expect(page.locator('svg text').first()).toHaveCSS(
+    'fill',
+    'rgb(30, 27, 75)',
+  );
 });
 
 test('searches every public content collection', async ({ page }) => {

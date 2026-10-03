@@ -209,16 +209,16 @@
                 width="200"
                 height="85"
                 rx="20"
-                fill="var(--hero-human-fill)"
+                class="hero-human-node"
                 fill-opacity="0.95"
-                stroke="var(--hero-human-stroke)"
+                stroke="#6366f1"
                 stroke-width="2.5"
               />
               <text
                 x="100"
                 y="38"
                 text-anchor="middle"
-                fill="var(--hero-node-title)"
+                class="hero-node-title"
                 font-weight="900"
                 font-size="24"
               >
@@ -228,7 +228,7 @@
                 x="100"
                 y="66"
                 text-anchor="middle"
-                fill="var(--hero-human-copy)"
+                class="hero-human-copy"
                 font-weight="700"
                 font-size="18"
               >
@@ -251,16 +251,16 @@
                 width="235"
                 height="114"
                 rx="20"
-                fill="var(--hero-discussion-fill)"
+                class="hero-discussion-node"
                 fill-opacity="0.95"
-                stroke="var(--hero-discussion-stroke)"
+                stroke="#38bdf8"
                 stroke-width="2.5"
               />
               <text
                 x="117.5"
                 y="36"
                 text-anchor="middle"
-                fill="var(--hero-node-title)"
+                class="hero-node-title"
                 font-weight="900"
                 font-size="24"
               >
@@ -270,7 +270,7 @@
                 x="117.5"
                 y="62"
                 text-anchor="middle"
-                fill="var(--hero-discussion-copy)"
+                class="hero-discussion-copy"
                 font-weight="600"
                 font-size="16"
               >
@@ -280,7 +280,7 @@
                 x="117.5"
                 y="92"
                 text-anchor="middle"
-                fill="var(--hero-discussion-detail)"
+                class="hero-discussion-detail"
                 font-weight="700"
                 font-size="18"
               >
@@ -303,16 +303,16 @@
                 width="235"
                 height="114"
                 rx="20"
-                fill="var(--hero-execution-fill)"
+                class="hero-execution-node"
                 fill-opacity="0.95"
-                stroke="var(--hero-execution-stroke)"
+                stroke="#34d399"
                 stroke-width="2.5"
               />
               <text
                 x="117.5"
                 y="36"
                 text-anchor="middle"
-                fill="var(--hero-node-title)"
+                class="hero-node-title"
                 font-weight="900"
                 font-size="24"
               >
@@ -322,7 +322,7 @@
                 x="117.5"
                 y="62"
                 text-anchor="middle"
-                fill="var(--hero-execution-copy)"
+                class="hero-execution-copy"
                 font-weight="600"
                 font-size="16"
               >
@@ -332,7 +332,7 @@
                 x="117.5"
                 y="92"
                 text-anchor="middle"
-                fill="var(--hero-execution-detail)"
+                class="hero-execution-detail"
                 font-weight="700"
                 font-size="18"
               >
@@ -348,16 +348,16 @@
                 width="180"
                 height="44"
                 rx="16"
-                fill="var(--hero-assets-fill)"
+                class="hero-assets-node"
                 fill-opacity="0.95"
-                stroke="var(--hero-assets-stroke)"
+                stroke="#475569"
                 stroke-width="1.5"
               />
               <text
                 x="0"
                 y="7"
                 text-anchor="middle"
-                fill="var(--hero-assets-copy)"
+                class="hero-assets-copy"
                 font-weight="800"
                 font-size="20"
                 letter-spacing="1"
@@ -373,40 +373,92 @@
 </section>
 
 <style>
-  :global(:root) {
-    --hero-human-fill: #1e1b4b;
-    --hero-human-stroke: #6366f1;
-    --hero-node-title: #ffffff;
-    --hero-human-copy: #a5b4fc;
-    --hero-discussion-fill: #082f49;
-    --hero-discussion-stroke: #38bdf8;
-    --hero-discussion-copy: #7dd3fc;
-    --hero-discussion-detail: #bae6fd;
-    --hero-execution-fill: #064e3b;
-    --hero-execution-stroke: #34d399;
-    --hero-execution-copy: #6ee7b7;
-    --hero-execution-detail: #a7f3d0;
-    --hero-assets-fill: #0f172a;
-    --hero-assets-stroke: #475569;
-    --hero-assets-copy: #cbd5e1;
+  .hero-human-node {
+    fill: #1e1b4b;
   }
 
-  :global(html.light) {
-    --hero-human-fill: #e0e7ff;
-    --hero-human-stroke: #6366f1;
-    --hero-node-title: #1e1b4b;
-    --hero-human-copy: #4338ca;
-    --hero-discussion-fill: #e0f2fe;
-    --hero-discussion-stroke: #0284c7;
-    --hero-discussion-copy: #0369a1;
-    --hero-discussion-detail: #075985;
-    --hero-execution-fill: #d1fae5;
-    --hero-execution-stroke: #059669;
-    --hero-execution-copy: #047857;
-    --hero-execution-detail: #065f46;
-    --hero-assets-fill: #f1f5f9;
-    --hero-assets-stroke: #64748b;
-    --hero-assets-copy: #334155;
+  .hero-node-title {
+    fill: #ffffff;
+  }
+
+  .hero-human-copy {
+    fill: #a5b4fc;
+  }
+
+  .hero-discussion-node {
+    fill: #082f49;
+  }
+
+  .hero-discussion-copy {
+    fill: #7dd3fc;
+  }
+
+  .hero-discussion-detail {
+    fill: #bae6fd;
+  }
+
+  .hero-execution-node {
+    fill: #064e3b;
+  }
+
+  .hero-execution-copy {
+    fill: #6ee7b7;
+  }
+
+  .hero-execution-detail {
+    fill: #a7f3d0;
+  }
+
+  .hero-assets-node {
+    fill: #0f172a;
+  }
+
+  .hero-assets-copy {
+    fill: #cbd5e1;
+  }
+
+  :global(html.light) .hero-human-node {
+    fill: #e0e7ff;
+  }
+
+  :global(html.light) .hero-node-title {
+    fill: #1e1b4b;
+  }
+
+  :global(html.light) .hero-human-copy {
+    fill: #4338ca;
+  }
+
+  :global(html.light) .hero-discussion-node {
+    fill: #e0f2fe;
+  }
+
+  :global(html.light) .hero-discussion-copy {
+    fill: #0369a1;
+  }
+
+  :global(html.light) .hero-discussion-detail {
+    fill: #075985;
+  }
+
+  :global(html.light) .hero-execution-node {
+    fill: #d1fae5;
+  }
+
+  :global(html.light) .hero-execution-copy {
+    fill: #047857;
+  }
+
+  :global(html.light) .hero-execution-detail {
+    fill: #065f46;
+  }
+
+  :global(html.light) .hero-assets-node {
+    fill: #f1f5f9;
+  }
+
+  :global(html.light) .hero-assets-copy {
+    fill: #334155;
   }
 
   /* Ultra-light Hardware-Accelerated Radial Orbs (Zero Blur Filter, Zero CPU repaint) */
