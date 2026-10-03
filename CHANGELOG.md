@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.10.3 - 2026-10-03
+
+### What's Changed
+
+* style: adjust dimensions and positions in Hero component for improved layout by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/89
+* style: adjust padding and layout for DocumentLayout and ShowcaseLayout components by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/90
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.10.2...v2.10.3
+
 ## v2.10.2 - 2026-10-03
 
 ### What's Changed
