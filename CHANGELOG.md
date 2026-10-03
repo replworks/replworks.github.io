@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.10.2 - 2026-10-03
+
+### What's Changed
+
+* style: reorganize footer and hero components by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/88
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.10.1...v2.10.2
+
 ## v2.10.1 - 2026-10-02
 
 ### What's Changed
