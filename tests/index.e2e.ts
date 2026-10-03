@@ -166,6 +166,26 @@ test('shows all Showcase projects as compatible cards', async ({ page }) => {
   await expect(page.getByText('REPL Works Compatible')).toHaveCount(7);
 });
 
+test('renders showcase workflow usage without code controls', async ({
+  page,
+}) => {
+  for (const slug of [
+    'ai-issue',
+    'claytube',
+    'etern-labs',
+    'eternops',
+    'mma',
+    'repl-works-website',
+    'wifi-note',
+  ]) {
+    await page.goto(`/showcase/${slug}`);
+    await expect(
+      page.getByRole('heading', { name: 'Workflow Usage' }),
+    ).toBeVisible();
+    await expect(page.locator('.expressive-code')).toHaveCount(0);
+  }
+});
+
 test('keeps primary pages within a mobile viewport', async ({ page }) => {
   await page.setViewportSize({ width: 393, height: 852 });
 

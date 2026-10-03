@@ -9,6 +9,7 @@ import MissionBox from '../../components/MissionBox.astro';
 import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
 import SpecGrid from '../../components/SpecGrid.astro';
 import DocLink from '../../components/DocLink.astro';
+import WorkflowFlow from '../../components/WorkflowFlow.astro';
 
 ## 1. 개요 (Overview)
 
@@ -48,9 +49,15 @@ ClayTube 장기 운영 과정에서 적용된 REPL Works 연속성 워크플로�
 2. **세션 복원 절차**: 새로운 개발 회차 진입 시 REPL Works 헌법 문서를 읽어 즉각 컨텍스트 동기화
 3. **1-Task = 1-Commit 단위 개발**: 에이전트 작업 실행 시 1개 작업 당 1개의 독립 커밋 작성하여 추적 가능성 극대화
 
-```text
-Session Entry ──> Read Git Docs ──> Verify Acceptance Criteria ──> Execute Single Task ──> Git Commit & Push
-```
+<WorkflowFlow
+  steps={[
+    'Session Entry',
+    'Read Git Docs',
+    'Verify Acceptance Criteria',
+    'Execute Single Task',
+    'Git Commit & Push',
+  ]}
+/>
 
 ---
 

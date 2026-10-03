@@ -9,6 +9,7 @@ import MissionBox from '../../components/MissionBox.astro';
 import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
 import SpecGrid from '../../components/SpecGrid.astro';
 import DocLink from '../../components/DocLink.astro';
+import WorkflowFlow from '../../components/WorkflowFlow.astro';
 
 ## 1. 개요 (Overview)
 
@@ -46,9 +47,14 @@ import DocLink from '../../components/DocLink.astro';
 2. **에이전트 권한 및 경계 설정**: `AGENTS.md`를 통해 에이전트가 수행할 수 있는 명령과 수락 기준(Acceptance Criteria) 명시
 3. **지속적 통합 검증**: AI 작업 결과를 E2E 및 유닛 테스트로 검증 후 Git에 반영
 
-```text
-Operations Policy ──> AGENTS.md Boundary ──> 코딩형 AI Task Processing ──> Automated Verification
-```
+<WorkflowFlow
+  steps={[
+    'Operations Policy',
+    'AGENTS.md Boundary',
+    '코딩형 AI Task Processing',
+    'Automated Verification',
+  ]}
+/>
 
 ---
 

@@ -9,6 +9,7 @@ import MissionBox from '../../components/MissionBox.astro';
 import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
 import SpecGrid from '../../components/SpecGrid.astro';
 import DocLink from '../../components/DocLink.astro';
+import WorkflowFlow from '../../components/WorkflowFlow.astro';
 
 ## 1. 개요 (Overview)
 
@@ -46,9 +47,14 @@ MMA 다중 에이전트 협업 파이프라인 워크플로입니다:
 2. **태스크 할당 (코딩형 AI)**: `TASKS.md`의 단위 태스크를 실행 에이전트에 스코프 지정하여 커밋 단위 구현
 3. **인간 리뷰 및 통합 (Human Reviewer)**: 자동화 테스트 검증 후 최종 코드를 메인 브랜치로 병합
 
-```text
-Human + 대화형 AI ──> Git Spec Repository (.replworks) ──> 코딩형 AI Agents ──> Review & Merge
-```
+<WorkflowFlow
+  steps={[
+    'Human + 대화형 AI',
+    'Git Spec Repository (.replworks)',
+    '코딩형 AI Agents',
+    'Review & Merge',
+  ]}
+/>
 
 ---
 

@@ -9,6 +9,7 @@ import MissionBox from '../../components/MissionBox.astro';
 import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
 import SpecGrid from '../../components/SpecGrid.astro';
 import DocLink from '../../components/DocLink.astro';
+import WorkflowFlow from '../../components/WorkflowFlow.astro';
 
 ## 1. 개요 (Overview)
 
@@ -36,15 +37,14 @@ import DocLink from '../../components/DocLink.astro';
 
 `ai-issue` 도구 개발 시 다음과 같은 REPL Works 워크플로를 적용했습니다:
 
-```text
-대화형 AI (이슈 구조화 가이드라인 설계)
-       ↓
-PRODUCT_SPEC.md & ARCHITECTURE.md (CLI 구조 수립)
-       ↓
-코딩형 AI (Homebrew / APT 설치 가능한 CLI 빌드)
-       ↓
-Human Review (로컬 환경 터미널 검증 및 Release)
-```
+<WorkflowFlow
+  steps={[
+    '대화형 AI (이슈 구조화 가이드라인 설계)',
+    'PRODUCT_SPEC.md & ARCHITECTURE.md (CLI 구조 수립)',
+    '코딩형 AI (Homebrew / APT 설치 가능한 CLI 빌드)',
+    'Human Review (로컬 환경 터미널 검증 및 Release)',
+  ]}
+/>
 
 ---
 
