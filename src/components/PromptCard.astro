@@ -55,7 +55,22 @@ const serializedPrompt = JSON.stringify(promptText)
       aria-label={`${prompt.number}번 ${prompt.name} 프롬프트 복사`}
       class="inline-flex items-center justify-center rounded-lg bg-cyan-400 px-3 py-2 text-xs font-bold text-slate-950 transition-colors hover:bg-cyan-300"
     >
-      프롬프트 복사
+      <svg
+        class="mr-1.5 h-3.5 w-3.5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2.25"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
+        <rect width="13" height="13" x="9" y="9" rx="2"></rect>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
+        ></path>
+      </svg>
+      <span data-prompt-copy-label>프롬프트 복사</span>
     </button>
     <span
       class="sr-only"
@@ -123,15 +138,24 @@ const serializedPrompt = JSON.stringify(promptText)
 
     try {
       await copyPrompt(JSON.parse(source.textContent ?? 'null'));
-      button.textContent = '복사됨';
+      const label = button.querySelector<HTMLElement>(
+        '[data-prompt-copy-label]',
+      );
+      if (label) label.textContent = '복사됨';
       status.textContent = `${button.getAttribute('aria-label')} 완료`;
     } catch {
-      button.textContent = '복사 실패';
+      const label = button.querySelector<HTMLElement>(
+        '[data-prompt-copy-label]',
+      );
+      if (label) label.textContent = '복사 실패';
       status.textContent = `${button.getAttribute('aria-label')} 실패`;
     }
 
     window.setTimeout(() => {
-      button.textContent = '프롬프트 복사';
+      const label = button.querySelector<HTMLElement>(
+        '[data-prompt-copy-label]',
+      );
+      if (label) label.textContent = '프롬프트 복사';
       status.textContent = '';
     }, 2000);
   });

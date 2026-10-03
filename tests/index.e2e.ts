@@ -188,6 +188,9 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
   ];
 
   await page.goto('/prompts');
+  await expect(
+    page.locator('button[data-prompt-copy]').first().locator('svg'),
+  ).toBeVisible();
   const cardOrder = await page
     .locator('button[data-prompt-copy]')
     .evaluateAll((buttons) =>
