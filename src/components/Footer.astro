@@ -3,29 +3,8 @@
 
 <footer class="border-t border-slate-800/80 bg-[#070a12] py-12 text-sm text-slate-400">
   <div class="mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:flex-row lg:items-start lg:justify-between">
-    {/* Left Column: About Block */}
-    <div class="max-w-sm space-y-3 shrink-0">
-      <a href="/" class="flex items-center gap-2 group">
-        <img
-          src="/logo-tight-margin-1024-1024.svg"
-          alt="REPL Works"
-          class="h-6 w-6 object-contain group-hover:scale-105 transition-transform"
-        />
-        <span class="font-black tracking-tight text-white group-hover:text-cyan-400 transition-colors">
-          REPL Works
-        </span>
-      </a>
-      <p class="text-xs text-slate-400 leading-relaxed">
-        AI 에이전트와 사람이 프로젝트의 기억과 의도를 문서와 Git에 축적하며 함께
-        개발하는 문서 주도 AI 개발 프레임워크.
-      </p>
-      <p class="text-[11px] font-mono text-cyan-400/80 font-semibold">
-        Models change. Projects survive.
-      </p>
-    </div>
-
-    {/* Right Column: 4-Column Sitemap */}
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 lg:gap-12 w-full lg:w-auto">
+    {/* 4-Column Sitemap (Mobile: 1st, Desktop: Right) */}
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 lg:gap-12 w-full lg:w-auto order-1 lg:order-2">
       {/* Column 1: Framework */}
       <div class="space-y-3">
         <h3 class="text-xs font-mono font-bold tracking-wider text-slate-200 uppercase">
@@ -156,6 +135,27 @@
           </li>
         </ul>
       </div>
+    </div>
+
+    {/* About Block (Mobile: 2nd, Desktop: Left) */}
+    <div class="max-w-sm space-y-3 shrink-0 order-2 lg:order-1">
+      <a href="/" class="flex items-center gap-2 group">
+        <img
+          src="/logo-tight-margin-1024-1024.svg"
+          alt="REPL Works"
+          class="h-6 w-6 object-contain group-hover:scale-105 transition-transform"
+        />
+        <span class="font-black tracking-tight text-white group-hover:text-cyan-400 transition-colors">
+          REPL Works
+        </span>
+      </a>
+      <p class="text-xs text-slate-400 leading-relaxed">
+        AI 에이전트와 사람이 프로젝트의 기억과 의도를 문서와 Git에 축적하며 함께
+        개발하는 문서 주도 AI 개발 프레임워크.
+      </p>
+      <p class="text-[11px] font-mono text-cyan-400/80 font-semibold">
+        Models change. Projects survive.
+      </p>
     </div>
   </div>
 
