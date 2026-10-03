@@ -71,7 +71,7 @@
 
       {/* Right Column: Lightweight Animated Triangle Diagram */}
       <div class="lg:col-span-6 w-full flex justify-center">
-        <div class="glass-card rounded-3xl border border-slate-200 dark:border-slate-800/90 p-3.5 sm:p-8 shadow-2xl relative w-full max-w-lg overflow-hidden group hover:border-cyan-500/40 transition-colors">
+        <div class="hero-diagram glass-card rounded-3xl border border-slate-200 dark:border-slate-800/90 p-3.5 sm:p-8 shadow-2xl relative w-full max-w-lg overflow-hidden group hover:border-cyan-500/40 transition-colors">
           <svg
             viewBox="0 0 500 445"
             class="w-full h-auto max-w-full overflow-visible"
@@ -459,6 +459,12 @@
 
   :global(html.light) .hero-assets-copy {
     fill: #334155;
+  }
+
+  :global(html.light) .hero-diagram {
+    background: linear-gradient(135deg, #f1f5ff 0%, #eaf4ff 52%, #eef2ff 100%);
+    border-color: rgba(129, 140, 248, 0.28);
+    box-shadow: 0 25px 50px -18px rgba(79, 70, 229, 0.18);
   }
 
   /* Ultra-light Hardware-Accelerated Radial Orbs (Zero Blur Filter, Zero CPU repaint) */
