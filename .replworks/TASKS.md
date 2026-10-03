@@ -273,6 +273,12 @@ Propose TASK update
 
 - [x] T1201 Redesign homepage hero and align Workflow roles, document stages, and terminology
 
+## PHASE 13
+
+### PROMPT SOURCE ALIGNMENT
+
+- [x] T1301 Use templates/prompts as the canonical build-time prompt source
+
 ---
 
 ## COMPLETION

@@ -1,0 +1,30 @@
+Review these documents together:
+
+- PRODUCT_SPEC.md
+- TECH_STACK.md
+- ARCHITECTURE.md
+
+Generate only blocking questions.
+
+Check for:
+
+- product requirements without architectural ownership
+- components with overlapping responsibilities
+- missing inputs or outputs
+- undefined data flows
+- conflicts with TECH_STACK.md
+- architecture decisions that introduce unapproved product behavior
+- missing failure boundaries
+- contradictory invariants
+
+Do not suggest new features.
+
+Do not choose alternative technologies.
+
+Do not redesign the architecture.
+
+If no blocking questions exist, output:
+
+```text
+Architecture can be implemented with high confidence.
+```

@@ -1,0 +1,31 @@
+Review these documents together:
+
+- PRODUCT_SPEC.md
+- TECH_STACK.md
+- ARCHITECTURE.md
+- TASKS.md
+
+Generate only blocking questions.
+
+Check for:
+
+- product requirements without tasks
+- architecture responsibilities without tasks
+- tasks that conflict with the product requirements
+- tasks that conflict with the technology constraints
+- tasks that are not independently completable
+- tasks without objective acceptance criteria
+- missing dependencies between tasks
+- work that is outside the approved scope
+
+Do not create new tasks.
+
+Do not suggest new features.
+
+Do not rewrite TASKS.md.
+
+If no blocking questions exist, output:
+
+```text
+Tasks can be executed with high confidence.
+```
