@@ -143,3 +143,31 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* ============================================================
+   Pagefind 다크모드 오버라이드
+   @pagefind/component-ui 는 [data-pf-theme="dark"] 로 동작하지만
+   이 사이트는 html.dark 방식을 사용하므로 --pf-* 변수를 직접 재정의한다.
+   ============================================================ */
+html.dark,
+html[data-theme='dark'] {
+  --pf-text: #e5e5e5;
+  --pf-text-secondary: #a0a0a0;
+  --pf-text-muted: #949494;
+  --pf-background: #0f172a;
+  --pf-border: #1e293b;
+  --pf-border-focus: #38bdf8;
+  --pf-skeleton: #1e293b;
+  --pf-skeleton-shine: #253352;
+  --pf-hover: #1e293b;
+  --pf-mark: #e5e5e5;
+  --pf-scroll-shadow: rgba(255, 255, 255, 0.06);
+  --pf-outline-focus: #38bdf8;
+  --pf-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --pf-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --pf-shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --pf-error-bg: #2d1515;
+  --pf-error-border: #7f1d1d;
+  --pf-error-text: #fca5a5;
+  --pf-error-text-secondary: #f87171;
+}
