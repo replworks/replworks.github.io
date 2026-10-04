@@ -33,9 +33,9 @@ const metadata = entry?.data ?? {};
 
 const headings = contentResult?.headings ?? [];
 
-// 단일 페이지 컬렉션(faq, workflow): H2 헤딩(섹션)만 TOC 항목으로 사용
+// 단일 페이지 컬렉션(faq, workflow, tools): H2 헤딩(섹션)만 TOC 항목으로 사용
 const tocItems =
-  collection === 'faq' || collection === 'workflow'
+  collection === 'faq' || collection === 'workflow' || collection === 'tools'
     ? headings
         .filter((h) => h.depth === 2)
         .map((h) => ({
