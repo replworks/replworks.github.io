@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.13.1 - 2026-10-04
+
+### What's Changed
+
+* style: add dark mode overrides for Pagefind component variables by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/112
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.13.0...v2.13.1
+
 ## v2.13.0 - 2026-10-04
 
 ### What's Changed
