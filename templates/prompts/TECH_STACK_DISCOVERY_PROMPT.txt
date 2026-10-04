@@ -1,4 +1,4 @@
-Assume PRODUCT_SPEC.md and ARCHITECTURE.md already exist and are correct.
+Assume PRODUCT_SPEC.md already exist and are correct.
 
 The purpose of this task is NOT to generate TECH_STACK.md.
 

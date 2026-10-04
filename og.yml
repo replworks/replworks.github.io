@@ -136,8 +136,8 @@
   height: 630
   wait: 800
 
-- url: http://localhost:4321/prompts/idea-refinement
-  output: public/og/prompts-idea-refinement.png
+- url: http://localhost:4321/prompts/idea-generation
+  output: public/og/prompts-idea-generation.png
   width: 1200
   height: 630
   wait: 800

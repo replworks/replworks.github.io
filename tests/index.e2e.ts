@@ -58,7 +58,7 @@ test('renders document explanations without code controls', async ({
 
 test('applies the light theme to detail pages', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('theme', 'light'));
-  await page.goto('/prompts/idea-refinement');
+  await page.goto('/prompts/idea-generation');
 
   await expect(page.locator('html')).toHaveClass(/light/);
   await expect(page.locator('html')).not.toHaveClass(/dark/);
@@ -76,7 +76,7 @@ test('renders expressive code blocks with a localized copy button', async ({
   page,
 }) => {
   await page.addInitScript(() => localStorage.setItem('theme', 'light'));
-  await page.goto('/prompts/idea-refinement');
+  await page.goto('/prompts/idea-generation');
 
   const copyButton = page.locator('.expressive-code .copy button').first();
   await expect(copyButton).toBeVisible();
@@ -306,7 +306,7 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
 });
 
 test('renders sidebar navigation on detail pages', async ({ page }) => {
-  await page.goto('/prompts/idea-refinement');
+  await page.goto('/prompts/idea-generation');
   await expect(page.locator('aside nav')).toBeVisible();
   await expect(
     page.locator('aside nav').getByRole('link', { name: /피치 작성/ }),
