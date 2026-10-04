@@ -9,6 +9,7 @@ import {
 import { getCollection, render } from 'astro:content';
 import DocumentLayout from '../../layouts/DocumentLayout.astro';
 import ShowcaseLayout from '../../layouts/ShowcaseLayout.astro';
+import CollectionSidebar from '../../components/CollectionSidebar.astro';
 
 export async function getStaticPaths() {
   return contentCollections.map((collection) => ({ params: { collection } }));
@@ -29,59 +30,64 @@ const rendered = entry?.rendered ?? null;
 const contentResult = entry && !rendered ? await render(entry) : null;
 const Content = contentResult?.Content ?? null;
 const metadata = entry?.data ?? {};
+
+const headings = contentResult?.headings ?? [];
+
+// 단일 페이지 컬렉션(faq, workflow, tools): H2 헤딩(섹션)만 TOC 항목으로 사용
+const tocItems =
+  collection === 'faq' || collection === 'workflow' || collection === 'tools'
+    ? headings
+        .filter((h) => h.depth === 2)
+        .map((h) => ({
+          slug: h.slug,
+          title: h.text,
+          href: `#${h.slug}`,
+        }))
+    : undefined;
+
+const Layout = collection === 'showcase' ? ShowcaseLayout : DocumentLayout;
 ---
 
-{collection === 'showcase' ? (
-  <ShowcaseLayout
-    title={entry ? (metadata.title ?? collectionTitle) : collectionTitle}
-    label={metadata.label ?? collectionLabels[collection]}
-    description={
-      entry
-        ? (metadata.description ?? collectionDescription)
-        : collectionDescription
-    }
-  >
-    {rendered ? (
-      <article set:html={rendered.html} />
-    ) : Content ? (
-      <article>
-        <Content />
-      </article>
-    ) : (
-      <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
-        <p class="text-base">
-          No content has been added yet for {collectionTitle}. This collection
-          route is ready for future documents.
-        </p>
+<Layout
+  title={entry ? (metadata.title ?? collectionTitle) : collectionTitle}
+  label={metadata.label ?? collectionLabels[collection]}
+  description={
+    entry
+      ? (metadata.description ?? collectionDescription)
+      : collectionDescription
+  }
+>
+  <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
+    {/* 사이드바 — 인덱스 페이지이므로 currentSlug="_index" */}
+    <div class="lg:col-span-3">
+      <div class="lg:sticky lg:top-24">
+        <CollectionSidebar
+          collection={collection}
+          currentSlug="_index"
+          overrideItems={tocItems}
+        />
       </div>
-    )}
-  </ShowcaseLayout>
-) : (
-  <DocumentLayout
-    title={entry ? (metadata.title ?? collectionTitle) : collectionTitle}
-    label={metadata.label ?? collectionLabels[collection]}
-    description={
-      entry
-        ? (metadata.description ?? collectionDescription)
-        : collectionDescription
-    }
-  >
-    {rendered ? (
-      <article
-        set:html={rendered.html}
-        class="space-y-6 text-slate-700 dark:text-slate-200"
-      />
-    ) : Content ? (
-      <article class="space-y-6 text-slate-700 dark:text-slate-200">
-        <Content />
-      </article>
-    ) : (
-      <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
-        <p class="text-base">
-          No content has been added yet for {collectionTitle}. This collection
-          route is ready for future documents.
-        </p>
-      </div>
-    )}
-  </DocumentLayout>
-)}
+    </div>
+
+    {/* 본문 */}
+    <div class="lg:col-span-9">
+      {rendered ? (
+        <article
+          set:html={rendered.html}
+          class="space-y-6 text-slate-700 dark:text-slate-200"
+        />
+      ) : Content ? (
+        <article class="space-y-6 text-slate-700 dark:text-slate-200">
+          <Content />
+        </article>
+      ) : (
+        <div class="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 text-slate-700">
+          <p class="text-base">
+            No content has been added yet for {collectionTitle}. This collection
+            route is ready for future documents.
+          </p>
+        </div>
+      )}
+    </div>
+  </div>
+</Layout>

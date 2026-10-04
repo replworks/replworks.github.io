@@ -10,6 +10,21 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* sticky 헤더가 앵커 점프 시 헤딩을 가리지 않도록 */
+  :is(h1, h2, h3, h4, h5, h6)[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
   :root {
     --bg-page: #f8fafc;
     --text-page: #0f172a;
