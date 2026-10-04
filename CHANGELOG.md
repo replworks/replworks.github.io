@@ -1,5 +1,15 @@
 # Release Notes
 
+## v2.13.0 - 2026-10-04
+
+### What's Changed
+
+* style: refine header component by adjusting class attributes for improved layout by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/109
+* style: update Hero component layout and spacing for improved visual consistency by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/110
+* feat: add open graph image generation and integrate into layouts by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/111
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.12.0...v2.13.0
+
 ## v2.12.0 - 2026-10-04
 
 ### What's Changed
