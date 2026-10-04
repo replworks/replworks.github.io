@@ -6,8 +6,13 @@ const {
   ogImage = '/og/index.png',
 } = Astro.props;
 
-const siteUrl = (import.meta.env.SITE ?? 'https://www.repl.net').replace(/\/$/, '');
-const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+const siteUrl = (import.meta.env.SITE ?? 'https://www.repl.net').replace(
+  /\/$/,
+  '',
+);
+const ogImageUrl = ogImage.startsWith('http')
+  ? ogImage
+  : `${siteUrl}${ogImage}`;
 import GoogleTag from '../components/GoogleTag.astro';
 ---
 

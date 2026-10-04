@@ -1,7 +1,12 @@
 ---
 import SiteLayout from './SiteLayout.astro';
 
-const { title, label = 'DOCUMENT SPECIFICATION', description, ogImage = '/og/showcase.png' } = Astro.props;
+const {
+  title,
+  label = 'DOCUMENT SPECIFICATION',
+  description,
+  ogImage = '/og/showcase.png',
+} = Astro.props;
 ---
 
 <SiteLayout title={title} description={description} ogImage={ogImage}>
