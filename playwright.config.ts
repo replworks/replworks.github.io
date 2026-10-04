@@ -1,7 +1,6 @@
 import { defineConfig } from '@playwright/test';
 
 const PORT = process.env.PORT || 4321;
-
 const baseURL = `http://localhost:${PORT}`;
 
 // See https://playwright.dev/docs/test-configuration.

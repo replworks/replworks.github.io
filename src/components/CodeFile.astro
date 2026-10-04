@@ -1,0 +1,15 @@
+---
+interface Props {
+  path: string;
+  lang?: string;
+  title?: string;
+}
+
+import { Code } from 'astro-expressive-code/components';
+import { getCodeSource } from '../utils/codeSource';
+
+const { path, lang = 'md', title = path.replace(/^\/+/, '') } = Astro.props;
+const code = getCodeSource(path);
+---
+
+<Code code={code} lang={lang} meta={`title="${title}"`} />
