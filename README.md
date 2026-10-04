@@ -216,7 +216,7 @@ shot-scraper multi   # og.yml 에 따라 각 페이지를 1200×630으로 캡처
 public/og/
 ├── index.png                      # /
 ├── prompts.png                    # /prompts
-├── prompts-idea-refinement.png    # /prompts/idea-refinement
+├── prompts-idea-generation.png    # /prompts/idea-generation
 ├── showcase-ai-issue.png          # /showcase/ai-issue
 └── ...
 ```
