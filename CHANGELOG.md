@@ -1,5 +1,16 @@
 # Release Notes
 
+## v2.14.0 - 2026-10-04
+
+### What's Changed
+
+* style: update titles to include '리플웍스' for consistency across layouts by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/113
+* style: update project title to include '리플웍스' for consistency by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/114
+* feat: update prompt titles and descriptions for consistency and clarity by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/115
+* feat: enhance documentation by adding examples for AGENTS.md and tech stack, improving sidebar configurationocumentation and remove unused files by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/116
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.13.1...v2.14.0
+
 ## v2.13.1 - 2026-10-04
 
 ### What's Changed
