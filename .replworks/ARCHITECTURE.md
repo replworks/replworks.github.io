@@ -220,6 +220,10 @@ Purpose
 Provide Reusable Document Standards
 ```
 
+Document sidebar entries are configured in `src/data/documents.ts`. Array
+order determines display order; optional titles, subtitles, and badges control
+sidebar presentation, with the content title used when no title override is set.
+
 ---
 
 Content Examples

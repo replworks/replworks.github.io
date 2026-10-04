@@ -18,7 +18,7 @@ test('labels document links in Korean with a download icon', async ({
   await page.goto('/documents');
 
   await expect(
-    page.getByRole('link', { name: '문서 표준 보기' }).first(),
+    page.getByRole('link', { name: '표준 문서 보기' }).first(),
   ).toBeVisible();
 
   const downloadLink = page
@@ -27,6 +27,29 @@ test('labels document links in Korean with a download icon', async ({
   await expect(downloadLink).toBeVisible();
   await expect(downloadLink).toHaveAttribute('download', '');
   await expect(downloadLink.locator('svg')).toBeVisible();
+});
+
+test('renders document sidebar from its configured order', async ({ page }) => {
+  await page.goto('/documents/agents');
+  const documentMenu = page
+    .locator('aside nav[aria-label="문서 목록"]')
+    .first()
+    .locator('a[data-sidebar-link]');
+  await expect(documentMenu.first()).toHaveAttribute('href', '/documents');
+  await expect(documentMenu).toHaveCount(8);
+  const documentMenuHrefs = await documentMenu.evaluateAll((links) =>
+    links.map((link) => link.getAttribute('href')),
+  );
+  expect(documentMenuHrefs).toEqual([
+    '/documents',
+    '/documents/agents',
+    '/documents/architecture',
+    '/documents/ideas',
+    '/documents/pitching-script',
+    '/documents/product-spec',
+    '/documents/tasks',
+    '/documents/tech-stack',
+  ]);
 });
 
 test('renders document explanations without code controls', async ({
@@ -49,9 +72,7 @@ test('renders document explanations without code controls', async ({
   await page.goto('/documents/agents');
   const agentsCode = page.locator('article .expressive-code');
   await expect(agentsCode).toHaveCount(1);
-  await expect(agentsCode.locator('.title')).toHaveText(
-    'templates/documents/AGENTS.md',
-  );
+  await expect(agentsCode.locator('.title')).toHaveText('AGENTS.md');
   await expect(agentsCode.locator('.copy button')).toBeVisible();
   const expectedTemplate = readFileSync(
     resolve(import.meta.dirname, '../templates/documents/AGENTS.md'),

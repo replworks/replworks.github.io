@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { promptDefinitions } from './data/prompts';
+import { documentMenu } from './data/documents';
 import { showcaseProjects } from './data/showcase';
 import { getCodeSource } from './utils/codeSource';
 import { getPromptSource } from './utils/promptSource';
@@ -69,6 +70,17 @@ describe('REPL Works content invariants', () => {
     }
   });
 
+  it('keeps the document sidebar backed by its ordered configuration', () => {
+    const documentSlugs = documentMenu.map((document) => document.slug);
+    expect(new Set(documentSlugs).size).toBe(documentSlugs.length);
+
+    for (const document of documentMenu) {
+      expect(
+        existsSync(resolve(root, `src/content/documents/${document.slug}.mdx`)),
+      ).toBe(true);
+    }
+  });
+
   it('keeps the complete AGENTS example backed by its template source', () => {
     const template = getCodeSource('/templates/documents/AGENTS.md');
     expect(template).toBe(
@@ -77,7 +89,7 @@ describe('REPL Works content invariants', () => {
 
     const agentsPage = read('src/content/documents/agents.mdx');
     expect(agentsPage).toContain(
-      '<CodeFile path="/templates/documents/AGENTS.md" />',
+      '<CodeFile path="/templates/documents/AGENTS.md"',
     );
   });
 

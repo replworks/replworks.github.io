@@ -2,6 +2,7 @@
 import type { ContentCollection } from '../lib/site';
 import { collectionTitles } from '../lib/site';
 import { promptDefinitions } from '../data/prompts';
+import { documentMenu } from '../data/documents';
 import { showcaseProjects } from '../data/showcase';
 import { getCollection } from 'astro:content';
 
@@ -33,6 +34,23 @@ if (overrideItems) {
     subtitle: p.name,
     href: `/prompts/${p.slug}`,
   }));
+} else if (collection === 'documents') {
+  const entries = await getCollection(collection);
+  const entriesBySlug = new Map(entries.map((entry) => [entry.id, entry]));
+  items = documentMenu.map(({ slug, title, subtitle, badge }) => {
+    const entry = entriesBySlug.get(slug);
+    if (!entry) {
+      throw new Error(`Missing document content for sidebar entry "${slug}"`);
+    }
+
+    return {
+      slug,
+      title: title ?? entry.data.title ?? slug,
+      subtitle,
+      badge,
+      href: `/documents/${slug}`,
+    };
+  });
 } else if (collection === 'showcase') {
   items = showcaseProjects
     .slice()
