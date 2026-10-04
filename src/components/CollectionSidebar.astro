@@ -8,9 +8,10 @@ import { getCollection } from 'astro:content';
 interface Props {
   collection: ContentCollection;
   currentSlug: string;
+  overrideItems?: SidebarItem[];
 }
 
-const { collection, currentSlug } = Astro.props;
+const { collection, currentSlug, overrideItems } = Astro.props;
 
 interface SidebarItem {
   slug: string;
@@ -22,7 +23,10 @@ interface SidebarItem {
 
 let items: SidebarItem[] = [];
 
-if (collection === 'prompts') {
+if (overrideItems) {
+  // 외부에서 직접 항목 주입 (FAQ TOC 등)
+  items = overrideItems;
+} else if (collection === 'prompts') {
   items = promptDefinitions.map((p) => ({
     slug: p.slug,
     title: `${String(p.number).padStart(2, '0')}. ${p.koreanName}`,
@@ -52,14 +56,17 @@ if (collection === 'prompts') {
 
 const collectionTitle = collectionTitles[collection];
 
-// 컬렉션 인덱스 페이지를 첫 번째 항목으로 추가
+// 컬렉션 인덱스 페이지를 첫 번째 항목으로 추가 (overrideItems가 없을 때만)
 const indexItem: SidebarItem = {
   slug: '_index',
   title: collectionTitle,
   href: `/${collection}`,
 };
 
-const allItems = [indexItem, ...items];
+const allItems = overrideItems ? items : [indexItem, ...items];
+
+// TOC 모드(overrideItems 제공)일 때는 첫 번째 항목이 기본 active
+const serverActiveSlug = overrideItems ? (items[0]?.slug ?? null) : currentSlug;
 ---
 
 <aside class="w-full">
@@ -107,11 +114,13 @@ const allItems = [indexItem, ...items];
       >
         <ul class="list-none space-y-0.5 p-0 m-0">
           {allItems.map((item) => {
-            const isActive = item.slug === currentSlug;
+            const isActive = item.slug === serverActiveSlug;
             return (
               <li>
                 <a
                   href={item.href}
+                  data-sidebar-link
+                  data-slug={item.slug}
                   class={`flex items-center justify-between rounded-xl px-3 py-2 text-xs transition-all ${
                     isActive
                       ? 'bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-500/30 text-cyan-700 dark:text-cyan-300 font-bold shadow-sm'
@@ -126,11 +135,14 @@ const allItems = [indexItem, ...items];
                       </span>
                     )}
                   </div>
-                  {isActive && (
-                    <span class="h-2 w-2 rounded-full bg-cyan-400 shrink-0 ml-2 animate-pulse"></span>
-                  )}
-                  {!isActive && item.badge && (
-                    <span class="rounded border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-1.5 py-0.5 text-[9px] font-mono text-slate-600 dark:text-slate-400 shrink-0 ml-2">
+                  <span
+                    data-active-dot
+                    class={`h-2 w-2 rounded-full bg-cyan-400 shrink-0 ml-2 animate-pulse ${isActive ? '' : 'hidden'}`}
+                  ></span>
+                  {item.badge && (
+                    <span
+                      class={`rounded border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-1.5 py-0.5 text-[9px] font-mono text-slate-600 dark:text-slate-400 shrink-0 ml-2 ${isActive ? 'hidden' : ''}`}
+                    >
                       {item.badge}
                     </span>
                   )}
@@ -157,11 +169,13 @@ const allItems = [indexItem, ...items];
     <nav aria-label={`${collectionTitle} 목록`} class="not-prose">
       <ul class="list-none space-y-0.5 p-0 m-0">
         {allItems.map((item) => {
-          const isActive = item.slug === currentSlug;
+          const isActive = item.slug === serverActiveSlug;
           return (
             <li>
               <a
                 href={item.href}
+                data-sidebar-link
+                data-slug={item.slug}
                 class={`flex items-center justify-between rounded-xl px-3 py-2 text-xs transition-all ${
                   isActive
                     ? 'bg-cyan-50 dark:bg-cyan-500/10 border border-cyan-500/30 text-cyan-700 dark:text-cyan-300 font-bold shadow-sm'
@@ -176,11 +190,14 @@ const allItems = [indexItem, ...items];
                     </span>
                   )}
                 </div>
-                {isActive && (
-                  <span class="h-2 w-2 rounded-full bg-cyan-400 shrink-0 ml-2 animate-pulse"></span>
-                )}
-                {!isActive && item.badge && (
-                  <span class="rounded border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-1.5 py-0.5 text-[9px] font-mono text-slate-600 dark:text-slate-400 shrink-0 ml-2">
+                <span
+                  data-active-dot
+                  class={`h-2 w-2 rounded-full bg-cyan-400 shrink-0 ml-2 animate-pulse ${isActive ? '' : 'hidden'}`}
+                ></span>
+                {item.badge && (
+                  <span
+                    class={`rounded border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-1.5 py-0.5 text-[9px] font-mono text-slate-600 dark:text-slate-400 shrink-0 ml-2 ${isActive ? 'hidden' : ''}`}
+                  >
                     {item.badge}
                   </span>
                 )}
@@ -192,3 +209,134 @@ const allItems = [indexItem, ...items];
     </nav>
   </div>
 </aside>
+
+<script>
+  function setupSidebar() {
+    const aside = document.querySelector('aside');
+    if (!aside) return;
+
+    const links = Array.from(
+      aside.querySelectorAll<HTMLAnchorElement>('a[data-sidebar-link]'),
+    );
+    const anchorLinks = links.filter((link) => {
+      const href = link.getAttribute('href');
+      return href && href.startsWith('#');
+    });
+
+    if (anchorLinks.length === 0) return;
+
+    const activeClasses = [
+      'bg-cyan-50',
+      'dark:bg-cyan-500/10',
+      'border-cyan-500/30',
+      'text-cyan-700',
+      'dark:text-cyan-300',
+      'font-bold',
+      'shadow-sm',
+    ];
+    const inactiveClasses = [
+      'text-slate-700',
+      'dark:text-slate-300',
+      'border-transparent',
+    ];
+
+    function setActive(slug: string) {
+      links.forEach((link) => {
+        const linkSlug = link.getAttribute('data-slug');
+        const dot = link.querySelector('[data-active-dot]');
+        const badge = link.querySelector(
+          'span[class*="font-mono"]:not([data-active-dot])',
+        );
+        const isTarget = linkSlug === slug;
+
+        if (isTarget) {
+          link.classList.remove(...inactiveClasses);
+          link.classList.add(...activeClasses);
+          dot?.classList.remove('hidden');
+          badge?.classList.add('hidden');
+        } else {
+          link.classList.remove(...activeClasses);
+          link.classList.add(...inactiveClasses);
+          dot?.classList.add('hidden');
+          badge?.classList.remove('hidden');
+        }
+      });
+    }
+
+    // Handle clicks on anchor links
+    anchorLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        const slug = link.getAttribute('data-slug');
+        if (slug) {
+          setActive(slug);
+        }
+        // If inside a mobile details dropdown, close it
+        const details = link.closest('details');
+        if (details && details.hasAttribute('open')) {
+          details.removeAttribute('open');
+        }
+      });
+    });
+
+    // Scroll spy for headings
+    const slugs = Array.from(
+      new Set(
+        anchorLinks.map((l) => l.getAttribute('data-slug')).filter(Boolean),
+      ),
+    ) as string[];
+    const headings = slugs
+      .map((slug) => document.getElementById(slug))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (headings.length > 0) {
+      let isClickScrolling = false;
+
+      anchorLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          isClickScrolling = true;
+          setTimeout(() => {
+            isClickScrolling = false;
+          }, 800);
+        });
+      });
+
+      const onScroll = () => {
+        if (isClickScrolling) return;
+
+        // Header offset + padding
+        const scrollPosition = window.scrollY + 140;
+        let currentId = headings[0].id;
+
+        for (const heading of headings) {
+          if (heading.offsetTop <= scrollPosition) {
+            currentId = heading.id;
+          } else {
+            break;
+          }
+        }
+
+        if (currentId) {
+          setActive(currentId);
+        }
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // Initial check based on current hash or scroll position
+      if (window.location.hash) {
+        const hashSlug = decodeURIComponent(window.location.hash.slice(1));
+        if (slugs.includes(hashSlug)) {
+          setActive(hashSlug);
+        }
+      } else {
+        onScroll();
+      }
+    }
+  }
+
+  // Initial setup
+  setupSidebar();
+
+  // Support Astro view transitions / page loads
+  document.addEventListener('astro:page-load', setupSidebar);
+</script>

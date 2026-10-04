@@ -31,6 +31,20 @@ const contentResult = entry && !rendered ? await render(entry) : null;
 const Content = contentResult?.Content ?? null;
 const metadata = entry?.data ?? {};
 
+const headings = contentResult?.headings ?? [];
+
+// FAQ: H2 헤딩(섹션)만 TOC 항목으로 사용
+const tocItems =
+  collection === 'faq'
+    ? headings
+        .filter((h) => h.depth === 2)
+        .map((h) => ({
+          slug: h.slug,
+          title: h.text,
+          href: `#${h.slug}`,
+        }))
+    : undefined;
+
 const Layout = collection === 'showcase' ? ShowcaseLayout : DocumentLayout;
 ---
 
@@ -47,7 +61,11 @@ const Layout = collection === 'showcase' ? ShowcaseLayout : DocumentLayout;
     {/* 사이드바 — 인덱스 페이지이므로 currentSlug="_index" */}
     <div class="lg:col-span-3">
       <div class="lg:sticky lg:top-24">
-        <CollectionSidebar collection={collection} currentSlug="_index" />
+        <CollectionSidebar
+          collection={collection}
+          currentSlug="_index"
+          overrideItems={tocItems}
+        />
       </div>
     </div>
 
