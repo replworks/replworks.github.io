@@ -56,6 +56,9 @@ const promptText = promptDef ? getPromptSource(promptDef.slug) : null;
 const promptSourceFilename = promptDef
   ? getPromptSourceFilename(promptDef.slug)
   : null;
+
+// OG 이미지: /og/<collection>-<slug>.png (예: /og/prompts-idea-refinement.png)
+const ogImage = `/og/${collection}-${slug}.png`;
 ---
 
 <DocumentLayout
@@ -64,6 +67,7 @@ const promptSourceFilename = promptDef
   description={
     metadata.description ?? `${collectionTitles[collection]} document.`
   }
+  ogImage={ogImage}
 >
   <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
     <div class="lg:col-span-3">

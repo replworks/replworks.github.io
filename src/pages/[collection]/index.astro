@@ -46,6 +46,9 @@ const tocItems =
     : undefined;
 
 const Layout = collection === 'showcase' ? ShowcaseLayout : DocumentLayout;
+
+// OG 이미지: /og/<collection>.png (예: /og/prompts.png)
+const ogImage = `/og/${collection}.png`;
 ---
 
 <Layout
@@ -56,6 +59,7 @@ const Layout = collection === 'showcase' ? ShowcaseLayout : DocumentLayout;
       ? (metadata.description ?? collectionDescription)
       : collectionDescription
   }
+  ogImage={ogImage}
 >
   <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
     {/* 사이드바 — 인덱스 페이지이므로 currentSlug="_index" */}

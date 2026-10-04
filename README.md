@@ -190,6 +190,50 @@ npm run preview
 
 `templates/prompts/`는 Astro의 일반 콘텐츠 디렉터리 바깥에 있으므로 개발 서버가 변경을 자동으로 갱신하지 않을 수 있습니다. 변경이 바로 보이지 않으면 개발 서버를 재시작합니다.
 
+## OG 이미지 생성
+
+각 페이지의 Open Graph 이미지는 `public/og/` 폴더에 저장합니다. 페이지가 추가되거나 디자인이 바뀌면 다음 명령으로 전체 이미지를 다시 생성합니다.
+
+```bash
+npm run og
+```
+
+이 명령은 다음 순서로 실행됩니다.
+
+```text
+astro build          # 사이트를 빌드합니다
+astro preview        # 미리보기 서버를 시작합니다 (백그라운드)
+npm run og:yml       # dist/ 의 HTML 파일을 스캔해 og.yml 을 자동 생성합니다
+shot-scraper multi   # og.yml 에 따라 각 페이지를 1200×630으로 캡처합니다
+서버 종료            # 미리보기 서버를 종료합니다
+```
+
+생성된 이미지는 `public/og/<페이지-경로>.png` 형식으로 저장됩니다.
+
+```text
+public/og/
+├── index.png                      # /
+├── prompts.png                    # /prompts
+├── prompts-idea-refinement.png    # /prompts/idea-refinement
+├── showcase-ai-issue.png          # /showcase/ai-issue
+└── ...
+```
+
+`og.yml`만 먼저 갱신하려면 빌드가 완료된 상태에서 다음 명령을 사용합니다.
+
+```bash
+npm run og:yml
+```
+
+`shot-scraper`가 설치되어 있지 않으면 다음 명령으로 설치합니다.
+
+```bash
+pip install shot-scraper
+shot-scraper install
+```
+
+OG 이미지를 새로 생성한 후에는 변경된 파일을 커밋하고 배포합니다.
+
 ## 배포
 
 프롬프트 원문 수정은 실행 중인 배포 사이트에 즉시 반영되지 않습니다. 원본 수정 후 Astro 빌드가 다시 실행되어야 합니다.
