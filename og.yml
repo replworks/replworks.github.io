@@ -1,0 +1,269 @@
+- url: http://localhost:4321/
+  output: public/og/index.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents
+  output: public/og/documents.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents/agents
+  output: public/og/documents-agents.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents/architecture
+  output: public/og/documents-architecture.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents/example-agents
+  output: public/og/documents-example-agents.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents/example-architecture
+  output: public/og/documents-example-architecture.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents/example-ideas-md
+  output: public/og/documents-example-ideas-md.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents/example-pitching-script
+  output: public/og/documents-example-pitching-script.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents/example-product-spec
+  output: public/og/documents-example-product-spec.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents/example-tasks
+  output: public/og/documents-example-tasks.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents/ideas
+  output: public/og/documents-ideas.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents/index
+  output: public/og/documents-index.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents/pitching-script
+  output: public/og/documents-pitching-script.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents/product-spec
+  output: public/og/documents-product-spec.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents/tasks
+  output: public/og/documents-tasks.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/documents/tech-stack
+  output: public/og/documents-tech-stack.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/faq
+  output: public/og/faq.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/faq/index
+  output: public/og/faq-index.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/naverf73e80a997f59150df31b31cd30dab77
+  output: public/og/naverf73e80a997f59150df31b31cd30dab77.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/prompts
+  output: public/og/prompts.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/prompts/architecture-design
+  output: public/og/prompts-architecture-design.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/prompts/architecture-review
+  output: public/og/prompts-architecture-review.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/prompts/execution-validation
+  output: public/og/prompts-execution-validation.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/prompts/idea-refinement
+  output: public/og/prompts-idea-refinement.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/prompts/index
+  output: public/og/prompts-index.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/prompts/pitch-creation
+  output: public/og/prompts-pitch-creation.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/prompts/product-specification
+  output: public/og/prompts-product-specification.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/prompts/task-generation
+  output: public/og/prompts-task-generation.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/prompts/task-review
+  output: public/og/prompts-task-review.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/prompts/tech-stack
+  output: public/og/prompts-tech-stack.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/search
+  output: public/og/search.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/showcase
+  output: public/og/showcase.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/showcase/ai-issue
+  output: public/og/showcase-ai-issue.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/showcase/claytube
+  output: public/og/showcase-claytube.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/showcase/etern-labs
+  output: public/og/showcase-etern-labs.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/showcase/eternops
+  output: public/og/showcase-eternops.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/showcase/index
+  output: public/og/showcase-index.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/showcase/mma
+  output: public/og/showcase-mma.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/showcase/repl-works-website
+  output: public/og/showcase-repl-works-website.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/showcase/wifi-note
+  output: public/og/showcase-wifi-note.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/tools
+  output: public/og/tools.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/tools/index
+  output: public/og/tools-index.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/why
+  output: public/og/why.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/workflow
+  output: public/og/workflow.png
+  width: 1200
+  height: 630
+  wait: 800
+
+- url: http://localhost:4321/workflow/index
+  output: public/og/workflow-index.png
+  width: 1200
+  height: 630
+  wait: 800

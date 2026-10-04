@@ -3,7 +3,11 @@ import '../styles/global.css';
 const {
   title = 'REPL Works — 문서 주도 AI 개발 방법론',
   description = 'REPL Works는 프로젝트의 의도, 결정, 작업 계획을 문서와 Git에 남겨 AI가 바뀌어도 개발을 이어가는 문서 주도 AI 개발 방법론입니다.',
+  ogImage = '/og/index.png',
 } = Astro.props;
+
+const siteUrl = (import.meta.env.SITE ?? 'https://www.repl.net').replace(/\/$/, '');
+const ogImageUrl = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
 import GoogleTag from '../components/GoogleTag.astro';
 ---
 
@@ -21,6 +25,20 @@ import GoogleTag from '../components/GoogleTag.astro';
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <link rel="sitemap" href="/sitemap-index.xml" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={`${siteUrl}${Astro.url.pathname}`} />
+    <meta property="og:site_name" content="REPL Works" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
     <script is:inline>
       (function () {
         const stored = localStorage.getItem('theme');

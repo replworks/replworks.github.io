@@ -18,6 +18,8 @@
     "test:e2e": "playwright test",
     "build": "astro build",
     "preview": "astro preview",
+    "og:yml": "node scripts/og-yml.mjs",
+    "og": "astro build && (astro preview & PID=$!; sleep 3; npm run og:yml && shot-scraper multi og.yml; kill $PID)",
     "astro": "astro",
     "astro:check": "astro check"
   },
