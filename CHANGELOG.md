@@ -1,5 +1,16 @@
 # Release Notes
 
+## v2.12.0 - 2026-10-04
+
+### What's Changed
+
+* fix: correct grammatical errors in README.md by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/105
+* style: enhance visual consistency across components by updating card borders by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/106
+* feat: add mobile search icon and integrate desktopnav and mobilenav components by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/107
+* style: improve the CollectionSidebar by adding support for custom sidebar items by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/108
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.11.2...v2.12.0
+
 ## v2.11.2 - 2026-10-03
 
 ### What's Changed
