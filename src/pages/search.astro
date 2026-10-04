@@ -1,46 +1,30 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
-import Search from 'astro-pagefind/components/Search.astro';
+import PagefindConfig from 'astro-pagefind/components/PagefindConfig.astro';
 ---
 
 <SiteLayout
   title="REPL Works Search"
   description="Search the REPL Works workflow, prompts, documents, tools, showcase, and FAQ content."
 >
-  <section class="mx-auto max-w-5xl space-y-8">
-    <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-      <p class="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">
+  <section class="mx-auto max-w-5xl space-y-6 px-4 sm:px-0">
+    {/* 검색창 — label + pagefind-input */}
+    <div class="-mx-4 sm:mx-0 sm:rounded-2xl border-y sm:border border-slate-200 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 px-4 py-5 sm:px-6">
+      <p class="mb-3 text-xs font-mono font-bold uppercase tracking-[0.3em] text-cyan-600 dark:text-cyan-400">
         Search
       </p>
-      <h1 class="mt-4 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-        Search the REPL Works content library
-      </h1>
-      <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-        Pagefind indexes the framework content so you can find workflow,
-        prompts, documents, tools, showcase, and FAQ pages quickly.
-      </p>
+      <pagefind-input
+        placeholder="검색어를 입력하세요…"
+        class="w-full"
+      ></pagefind-input>
     </div>
 
-    <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-      <div class="space-y-6">
-        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
-          <label for="pagefind-search" class="sr-only">
-            Search REPL Works
-          </label>
-          <Search
-            instance="search"
-            className="pagefind-ui"
-            searchboxOptions={{ placeholder: 'search' }}
-          />
-        </div>
-
-        <div class="space-y-4">
-          <pagefind-results
-            instance="search"
-            class="space-y-4"
-          ></pagefind-results>
-        </div>
-      </div>
+    {/* 검색 결과 */}
+    <div class="-mx-4 sm:mx-0">
+      <pagefind-results class="space-y-4"></pagefind-results>
     </div>
   </section>
 </SiteLayout>
+
+{/* pagefind-config: 번들 경로 설정 + CSS/JS 로드 */}
+<PagefindConfig />
