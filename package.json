@@ -7,6 +7,8 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "toolbar:start": "astro preferences enable devToolbar",
+    "toolbar:stop": "astro preferences disable devToolbar",
     "dev:stop": "astro dev stop",
     "lint": "eslint .",
     "format": "prettier --write .",
