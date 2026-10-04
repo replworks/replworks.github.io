@@ -1,6 +1,7 @@
 ---
 import { navItems } from '../lib/site';
 import ThemeToggle from './ThemeToggle.astro';
+import Search from 'astro-pagefind/components/Search.astro';
 ---
 
 <nav
@@ -15,6 +16,13 @@ import ThemeToggle from './ThemeToggle.astro';
       {item.title}
     </a>
   ))}
+
+  <Search
+    instance="nav"
+    className="pagefind-ui"
+    searchboxOptions={{ placeholder: '검색…' }}
+  />
+
   <a
     href="https://github.com/replworks/replworks.github.io"
     target="_blank"
