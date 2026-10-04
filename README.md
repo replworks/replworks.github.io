@@ -1,4 +1,6 @@
-# REPL Works
+# 리플웍스 - REPL Works
+
+![홈페이지](/public/og/index.png)
 
 [![CI Pipeline](https://github.com/replworks/replworks.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/replworks/replworks.github.io/actions/workflows/ci.yml)
 [![Deploy Astro site to Pages](https://github.com/replworks/replworks.github.io/actions/workflows/astro.yml/badge.svg)](https://github.com/replworks/replworks.github.io/actions/workflows/astro.yml)
