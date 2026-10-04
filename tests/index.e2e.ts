@@ -1,4 +1,6 @@
 import { test, expect } from '@playwright/test';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 
 test('has title', async ({ page }) => {
   await page.goto('/');
@@ -31,7 +33,6 @@ test('renders document explanations without code controls', async ({
   page,
 }) => {
   const documentSlugs = [
-    'agents',
     'architecture',
     'ideas',
     'pitching-script',
@@ -44,6 +45,26 @@ test('renders document explanations without code controls', async ({
     await page.goto(`/documents/${slug}`);
     await expect(page.locator('.expressive-code')).toHaveCount(0);
   }
+
+  await page.goto('/documents/agents');
+  const agentsCode = page.locator('article .expressive-code');
+  await expect(agentsCode).toHaveCount(1);
+  await expect(agentsCode.locator('.title')).toHaveText(
+    'templates/documents/AGENTS.md',
+  );
+  await expect(agentsCode.locator('.copy button')).toBeVisible();
+  const expectedTemplate = readFileSync(
+    resolve(import.meta.dirname, '../templates/documents/AGENTS.md'),
+    'utf8',
+  )
+    .replace(/\r\n/g, '\n')
+    .trimEnd();
+  const renderedLines = await agentsCode
+    .locator('pre code .ec-line')
+    .allTextContents();
+  expect(renderedLines.map((line) => line.replace(/\n$/, '')).join('\n')).toBe(
+    expectedTemplate,
+  );
 
   await page.goto('/documents/ideas');
   await expect(

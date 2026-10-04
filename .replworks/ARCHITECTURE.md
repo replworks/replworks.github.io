@@ -98,6 +98,8 @@ Content Source
 MDX for explanatory and collection content
 
 templates/prompts/*.txt for prompt source text
+
+templates/documents/AGENTS.md for the complete AGENTS.md example embedded in the AGENTS document page
 ```
 
 Prompt source files under `templates/prompts/` are the canonical source for
@@ -109,6 +111,10 @@ filenames use the human-authored constant convention
 by removing `_PROMPT.txt`, lowercasing, and replacing underscores with
 hyphens. Prompt source text is read during the Astro build and is not fetched
 from a runtime service.
+
+`templates/documents/AGENTS.md` is the canonical source for the complete
+AGENTS.md example shown at the end of the AGENTS document page. It is read
+during the Astro build and rendered with Expressive Code.
 
 ---
 

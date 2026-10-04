@@ -9,26 +9,14 @@ import MissionBox from '../../components/MissionBox.astro';
 import SpecGrid from '../../components/SpecGrid.astro';
 import DocLink from '../../components/DocLink.astro';
 import DocumentFlow from '../../components/DocumentFlow.astro';
+import OutputArtifact from '../../components/OutputArtifact.astro';
+import CodeFile from '../../components/CodeFile.astro';
 
 ## 1. 개요 및 목적
 
 `AGENTS.md`는 **모든 AI 에이전트의 진입점이자 프로젝트의 헌법(Constitution)**입니다. 새로운 대화 세션이 시작되거나 다른 AI 모델이 투입되더라도, 모든 AI는 오직 `AGENTS.md`부터 읽고 작업을 개시해야 합니다.
 
 <MissionBox text="How should AI work? (AI는 어떤 순서와 규칙으로 개발에 임해야 하는가?)" />
-
-### AGENTS.md 필수 포함 규칙 (Core Agent Rules)
-
-<SpecGrid
-  items={[
-    '1. DOCUMENT_ORDER: 권위 있는 문서 읽기 우선순위',
-    '2. IGNORE: 무시해야 할 템플릿/참고용 폴더 범위',
-    '3. SOURCE_OF_TRUTH: 충돌 시 문서 우선순위 정의',
-    '4. IMPLEMENTATION_RULES & MOCK_RULES: 구현 및 모킹 수칙',
-    '5. SUCCESS_CRITERIA & TASK_EXECUTION: 완료 및 검증 조건',
-  ]}
-/>
-
----
 
 ## 2. 문서 순서 및 권한 제어 (Document Order & Scope)
 
@@ -48,9 +36,8 @@ AI 에이전트는 위 문서 순서를 엄격히 준수해야 하며, 문서가
 
 ---
 
-## 3. 예시 문서 및 핵심 원칙 (Example & Core Principle)
+## 3. AGENT.md 문서
 
-<DocLink href="/documents/example-agents" text="AGENTS.md 작성 예시 보기" />
+### 전체 예시 파일
 
-> 좋은 AGENTS.md는 개별 기능을 설명하지 않습니다.\
-> 좋은 AGENTS.md는 AI가 올바른 문서를 읽고 탈선 없이 완벽히 개발을 마칠 수 있도록 인도합니다.
+<CodeFile path="/templates/documents/AGENTS.md" title="AGENTS.md" />

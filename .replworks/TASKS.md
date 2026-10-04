@@ -282,6 +282,12 @@ Propose TASK update
 - [x] T1303 Render explanatory flows and principle text across document detail pages without code-block controls
 - [x] T1304 Render showcase workflow diagrams without code-block controls
 
+## PHASE 14
+
+### AGENTS DOCUMENT TEMPLATE
+
+- [x] T1401 Render templates/documents/AGENTS.md at the end of the AGENTS document page with Expressive Code
+
 ---
 
 ## COMPLETION

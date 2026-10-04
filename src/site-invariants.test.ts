@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { promptDefinitions } from './data/prompts';
 import { showcaseProjects } from './data/showcase';
+import { getCodeSource } from './utils/codeSource';
 import { getPromptSource } from './utils/promptSource';
 
 const root = resolve(import.meta.dirname, '..');
@@ -66,6 +67,18 @@ describe('REPL Works content invariants', () => {
         0,
       );
     }
+  });
+
+  it('keeps the complete AGENTS example backed by its template source', () => {
+    const template = getCodeSource('/templates/documents/AGENTS.md');
+    expect(template).toBe(
+      read('templates/documents/AGENTS.md').replace(/\r\n/g, '\n').trimEnd(),
+    );
+
+    const agentsPage = read('src/content/documents/agents.mdx');
+    expect(agentsPage).toContain(
+      '<CodeFile path="/templates/documents/AGENTS.md" />',
+    );
   });
 
   it('provides raw Markdown endpoints and download links for standards', () => {
