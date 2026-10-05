@@ -1,5 +1,16 @@
 # Release Notes
 
+## v2.16.0 - 2026-10-05
+
+### What's Changed
+
+* feat: update repl works website mdx by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/120
+* feat: update showcase project details and replace wifi-note with wifinote by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/121
+* feat: add Cool Restore project to showcase by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/122
+* fix(docs): refine tech stack documents for clarity and specificity by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/123
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.15.1...v2.16.0
+
 ## v2.15.1 - 2026-10-05
 
 ### What's Changed
