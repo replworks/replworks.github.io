@@ -1,40 +1,48 @@
 Generate TECH_STACK.md.
 
-Assume PRODUCT.md and architecture.md already exist and are correct.
+INPUTS
+- PRODUCT_SPEC.md: correct and final. Source of product requirements.
+- TECH_DECISIONS: correct and final. Sole source of technology names and versions.
+- ARCHITECTURE.md does not exist yet. It will be written AFTER this document, using it as input.
 
-The purpose of TECH_STACK.md is to eliminate implementation ambiguity.
+SOURCE RULES
+- Every technology, tool, library, version, file name, and env var name MUST come from TECH_DECISIONS.
+- MUST NOT infer, invent, evaluate, or recommend technologies.
+- MUST NOT restate product behavior from PRODUCT_SPEC (commands, options, sorting, error cases).
+- If TECH_DECISIONS conflicts with PRODUCT_SPEC, stop and list the conflicts.
 
-TECH_STACK.md defines implementation constraints only.
+REQUIRED DECISIONS CHECK
+Verify TECH_DECISIONS defines all of the following. For each missing item, ask one question.
+- runtime + version
+- language + compile/run method
+- module system
+- package manager + lockfile
+- web framework + version
+- libraries (name + version): config parser, CLI argument parser, YouTube API client/HTTP
+- test tool + coverage threshold
+- linter, formatter
+- CI system
+- deployment target + release/distribution method
+- license
+- config file format, env var names, secret storage
+If any item is missing or conflicting: output ONLY the numbered question list. Nothing else.
 
-Do not infer undecided technologies.
+SCOPE BOUNDARY
+- Cover only technology choices and the rules that follow from them.
+- MUST NOT define components, layers, modules, boundaries, data flow, responsibilities, or system structure.
+- MUST NOT define directory layout beyond paths mandated by the chosen framework or tooling.
+- MUST NOT include process rules (change control), product non-goals, or architectural invariants.
+- State each rule once. MUST NOT repeat a rule across sections.
 
-Do not assume technology decisions have already been made.
-
-If required decisions are missing, stop and ask questions.
-
-Do not evaluate alternatives.
-
-Do not recommend technologies.
-
-When a decision has already been made, encode it as a rule.
-
-When a decision has not been made, do not invent one.
-
-The document must include:
-
-- implementation rules
-- architectural constraints
-- directory structure
-- testing rules
-- deployment rules
-- configuration rules
-- security rules
-- tech-stack-specific conventions
-- non-goals
-- architectural invariants
-
-Prefer explicit constraints over explanations.
-
-Optimize for implementation consistency.
-
-The document is intended for AI implementation, not human learning.
+OUTPUT FORMAT
+- Exactly these 8 sections, in this order, numbered headings, no other sections:
+  1. Languages / runtimes / frameworks / libraries (name + version constraint)
+  2. Framework- or tool-mandated paths and file names only
+  3. Coding conventions specific to the chosen stack
+  4. Testing rules (tools, naming, required coverage)
+  5. Configuration rules (env vars, config files, secrets handling)
+  6. Deployment rules (targets, build, release steps)
+  7. Security rules tied to the chosen stack
+  8. Non-goals (technologies and tools explicitly excluded)
+- Flat terse bullets. "MUST / MUST NOT" phrasing. No prose, no explanations, no "why".
+- Audience: AI implementer.

@@ -171,7 +171,7 @@ test('loads the search interface', async ({ page }) => {
 test('shows all Showcase projects as compatible cards', async ({ page }) => {
   await page.goto('/showcase');
 
-  await expect(page.locator('article a[href^="/showcase/"]')).toHaveCount(7);
+  await expect(page.locator('article a[href^="/showcase/"]')).toHaveCount(8);
 });
 
 test('keeps primary pages within a mobile viewport', async ({ page }) => {
