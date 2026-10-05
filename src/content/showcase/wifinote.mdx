@@ -1,0 +1,102 @@
+---
+title: '와이파이 노트 (WIFI Note)'
+version: 'v2'
+description: '와이파이 노트(WIFI Note)는 매장과 오프라인 공간에 붙이는 Wi-Fi 안내문을 만드는 REPLWorks 호환 상용 웹 서비스입니다.'
+publishedAt: '2026-10-05T11:00:00Z'
+---
+
+import MissionBox from '../../components/MissionBox.astro';
+import DocBadgeGrid from '../../components/DocBadgeGrid.astro';
+import SpecGrid from '../../components/SpecGrid.astro';
+import DocLink from '../../components/DocLink.astro';
+import WorkflowFlow from '../../components/WorkflowFlow.astro';
+
+## 1. 개요 (Overview)
+
+![와이파이 노트 og 이미지](https://wifinote.net/assets/seo/feature-index.png)
+
+와이파이 노트(WIFI Note)는 매장과 오프라인 공간에 붙이는 Wi-Fi 안내문을 만드는 상용 웹 서비스입니다.
+
+소스 코드는 공개하지 않는 상용 프로젝트이지만, 기획부터 운영까지 REPL Works 문서(`.replworks/`)를 따라 개발하고 유지보수하고 있습니다. 이 페이지는 코드를 공개하지 않는 프로젝트에서 REPL Works가 어떻게 쓰이는지 보여 줍니다.
+
+<MissionBox text="Product Intent Outlives Code: 기능 구현 코드는 계속 바뀌지만, 이 프로덕트를 왜 만드는지의 의도와 비즈니스 규칙은 Git 문서에 보존됩니다." />
+
+<DocLink href="https://wifinote.net" text="와이파이 노트 서비스 방문" />
+
+## 2. 사용된 표준 문서 (Documents Used)
+
+프로젝트는 `.replworks/` 표준 디렉터리 구조를 갖추고, 아래 문서로 프로젝트 기억(Project Memory)을 관리합니다. 저장소는 비공개입니다.
+
+- 사람을 위한 문서: `IDEAS.md`, `PITCHING_SCRIPT.md`
+- AI를 위한 문서: `PRODUCT_SPEC.md`, `TECH_STACK.md`, `ARCHITECTURE.md`, `TASKS.md`
+- 공통 규칙: `AGENTS.md`
+
+## 3. 적용 워크플로 (Workflow Usage)
+
+와이파이 노트 개발에 적용한 REPL Works 표준 파이프라인입니다.
+
+```text
+대화형 AI (제품 요구사항 토론)
+    ↓
+Git 마크다운 문서 (.replworks)
+    ↓
+코딩형 AI (TASK 하나씩 구현)
+    ↓
+Human Review (검증과 Merge, Release)
+```
+
+1. **의도 정의와 명세 자산화**: 비즈니스 요구사항을 `PRODUCT_SPEC.md`와 `ARCHITECTURE.md`에 명시해서, 개발 맥락을 대화가 아니라 문서에서 가져옵니다.
+2. **1-Prompt = 1-Task = 1-Commit**: `TASKS.md`에 정의된 TASK 단위로 코딩형 AI에 지시하고, 결과를 검토해 커밋 하나로 남깁니다.
+3. **세션 독립적 복원**: 새 개발 세션은 이전 대화 없이 Git의 문서만 읽고 시작합니다.
+
+## 4. 사용 기술 (Tools Used)
+
+- **Laravel (PHP)**: 웹 애플리케이션 프레임워크
+- **이미지 생성 파이프라인**: [prompt-weaver](https://github.com/cable8mm/prompt-weaver) → [nano-ai](https://github.com/cable8mm/nano-ai) → OpenCV 후처리
+- **Docker, GHCR, GitHub Actions**: 릴리즈 이미지 빌드, 저장, 배포 자동화
+- **Coolify**: 서버와 애플리케이션 관리 (web, worker, scheduler)
+- **Sentry, Laravel Pulse, Horizon**: 오류 추적, 성능 모니터링, 큐 관리
+- **RustFS, Tailscale**: S3 호환 백업 저장소, 서버와 가정 NAS를 잇는 사설 네트워크
+- **coolrestore**: [Coolify 스토리지 복구 도구](https://github.com/replworks/coolrestore) (직접 개발한 오픈소스)
+- **REPL Works 문서와 Git**: 프로젝트 기억 관리
+
+## 5. 배포와 운영 (Release & Operations)
+
+```text
+PR → CI → 머지 → Release 발행 → 이미지 빌드(GHCR) → Coolify 배포
+                                  문제가 생기면 → 이전 이미지 태그로 롤백
+```
+
+**검증.** PR과 develop, main 브랜치 push마다 GitHub Actions가 PHP 8.4로 코드 스타일(Laravel Pint)을 검사하고 테스트를 실행합니다.
+
+**배포.** 배포는 GitHub Release를 발행하면 시작합니다. 기존 릴리즈 태그를 입력해 수동으로 실행할 수도 있습니다. 릴리즈 workflow는 먼저 릴리즈 태그 시점의 코드로 `linux/arm64` Docker 이미지를 빌드해 GitHub Container Registry(GHCR)에 올립니다. 이미지 태그는 릴리즈 태그와 같습니다. 유료 패키지의 라이선스 정보는 빌드 시크릿(secret mount)으로만 전달해서 이미지 레이어에 남지 않게 했습니다. 이어서 Coolify API로 web, worker, scheduler 세 애플리케이션이 같은 이미지 태그를 쓰도록 지정하고 배포합니다. Coolify의 롤링 업데이트(Rolling Update)로 무중단 배포하며, 새 버전이 헬스체크를 통과해 정상(healthy)으로 확인된 뒤에 라이브로 전환됩니다. 세 애플리케이션의 자동 배포는 꺼 두어서, 릴리즈를 발행할 때만 배포됩니다. 2026-08-28의 v1.0.0부터 2026-09-30의 v1.3.7까지 한 달 남짓 동안 릴리즈를 20번 냈습니다.
+
+**롤백.** 문제가 생기면 이전 이미지 태그를 입력해 롤백 workflow를 수동으로 실행합니다. web, worker, scheduler 세 애플리케이션을 같은 태그로 한 번에 되돌립니다. 이 롤백은 롤링 업데이트 환경에서 Coolify와 연동해 실제로 시험을 마쳤습니다.
+
+**관찰.** 오류는 Sentry로 추적하고, 성능은 Laravel Pulse로, 큐는 Horizon으로 확인합니다.
+
+**백업.** Coolify의 S3 백업 기능을 S3 호환 스토리지인 RustFS에 연결하고, Tailscale로 서버와 가정 NAS를 묶어 백업이 NAS에 쌓이게 했습니다.
+
+**복구.** 와이파이 노트처럼 파일 저장소(Laravel storage)가 있는 서비스는 서버가 사라지면 데이터를 잃습니다. 그래서 백업에서 스토리지를 되돌리는 [coolrestore](https://github.com/replworks/coolrestore)를 직접 만들었습니다. coolrestore는 Coolify 스토리지를 압축한 아카이브를 S3 호환 스토리지나 로컬 파일에서 읽어 복구합니다. 안전하게 쓰도록 몇 가지를 지키고, 미리보기와 복구 성공, 실패 때의 출력은 README의 [Example](https://github.com/replworks/coolrestore#example)에서 볼 수 있습니다.
+
+- 기본은 미리보기입니다. 복구 계획만 출력하고, `--confirm`을 줘야 대상에 적용합니다.
+- 아카이브는 격리된 staging 디렉터리에 먼저 풀어 검증한 뒤 반영합니다. 경로 이탈, 심볼릭 링크, 하드 링크가 있는 아카이브는 반영 전에 거부합니다.
+- `replace` 모드는 실패하면 이전 디렉터리로 원자적으로 롤백합니다. `merge` 모드는 실패해도 이미 적용된 변경이 남을 수 있습니다.
+
+복구는 실제로 시험했습니다. coolrestore CLI는 macOS와 Linux를 모두 지원하고, 두 환경에서 모두 시험했습니다. Tailscale로 서버와 NAS와 개발용 Mac을 연결한 뒤 복구 명령으로 백업된 파일이 모두 있는지 검증했습니다. 이렇게 Coolify 스토리지를 5분 안에 복구할 수 있도록 만들었고, 검증을 마친 뒤 v1.0.0으로 릴리즈했습니다. coolrestore도 GoReleaser로 [macOS용 Homebrew](https://brew.repl.net)와 [Linux용 apt](https://apt.repl.net)에 배포합니다.
+
+## 6. 학습된 레슨 (Lessons Learned)
+
+제품 의도 유지: 코드가 늘어나도 왜 이 제품을 만드는지에 대한 핵심 의도는 문서에 남아 있어서 흔들리지 않습니다.
+
+맥락을 문서에서 가져오기: 같은 로직과 구조를 AI에게 매번 대화로 다시 설명하는 대신, 문서를 읽게 합니다. 대화 이력이 없는 새 세션에서도 문서만으로 이어서 개발할 수 있습니다.
+
+비공개 상용 프로덕트일수록 약속이 필요합니다. 코드를 공개하지 않아도 팀원과 AI 에이전트 사이에는 문서 표준이라는 명확한 약속이 있어야 합니다.
+
+복구 수단은 장애가 나기 전에 만들고 시험합니다. 서비스 운영에서 필요해진 복구 절차를 재사용 가능한 도구로 분리했고, 복구를 시험해 본 뒤에 릴리즈했습니다.
+
+운영 준비도 TASK로 다룹니다. Docker 이미지 배포와 검증, 롤백 workflow, 백업 전략과 검증 단계가 모두 프로덕션 준비 TASK로 PR에 올라왔고, 릴리즈 노트(v1.3.5, v1.3.6)에 남아 있습니다. 배포 파이프라인도 기능과 같은 방식으로 만들고 이력을 추적합니다.
+
+## 7. 프로젝트 가치 (What This Project Proves)
+
+와이파이 노트는 REPL Works가 도구나 사이트 같은 공개 프로젝트에만 쓰이는 것이 아님을 보여 줍니다. 소스를 공개하지 않는 상용 서비스도 같은 문서 구조로 개발하고, 같은 방식으로 배포하고 복구합니다. 코드는 비공개여도 문서 표준과 운영 구조는 다른 프로젝트와 같습니다.

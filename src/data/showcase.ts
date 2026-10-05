@@ -27,14 +27,14 @@ export const showcaseProjects: ShowcaseProject[] = [
     order: 1,
   },
   {
-    slug: 'wifi-note',
+    slug: 'wifinote',
     name: '와이파이 노트 (WIFI Note)',
     description:
-      '구조화된 프로젝트 기억을 통한 제품 개발 및 비즈니스 로직 연산을 증명하는 REPL Works 호환 웹 애플리케이션',
+      '와이파이 노트(WIFI Note)는 매장과 오프라인 공간에 붙이는 Wi-Fi 안내문을 만드는 REPLWorks 호환 상용 웹 서비스입니다.',
     tags: ['Commercial', 'Web App'],
     lesson:
-      '제품 의도 유지: 개발 진행 상황에서 코드가 늘어나더라도 왜 이 제품을 만드는지에 대한 핵심 의도가 훼손되지 않습니다.',
-    detailUrl: '/showcase/wifi-note',
+      '비공개 상용 프로덕트일수록 약속이 필요합니다. 코드를 공개하지 않아도 팀원과 AI 에이전트 사이에는 문서 표준이라는 명확한 약속이 있어야 합니다.',
+    detailUrl: '/showcase/wifinote',
     website: 'https://wifinote.net',
     featured: true,
     order: 2,
@@ -57,7 +57,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     name: '클래이튜브 (ClayTube)',
     description:
       '장기간에 걸쳐 지속 확장되는 서비스에서 AI 모델 변경에도 견디는 프로젝트 연속성을 증명하는 REPL Works 호환 프로젝트',
-    tags: ['Service', 'Long-running'],
+    tags: ['Tooling', 'CLI'],
     lesson:
       '장기 연속성은 내구성 있는 기억을 필요로 합니다: 수개월 동안 세션이 바뀌더라도 Git 문서가 있으면 맥락 유실이 없습니다.',
     detailUrl: '/showcase/claytube',
