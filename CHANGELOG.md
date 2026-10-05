@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.15.1 - 2026-10-05
+
+### What's Changed
+
+* docs: revise readme for clarity and structure by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/119
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.15.0...v2.15.1
+
 ## v2.15.0 - 2026-10-05
 
 ### What's Changed
