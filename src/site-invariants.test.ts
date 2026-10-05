@@ -79,12 +79,12 @@ describe('REPL Works content invariants', () => {
   });
 
   it('keeps the shared showcase data complete for home and Showcase', () => {
-    expect(showcaseProjects).toHaveLength(7);
+    expect(showcaseProjects).toHaveLength(8);
     expect(new Set(showcaseProjects.map((project) => project.slug)).size).toBe(
-      7,
+      8,
     );
     expect(showcaseProjects.filter((project) => project.featured)).toHaveLength(
-      4,
+      5,
     );
 
     for (const project of showcaseProjects) {
