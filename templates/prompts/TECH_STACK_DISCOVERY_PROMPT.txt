@@ -1,213 +1,68 @@
-Assume PRODUCT_SPEC.md already exist and are correct.
+Input: PRODUCT_SPEC.md only. It is correct and final.
+ARCHITECTURE.md does not exist yet. It will be written AFTER TECH_STACK.md.
+
+PURPOSE
+Discover every technology decision required to generate TECH_STACK.md.
+Do NOT generate TECH_STACK.md. Do NOT generate code.
+
+SCOPE
+- The goal is technology decisions. Architecture may be discussed ONLY to
+  the extent it constrains or drives a technology choice
+  (e.g. offline-first, server presence, realtime sync, single binary).
+- Ask about architectural DRIVERS (requirements that affect the stack),
+  never about architectural SOLUTIONS (components, layers, module boundaries,
+  data flow, ownership boundaries).
+- If I propose a structural idea, do not decide it. Record it as an ARCH NOTE
+  and continue.
+- Directory, state, and dependency questions are limited to what the chosen
+  stack or framework mandates.
+
+PROCESS
+- Ask one decision at a time. Wait for the answer before continuing.
+- Never infer, assume defaults, or batch unrelated decisions.
+- If PRODUCT_SPEC.md already answers a decision, mark it ALREADY DECIDED
+  with the quoted source line, and move on.
+- If an area does not apply, mark it N/A with a one-line reason, and move on.
+- Do not evaluate or recommend technologies. Exception: if I explicitly ask
+  for a recommendation on the current question, answer only that, then
+  return to discovery mode.
+- If a later answer conflicts with a DECIDED item, stop and ask which one
+  wins before continuing.
+
+AREAS (in this order)
+1. Platform (target platforms, runtime constraints, distribution targets)
+2. Performance constraints (latency, throughput, memory)
+3. Programming language
+4. UI tech stack
+5. Rendering (approach, graphics constraints)
+6. State management (stack-level mutation model only)
+7. Persistence (storage technology and requirements)
+8. Dependency policy (external dependency rules only)
+9. Testing (test types, coverage expectations)
+10. Configuration (env separation, secret storage)
+11. Logging (rules, sensitive information)
+12. Security (secret handling, input validation)
+13. Build (variants, constraints)
+14. Deployment (targets, release environments)
+15. Debugging / observability
+
+OUTPUT FORMAT for each question:
 
-The purpose of this task is NOT to generate TECH_STACK.md.
-
-The purpose is to discover every implementation decision required to generate TECH_STACK.md.
-
-Do not infer missing decisions.
-
-Do not assume defaults.
-
-Do not recommend technologies unless explicitly asked.
-
-Do not generate TECH_STACK.md.
-
-Do not generate code.
-
-Do not evaluate alternatives unless explicitly requested.
-
----
-
-Your job is to identify implementation decisions that are still undefined.
-
-For each missing decision:
-
-- explain why the decision is required,
-- explain which parts of the system depend on it,
-- ask a question,
-- wait for an answer.
-
-Do not continue past unanswered decisions.
-
-Do not batch unrelated decisions.
-
-Ask one decision at a time.
-
-Do not make assumptions.
-
----
-
-The discovery process must cover:
-
-## Platform
-
-Determine:
-
-- target platforms
-- runtime constraints
-- distribution targets
-
----
-
-## Programming Language
-
-Determine:
-
-- implementation language
-
----
-
-## UI Tech stack
-
-Determine:
-
-- user interface tech stack
-
----
-
-## Rendering System
-
-Determine:
-
-- rendering approach
-- graphics constraints
-
----
-
-## State Management Style
-
-Determine:
-
-- state ownership model
-- mutation model
-
----
-
-## Persistence
-
-Determine:
-
-- persistence requirements
-- storage boundaries
-
----
-
-## Directory Structure
-
-Determine:
-
-- project organization rules
-- ownership boundaries
-
----
-
-## Dependency Rules
-
-Determine:
-
-- external dependency policy
-- dependency ownership
-
----
-
-## Testing
-
-Determine:
-
-- required test types
-- coverage expectations
-
----
-
-## Configuration
-
-Determine:
-
-- configuration ownership
-- environment separation rules
-
----
-
-## Logging
-
-Determine:
-
-- logging rules
-- sensitive information rules
-
----
-
-## Security
-
-Determine:
-
-- secret handling rules
-- input validation rules
-
----
-
-## Deployment
-
-Determine:
-
-- deployment targets
-- release environments
-
----
-
-## Build Rules
-
-Determine:
-
-- build variants
-- build constraints
-
----
-
-## Performance Constraints
-
-Determine:
-
-- latency requirements
-- throughput requirements
-- memory constraints
-
----
-
-## Debugging
-
-Determine:
-
-- debugging capabilities
-- observability requirements
-
----
-
-Output format:
-
-```text
 MISSING DECISION
-
-Name:
-<decision name>
-
-Reason:
-<why this decision is required>
-
-Affected Areas:
-- ...
-
-Question:
-<single question>
-
+Name: <name>
+Reason: <why required>
+Affected Areas: <list>
+Question: <single question>
 WAITING FOR ANSWER
-```
 
-Rules:
+After every answer, print both logs before the next question:
 
-- Ask only one question at a time.
-- Never assume missing decisions.
-- Never generate TECH_STACK.md.
-- Never generate code.
-- Never continue automatically.
-- Wait after every answer.
+DECIDED
+- <name>: <answer>
+
+ARCH NOTES (non-binding, for ARCHITECTURE.md later)
+- <driver or structural idea mentioned, with the decision it relates to>
+
+COMPLETION
+When all areas are resolved, print the final DECIDED log and ARCH NOTES,
+then stop. Do not generate TECH_STACK.md.
