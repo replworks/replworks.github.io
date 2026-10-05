@@ -72,7 +72,7 @@ describe('REPL Works content invariants', () => {
       'eternops.mdx',
       'mma.mdx',
       'repl-works-website.mdx',
-      'wifi-note.mdx',
+      'wifinote.mdx',
     ]) {
       expect(existsSync(resolve(showcaseDirectory, entry))).toBe(true);
     }

@@ -232,8 +232,8 @@
   height: 630
   wait: 800
 
-- url: http://localhost:4321/showcase/wifi-note
-  output: public/og/showcase-wifi-note.png
+- url: http://localhost:4321/showcase/wifinote
+  output: public/og/showcase-wifinote.png
   width: 1200
   height: 630
   wait: 800
