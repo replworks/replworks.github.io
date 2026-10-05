@@ -16,7 +16,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     slug: 'repl-works-website',
     name: 'REPL Works 웹사이트',
     description:
-      'REPL Works 방법론과 6대 표준 문서를 스스로에게 최초로 적용한 도그푸딩(Dogfooding) 참조 프로덕트',
+      'REPL Works 방법론과 6+1종 표준 문서를 스스로에게 최초로 적용한 도그푸딩(Dogfooding) 참조 프로덕트',
     tags: ['Website', 'Dogfooding'],
     lesson:
       'Content First: 구현 코드는 언제든 바뀌지만, 잘 정제된 문서는 프로젝트 기억으로 영구 보존됩니다.',
@@ -27,16 +27,30 @@ export const showcaseProjects: ShowcaseProject[] = [
     order: 1,
   },
   {
+    slug: 'wifi-note',
+    name: '와이파이 노트 (WIFI Note)',
+    description:
+      '구조화된 프로젝트 기억을 통한 제품 개발 및 비즈니스 로직 연산을 증명하는 REPL Works 호환 웹 애플리케이션',
+    tags: ['Commercial', 'Web App'],
+    lesson:
+      '제품 의도 유지: 개발 진행 상황에서 코드가 늘어나더라도 왜 이 제품을 만드는지에 대한 핵심 의도가 훼손되지 않습니다.',
+    detailUrl: '/showcase/wifi-note',
+    website: 'https://wifinote.net',
+    featured: true,
+    order: 2,
+  },
+  {
     slug: 'ai-issue',
     name: 'AI Issue Publisher',
     description:
-      '대화 맥락을 코딩형 AI가 즉시 수용할 수 있는 수락 조건 명세 Issue로 변환해 주는 호환 도구 프로젝트',
+      'AI와 나눈 대화에서 나온 작업 항목을 GitHub Issue로 발행하는 CLI 도구입니다.',
     tags: ['Tooling', 'CLI'],
-    lesson: '모호한 지시는 에이전트의 환각을 유발합니다.',
+    lesson:
+      '모호한 지시는 에이전트의 환각을 유발합니다. 수락 기준(Acceptance Criteria)이 명시된 이슈일수록 구현이 정밀해집니다.',
     detailUrl: '/showcase/ai-issue',
     github: 'https://github.com/replworks/ai-issue',
     featured: true,
-    order: 2,
+    order: 3,
   },
   {
     slug: 'claytube',
@@ -49,19 +63,6 @@ export const showcaseProjects: ShowcaseProject[] = [
     detailUrl: '/showcase/claytube',
     website: 'https://www.palgle.com/claytube/',
     github: 'https://github.com/eternops/claytube',
-    featured: true,
-    order: 3,
-  },
-  {
-    slug: 'wifi-note',
-    name: '와이파이 노트 (WIFI Note)',
-    description:
-      '구조화된 프로젝트 기억을 통한 제품 개발 및 비즈니스 로직 연산을 증명하는 REPL Works 호환 웹 애플리케이션',
-    tags: ['Commercial', 'Web App'],
-    lesson:
-      '제품 의도 유지: 개발 진행 상황에서 코드가 늘어나더라도 왜 이 제품을 만드는지에 대한 핵심 의도가 훼손되지 않습니다.',
-    detailUrl: '/showcase/wifi-note',
-    website: 'https://wifinote.net',
     featured: true,
     order: 4,
   },
