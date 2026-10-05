@@ -266,6 +266,22 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
   }
 });
 
+test('copies prompt text to the clipboard', async ({ page, context }) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.goto('/prompts');
+
+  const button = page.locator('button[data-prompt-copy]').first();
+  const source = page.locator('script[data-prompt-source]').first();
+  const promptText = JSON.parse((await source.textContent()) ?? 'null');
+
+  await button.click();
+
+  await expect(button.locator('[data-prompt-copy-label]')).toHaveText('복사됨');
+  await expect
+    .poll(() => page.evaluate(() => navigator.clipboard.readText()))
+    .toBe(promptText);
+});
+
 test('renders sidebar navigation on detail pages', async ({ page }) => {
   await page.goto('/prompts/idea-generation');
   const promptSidebar = page.locator('aside nav:visible').first();
