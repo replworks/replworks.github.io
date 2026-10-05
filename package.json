@@ -1,5 +1,5 @@
 {
-  "name": "tmp",
+  "name": "replworks",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -12,7 +12,7 @@
     "toolbar:stop": "astro preferences disable devToolbar",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "format:check": "prettier --check \"**/*.{ts,tsx,astro}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,astro, md, mdx}\"",
     "test": "vitest run && playwright test",
     "test:unit": "vitest",
     "test:e2e": "playwright test",
@@ -21,7 +21,8 @@
     "og:yml": "node scripts/og-yml.mjs",
     "og": "astro build && (astro preview & PID=$!; sleep 3; npm run og:yml && shot-scraper multi og.yml; kill $PID)",
     "astro": "astro",
-    "astro:check": "astro check"
+    "astro:check": "astro check",
+    "check": "npm run lint && npm run format:check && npm run astro:check && npm run test && npm run build"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.0.2",
@@ -33,7 +34,7 @@
     "@playwright/test": "^1.60.0",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.3.3",
-    "@types/node": "^26.6.3",
+    "@types/node": "^24.0.0",
     "@typescript-eslint/parser": "^8.71.0",
     "astro": "^7.3.5",
     "astro-broken-links-checker": "^1.1.0",
