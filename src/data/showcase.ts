@@ -53,6 +53,19 @@ export const showcaseProjects: ShowcaseProject[] = [
     order: 3,
   },
   {
+    slug: 'coolrestore',
+    name: 'Cool Restore',
+    description:
+      '장애가 난 뒤 Coolify 스토리지를 안전하게 복구하는 CLI 도구입니다.',
+    tags: ['Tooling', 'CLI'],
+    lesson:
+      '복구 도구는 실수하면 정상 데이터를 덮어쓰므로, 아무 옵션 없이 실행했을 때 아무것도 바꾸지 않는 것을 제품 정의의 첫 줄에 두었습니다.',
+    detailUrl: '/showcase/coolrestore',
+    github: 'https://github.com/replworks/coolrestore',
+    featured: true,
+    order: 4,
+  },
+  {
     slug: 'claytube',
     name: '클래이튜브 (ClayTube)',
     description:
@@ -64,7 +77,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     website: 'https://www.palgle.com/claytube/',
     github: 'https://github.com/eternops/claytube',
     featured: true,
-    order: 4,
+    order: 5,
   },
   {
     slug: 'eternops',
@@ -76,7 +89,7 @@ export const showcaseProjects: ShowcaseProject[] = [
       '프로젝트 기억이 세션 기억보다 우월합니다: 일시적인 대화 내역에 의존하지 않고 Git에 명세화된 시스템이 운영의 안정성을 제공합니다.',
     detailUrl: '/showcase/eternops',
     featured: false,
-    order: 5,
+    order: 6,
   },
   {
     slug: 'etern-labs',
@@ -89,7 +102,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     detailUrl: '/showcase/etern-labs',
     website: 'https://www.etern.co.kr/labs',
     featured: false,
-    order: 6,
+    order: 7,
   },
   {
     slug: 'mma',
@@ -101,6 +114,6 @@ export const showcaseProjects: ShowcaseProject[] = [
       '공유 기억의 필수성: 팀과 에이전트가 완벽히 동일한 문서를 참조하지 않으면 오버 스코프와 상충된 구현이 발생합니다.',
     detailUrl: '/showcase/mma',
     featured: false,
-    order: 7,
+    order: 8,
   },
 ];
