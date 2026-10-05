@@ -14,256 +14,150 @@
 [![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white)](https://playwright.dev/)
 [![REPLWorks](https://img.shields.io/badge/with-REPLWorks-3375C6)](https://www.repl.net/)
 
-REPL Works는 AI와 함께 제품을 만들 때 프로젝트의 의도와 결정이 사라지지 않도록 하는 문서 주도 개발 방식입니다.
+[repl.net](https://www.repl.net/)의 소스 저장소입니다. REPL Works 방법론 자체의 설명은 사이트가 유일한 원본이며, 이 문서는 사이트를 개발하고 운영하는 방법만 다룹니다.
 
-AI는 코드를 빠르게 작성할 수 있지만, 프로젝트의 목적과 현재 상태를 자동으로 보존하지는 않습니다. REPL Works는 대화에서 결정된 내용을 문서와 Git에 남겨, 다음 세션·다음 모델·다음 작업자가 같은 프로젝트를 자연스럽게 이어갈 수 있도록 합니다.
+## 시작하기
 
-핵심 원칙은 다음과 같습니다.
-
-```text
-AI는 추측하지 않습니다.
-
-프로젝트의 현재 상태는 문서가 설명합니다.
-
-과거의 상태는 Git이 보존합니다.
-
-모델은 바뀌어도 프로젝트는 이어집니다.
-```
-
-## REPLWorks 방식
-
-REPLWorks는 코드를 먼저 작성하는 방식이 아닙니다. 제품과 구현에 필요한 결정을 먼저 문서로 정리하고, AI는 그 문서를 읽은 뒤 정해진 범위의 작업만 수행합니다.
-
-전체 흐름은 다음과 같습니다.
-
-```text
-아이디어 정제 - docs/IDEAS.md 생성
-    ↓
-제품 정의 - .replworks/PRODUCT_SPEC.md 생성
-    ↓
-기술 사양 정의 - .replworks/TECH_STACK.md 생성 혹은 templates/tech-stacks/ 에서 복사
-    ↓
-아키텍처 설계 - .replworks/ARCHITECTURE.md 생성
-    ↓
-작업 계획 - .replworks/TASKS.md 생성
-    ↓
-AI 구현
-    ↓
-사람의 검토
-    ↓
-`TASKS.md` 갱신
-    ↓
-다음 작업
-```
-
-문서가 비어 있거나 서로 충돌하면 AI가 임의로 결정하지 않습니다. 필요한 내용을 질문하거나 작업을 멈추고, 사람이 문서를 먼저 확정합니다.
-
-## 세 가지 역할
-
-### 대화형 AI
-
-대화형 AI는 구현보다 생각을 정리하는 데 활용합니다.
-
-- 아이디어를 검증합니다.
-- 제품의 목적과 사용자를 구체화합니다.
-- 기술적 선택과 설계 결정을 논의합니다.
-- 구현 전에 문서의 빈틈과 충돌을 찾습니다.
-
-### 코딩형 AI
-
-코딩형 AI는 확정된 문서와 작업을 기준으로 구현합니다.
-
-- 선언된 문서 순서를 따릅니다.
-- 현재 선택된 작업만 구현합니다.
-- 문서에 없는 요구사항을 추가하지 않습니다.
-- 내부 로직을 테스트하고, 필요한 경우 실제 외부 경계도 검증합니다.
-- 구현 결과가 문서와 달라지면 코드를 임의로 바꾸지 않고 문서 충돌을 보고합니다.
-
-### Human Review
-
-사람은 제품 의도와 구현 결과가 일치하는지 최종 판단합니다.
-
-- 제품 요구사항이 지켜졌는지 확인합니다.
-- 아키텍처와 기술 제약이 지켜졌는지 확인합니다.
-- 테스트와 실제 동작을 확인합니다.
-- 새로 발견된 결정을 문서에 반영합니다.
-
-## 문서의 책임
-
-문서는 하나의 책임만 가집니다.
-
-| 문서              | 답하는 질문                  | 책임                                                          |
-| ----------------- | ---------------------------- | ------------------------------------------------------------- |
-| `PRODUCT_SPEC.md` | 무엇을 만드는가?             | 제품, 사용자, 경험, 요구사항                                  |
-| `TECH_STACK.md`   | 어떤 기술 규칙으로 만드는가? | 사용언어, 버전, 파일 경로, 구현 규칙, 컨벤션, 사용 프레임워크 |
-| `ARCHITECTURE.md` | 시스템은 어떻게 구성되는가?  | 구조, 모듈 관계, 데이터 흐름, 책임 경계                       |
-| `TASKS.md`        | 지금 무엇을 해야 하는가?     | 현재 작업, 순서, 완료 상태                                    |
-| `AGENTS.md`       | AI는 어떻게 작업하는가?      | 문서 순서, 실행 규칙, 범위와 검증                             |
-
-버전 번호나 파일 경로로 설명할 수 있는 구현 규칙은 `TECH_STACK.md`에 둡니다. 컴포넌트 간 관계나 시스템의 동작을 설명하는 내용은 `ARCHITECTURE.md`에 둡니다. 제품의 목적이나 사용자 경험은 `PRODUCT_SPEC.md`에 둡니다.
-
-## 문서 읽기와 작업 순서
-
-AI agent는 먼저 `AGENTS.md`를 읽고, 그 문서가 선언한 순서에 따라 authoritative 문서를 읽습니다.
-
-이 저장소의 authoritative 문서는 `.replworks/` 아래에 있습니다. `README.md`는 이 방식을 설명하기 위한 안내서이며, 제품 요구사항이나 구현 명세가 아닙니다.
-
-작업은 다음 순서로 진행합니다.
-
-1. `AGENTS.md`를 읽습니다.
-2. `PRODUCT_SPEC.md`, `TECH_STACK.md`, `ARCHITECTURE.md`, `TASKS.md`를 읽습니다.
-3. 선택된 작업의 범위와 완료 조건을 확인합니다.
-4. 문서에 정의된 내용만 구현합니다.
-5. 테스트와 빌드를 실행합니다.
-6. 문서와 코드가 어긋나면 다음 작업으로 넘어가지 않고 충돌을 보고합니다.
-
-## `templates/`의 역할
-
-`templates/`는 웹사이트가 직접 렌더링하는 콘텐츠 디렉터리가 아닙니다.
-
-`templates/`에는 REPLWorks 방식으로 실무를 진행할 때 사용하는 프롬프트와 미리 준비된 예제 `TECH_STACK.md`를 둡니다.
-
-`templates/prompts/`의 프롬프트 파일은 웹사이트에 표시하고 복사하는 원문의 canonical source입니다. Astro는 사이트를 빌드할 때 이 파일을 읽어 정적 페이지에 포함합니다. 실행 중인 사이트가 `templates/`를 직접 읽는 것은 아닙니다.
-
-프롬프트 원본 파일명은 다음 규칙을 사용합니다.
-
-```text
-<UPPER_SNAKE_CASE_SLUG>_PROMPT.txt
-```
-
-예를 들어 `PRODUCT_SPECIFICATION_PROMPT.txt`는 사이트의 `product-specification` 프롬프트 원본입니다. 별도의 파일 매핑 없이 파일명에서 사이트 slug를 계산합니다.
-
-```text
-templates/
-├── prompts/       # 사이트 원문으로도 사용하는 재사용 프롬프트
-└── tech-stacks/   # 프레임워크별 `TECH_STACK.md` 템플릿
-
-src/
-├── content/prompts/ # 프롬프트 설명, 목적, 사용 방법
-└── ...              # Astro가 빌드하고 웹사이트에 렌더링하는 파일
-```
-
-`templates/`는 Astro content collection이나 public asset으로 등록하지 않습니다. 원본 파일을 raw endpoint로 제공하지 않으며, 빌드 결과에 필요한 프롬프트 텍스트만 정적으로 포함합니다.
-
-## 이 저장소
-
-이 저장소는 REPL Works 공식 웹사이트를 관리합니다. 웹사이트는 다음 내용을 설명하고 제공합니다.
-
-- REPL Works의 방법론
-- 재사용 가능한 프롬프트
-- 프로젝트 표준 문서
-- 도구와 사용 방법
-- REPL Works를 적용한 프로젝트 사례
-
-웹사이트의 주요 영역은 다음과 같습니다.
-
-```text
-Home
-Workflow
-Prompts
-Documents
-Tools
-Showcase
-FAQ
-```
-
-## 로컬 개발
+Node.js 24 버전(`>=24.0.0 <25.0.0`)이 필요합니다. 범위를 벗어나면 `package.json`의 `engines`와 맞지 않습니다.
 
 ```bash
 npm install
 npm run dev
 ```
 
-검증 명령은 다음과 같습니다.
+개발 서버는 `npm run dev:stop`으로 종료합니다. Astro 개발 툴바는 `npm run toolbar:start`와 `npm run toolbar:stop`으로 켜고 끕니다.
 
-```bash
-npm run lint
-npm run astro check
-npm run test
-npm run build
+## 저장소 구조
+
+사이트의 영역은 Home, Workflow, Prompts, Documents, Tools, Showcase, FAQ입니다. 콘텐츠는 한 곳에만 있지 않습니다. 특히 프롬프트는 원문과 설명이 다른 디렉터리에 있으니 아래 구조로 확인하세요.
+
+```text
+templates/
+├── prompts/       # 프롬프트 원문. 사이트에 표시하고 복사하는 canonical source
+├── documents/     # 사이트가 사용하는 표준 문서 원본 (AGENTS.md)
+└── tech-stacks/   # 프레임워크별 TECH_STACK.md 템플릿 (사이트에서 사용하지 않음)
+
+src/
+├── content/prompts/   # 프롬프트의 설명, 목적, 사용 방법
+└── ...                # Astro가 빌드해서 렌더링하는 파일
+
+public/og/             # 페이지별 Open Graph 이미지
+scripts/               # 운영 스크립트 (og-yml.mjs: OG 캡처 대상 목록 생성)
+.replworks/            # 이 저장소 자체의 REPL Works 문서
+AGENTS.md              # 이 저장소를 개발하는 AI 에이전트용 규칙
 ```
 
-프롬프트 원문을 수정한 경우에는 다음 명령으로 사이트에 반영되는 결과를 확인합니다.
+`templates/`의 파일은 Astro가 빌드할 때 읽어서 사이트의 페이지로 만듭니다. GitHub Pages는 정적 호스팅이므로 배포된 사이트가 실행 중에 `templates/`를 읽는 일은 없고, 원문을 수정하면 다시 빌드하고 배포해야 보입니다.
+
+## 콘텐츠 업데이트
+
+### 프롬프트 추가·수정
+
+1. `templates/prompts/`에서 원문 파일을 추가하거나 수정합니다.
+2. `src/content/prompts/`에서 해당 프롬프트의 설명 문서를 추가하거나 수정합니다.
+3. 아래 [검증](#검증)을 실행하고 `npm run preview`로 결과를 확인합니다.
+4. 커밋하고 push합니다. 사이트에는 [배포](#배포)를 해야 반영됩니다.
+
+원문 파일명 규칙은 다음과 같습니다.
+
+```text
+<UPPER_SNAKE_CASE_SLUG>_PROMPT.txt
+```
+
+사이트의 slug는 파일명에서 계산합니다. 별도의 매핑 파일은 없습니다. 예를 들어 `PRODUCT_SPECIFICATION_PROMPT.txt`는 `product-specification` 프롬프트의 원본입니다.
+
+### 페이지에서 원본 파일 보여주기
+
+MDX 페이지에서 `templates/`의 파일을 복사해 붙이지 말고 `CodeFile`로 참조합니다. 원본이 바뀌면 페이지도 함께 바뀌므로 두 내용이 어긋나지 않습니다.
+
+```mdx
+<CodeFile path="/templates/documents/AGENTS.md" title="AGENTS.md" />
+```
+
+`path`는 프로젝트 루트 기준이며 프로젝트 밖의 경로는 오류가 납니다. `lang`을 생략하면 `md`로 표시하고, `title`을 생략하면 경로가 제목이 됩니다.
+
+### AGENTS.md 수정
+
+저장소 루트의 `AGENTS.md`는 이 사이트를 개발하고 운영하는 AI 에이전트가 읽는 파일이고, `templates/documents/AGENTS.md`는 웹사이트에 보여주는 용도입니다. 규칙은 루트 `AGENTS.md`에서 먼저 바꾸고 이 저장소에서 써 보며 검증합니다. 변경이 확정되면 같은 내용을 `templates/documents/AGENTS.md`에 반영하고, 사이트에는 [배포](#배포)해야 보입니다. 그래서 두 파일은 확정된 시점에는 같지만, 검증 중에는 루트가 앞서 있을 수 있습니다.
+
+### TECH_STACK 템플릿 추가·수정
+
+`templates/tech-stacks/`의 템플릿은 저장소에만 있고 사이트에서 사용하지 않습니다. 수정해도 사이트 콘텐츠를 갱신하거나 배포할 필요가 없습니다.
+
+## 검증
+
+변경을 push하기 전에 다음을 실행합니다.
+
+```bash
+npm run check
+```
+
+`check`는 lint, 포맷 검사(`format:check`), Astro 타입 검사(`astro:check`), 테스트, 빌드를 차례로 실행합니다. 하나만 확인하려면 각 스크립트를 따로 실행하세요. `npm run test`는 단위 테스트(Vitest)와 E2E 테스트(Playwright)를 차례로 실행합니다. 따로 실행하려면 `npm run test:unit`과 `npm run test:e2e`를 쓰세요. `test:unit`은 감시 모드로 시작할 수 있으니 한 번만 실행하려면 `npx vitest run`을 사용합니다. E2E를 처음 실행하기 전에는 Playwright 브라우저를 설치합니다.
+
+```bash
+npx playwright install
+```
+
+포맷은 `npm run format`이 저장소 전체를 고치고, `npm run format:check`는 `.ts`, `.tsx`, `.astro`, `.md`, `.mdx` 파일을 검사합니다.
+
+`src/site-invariants.test.ts`는 사이트가 지켜야 할 불변 조건을 검사합니다. 예를 들어 AGENTS.md 문서 페이지가 `templates/documents/AGENTS.md`를 `CodeFile`로 직접 참조하는지 확인합니다.
+
+빌드 중에는 깨진 링크도 검사합니다(`astro-broken-links-checker`). 페이지를 옮기거나 지웠다면 빌드 로그를 확인하세요. CI(`ci.yml`)는 빌드를 검증합니다. 프롬프트 원문을 수정했다면 빌드 후 미리보기로 사이트에 반영되는 결과를 확인합니다.
 
 ```bash
 npm run build
 npm run preview
 ```
 
-`templates/prompts/`는 Astro의 일반 콘텐츠 디렉터리 바깥에 있으므로 개발 서버가 변경을 자동으로 갱신하지 않을 수 있습니다. 변경이 바로 보이지 않으면 개발 서버를 재시작합니다.
+## OG 이미지
 
-## OG 이미지 생성
-
-각 페이지의 Open Graph 이미지는 `public/og/` 폴더에 저장합니다. 페이지가 추가되거나 디자인이 바뀌면 다음 명령으로 전체 이미지를 다시 생성합니다.
+각 페이지의 Open Graph 이미지는 `public/og/<페이지-경로>.png`에 저장합니다. 페이지를 추가하거나 디자인이 바뀌면 전체를 다시 생성합니다.
 
 ```bash
 npm run og
 ```
 
-이 명령은 다음 순서로 실행됩니다.
+이 명령은 사이트를 빌드하고 미리보기 서버를 띄운 뒤, `dist/`의 HTML을 스캔해 `og.yml`을 만들고, `shot-scraper`로 각 페이지를 1200×630으로 캡처합니다. 끝나면 서버를 종료합니다. 이 스크립트는 셸의 백그라운드 실행(`&`)과 `kill`을 쓰므로 macOS와 Linux 셸에서 실행하세요(Windows는 WSL). 서버가 뜨기를 고정 3초만 기다립니다. `og.yml`만 갱신하려면 빌드가 끝난 상태에서 `npm run og:yml`을 실행합니다.
 
-```text
-astro build          # 사이트를 빌드합니다
-astro preview        # 미리보기 서버를 시작합니다 (백그라운드)
-npm run og:yml       # dist/ 의 HTML 파일을 스캔해 og.yml 을 자동 생성합니다
-shot-scraper multi   # og.yml 에 따라 각 페이지를 1200×630으로 캡처합니다
-서버 종료            # 미리보기 서버를 종료합니다
-```
-
-생성된 이미지는 `public/og/<페이지-경로>.png` 형식으로 저장됩니다.
-
-```text
-public/og/
-├── index.png                      # /
-├── prompts.png                    # /prompts
-├── prompts-idea-generation.png    # /prompts/idea-generation
-├── showcase-ai-issue.png          # /showcase/ai-issue
-└── ...
-```
-
-`og.yml`만 먼저 갱신하려면 빌드가 완료된 상태에서 다음 명령을 사용합니다.
-
-```bash
-npm run og:yml
-```
-
-`shot-scraper`가 설치되어 있지 않으면 다음 명령으로 설치합니다.
+`shot-scraper`가 없으면 먼저 설치합니다.
 
 ```bash
 pip install shot-scraper
 shot-scraper install
 ```
 
-OG 이미지를 새로 생성한 후에는 변경된 파일을 커밋하고 배포합니다.
+생성된 이미지는 변경 사항으로 커밋해야 배포에 포함됩니다.
+
+```text
+public/og/
+├── index.png                      # /
+├── prompts.png                    # /prompts
+├── prompts-idea-generation.png    # /prompts/idea-generation
+└── showcase-ai-issue.png          # /showcase/ai-issue
+```
 
 ## 배포
 
-프롬프트 원문 수정은 실행 중인 배포 사이트에 즉시 반영되지 않습니다. 원본 수정 후 Astro 빌드가 다시 실행되어야 합니다.
+사이트는 GitHub Pages로 배포합니다. push만으로는 반영되지 않고, `astro.yml`(Deploy Astro site to Pages)이 다음 중 하나로 시작합니다.
 
-배포 흐름은 다음과 같습니다.
+- GitHub Release를 발행한다. 해당 태그 시점의 코드가 배포됩니다.
+- GitHub Actions에서 workflow를 수동으로 실행한다(`workflow_dispatch`). 선택한 브랜치가 배포됩니다.
 
-```text
-templates/prompts/ 원본 수정
-    ↓
-변경 사항 커밋 및 push
-    ↓
-GitHub Actions CI가 빌드 검증
-    ↓
-Release 발행 또는 Deploy workflow 수동 실행
-    ↓
-Astro가 원본 프롬프트를 읽어 dist 생성
-    ↓
-GitHub Pages 배포
-```
+workflow는 Node 24로 의존성을 설치하고(`npm ci`, `yarn.lock`이 있으면 yarn) `astro build`를 실행해서 `dist/`를 Pages에 올립니다. `--site`와 `--base`는 Pages 설정의 값으로 빌드할 때 덮어씁니다. 배포는 한 번에 하나만 진행하며, 진행 중인 배포는 취소하지 않습니다.
 
-배포된 사이트는 `templates/` 파일을 직접 읽지 않습니다. GitHub Actions가 빌드한 `dist/` 정적 결과물만 제공합니다. 배포 workflow는 Release 발행 또는 GitHub Actions의 수동 실행으로 시작합니다.
+배포할 때 알아 둘 점이 세 가지 있습니다.
 
-## 핵심 문장
+- 배포 workflow는 빌드만 합니다. lint와 테스트는 실행하지 않으므로, Release를 발행하기 전에 [검증](#검증)을 통과시키세요.
+- `npm ci`를 쓰므로 `package-lock.json`을 항상 커밋해야 합니다. `yarn.lock`이 저장소에 있으면 workflow가 yarn을 선택하니 두 패키지 매니저를 섞지 마세요.
+- 저장소 Settings의 Pages에서 Source가 GitHub Actions여야 합니다.
 
-```text
-Models change.
-Projects survive.
-```
+## 문제 해결
+
+`npm run og`가 실패하면 `shot-scraper`가 설치되어 있는지부터 확인하세요.
+
+## 기여와 AI 에이전트
+
+이 저장소도 REPL Works 방식으로 개발합니다. AI 에이전트는 작업 전에 `AGENTS.md`를 읽고, 거기에 선언된 순서로 `.replworks/`의 문서를 따릅니다. 이 README는 안내서일 뿐 요구사항이나 구현 명세가 아닙니다.
 
 ## License
 
