@@ -8,8 +8,15 @@ on:
   release:
     types: [published]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Allows you to run this workflow manually from the Actions tab.
+  # 수동 배포는 항상 릴리즈 태그를 입력해야 합니다.
+  # "Use workflow from"은 반드시 main(이 workflow가 있는 브랜치)을 선택하세요.
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "배포할 릴리즈 태그 (예: v2.15.1)"
+        required: true
+        type: string
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -34,6 +41,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          # release 이벤트에서는 inputs.tag가 비어 있어 github.ref(릴리즈 태그)를 사용하고,
+          # 수동 실행에서는 입력한 태그만 체크아웃합니다. (브랜치 이름은 거부됩니다)
+          ref: ${{ inputs.tag && format('refs/tags/{0}', inputs.tag) || github.ref }}
+      - name: Show deployed ref
+        run: echo "Deploying ${{ inputs.tag || github.ref_name }}" >> $GITHUB_STEP_SUMMARY
       - name: Detect package manager
         id: detect-package-manager
         run: |

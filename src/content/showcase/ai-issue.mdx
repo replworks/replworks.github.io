@@ -1,7 +1,7 @@
 ---
 title: 'AI Issue Publisher 쇼케이스'
-version: 'v2'
-description: '대화 맥락을 코딩형 AI가 즉시 수용할 수 있는 수락 조건 명세 Issue로 변환해 주는 호환 도구 프로젝트'
+version: 'v3'
+description: '`ai-issue`는 AI와 나눈 대화에서 나온 작업 항목을 GitHub Issue로 발행하는 CLI 도구입니다.'
 publishedAt: '2026-10-02T00:00:00Z'
 ---
 
@@ -13,58 +13,90 @@ import WorkflowFlow from '../../components/WorkflowFlow.astro';
 
 ## 1. 개요 (Overview)
 
-`ai-issue`는 REPL Works 프레임워크의 첫 번째 호환 CLI 도구입니다. 막연한 대화나 아이디어를 코딩형 AI가 추측 없이 실행할 수 있는 표준 구조의 GitHub Issue로 자동 작성해 줍니다.
+`ai-issue`는 AI와 나눈 대화에서 나온 작업 항목을 GitHub Issue로 발행하는 CLI 도구입니다. 채팅창 안에서 사라지기 쉬운 가치 있는 작업이 프로젝트 백로그에 남도록 하는 것이 목적이며, REPL Works 방식으로 개발한 첫 번째 호환 도구입니다.
 
-<MissionBox text="Ideal to Issue: 모호한 작업 지시로 인한 오버 스코프 및 억측 구현을 원천 차단합니다." />
+<MissionBox text="Idea to Issue: 수락 조건이 명시된 Issue로 작업을 넘겨, 모호한 작업 지시로 인한 오버 스코프와 억측 구현을 줄입니다." />
 
----
+```bash
+brew install replworks/tap/ai-issue
+```
+
+Linux는 [APT 저장소](https://apt.repl.net)에서 설치합니다. 소스는 [GitHub](https://github.com/replworks/ai-issue)에 공개되어 있고 MIT 라이선스입니다.
 
 ## 2. 사용된 표준 문서 (Documents Used)
 
-<DocBadgeGrid
-  docs={[
-    'PRODUCT_SPEC.md',
-    'TECH_STACK.md',
-    'ARCHITECTURE.md',
-    'TASKS.md',
-    'AGENTS.md',
-  ]}
-/>
+문서는 모두 저장소에 있습니다. 사람을 위한 문서와 AI를 위한 문서가 디렉터리로 나뉘어 있고, AI는 `docs/` 아래 문서를 요구사항으로 쓰지 않습니다.
 
----
+- 사람을 위한 문서: [IDEAS.md](https://github.com/replworks/ai-issue/blob/main/.replworks/docs/IDEAS.md), [PITCHING_SCRIPT.md](https://github.com/replworks/ai-issue/blob/main/.replworks/docs/PITCHING_SCRIPT.md)
+- AI를 위한 문서: [PRODUCT_SPEC.md](https://github.com/replworks/ai-issue/blob/main/.replworks/PRODUCT_SPEC.md), [TECH_STACK.md](https://github.com/replworks/ai-issue/blob/main/.replworks/TECH_STACK.md), [ARCHITECTURE.md](https://github.com/replworks/ai-issue/blob/main/.replworks/ARCHITECTURE.md), [TASKS.md](https://github.com/replworks/ai-issue/blob/main/.replworks/TASKS.md)
+- 공통 규칙: [AGENTS.md](https://github.com/replworks/ai-issue/blob/main/AGENTS.md)
 
-## Workflow Usage
+## 3. 적용 워크플로 (Workflow Usage)
 
-`ai-issue` 도구 개발 시 다음과 같은 REPL Works 워크플로를 적용했습니다:
+`ai-issue`를 개발할 때 다음 순서를 적용했습니다.
 
-<WorkflowFlow
-  steps={[
-    '대화형 AI (이슈 구조화 가이드라인 설계)',
-    'PRODUCT_SPEC.md & ARCHITECTURE.md (CLI 구조 수립)',
-    '코딩형 AI (Homebrew / APT 설치 가능한 CLI 빌드)',
-    'Human Review (로컬 환경 터미널 검증 및 Release)',
-  ]}
-/>
+```text
+대화형 AI (이슈 구조화 가이드라인 설계)
+    ↓
+PRODUCT_SPEC.md & ARCHITECTURE.md (CLI 구조 수립)
+    ↓
+코딩형 AI (Homebrew / APT로 설치할 수 있는 CLI 구현)
+    ↓
+Human Review (로컬 터미널 검증 및 Release)
+```
 
----
+### 기능 하나가 바뀌는 과정
 
-## Tools Used
+기능 요청 [#33](https://github.com/replworks/ai-issue/issues/33)은 개인 액세스 토큰(PAT) 대신 GitHub App의 Device Flow 인증을 쓰자는 것이었습니다. 이 요청은 PR [#38](https://github.com/replworks/ai-issue/pull/38)이 되었고, [커밋 하나](https://github.com/replworks/ai-issue/commit/c0a1243691c43c8bc548e6e123111544de49b966)에 문서와 구현과 테스트가 함께 들어갔습니다.
 
-- **Go / Rust CLI**: 초경량 교차 플랫폼 CLI 바이너리 런타임
-- **GitHub CLI (gh)**: GitHub API 이슈 자동 발행 액션
+- `PRODUCT_SPEC.md`에 요구사항 `FR-011`(Device Flow 로그인 지원)이 추가되었습니다.
+- `ARCHITECTURE.md`에 인증을 맡는 `Authentication Resolution` 모듈이 추가되었고, 이슈 생성이나 저장소 선택은 이 모듈의 책임이 아니라고 명시되었습니다.
+- `TECH_STACK.md`에 토큰을 제한된 파일 권한으로 로컬에 저장해야 한다는 규칙이 추가되었고, 구현에서는 토큰 파일을 `0o600` 권한으로 씁니다.
+- `TASKS.md`에 `Authentication` 작업과 수락 조건이 추가되었습니다.
+
+```text
+ ARCHITECTURE.md                             |  19 ++++++++
+ FRAMEWORK.md                                |   2 +
+ PRODUCT_SPEC.md                             |  16 +++++++
+ TASKS.md                                    |  14 ++++++
+ internal/adapter/github/client.go           | 124 ++++++++++++++++++++++++++++++++++++++++++++++++---
+ internal/cli/login.go                       |  93 ++++++++++++++++++++++++++++++++++++++
+ internal/config/config.go                   |  56 +++++++++++++++++++++++
+ ... (테스트 파일 포함 총 13개 파일, +500 −23)
+```
+
+이 커밋은 문서 구조가 현재의 `.replworks/` 방식으로 바뀌기 전의 것이어서, 문서가 저장소 루트에 있고 `TECH_STACK.md`가 `FRAMEWORK.md`라는 이름이었습니다. 역할은 같습니다. 단계별 설명은 [워크플로우](/workflow)에서 이 커밋을 예시로 따라갑니다.
+
+## 4. 사용 기술 (Tools Used)
+
+- **Go**: 단일 바이너리로 배포하는 교차 플랫폼 CLI 런타임
+- **GitHub App (Device Flow)**: 개인 액세스 토큰 없이 여러 조직에서 로그인하는 인증 방식
 - **REPL Works Issue Template**: 수락 조건 표준 템플릿
+- **golangci-lint, GoReleaser, GitHub Actions**: 정적 검사, 릴리즈 패키징, 자동 검증과 배포
 
----
+## 5. 배포와 운영 (Release & Operations)
 
-## 5. 학습된 레슨 (Lessons Learned)
+사람이 배포 명령을 직접 실행하지 않습니다. 변경은 PR에서 자동 검증을 거치고, 릴리즈는 태그 하나로 시작됩니다. 이 흐름은 GitHub Actions workflow로 정의되어 있으며 [Homebrew 저장소](https://brew.repl.net)와 [APT 저장소](https://apt.repl.net)에서 직접 볼 수 있습니다.
 
-<SpecGrid
-  items={[
-    '모호한 지시는 에이전트의 환각을 유발합니다.',
-    'Acceptance Criteria(수락 기준)가 명시된 이슈만이 정밀한 구현을 보장합니다.',
-    'CLI 도구도 REPL Works 문서 헌법을 따를 때 장기 유지가 용이해집니다.',
-  ]}
-/>
+```text
+PR → CI 검증 → 머지 → 태그(v*) → 릴리즈 workflow → Homebrew · apt 배포
+```
+
+**검증.** [ci.yml](https://github.com/replworks/ai-issue/blob/main/.github/workflows/ci.yml)은 main과 develop에 push할 때와 모든 PR에서 실행됩니다. Go 버전은 `go.mod`에서 읽고, `make check`와 golangci-lint를 통과해야 합니다.
+
+**릴리즈.** [release.yml](https://github.com/replworks/ai-issue/blob/main/.github/workflows/release.yml)은 `v*` 태그를 push하면 시작합니다. 수동으로 실행할 수도 있고, 이때는 태그를 입력으로 받습니다. 먼저 gofmt, `go vet`, `go test`를 다시 확인한 뒤 GoReleaser가 GitHub 릴리즈를 만들고 [Homebrew](https://brew.repl.net) 배포를 처리합니다. 마지막 단계에서 apt 저장소(`replworks/apt`)에 릴리즈가 나왔다고 알리면, [APT 저장소](https://apt.repl.net)의 갱신은 그쪽에서 이어집니다.
+
+**상태와 복구.** `ai-issue`는 사용자 데이터를 저장하지 않는 CLI라서 백업할 상태가 없습니다. 소스는 Git에 있고, 배포 산출물은 태그가 있으면 같은 소스로 다시 빌드할 수 있습니다.
+
+## 6. 학습된 레슨 (Lessons Learned)
+
+모호한 지시는 에이전트의 환각을 유발합니다. 수락 기준(Acceptance Criteria)이 명시된 이슈일수록 구현이 정밀해집니다.
+
+요구사항 하나는 문서 여러 개를 바꿉니다. 인증 방식을 바꾸는 한 번의 변경이 제품 정의, 구조, 기술 규칙, 작업 목록을 모두 건드렸고, 이것이 한 커밋에 남아 있어 나중에도 변경의 이유를 추적할 수 있습니다.
+
+AI는 문서에 없는 일은 하지 않습니다. 구현을 마친 작업을 `TASKS.md`에서 완료로 체크하는 단계가 `AGENTS.md`에 없어서, 구현 커밋에서 체크가 누락되었습니다. 나중에 발견해 AI에게 체크를 지시해 고쳤고, 완료 체크를 `AGENTS.md`의 작업 절차에 추가했습니다. 문제를 고치는 곳은 프롬프트가 아니라 문서입니다.
+
+CLI 도구도 REPL Works 문서를 따를 때 장기 유지가 쉬워집니다.
 
 <DocLink
   href="https://github.com/replworks/ai-issue"
