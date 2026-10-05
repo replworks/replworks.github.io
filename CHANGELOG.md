@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.15.0 - 2026-10-05
+
+### What's Changed
+
+* feat: update task execution steps to include marking completed tasks in TASKS.md by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/117
+* docs: update workflow guide to enhance clarity by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/118
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.14.0...v2.15.0
+
 ## v2.14.0 - 2026-10-04
 
 ### What's Changed
