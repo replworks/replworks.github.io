@@ -1,0 +1,49 @@
+# REPLWORKS_RULES.md
+
+These are the shared rules for building three documents through conversation with me: PRODUCT_SPEC.md, TECH_STACK.md, and ARCHITECTURE.md. They do not apply to idea discussion (IDEAS.md, PITCHING_SCRIPT.md) or to TASKS.md.
+
+TASKS.md will later be generated from these three documents alone, so together they must contain everything needed to define and order the work.
+
+## Session setup
+
+- Work out which document we are building from what I say. If it is unclear, ask once.
+- Documents I paste into the conversation are input documents (upper-level documents) for the one we are building.
+- If this file is pasted again during the conversation, it means: re-apply these rules. Keep everything so far: the parking list, decisions, and conversation context.
+- Reply in the language I write in. Write documents in that language unless I say otherwise.
+
+## Document boundaries
+
+PRODUCT_SPEC.md - what the end user sees, does, and gets.
+  Owns: users, scenarios, features, screens / commands / response formats (UI/UX), term definitions, user-visible constraints (pricing, limits, permissions, perceived performance), release scope (what ships in the first version vs. later).
+  Does not own: framework, library, or service names (-> TECH_STACK); module structure, data model, internal flow (-> ARCHITECTURE).
+
+TECH_STACK.md - what we use and why.
+  Owns: language, framework, database type, hosting, external services and SDKs, tools. Each choice cites the PRODUCT_SPEC requirement behind it.
+  Does not own: screens or features (-> PRODUCT_SPEC); component layout or data flow (-> ARCHITECTURE).
+
+ARCHITECTURE.md - how it is built.
+  Owns: components and their responsibilities, data model, request and data flow, authentication and authorization flow, how external services are integrated, deployment structure, how non-functional requirements are implemented, dependencies between components (what must exist before something else can be built).
+  Does not own: user-facing screens or scenarios (-> PRODUCT_SPEC); product choices (-> TECH_STACK).
+
+Gray areas:
+- CLI and API products: commands, options, and response formats are the user touchpoint, so they belong to PRODUCT_SPEC. Internal processing belongs to ARCHITECTURE.
+- Database: the type belongs to TECH_STACK; tables and relations to ARCHITECTURE; the concepts the user handles (e.g. "member", "benefit") are PRODUCT_SPEC terms. Other documents reuse those terms as defined.
+- External service integration: the behavior the user experiences is PRODUCT_SPEC; the API or SDK to use is TECH_STACK; the verification flow, tokens, and caching are ARCHITECTURE.
+- Payments: plans and pricing are PRODUCT_SPEC; the payment provider is TECH_STACK; the webhook handling flow is ARCHITECTURE.
+- Performance and security: the target as the user perceives it is PRODUCT_SPEC; the implementation is ARCHITECTURE.
+
+Dependencies run one way: PRODUCT_SPEC -> TECH_STACK -> ARCHITECTURE. If, while working on a lower document, you find that an upper document must change, do not change it silently. Record it as an upper-document change request.
+
+## During the conversation
+
+- When content that belongs to another document comes up, do not block it. Accept it, keep it out of the current document, and add it to the parking list as one line with the target document name.
+- When I say "보류 목록" (or "parking list"), show everything accumulated so far.
+- If something conflicts with an upper document, or an upper document needs to change, tell me as an upper-document change request instead of applying it silently.
+
+## When I ask you to generate a document
+
+- Write only what this document owns.
+- Only decisions I stated or explicitly accepted go into the document. Your suggestions that I did not accept do not.
+- Do not silently delete content that belongs to another document. List it at the end under the heading "다른 문서로 넘길 것", each item with the target document name and the decision as stated.
+- If something this document needs was never decided, do not fill it in yourself. List it under the heading "미결정".
+- If the document conflicts with an upper document or requires changing it, list it under the heading "상위 문서 변경 요청".
