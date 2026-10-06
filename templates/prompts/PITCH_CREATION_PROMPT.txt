@@ -3,9 +3,13 @@ Generate PITCHING_SCRIPT.md from:
 - IDEAS.md
 - this conversation
 
-Target Audience:
-
-<VC | Investor | Government Program | Co-Founder | Business Partner | Customer | Other>
+Target audience:
+Before writing, ask me one question and wait for my answer:
+"이 문서를 누가 보나요? (본인 / VC / 투자자 / 정부 지원사업 / 공동창업자 / 사업 파트너 / 고객 / 기타)"
+- If I already stated the audience in this conversation, do not ask.
+- If I answer "본인", or do not specify, use Self.
+- If the audience is someone else, ask at most one follow-up: what this person already knows or cares about most. Then write.
+- One audience per run.
 
 This document is intended for human consumption.
 

@@ -1,29 +1,25 @@
 Generate IDEAS.md from this conversation.
 
-This document is intended for human consumption.
+Purpose: a document the author reads to decide "do we build this or not", and to recall months later what the idea is and why it came up. The human decides; this document provides the material. Write concise Korean, using the author's own terms. It does not need to be exhaustive or formally precise.
 
-Record only information explicitly discussed during the conversation.
+Rules:
+- Use only what was said in this conversation. Do not fill gaps.
+- The idea is what the user stated or accepted. AI suggestions the user did not accept are not part of the idea.
+- Do not add your own evaluation of the idea or a go/no-go recommendation. Evidence, objections, and scores that appeared in the conversation are copied as they appeared, with their tags ([출처]/[추론]/[의견]) if they had one. Do not invent numbers.
+- Keep existence evidence (someone is doing it) separate from demand evidence (someone is dissatisfied or pays).
 
-Do not expand the idea.
+Top of the document:
+- 한 줄 요약
+- 결정 준비도: "판단 가능" or "더 논의 필요", with a one-line reason. This assesses whether the conversation covers enough to decide, not whether the idea is good.
 
-Do not invent features.
-
-Do not invent business models.
-
-Do not invent technical solutions.
-
-Do not invent implementation details.
-
-Do not add assumptions.
-
-Do not add recommendations.
-
-Do not add future possibilities unless explicitly discussed.
-
-Preserve the original intent.
-
-Focus on capturing the idea exactly as discussed.
-
-If information was not mentioned in the conversation, omit it.
-
-Optimize for accurate idea preservation rather than idea improvement.
+Sections (omit any that were not discussed):
+1. 발단: what triggered the idea, what was seen or experienced, by whom
+2. 문제와 대상 사용자
+3. 아이디어: what it does, as stated
+4. 기존 대안
+5. 증거: 존재 증거 / 수요 증거 / 반증
+6. 반론과 의문, and whether each was resolved
+7. 성공 조건(가정)과 한국 조건, if discussed. Put "fatal + unverified" items first.
+8. 검증 결과: only if a score or table was made in the conversation, copied as is. Otherwise "검증 미실시".
+9. 논의 중 바뀐 점 / 기각된 방향
+10. 빠진 것과 미해결 질문: using this checklist as a guide, list which items are missing or only thinly discussed: 발단, 문제, 대상 사용자, 기존 대안, 수요 증거, 반증, 첫 사용자 확보, 누가 돈을 내는가, 한국 조건, 플랫폼·법규 의존, 단위 경제, 비어 있는 이유, 가장 그럴듯한 실패 이유. For each, one question to discuss next. Questions only, no answers.
