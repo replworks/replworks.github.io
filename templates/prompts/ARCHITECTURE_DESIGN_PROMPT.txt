@@ -1,15 +1,23 @@
 Generate ARCHITECTURE.md.
 
-Assume PRODUCT_SPEC.md already exists and is correct.
+Assume PRODUCT_SPEC.md and TECH_STACK.md already exist and are correct.
+
+Read TECH_STACK.md only to avoid conflicts with it.
+Do not restate, summarize, or reference any technology, version, folder rule, or convention from it.
+ARCHITECTURE.md must remain valid even if TECH_STACK.md changes.
+
+If PRODUCT_SPEC.md and TECH_STACK.md conflict, or if a required component
+cannot be reconciled with the constraints in TECH_STACK.md, stop and report the conflict.
+Do not resolve it silently.
+
+Do not create any other document.
 
 The purpose of ARCHITECTURE.md is to define:
 
-```text
 How the product works internally.
 How responsibilities are separated.
 How information flows through the system.
 Which invariants must always remain true.
-```
 
 Do not describe implementation technologies.
 
@@ -22,6 +30,8 @@ Do not describe libraries.
 Do not describe deployment.
 
 Do not describe coding conventions.
+
+Do not describe folder structure.
 
 Architecture must remain technology-agnostic.
 
@@ -38,6 +48,7 @@ The document must include:
 - Failure Boundaries
 - Non-Goals
 - Architectural Invariants
+- Resolved Decisions
 
 Every component must have:
 
@@ -53,6 +64,15 @@ Identify:
 - ambiguous flows
 
 Resolve them before generating the document.
+
+If a resolution requires interpreting PRODUCT_SPEC.md in a way
+that is not explicitly stated there, ask before deciding.
+Record every resolution you make in "Resolved Decisions"
+(what was ambiguous, what you decided, why).
+
+Non-Goals must contain only architectural non-goals
+(structures or responsibilities this architecture deliberately does not provide).
+Do not copy non-goals from PRODUCT_SPEC.md.
 
 Prefer clear ownership over abstraction.
 
