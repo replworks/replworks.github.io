@@ -17,7 +17,6 @@ Only these documents are authoritative.
 Ignore all files under:
 
 ```text
-docs/
 .replworks/docs/
 ```
 
@@ -177,10 +176,7 @@ ARCHITECTURE.md
 ## TASK_SELECTION
 
 Implement the task named by the human.
-If none is named, use the first unchecked MVP task in TASKS.md
-whose dependencies are all marked `[X]`.
-
-Do not select tasks from the Future section unless the human names them.
+If none is named, use the first unchecked task in TASKS.md, from top to bottom.
 
 ---
 
@@ -282,8 +278,6 @@ Never regenerate TASKS.md from scratch.
 
 These rules bind the AI. The human may edit TASKS.md directly at any time.
 Human edits are authoritative.
-If a task's Depends on ID no longer exists, treat the dependency as removed
-by the human, and mention it when you stop.
 
 ---
 
