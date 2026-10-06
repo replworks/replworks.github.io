@@ -1,39 +1,83 @@
 Generate PRODUCT_SPEC.md.
 
-Assume all product discovery and idea validation are already complete.
+INPUT
+- The product information provided with this request.
+  Product discovery and idea validation are complete and final.
+  It is the only source of product information.
+- If wireframes or mockups are provided, translate their structure into text.
+  MUST NOT reference or embed image files.
+- MUST NOT create any other document.
+- Output the contents of PRODUCT_SPEC.md only.
 
+STOP CONDITIONS
+If information required for any section is missing, ambiguous, or contradictory:
+output ONLY a numbered list of questions. Nothing else.
+After I answer, treat my answers as final input and continue.
+MUST NOT invent information to fill a gap.
+
+PURPOSE
 The purpose of PRODUCT_SPEC.md is to define:
 
-```text
 What the product is.
 What the product does.
+How it works from the end user's perspective, including its UI and UX.
 What the user can do.
 What success means.
-```
 
-Do not describe implementation.
+SCOPE BOUNDARY
+- Specify only what the end user can observe and do.
+- UI and UX are product behavior. MUST specify them (see USER INTERFACE RULES).
+- How the product works internally (mechanism) belongs to ARCHITECTURE.md.
+  MUST NOT describe implementation, architecture, technologies, tech stacks,
+  programming languages, databases, internal APIs, internal components,
+  or directory structures.
+- Persistence is specified as observable behavior (what is kept across sessions),
+  never as storage technology.
+- Human-owned. MUST NOT specify:
+  wording, copy, translations, images,
+  visual styling (colors, typography, spacing, visual polish).
+  Specify which content slots exist and what each is for, not their content.
+- MUST NOT propose improvements.
+- MUST NOT add features that were not discussed.
+- MUST NOT expand the scope.
 
-Do not describe architecture.
+USER INTERFACE RULES
+For every surface the user interacts with:
+- Screens: give each a stable ID (SCR-001, ...), its purpose, and the elements on it.
+- Elements: for each, its purpose and what the user can do with it.
+- Arrangement: relative placement, grouping, and hierarchy only.
+  MUST NOT specify exact sizes, spacing, or visual styling.
+- States: every state that applies (initial, empty, loading, populated, error,
+  disabled) and what is shown in each.
+- Navigation: for each trigger, the destination.
+- Interactions: for each user action, the observable result.
+- Platform or window-size differences, only if stated in the input.
+For non-graphical products (e.g. command-line):
+- Every command, option, input, and the structure of output that users
+  or other programs rely on, and exit behavior.
+  MUST NOT specify exact output wording unless programs depend on it.
 
-Do not describe technologies.
+REQUIREMENT RULES
+- Give every Functional Requirement a stable ID (FR-001, FR-002, ...).
+- Tag every Functional Requirement MVP or Future.
+  Future means discussed but deferred. Non-Goals means explicitly excluded.
+  If the input does not make a tag clear, ask.
+- Each requirement is one externally observable behavior that can be
+  verified pass/fail. If it cannot be written objectively, ask.
+- Error Conditions specify the observable behavior for each condition.
+- Acceptance Criteria reference requirement and screen IDs and are pass/fail verifiable.
+- Success Criteria are outcomes measured outside the product.
+  They are not implementation requirements unless a Functional Requirement
+  states that the product must measure them.
+- External Systems: list each external system the product depends on
+  and the behavior relied on.
+  Mark with [UNVERIFIED] the heading of any section whose behavior depends on
+  an external system whose behavior has not been observed.
+- Constraints: only observable non-functional requirements stated in the input
+  (supported platforms or environments, performance, offline behavior,
+  data retention, accessibility). If none are stated, write "None stated."
 
-Do not describe tech stacks.
-
-Do not describe programming languages.
-
-Do not describe databases.
-
-Do not describe APIs.
-
-Do not describe internal components.
-
-Do not describe directory structures.
-
-Focus only on externally observable product behavior.
-
-The document should be sufficient for a product manager to approve the product scope.
-
-The document must include:
+The document must include, in this order:
 
 - Purpose
 - Problem
@@ -41,6 +85,9 @@ The document must include:
 - Users
 - Inputs
 - Outputs
+- Constraints
+- External Systems
+- User Interface
 - Functional Requirements
 - User Flows
 - Error Conditions
@@ -48,14 +95,9 @@ The document must include:
 - Acceptance Criteria
 - Success Criteria
 
-Do not propose improvements.
-
-Do not add features that were not discussed.
-
-Do not expand the scope.
-
-Prefer explicit requirements over explanations.
-
-Optimize for implementation certainty.
-
-The document is intended for AI implementation, not human marketing.
+FORMAT
+- Flat terse bullets. "MUST" phrasing for requirements.
+- Prefer explicit requirements over explanations.
+- No marketing prose.
+- Audience: AI implementer.
+- Optimize for implementation certainty.

@@ -1,57 +1,69 @@
-Review the following documents together:
+You are about to implement this product.
+
+Follow AGENTS.md.
+Read the documents in DOCUMENT_ORDER:
 
 - PRODUCT_SPEC.md
 - TECH_STACK.md
 - ARCHITECTURE.md
 
-Assume you are responsible for implementing the entire product.
+Treat these three documents as the entire implementation contract.
+Ignore TASKS.md.
 
-Assume no additional information will be provided.
+## Step 1: Contract check
 
-Your goal is to determine whether implementation can begin with confidence.
+Assume the repository is empty and no additional information will be provided.
+Existing source code is not evidence that the contract is sufficient.
 
-Generate only questions.
+Dry-run the implementation of the entire product.
+For every behavior stated in PRODUCT_SPEC.md, determine:
 
-Do not answer questions.
+- which component owns it
+- what its inputs and outputs are
+- how data reaches it and leaves it
+- where it is implemented under the constraints in TECH_STACK.md
 
-Do not suggest improvements.
+Every point where you would have to stop or guess is a blocking question.
+Do not ask about behavior PRODUCT_SPEC.md does not claim.
 
-Do not suggest new features.
+Also report as blocking:
 
-Do not redesign the product.
+- contradictions between the documents (apply the priority in AGENTS.md)
+- behavior that depends on an external boundary
+  with no recorded observation or spec and no [UNVERIFIED] mark
+- any section marked [UNVERIFIED]
 
-Do not modify requirements.
+## Step 2: Code divergence check
 
-Focus on identifying:
+Run this step only if the repository contains source code.
 
-- missing requirements
-- missing architectural responsibilities
-- missing implementation constraints
-- ambiguous behavior
-- conflicting definitions
-- undefined ownership
-- undefined flows
-- undefined inputs
-- undefined outputs
-- contradictions between documents
+Report as blocking only:
 
-Treat the three documents as a single implementation contract.
+- code that contradicts the three documents
+  (including TECH_STACK.md versions and folder rules)
+- behavior the code already implements that PRODUCT_SPEC.md does not state
 
-A question is valid only if it blocks implementation certainty.
+Documented behavior that is not implemented yet is not a divergence.
 
-Ignore:
+## Rules
 
-- personal preferences
-- alternative technologies
-- feature ideas
-- product strategy
+Do not write code.
+Do not create or modify any file.
+Do not run commands or call external services.
+Do not answer the questions.
+Do not suggest improvements, new features, or alternative technologies.
 
-Output only a numbered list of questions.
+## Output
 
-If no blocking questions exist, output:
+Output only a numbered list of questions in chat,
+most blocking first, at most 15.
 
-```text
+Each question must state:
+- which step it comes from (1 or 2)
+- which document and section it concerns (and which file, for step 2)
+- what is undefined or conflicting
+- why you cannot proceed without an answer
+
+If no blocking questions exist, output exactly:
+
 Implementation can begin with high confidence.
-```
-
-Optimize for implementation certainty.

@@ -1,48 +1,137 @@
-Generate TECH_STACK.md.
+Generate TASKS.md.
 
-INPUTS
-- PRODUCT_SPEC.md: correct and final. Source of product requirements.
-- TECH_DECISIONS: correct and final. Sole source of technology names and versions.
-- ARCHITECTURE.md does not exist yet. It will be written AFTER this document, using it as input.
+Follow AGENTS.md.
 
-SOURCE RULES
-- Every technology, tool, library, version, file name, and env var name MUST come from TECH_DECISIONS.
-- MUST NOT infer, invent, evaluate, or recommend technologies.
-- MUST NOT restate product behavior from PRODUCT_SPEC (commands, options, sorting, error cases).
-- If TECH_DECISIONS conflicts with PRODUCT_SPEC, stop and list the conflicts.
+Assume PRODUCT_SPEC.md, TECH_STACK.md, and ARCHITECTURE.md
+already exist and are correct.
 
-REQUIRED DECISIONS CHECK
-Verify TECH_DECISIONS defines all of the following. For each missing item, ask one question.
-- runtime + version
-- language + compile/run method
-- module system
-- package manager + lockfile
-- web framework + version
-- libraries (name + version): config parser, CLI argument parser, YouTube API client/HTTP
-- test tool + coverage threshold
-- linter, formatter
-- CI system
-- deployment target + release/distribution method
-- license
-- config file format, env var names, secret storage
-If any item is missing or conflicting: output ONLY the numbered question list. Nothing else.
+Stop and report instead of generating TASKS.md if:
 
-SCOPE BOUNDARY
-- Cover only technology choices and the rules that follow from them.
-- MUST NOT define components, layers, modules, boundaries, data flow, responsibilities, or system structure.
-- MUST NOT define directory layout beyond paths mandated by the chosen framework or tooling.
-- MUST NOT include process rules (change control), product non-goals, or architectural invariants.
-- State each rule once. MUST NOT repeat a rule across sections.
+- any section in these documents is marked [UNVERIFIED]
+- the documents conflict (apply the priority in AGENTS.md)
+- PRODUCT_SPEC.md does not make clear what belongs to MVP and what to Future
 
-OUTPUT FORMAT
-- Exactly these 8 sections, in this order, numbered headings, no other sections:
-  1. Languages / runtimes / frameworks / libraries (name + version constraint)
-  2. Framework- or tool-mandated paths and file names only
-  3. Coding conventions specific to the chosen stack
-  4. Testing rules (tools, naming, required coverage)
-  5. Configuration rules (env vars, config files, secrets handling)
-  6. Deployment rules (targets, build, release steps)
-  7. Security rules tied to the chosen stack
-  8. Non-goals (technologies and tools explicitly excluded)
-- Flat terse bullets. "MUST / MUST NOT" phrasing. No prose, no explanations, no "why".
-- Audience: AI implementer.
+The purpose of TASKS.md is to define:
+
+What should be implemented next, in order.
+
+TASKS.md is an execution checklist for AI implementation,
+not project management.
+
+Do not include estimates, owners, dates, or priorities.
+Do not create any other document.
+
+Do not describe architecture.
+Do not describe technologies.
+Do not describe tech stacks.
+Do not describe implementation details.
+Do not reference specific classes.
+Do not reference specific files.
+Do not reference specific libraries.
+
+You may reference documents, document sections,
+and component names defined in ARCHITECTURE.md.
+Do not restate their content.
+
+## Scope of tasks
+
+TASKS.md contains only tasks whose acceptance criteria can be verified
+by an automated test or an observable behavior.
+
+Do NOT create tasks for content or visual design.
+These are human-owned and judged by a human
+(see HUMAN_OWNED_CHANGES in AGENTS.md):
+
+- wording, copy, translations
+- images
+- visual styling: colors, typography, spacing, visual polish
+
+If PRODUCT_SPEC.md requires a content slot to exist,
+the task verifies that the slot renders provided content,
+not what the content says.
+
+DO create tasks for the UI and UX structure defined in PRODUCT_SPEC.md:
+
+- screens and the elements on them
+- arrangement relationships
+- states
+- navigation
+- interactions
+
+These are product behavior, verified by observable behavior
+(e.g. UI or E2E tests).
+
+## Task rules
+
+Every task must satisfy at least one requirement in PRODUCT_SPEC.md.
+Every MVP requirement must be satisfied by at least one task.
+Do not create tasks for anything PRODUCT_SPEC.md does not state.
+
+Each task must be a vertical slice:
+an observable, testable behavior from user-visible input to output.
+Do not create layer-only tasks.
+
+Each task must be completable by one AI in one session,
+assuming all earlier tasks are complete.
+AGENTS.md requires stopping after each task.
+
+Order tasks so that every task depends only on earlier tasks.
+Declare dependencies explicitly.
+
+The first task is the project foundation.
+Its acceptance criteria: the constraints in TECH_STACK.md are satisfied
+and the checks defined there pass.
+Do not restate TECH_STACK.md.
+
+If a task touches an external boundary (as defined in AGENTS.md),
+mark it, and require in its acceptance criteria
+a recorded live observation and an E2E test against the live boundary.
+
+## Acceptance criteria rules
+
+Each task has its own acceptance criteria.
+Each criterion must be pass/fail verifiable
+by an automated test or an observable behavior.
+Include failure behavior defined by the failure boundaries in ARCHITECTURE.md.
+Include unit tests passing.
+Do not use subjective wording.
+
+A task is complete only when all its acceptance criteria are satisfied.
+
+## Existing code
+
+If the repository contains source code:
+
+Still generate the full task list.
+Never remove a task because it appears implemented.
+
+Mark a task [X] only if you have verified every one of its
+acceptance criteria by actually running the tests or observing the behavior.
+Code that appears to implement a task is not verification.
+If any criterion cannot be verified, leave the task [ ].
+A task with an external boundary may be marked [X] only
+after its live E2E test has passed.
+
+If the repository has no source code, all tasks are [ ].
+
+Generate TASKS.md only once.
+After this, tasks are changed only as defined in AGENTS.md.
+
+## Structure
+
+Organize tasks into phases: MVP first, then Future.
+MVP and Future are defined only by PRODUCT_SPEC.md.
+Future tasks must not be implemented unless the human names them explicitly.
+State this at the top of the Future section.
+
+Use this format for every task:
+
+- [ ] T-001 <capability>
+  - Satisfies: <PRODUCT_SPEC.md requirement and screen IDs>
+  - Components: <component names from ARCHITECTURE.md>
+  - Depends on: <task IDs or none>
+  - External boundary: yes | no
+  - Acceptance criteria:
+    - <criterion>
+
+Optimize for autonomous execution by AI systems.

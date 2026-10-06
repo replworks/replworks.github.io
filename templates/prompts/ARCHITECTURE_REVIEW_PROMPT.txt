@@ -1,10 +1,18 @@
 Review these documents together:
 
+- AGENTS.md
 - PRODUCT_SPEC.md
 - TECH_STACK.md
 - ARCHITECTURE.md
 
 Generate only blocking questions.
+
+A question is blocking only if an AI implementer would have to guess
+to proceed. Do not ask about style, completeness, or preference.
+
+Before answering, map every requirement in PRODUCT_SPEC.md
+to the component that owns it in ARCHITECTURE.md.
+Do not output the mapping.
 
 Check for:
 
@@ -12,19 +20,27 @@ Check for:
 - components with overlapping responsibilities
 - missing inputs or outputs
 - undefined data flows
-- conflicts with TECH_STACK.md
-- architecture decisions that introduce unapproved product behavior
 - missing failure boundaries
 - contradictory invariants
+- conflicts between PRODUCT_SPEC.md and TECH_STACK.md
+- conflicts between ARCHITECTURE.md and TECH_STACK.md
+- technology, version, or folder rules leaking into ARCHITECTURE.md
+- responsibilities in ARCHITECTURE.md that belong to PRODUCT_SPEC.md or TECH_STACK.md
+  (use DOCUMENT_RESPONSIBILITIES in AGENTS.md as the definition)
+- architecture decisions (including Resolved Decisions) that introduce
+  product behavior not stated in PRODUCT_SPEC.md
+- any section marked [UNVERIFIED] in any document
+
+For each question, state:
+- which document and section it concerns
+- what is ambiguous or conflicting
+- why an implementer cannot proceed without an answer
 
 Do not suggest new features.
-
 Do not choose alternative technologies.
-
 Do not redesign the architecture.
+Do not propose fixes. Questions only.
 
-If no blocking questions exist, output:
+If no blocking questions exist, output exactly:
 
-```text
 Architecture can be implemented with high confidence.
-```

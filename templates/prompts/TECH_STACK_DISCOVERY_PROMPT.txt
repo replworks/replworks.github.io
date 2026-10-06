@@ -3,7 +3,9 @@ ARCHITECTURE.md does not exist yet. It will be written AFTER TECH_STACK.md.
 
 PURPOSE
 Discover every technology decision required to generate TECH_STACK.md.
-Do NOT generate TECH_STACK.md. Do NOT generate code.
+The final DECIDED log becomes TECH_DECISIONS, the sole source for TECH_STACK.md.
+Do NOT generate TECH_STACK.md until I send the generation request in this conversation.
+Do NOT generate code.
 
 SCOPE
 - The goal is technology decisions. Architecture may be discussed ONLY to
@@ -16,6 +18,9 @@ SCOPE
   and continue.
 - Directory, state, and dependency questions are limited to what the chosen
   stack or framework mandates.
+- Requirements come only from PRODUCT_SPEC.md. If a requirement is not stated
+  there (e.g. a performance target), do not record it as a decision.
+  Record it as a PRODUCT_SPEC GAP and continue.
 
 PROCESS
 - Ask one decision at a time. Wait for the answer before continuing.
@@ -26,25 +31,45 @@ PROCESS
 - Do not evaluate or recommend technologies. Exception: if I explicitly ask
   for a recommendation on the current question, answer only that, then
   return to discovery mode.
+- Every version MUST come from me or be verified by search with a source.
+  Never state a version from memory. This also applies to recommendations.
+  If a version cannot be verified, mark it UNVERIFIED and ask me.
 - If a later answer conflicts with a DECIDED item, stop and ask which one
   wins before continuing.
+- If an answer conflicts with PRODUCT_SPEC.md, stop and ask whether to change
+  the answer or PRODUCT_SPEC.md before continuing.
+- Every decision MUST map to one TECH_STACK.md section:
+  1 Languages/runtimes/frameworks/libraries (exact versions)
+  2 Directory rules, framework- or tool-mandated paths and file names
+  3 Coding conventions
+  4 Testing and verification (tools, coverage, commands)
+  5 Configuration
+  6 Deployment
+  7 Security
+  8 Non-goals
+  If a decision fits none, record it as an ARCH NOTE or PRODUCT_SPEC GAP.
 
 AREAS (in this order)
 1. Platform (target platforms, runtime constraints, distribution targets)
-2. Performance constraints (latency, throughput, memory)
-3. Programming language
-4. UI tech stack
-5. Rendering (approach, graphics constraints)
+2. Language and runtime (language, compile/run method, runtime + version, module system)
+3. Package management (package manager, lockfile)
+4. Framework and UI (framework + version, UI stack, rendering approach, if applicable)
+5. External capabilities (for every external capability PRODUCT_SPEC requires:
+   library or built-in choice + version; dependency policy)
 6. State management (stack-level mutation model only)
 7. Persistence (storage technology and requirements)
-8. Dependency policy (external dependency rules only)
-9. Testing (test types, coverage expectations)
-10. Configuration (env separation, secret storage)
+8. Testing (test tool, test types, naming, coverage threshold,
+   whether tests may assert user-visible wording)
+9. Code quality and verification (linter, formatter, and the commands for
+   lint, format check, build, test, and the single command that runs all of them)
+10. Configuration (file format, file names, env var names, env separation, secret storage)
 11. Logging (rules, sensitive information)
 12. Security (secret handling, input validation)
 13. Build (variants, constraints)
-14. Deployment (targets, release environments)
-15. Debugging / observability
+14. Deployment (targets, release environments, release/distribution method, CI)
+15. Project (license, top-level directory rules for source/tests/configuration,
+    paths and file names mandated by the framework or tools)
+16. Debugging / observability
 
 OUTPUT FORMAT for each question:
 
@@ -55,14 +80,20 @@ Affected Areas: <list>
 Question: <single question>
 WAITING FOR ANSWER
 
-After every answer, print both logs before the next question:
+After every answer, print all three logs before the next question:
 
 DECIDED
-- <name>: <answer>
+- <name>: <answer> | version: <exact or n/a> | status: DECIDED or UNVERIFIED | section: <1-8>
 
 ARCH NOTES (non-binding, for ARCHITECTURE.md later)
 - <driver or structural idea mentioned, with the decision it relates to>
 
+PRODUCT_SPEC GAPS
+- <requirement that surfaced but is not in PRODUCT_SPEC.md>
+
 COMPLETION
-When all areas are resolved, print the final DECIDED log and ARCH NOTES,
-then stop. Do not generate TECH_STACK.md.
+Do not complete while any item is UNVERIFIED. Resolve it with me first.
+When all areas are resolved, print under the heading FINAL:
+the final DECIDED log, ARCH NOTES, and PRODUCT_SPEC GAPS.
+Then stop and wait.
+Do not generate TECH_STACK.md until I send the generation request.
