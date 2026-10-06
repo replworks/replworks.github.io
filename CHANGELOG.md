@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.17.0 - 2026-10-06
+
+### What's Changed
+
+* feat: enhance ARCHITECTURE.md generation guidelines for clarity and completeness by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/124
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.16.0...v2.17.0
+
 ## v2.16.0 - 2026-10-05
 
 ### What's Changed
