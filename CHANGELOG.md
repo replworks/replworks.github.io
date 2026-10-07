@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.19.1 - 2026-10-07
+
+### What's Changed
+
+* refactor: restore `TECH_STACK_PROMPT.txt` to previous version by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/132
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.19.0...v2.19.1
+
 ## v2.19.0 - 2026-10-07
 
 ### What's Changed
