@@ -22,7 +22,6 @@ What the product is.
 What the product does.
 How it works from the end user's perspective, including its UI and UX.
 What the user can do.
-What success means.
 
 SCOPE BOUNDARY
 - Specify only what the end user can observe and do.
@@ -40,6 +39,8 @@ SCOPE BOUNDARY
   wording, copy, translations, images,
   visual styling (colors, typography, spacing, visual polish).
   Specify which content slots exist and what each is for, not their content.
+- Business outcomes (revenue, user counts, conversion, growth, market targets)
+  are out of scope. MUST NOT include them anywhere in the document.
 - MUST NOT propose improvements.
 - MUST NOT add features that were not discussed.
 - MUST NOT expand the scope.
@@ -64,11 +65,10 @@ REQUIREMENT RULES
 - Give every Functional Requirement a stable ID (FR-001, FR-002, ...).
 - Each requirement is one externally observable behavior that can be
   verified pass/fail. If it cannot be written objectively, ask.
+- Product Goals: only what the product enables the end user to do.
+  MUST NOT include business outcomes.
 - Error Conditions specify the observable behavior for each condition.
 - Acceptance Criteria reference requirement and screen IDs and are pass/fail verifiable.
-- Success Criteria are outcomes measured outside the product.
-  They are not implementation requirements unless a Functional Requirement
-  states that the product must measure them.
 - Non-Goals: only what the input explicitly excludes.
 - External Systems: list each external system the product depends on
   and the behavior relied on.
@@ -94,7 +94,6 @@ The document must include, in this order:
 - Error Conditions
 - Non-Goals
 - Acceptance Criteria
-- Success Criteria
 
 FORMAT
 - Flat terse bullets. "MUST" phrasing for requirements.
