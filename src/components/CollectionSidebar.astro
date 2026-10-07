@@ -32,7 +32,7 @@ if (overrideItems) {
     slug: p.slug,
     title: `${String(p.number).padStart(2, '0')}. ${p.koreanName}`,
     subtitle: p.name,
-    href: `/prompts/${p.slug}`,
+    href: `/prompts/${p.slug}/`,
   }));
 } else if (collection === 'documents') {
   const entries = await getCollection(collection);
@@ -48,7 +48,7 @@ if (overrideItems) {
       title: title ?? entry.data.title ?? slug,
       subtitle,
       badge,
-      href: `/documents/${slug}`,
+      href: `/documents/${slug}/`,
     };
   });
 } else if (collection === 'showcase') {
@@ -59,7 +59,7 @@ if (overrideItems) {
       slug: p.slug,
       title: p.name,
       badge: p.tags[0],
-      href: `/showcase/${p.slug}`,
+      href: `/showcase/${p.slug}/`,
     }));
 } else {
   const entries = await getCollection(collection);
@@ -68,7 +68,7 @@ if (overrideItems) {
     .map((e) => ({
       slug: e.id,
       title: e.data.title ?? e.id,
-      href: `/${collection}/${e.id}`,
+      href: `/${collection}/${e.id}/`,
     }));
 }
 
@@ -78,7 +78,7 @@ const collectionTitle = collectionTitles[collection];
 const indexItem: SidebarItem = {
   slug: '_index',
   title: collectionTitle,
-  href: `/${collection}`,
+  href: `/${collection}/`,
 };
 
 const allItems = overrideItems ? items : [indexItem, ...items];

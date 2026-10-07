@@ -733,6 +733,23 @@ becomes a recognizable signal of structured AI-native development.
 
 ---
 
+## URL_RULES
+
+```text
+Trailing Slash Policy
+```
+
+Internal links:
+
+- 사이트 내부 링크의 하위 경로는 항상 끝에 slash를 붙인다 (예: `/about/`, `/docs/getting-started/`).
+- 루트는 `https://www.repl.net/` 로 쓴다.
+- 파일 확장자가 있는 경로에는 slash를 붙이지 않는다 (예: `/sitemap.xml`, `/favicon.ico`, `/images/logo.png`, `/documents/[slug].md`).
+- 쿼리 및 앵커는 slash 뒤에 붙인다 (예: `/docs/?q=a#top`).
+- 내부 링크, canonical 태그, og:url, sitemap.xml 전부에 동일한 규칙을 적용한다.
+- 외부 사이트 링크는 원본 그대로 두고 수정하지 않는다.
+
+---
+
 ## FINAL
 
 REPL Works is an AI-Native Product Development Framework.

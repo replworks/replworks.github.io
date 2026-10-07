@@ -415,17 +415,17 @@ Content must remain independent from presentation.
 ```text
 /
 
-/workflow
+/workflow/
 
-/prompts
+/prompts/
 
-/documents
+/documents/
 
-/tools
+/tools/
 
-/showcase
+/showcase/
 
-/faq
+/faq/
 ```
 
 ---
@@ -433,17 +433,17 @@ Content must remain independent from presentation.
 Content detail pages
 
 ```text
-/workflow/[slug]
+/workflow/[slug]/
 
-/prompts/[slug]
+/prompts/[slug]/
 
-/documents/[slug]
+/documents/[slug]/
 
-/tools/[slug]
+/tools/[slug]/
 
-/showcase/[slug]
+/showcase/[slug]/
 
-/faq/[slug]
+/faq/[slug]/
 ```
 
 ---
@@ -455,6 +455,7 @@ Document source endpoints
 ```
 
 Document source endpoints return the raw Markdown body for reusable document standards.
+Files with extensions do not have a trailing slash. All directory routes and internal links end with a trailing slash. Canonical tag, og:url, and sitemap.xml strictly follow this policy.
 
 ---
 
