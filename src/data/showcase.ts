@@ -20,8 +20,8 @@ export const showcaseProjects: ShowcaseProject[] = [
     tags: ['Website', 'Dogfooding'],
     lesson:
       'Content First: 구현 코드는 언제든 바뀌지만, 잘 정제된 문서는 프로젝트 기억으로 영구 보존됩니다.',
-    detailUrl: '/showcase/repl-works-website',
-    website: 'https://www.repl.net',
+    detailUrl: '/showcase/repl-works-website/',
+    website: 'https://www.repl.net/',
     github: 'https://github.com/replworks/replworks.github.io',
     featured: true,
     order: 1,
@@ -34,7 +34,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     tags: ['Commercial', 'Web App'],
     lesson:
       '비공개 상용 프로덕트일수록 약속이 필요합니다. 코드를 공개하지 않아도 팀원과 AI 에이전트 사이에는 문서 표준이라는 명확한 약속이 있어야 합니다.',
-    detailUrl: '/showcase/wifinote',
+    detailUrl: '/showcase/wifinote/',
     website: 'https://wifinote.net',
     featured: true,
     order: 2,
@@ -47,7 +47,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     tags: ['Tooling', 'CLI'],
     lesson:
       '모호한 지시는 에이전트의 환각을 유발합니다. 수락 기준(Acceptance Criteria)이 명시된 이슈일수록 구현이 정밀해집니다.',
-    detailUrl: '/showcase/ai-issue',
+    detailUrl: '/showcase/ai-issue/',
     github: 'https://github.com/replworks/ai-issue',
     featured: true,
     order: 3,
@@ -60,7 +60,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     tags: ['Tooling', 'CLI'],
     lesson:
       '복구 도구는 실수하면 정상 데이터를 덮어쓰므로, 아무 옵션 없이 실행했을 때 아무것도 바꾸지 않는 것을 제품 정의의 첫 줄에 두었습니다.',
-    detailUrl: '/showcase/coolrestore',
+    detailUrl: '/showcase/coolrestore/',
     github: 'https://github.com/replworks/coolrestore',
     featured: true,
     order: 4,
@@ -73,7 +73,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     tags: ['Tooling', 'CLI'],
     lesson:
       '장기 연속성은 내구성 있는 기억을 필요로 합니다: 수개월 동안 세션이 바뀌더라도 Git 문서가 있으면 맥락 유실이 없습니다.',
-    detailUrl: '/showcase/claytube',
+    detailUrl: '/showcase/claytube/',
     website: 'https://www.palgle.com/claytube/',
     github: 'https://github.com/eternops/claytube',
     featured: true,
@@ -87,7 +87,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     tags: ['Enterprise', 'Operations'],
     lesson:
       '프로젝트 기억이 세션 기억보다 우월합니다: 일시적인 대화 내역에 의존하지 않고 Git에 명세화된 시스템이 운영의 안정성을 제공합니다.',
-    detailUrl: '/showcase/eternops',
+    detailUrl: '/showcase/eternops/',
     featured: false,
     order: 6,
   },
@@ -99,7 +99,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     tags: ['R&D', 'Experimental'],
     lesson:
       '아키텍처가 빠른 실험을 안정화합니다: 자유로운 실험 과정에서도 ARCHITECTURE.md가 기본 뼈대를 유지하여 무질서한 코드 누적을 방지합니다.',
-    detailUrl: '/showcase/etern-labs',
+    detailUrl: '/showcase/etern-labs/',
     website: 'https://www.etern.co.kr/labs',
     featured: false,
     order: 7,
@@ -112,7 +112,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     tags: ['AI', 'Collaboration'],
     lesson:
       '공유 기억의 필수성: 팀과 에이전트가 완벽히 동일한 문서를 참조하지 않으면 오버 스코프와 상충된 구현이 발생합니다.',
-    detailUrl: '/showcase/mma',
+    detailUrl: '/showcase/mma/',
     featured: false,
     order: 8,
   },

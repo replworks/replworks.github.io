@@ -11,12 +11,12 @@ export type ContentCollection = (typeof contentCollections)[number];
 
 export const navItems = [
   { title: '홈', href: '/' },
-  { title: '워크플로우', href: '/workflow' },
-  { title: '프롬프트', href: '/prompts' },
-  { title: '문서', href: '/documents' },
-  { title: '도구', href: '/tools' },
-  { title: '쇼케이스', href: '/showcase' },
-  { title: '자주 묻는 질문', href: '/faq' },
+  { title: '워크플로우', href: '/workflow/' },
+  { title: '프롬프트', href: '/prompts/' },
+  { title: '문서', href: '/documents/' },
+  { title: '도구', href: '/tools/' },
+  { title: '쇼케이스', href: '/showcase/' },
+  { title: '자주 묻는 질문', href: '/faq/' },
 ] as const;
 
 export const collectionTitles: Record<ContentCollection, string> = {

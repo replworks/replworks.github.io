@@ -17,10 +17,15 @@ test('links to document details and provides raw document downloads', async ({
   await page.goto('/documents');
 
   const documentLink = page
-    .locator('aside nav:visible a[data-sidebar-link][href^="/documents/"]')
+    .locator(
+      'aside nav:visible a[data-sidebar-link][href^="/documents/"]:not([href="/documents/"])',
+    )
     .first();
   await expect(documentLink).toBeVisible();
-  await expect(documentLink).toHaveAttribute('href', /^\/documents\/[a-z-]+$/);
+  await expect(documentLink).toHaveAttribute(
+    'href',
+    /^\/documents\/[a-z-]+\/$/,
+  );
 
   const response = await page.request.get('/documents/agents.md');
   expect(response.status()).toBe(200);
@@ -33,15 +38,15 @@ test('renders document sidebar from its configured order', async ({ page }) => {
     .locator('aside nav[aria-label="문서 목록"]')
     .first()
     .locator('a[data-sidebar-link]');
-  await expect(documentMenu.first()).toHaveAttribute('href', '/documents');
+  await expect(documentMenu.first()).toHaveAttribute('href', '/documents/');
   await expect(documentMenu).toHaveCount(8);
   const documentMenuHrefs = await documentMenu.evaluateAll((links) =>
     links.map((link) => link.getAttribute('href')),
   );
   expect(documentMenuHrefs.toSorted()).toEqual(
     [
-      '/documents',
-      ...documentMenuConfig.map((document) => `/documents/${document.slug}`),
+      '/documents/',
+      ...documentMenuConfig.map((document) => `/documents/${document.slug}/`),
     ].toSorted(),
   );
 });
@@ -201,7 +206,7 @@ test('keeps primary pages within a mobile viewport', async ({ page }) => {
 
   await page.goto('/');
   await page.locator('summary').click();
-  await expect(page.locator('details nav a[href="/workflow"]')).toBeVisible();
+  await expect(page.locator('details nav a[href="/workflow/"]')).toBeVisible();
 
   await page.mouse.click(20, 700);
   await expect(page.locator('details nav')).toBeHidden();
@@ -269,13 +274,53 @@ test('renders sidebar navigation on detail pages', async ({ page }) => {
   const promptSidebar = page.locator('aside nav:visible').first();
   await expect(promptSidebar).toBeVisible();
   await expect(
-    promptSidebar.locator('a[href="/prompts/pitch-creation"]'),
+    promptSidebar.locator('a[href="/prompts/pitch-creation/"]'),
   ).toBeVisible();
 
   await page.goto('/showcase/repl-works-website');
   const showcaseSidebar = page.locator('aside nav:visible').first();
   await expect(showcaseSidebar).toBeVisible();
   await expect(
-    showcaseSidebar.locator('a[href="/showcase/claytube"]'),
+    showcaseSidebar.locator('a[href="/showcase/claytube/"]'),
   ).toBeVisible();
+});
+
+test('satisfies URL trailing slash, canonical tag, and og:url rules', async ({
+  page,
+}) => {
+  // 1. Homepage: canonical and og:url must be https://www.repl.net/
+  await page.goto('/');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    'href',
+    'https://www.repl.net/',
+  );
+  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute(
+    'content',
+    'https://www.repl.net/',
+  );
+
+  // 2. Sub-path: canonical and og:url must have trailing slash
+  await page.goto('/workflow/');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+    'href',
+    'https://www.repl.net/workflow/',
+  );
+  await expect(page.locator('meta[property="og:url"]')).toHaveAttribute(
+    'content',
+    'https://www.repl.net/workflow/',
+  );
+
+  // 3. Anchor link in Showcase card must place anchor after slash: /faq/#repl-works-compatible
+  await page.goto('/');
+  const faqAnchor = page
+    .locator('article a[href="/faq/#repl-works-compatible"]')
+    .first();
+  await expect(faqAnchor).toHaveAttribute(
+    'href',
+    '/faq/#repl-works-compatible',
+  );
+
+  // 4. Asset links must NOT have trailing slash
+  const iconLink = page.locator('link[rel="apple-touch-icon"]');
+  await expect(iconLink).toHaveAttribute('href', '/apple-touch-icon.png');
 });

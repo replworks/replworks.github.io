@@ -15,17 +15,13 @@ pluginFramesTexts.overrideTexts(undefined, {
 
 export default defineConfig({
   site: 'https://www.repl.net',
+  trailingSlash: 'always',
   integrations: [
     astroExpressiveCode(),
     mdx(),
     pagefind(),
     sitemap({
-      serialize(item) {
-        if (item.url.endsWith('/index/')) {
-          item.url = item.url.replace('/index/', '/');
-        }
-        return item;
-      },
+      filter: (page) => !page.includes('/index/'),
     }),
     astroBrokenLinksChecker({
       throwError: true,

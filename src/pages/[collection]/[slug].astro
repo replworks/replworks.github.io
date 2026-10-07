@@ -25,7 +25,9 @@ export async function getStaticPaths() {
   for (const collection of contentCollections) {
     const entries = await getCollection(collection);
     paths.push(
-      ...entries.map((entry) => ({ params: { collection, slug: entry.id } })),
+      ...entries
+        .filter((entry) => entry.id !== 'index')
+        .map((entry) => ({ params: { collection, slug: entry.id } })),
     );
   }
 
