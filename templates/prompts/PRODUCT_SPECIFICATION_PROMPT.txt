@@ -96,8 +96,41 @@ The document must include, in this order:
 - Acceptance Criteria
 
 FORMAT
-- Flat terse bullets. "MUST" phrasing for requirements.
-- Prefer explicit requirements over explanations.
-- No marketing prose.
-- Audience: AI implementer.
-- Optimize for implementation certainty.
+LANGUAGE
+- Write the entire document in English, regardless of the input language.
+  Translate all input content into English.
+- Exception: proper nouns and identifiers stay as given.
+- Content slots are specified by purpose only (see SCOPE BOUNDARY),
+  so this rule never requires writing product copy.
+
+READER
+- The only reader is a coding AI agent. There is no human reader.
+- Optimize for unambiguous, direct implementation and test derivation.
+- Every line MUST be an actionable, verifiable statement or a defined fact.
+
+STYLE
+- MUST NOT include background, rationale, motivation, narrative,
+  introductions, summaries, transitions, or commentary.
+- One behavior or fact per bullet. MUST NOT combine multiple behaviors
+  in one bullet.
+- Use only "MUST" and "MUST NOT" for requirements.
+  MUST NOT use "should", "may", "can", "ideally", "preferably".
+- MUST NOT use vague terms: "etc.", "and so on", "appropriate", "as needed",
+  "fast", "user-friendly", "properly", "similar".
+  Enumerate every item explicitly. If it cannot be enumerated, ask.
+- Use one term per concept. Define it once in the section where it
+  first appears and reuse it exactly. MUST NOT use synonyms.
+- Reference other items by ID only (FR-xxx, SCR-xxx, EL-xxx, ERR-xxx).
+  MUST NOT refer to them by description.
+
+STRUCTURE
+- Flat bullets. Maximum nesting depth: 2.
+- Per screen, use this fixed schema in this order:
+  ID / Purpose / Elements (EL-xxx: purpose, user actions) /
+  States / Navigation (trigger -> destination) /
+  Interactions (action -> observable result)
+- Use "trigger -> result" lines for navigation and interactions.
+- Give IDs to every element (EL-), error condition (ERR-),
+  and acceptance criterion (AC-).
+- No emphasis styling, no emoji, no ASCII art, no images.
+- Output the document only.
