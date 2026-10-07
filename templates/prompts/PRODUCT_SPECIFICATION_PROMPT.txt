@@ -26,6 +26,9 @@ What success means.
 
 SCOPE BOUNDARY
 - Specify only what the end user can observe and do.
+- Specify only what is to be built now. Features that were discussed but
+  deferred to later MUST NOT appear in the document, except as
+  Non-Goals if explicitly excluded.
 - UI and UX are product behavior. MUST specify them (see USER INTERFACE RULES).
 - How the product works internally (mechanism) belongs to ARCHITECTURE.md.
   MUST NOT describe implementation, architecture, technologies, tech stacks,
@@ -59,9 +62,6 @@ For non-graphical products (e.g. command-line):
 
 REQUIREMENT RULES
 - Give every Functional Requirement a stable ID (FR-001, FR-002, ...).
-- Tag every Functional Requirement MVP or Future.
-  Future means discussed but deferred. Non-Goals means explicitly excluded.
-  If the input does not make a tag clear, ask.
 - Each requirement is one externally observable behavior that can be
   verified pass/fail. If it cannot be written objectively, ask.
 - Error Conditions specify the observable behavior for each condition.
@@ -69,6 +69,7 @@ REQUIREMENT RULES
 - Success Criteria are outcomes measured outside the product.
   They are not implementation requirements unless a Functional Requirement
   states that the product must measure them.
+- Non-Goals: only what the input explicitly excludes.
 - External Systems: list each external system the product depends on
   and the behavior relied on.
   Mark with [UNVERIFIED] the heading of any section whose behavior depends on
