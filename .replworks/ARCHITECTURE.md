@@ -297,8 +297,6 @@ ai-issue
 
 Wifi Note
 
-ClayTube
-
 ETERNOps
 
 ETERN Labs

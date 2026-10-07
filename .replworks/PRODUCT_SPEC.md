@@ -478,17 +478,10 @@ Initial Entries
 
 ```text
 REPL Works Website
-
 ai-issue
-
 Wifi Note
-
-ClayTube
-
 ETERNOps
-
 ETERN Labs
-
 MMA
 ```
 
@@ -539,19 +532,17 @@ Featured flag
 Sort order
 ```
 
-The homepage displays the four featured projects:
+The homepage displays these featured projects:
 
 ```text
 REPL Works Website
 
 ai-issue
 
-ClayTube
-
 Wifi Note
 ```
 
-The Showcase page displays all seven projects. It shows the Lessons Learned
+The Showcase page displays all projects. It shows the Lessons Learned
 summary on cards; the homepage may omit that field.
 
 ---
