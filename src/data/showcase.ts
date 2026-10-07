@@ -66,20 +66,6 @@ export const showcaseProjects: ShowcaseProject[] = [
     order: 4,
   },
   {
-    slug: 'claytube',
-    name: '클래이튜브 (ClayTube)',
-    description:
-      '장기간에 걸쳐 지속 확장되는 서비스에서 AI 모델 변경에도 견디는 프로젝트 연속성을 증명하는 REPL Works 호환 프로젝트',
-    tags: ['Tooling', 'CLI'],
-    lesson:
-      '장기 연속성은 내구성 있는 기억을 필요로 합니다: 수개월 동안 세션이 바뀌더라도 Git 문서가 있으면 맥락 유실이 없습니다.',
-    detailUrl: '/showcase/claytube/',
-    website: 'https://www.palgle.com/claytube/',
-    github: 'https://github.com/eternops/claytube',
-    featured: true,
-    order: 5,
-  },
-  {
     slug: 'eternops',
     name: '이터놉스 (ETERNOps)',
     description:

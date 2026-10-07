@@ -67,7 +67,7 @@ describe('REPL Works content invariants', () => {
     const showcaseDirectory = resolve(root, 'src/content/showcase');
     for (const entry of [
       'ai-issue.mdx',
-      'claytube.mdx',
+      'coolrestore.mdx',
       'etern-labs.mdx',
       'eternops.mdx',
       'mma.mdx',
@@ -76,15 +76,16 @@ describe('REPL Works content invariants', () => {
     ]) {
       expect(existsSync(resolve(showcaseDirectory, entry))).toBe(true);
     }
+    expect(existsSync(resolve(showcaseDirectory, 'claytube.mdx'))).toBe(false);
   });
 
   it('keeps the shared showcase data complete for home and Showcase', () => {
-    expect(showcaseProjects).toHaveLength(8);
+    expect(showcaseProjects).toHaveLength(7);
     expect(new Set(showcaseProjects.map((project) => project.slug)).size).toBe(
-      8,
+      7,
     );
     expect(showcaseProjects.filter((project) => project.featured)).toHaveLength(
-      5,
+      4,
     );
 
     for (const project of showcaseProjects) {
