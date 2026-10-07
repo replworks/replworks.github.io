@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.19.0 - 2026-10-07
+
+### What's Changed
+
+* feat: enhance TASK_GENERATION_PROMPT with detailed scope and task rules by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/131
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.18.1...v2.19.0
+
 ## v2.18.1 - 2026-10-07
 
 ### What's Changed
