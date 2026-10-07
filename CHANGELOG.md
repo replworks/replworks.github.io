@@ -1,5 +1,17 @@
 # Release Notes
 
+## v2.18.0 - 2026-10-07
+
+### What's Changed
+
+* feat: add IDEA_DISCOVERY_PROMPT.txt and update IDEA_GENERATION_PROMPT.txt and PITCH_CREATION_PROMPT.txt for improved clarity and structure by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/125
+* feat: add REPLWORKS_RULES_PROMPT.txt to define document creation rules and boundaries by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/126
+* feat: update AGENTS.md for improved clarity and structure in document handling and task selection by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/127
+* feat: clarify scope boundary and requirement rules in PRODUCT_SPECIFICATION_PROMPT.txt by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/128
+* feat: remove success criteria and clarifying scope boundaries by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/129
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.17.0...v2.18.0
+
 ## v2.17.0 - 2026-10-06
 
 ### What's Changed
