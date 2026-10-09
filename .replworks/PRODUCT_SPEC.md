@@ -537,9 +537,11 @@ The homepage displays these featured projects:
 ```text
 REPL Works Website
 
-ai-issue
-
 Wifi Note
+
+ImageForge
+
+Cool Restore
 ```
 
 The Showcase page displays all projects. It shows the Lessons Learned

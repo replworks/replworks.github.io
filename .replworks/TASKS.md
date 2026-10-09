@@ -305,6 +305,11 @@ Propose TASK update
   - Verify the public image endpoint and CDN cache against the live service.
   - Pass applicable unit, E2E, and build checks.
 
+- [x] T1602 Feature ImageForge after Wifi Note on the homepage
+  - Add ImageForge to the documented homepage featured projects.
+  - Keep ImageForge immediately after Wifi Note in the shared featured order.
+  - Verify the homepage card and all project checks.
+
 ---
 
 ## COMPLETION

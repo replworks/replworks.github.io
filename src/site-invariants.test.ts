@@ -88,6 +88,12 @@ describe('REPL Works content invariants', () => {
     expect(showcaseProjects.filter((project) => project.featured)).toHaveLength(
       4,
     );
+    expect(
+      showcaseProjects
+        .filter((project) => project.featured)
+        .sort((a, b) => a.order - b.order)
+        .map((project) => project.slug),
+    ).toEqual(['repl-works-website', 'wifinote', 'imageforge', 'coolrestore']);
 
     for (const project of showcaseProjects) {
       expect(project.detailUrl).toMatch(/^\/showcase\//);

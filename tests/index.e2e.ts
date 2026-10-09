@@ -165,6 +165,24 @@ test('applies the light theme to the homepage', async ({ page }) => {
   );
 });
 
+test('shows 이미지 포지 after Wifi Note among homepage Showcase cards', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  const featuredLinks = page.locator('main article a[href^="/showcase/"]');
+  await expect(featuredLinks).toHaveCount(4);
+  const projectLinks = await featuredLinks.evaluateAll((links) =>
+    links.map((link) => link.getAttribute('href')),
+  );
+  expect(projectLinks).toEqual([
+    '/showcase/repl-works-website/',
+    '/showcase/wifinote/',
+    '/showcase/imageforge/',
+    '/showcase/coolrestore/',
+  ]);
+});
+
 test('loads the search interface', async ({ page }) => {
   await page.goto('/search/');
 

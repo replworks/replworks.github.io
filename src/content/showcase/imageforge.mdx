@@ -1,7 +1,7 @@
 ---
-title: 'ImageForge'
+title: '이미지 포지(Image Forge)'
 version: 'v1'
-description: 'ImageForge는 img.repl.net 이미지 변환 서비스와 Cloudflare CDN 캐시 Purge 운영 도구를 함께 운영합니다.'
+description: '이미지 포지는 img.repl.net 이미지 변환 서비스와 Cloudflare CDN 캐시 Purge 운영 도구를 함께 운영합니다.'
 publishedAt: '2026-10-09T00:00:00Z'
 ---
 
@@ -10,17 +10,17 @@ import DocLink from '../../components/DocLink.astro';
 
 ## 1. 개요 (Overview)
 
-![ImageForge 홈페이지](https://if.repl.net/og.png)
+![이미지 포지 홈페이지](https://if.repl.net/og.png)
 
-ImageForge는 여러 서비스의 이미지를 변환해 제공하는 `img.repl.net`과, 이미지가 갱신되었을 때 Cloudflare CDN 캐시를 Purge하는 운영 도구를 함께 구성한 이미지 서비스입니다.
+이미지 포지는 여러 서비스의 이미지를 변환해 제공하는 `img.repl.net`과, 이미지가 갱신되었을 때 Cloudflare CDN 캐시를 Purge하는 운영 도구를 함께 구성한 이미지 서비스입니다.
 
 <MissionBox text="공개 서비스와 내부 처리 경계를 나누고, 이미지 변환부터 캐시 갱신까지 하나의 운영 흐름으로 연결합니다." />
 
-서비스는 두 프로젝트 저장소, 운영 인프라, 이미지 처리 엔진으로 이루어집니다. 공개 저장소 [replworks/imageforge](https://github.com/replworks/imageforge)는 서비스 소개 페이지와 운영자 전용 Purge 도구를 제공합니다. 비공개 `img-proxy`는 서비스별 원본을 연결하고 요청을 검증한 뒤 이미지 변환 서버로 전달합니다. 이미지 변환은 공개 도메인에 직접 노출하지 않은 imgproxy가 맡습니다. Coolify가 애플리케이션을 배포하고, Cloudflare가 `img.repl.net`의 CDN 캐시와 접근 제어를 담당합니다. 이미지가 바뀌면 운영자는 ImageForge의 Purge 도구로 해당 캐시를 정리합니다.
+서비스는 두 프로젝트 저장소, 운영 인프라, 이미지 처리 엔진으로 이루어집니다. 공개 저장소 [replworks/imageforge](https://github.com/replworks/imageforge)는 서비스 소개 페이지와 운영자 전용 Purge 도구를 제공합니다. 비공개 `img-proxy`는 서비스별 원본을 연결하고 요청을 검증한 뒤 이미지 변환 서버로 전달합니다. 이미지 변환은 공개 도메인에 직접 노출하지 않은 imgproxy가 맡습니다. Coolify가 애플리케이션을 배포하고, Cloudflare가 `img.repl.net`의 CDN 캐시와 접근 제어를 담당합니다. 이미지가 바뀌면 운영자는 이미지 포지의 Purge 도구로 해당 캐시를 정리합니다.
 
 ## 2. 사용된 표준 문서 (Documents Used)
 
-ImageForge는 공개 저장소와 비공개 `img-proxy` 저장소에서 각각 REPL Works 표준 문서를 관리합니다. `AGENTS.md`는 AI 에이전트가 따를 공통 규칙을 정하고, `PRODUCT_SPEC.md`는 서비스가 무엇을 해야 하는지 정의합니다. `TECH_STACK.md`에는 구현에 사용할 기술과 제약을 기록하고, `ARCHITECTURE.md`에는 구성요소의 역할과 경계를 정리합니다. `TASKS.md`는 확정된 작업과 수락 기준을 관리합니다. 비공개 저장소의 문서는 공개하지 않습니다.
+이미지 포지는 공개 저장소와 비공개 `img-proxy` 저장소에서 각각 REPL Works 표준 문서를 관리합니다. `AGENTS.md`는 AI 에이전트가 따를 공통 규칙을 정하고, `PRODUCT_SPEC.md`는 서비스가 무엇을 해야 하는지 정의합니다. `TECH_STACK.md`에는 구현에 사용할 기술과 제약을 기록하고, `ARCHITECTURE.md`에는 구성요소의 역할과 경계를 정리합니다. `TASKS.md`는 확정된 작업과 수락 기준을 관리합니다. 비공개 저장소의 문서는 공개하지 않습니다.
 
 ## 3. 적용 워크플로 (Workflow Usage)
 
@@ -28,7 +28,7 @@ ImageForge는 공개 저장소와 비공개 `img-proxy` 저장소에서 각각 R
 
 ## 4. 사용 기술 (Tools Used)
 
-ImageForge 공개 저장소는 **TypeScript**, **Hono**, **Vite**, **Tailwind CSS**로 랜딩 페이지와 Purge 콘솔을 제공합니다. **Vitest**로 단위 테스트를 수행하고 **GitHub Actions**로 검증과 배포를 자동화합니다. 배포 이미지는 Docker로 만들고 GHCR에 올립니다.
+이미지 포지 공개 저장소는 **TypeScript**, **Hono**, **Vite**, **Tailwind CSS**로 랜딩 페이지와 Purge 콘솔을 제공합니다. **Vitest**로 단위 테스트를 수행하고 **GitHub Actions**로 검증과 배포를 자동화합니다. 배포 이미지는 Docker로 만들고 GHCR에 올립니다.
 
 비공개 `img-proxy`는 **Node.js 24**, **Hono**, **imgproxy**를 사용합니다. `img-proxy`가 서비스별 원본을 선택하고 요청을 검증하면 imgproxy가 이미지 리사이즈와 포맷 변환을 처리합니다. **Cloudflare**는 `img.repl.net`의 CDN 캐시와 운영자 접근 제어를 맡고, **Coolify**는 애플리케이션을 배포하고 운영합니다.
 
@@ -42,9 +42,9 @@ Purge 콘솔은 공개 랜딩 페이지와 분리해 운영자만 사용할 수 
 
 ### 배포
 
-ImageForge 공개 저장소는 GitHub Release 또는 수동 실행으로 배포를 시작합니다. GitHub Actions가 `linux/arm64` Docker 이미지를 빌드해 GHCR에 올리고, Coolify에 배포할 이미지 정보를 전달합니다. CI는 Pull Request와 `main` 브랜치 변경에서 타입 검사, 테스트, 빌드를 확인합니다.
+이미지 포지 공개 저장소는 GitHub Release 또는 수동 실행으로 배포를 시작합니다. GitHub Actions가 `linux/arm64` Docker 이미지를 빌드해 GHCR에 올리고, Coolify에 배포할 이미지 정보를 전달합니다. CI는 Pull Request와 `main` 브랜치 변경에서 타입 검사, 테스트, 빌드를 확인합니다.
 
-이미지 변환 서비스는 Coolify에서 별도의 애플리케이션 두 개로 운영합니다. `img-proxy`는 Nixpacks로 배포하고, imgproxy는 버전을 고정한 Docker 이미지로 실행합니다. 두 리소스는 같은 네트워크에서 통신하지만, 공개 도메인은 `img-proxy`에만 연결합니다. Cloudflare는 `img.repl.net`의 CDN 캐시 규칙과 Edge TTL을 적용하며, 이미지가 바뀌면 운영자가 ImageForge Purge 콘솔에서 해당 캐시를 정리합니다.
+이미지 변환 서비스는 Coolify에서 별도의 애플리케이션 두 개로 운영합니다. `img-proxy`는 Nixpacks로 배포하고, imgproxy는 버전을 고정한 Docker 이미지로 실행합니다. 두 리소스는 같은 네트워크에서 통신하지만, 공개 도메인은 `img-proxy`에만 연결합니다. Cloudflare는 `img.repl.net`의 CDN 캐시 규칙과 Edge TTL을 적용하며, 이미지가 바뀌면 운영자가 이미지 포지 Purge 콘솔에서 해당 캐시를 정리합니다.
 
 ## 6. 학습된 레슨 (Lessons Learned)
 
@@ -54,8 +54,8 @@ ImageForge 공개 저장소는 GitHub Release 또는 수동 실행으로 배포�
 
 두 프로젝트와 외부 서비스를 연결한 서비스와 운영 도구를 이틀 만에 만들고, 계속 개선할 수 있는 환경까지 구성할 수 있다는 점은 놀라웠습니다. REPL Works 문서와 태스크 단위의 작업 흐름이 여러 구성요소를 함께 발전시키는 기반이 되었습니다.
 
-<DocLink href="https://if.repl.net" text="ImageForge 서비스 방문" />
+<DocLink href="https://if.repl.net" text="이미지 포지 서비스 방문" />
 <DocLink
   href="https://github.com/replworks/imageforge"
-  text="ImageForge 공개 GitHub 저장소"
+  text="이미지 포지 공개 GitHub 저장소"
 />
