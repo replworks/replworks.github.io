@@ -102,4 +102,18 @@ export const showcaseProjects: ShowcaseProject[] = [
     featured: false,
     order: 8,
   },
+  {
+    slug: 'imageforge',
+    name: 'ImageForge',
+    description:
+      'img.repl.net 이미지 변환 서비스와 Cloudflare CDN 캐시 Purge 운영 도구를 함께 운영하는 이미지 서비스입니다.',
+    tags: ['Image Service', 'CDN', 'Operations'],
+    lesson:
+      '여러 구성요소를 나눠도 공개 진입점과 내부 처리 경계를 명확히 하면 하나의 서비스로 운영할 수 있습니다.',
+    detailUrl: '/showcase/imageforge/',
+    website: 'https://if.repl.net',
+    github: 'https://github.com/replworks/imageforge',
+    featured: false,
+    order: 5,
+  },
 ];

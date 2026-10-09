@@ -294,6 +294,17 @@ Propose TASK update
 
 - [x] T1501 Manage document sidebar order and display properties from one data source
 
+## PHASE 16
+
+### IMAGEFORGE SHOWCASE
+
+- [x] T1601 Publish ImageForge in the Showcase
+  - Add ImageForge to the shared Showcase data and publish its detail page.
+  - Describe its two repositories, Coolify deployment, imgproxy processing, and Cloudflare CDN/Purge roles without linking the private repository.
+  - Explain its REPL Works workflow, documents, tools, and owner-provided lessons.
+  - Verify the public image endpoint and CDN cache against the live service.
+  - Pass applicable unit, E2E, and build checks.
+
 ---
 
 ## COMPLETION
