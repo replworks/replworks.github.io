@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.20.0 - 2026-10-09
+
+### What's Changed
+
+* refactor: remove ClayTube project from showcase and related documentation by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/133
+* feat: add imageforge showcase project and related documentation by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/134
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.19.1...v2.20.0
+
 ## v2.19.1 - 2026-10-07
 
 ### What's Changed
