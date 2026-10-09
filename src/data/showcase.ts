@@ -49,8 +49,8 @@ export const showcaseProjects: ShowcaseProject[] = [
       '모호한 지시는 에이전트의 환각을 유발합니다. 수락 기준(Acceptance Criteria)이 명시된 이슈일수록 구현이 정밀해집니다.',
     detailUrl: '/showcase/ai-issue/',
     github: 'https://github.com/replworks/ai-issue',
-    featured: true,
-    order: 3,
+    featured: false,
+    order: 4,
   },
   {
     slug: 'coolrestore',
@@ -101,5 +101,19 @@ export const showcaseProjects: ShowcaseProject[] = [
     detailUrl: '/showcase/mma/',
     featured: false,
     order: 8,
+  },
+  {
+    slug: 'imageforge',
+    name: '이미지 포지(Image Forge)',
+    description:
+      'img.repl.net 이미지 변환 서비스와 Cloudflare CDN 캐시 Purge 운영 도구를 함께 운영하는 이미지 서비스입니다.',
+    tags: ['Image Service', 'CDN', 'Operations'],
+    lesson:
+      '여러 구성요소를 나눠도 공개 진입점과 내부 처리 경계를 명확히 하면 하나의 서비스로 운영할 수 있습니다.',
+    detailUrl: '/showcase/imageforge/',
+    website: 'https://if.repl.net',
+    github: 'https://github.com/replworks/imageforge',
+    featured: true,
+    order: 3,
   },
 ];

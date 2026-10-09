@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { documentMenu as documentMenuConfig } from '../src/data/documents';
 import { promptDefinitions } from '../src/data/prompts';
+import { showcaseProjects } from '../src/data/showcase';
 
 test('has title', async ({ page }) => {
   await page.goto('/');
@@ -14,7 +15,7 @@ test('has title', async ({ page }) => {
 test('links to document details and provides raw document downloads', async ({
   page,
 }) => {
-  await page.goto('/documents');
+  await page.goto('/documents/');
 
   const documentLink = page
     .locator(
@@ -33,7 +34,7 @@ test('links to document details and provides raw document downloads', async ({
 });
 
 test('renders document sidebar from its configured order', async ({ page }) => {
-  await page.goto('/documents/agents');
+  await page.goto('/documents/agents/');
   const documentMenu = page
     .locator('aside nav[aria-label="문서 목록"]')
     .first()
@@ -64,11 +65,11 @@ test('renders document explanations without code controls', async ({
   ];
 
   for (const slug of documentSlugs) {
-    await page.goto(`/documents/${slug}`);
+    await page.goto(`/documents/${slug}/`);
     await expect(page.locator('.expressive-code')).toHaveCount(0);
   }
 
-  await page.goto('/documents/agents');
+  await page.goto('/documents/agents/');
   const agentsCode = page.locator('article .expressive-code');
   await expect(agentsCode).toHaveCount(1);
   await expect(agentsCode.locator('.title')).toHaveCount(1);
@@ -89,7 +90,7 @@ test('renders document explanations without code controls', async ({
 
 test('applies the light theme to detail pages', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('theme', 'light'));
-  await page.goto('/prompts/idea-generation');
+  await page.goto('/prompts/idea-generation/');
 
   await expect(page.locator('html')).toHaveClass(/light/);
   await expect(page.locator('html')).not.toHaveClass(/dark/);
@@ -107,7 +108,7 @@ test('renders expressive code blocks with a localized copy button', async ({
   page,
 }) => {
   await page.addInitScript(() => localStorage.setItem('theme', 'light'));
-  await page.goto('/prompts/idea-generation');
+  await page.goto('/prompts/idea-generation/');
 
   const copyButton = page.locator('.expressive-code .copy button').first();
   await expect(copyButton).toBeVisible();
@@ -164,8 +165,26 @@ test('applies the light theme to the homepage', async ({ page }) => {
   );
 });
 
+test('shows 이미지 포지 after Wifi Note among homepage Showcase cards', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  const featuredLinks = page.locator('main article a[href^="/showcase/"]');
+  await expect(featuredLinks).toHaveCount(4);
+  const projectLinks = await featuredLinks.evaluateAll((links) =>
+    links.map((link) => link.getAttribute('href')),
+  );
+  expect(projectLinks).toEqual([
+    '/showcase/repl-works-website/',
+    '/showcase/wifinote/',
+    '/showcase/imageforge/',
+    '/showcase/coolrestore/',
+  ]);
+});
+
 test('loads the search interface', async ({ page }) => {
-  await page.goto('/search');
+  await page.goto('/search/');
 
   const searchInput = page.locator('pagefind-searchbox').locator('input');
   await expect(searchInput).toBeVisible();
@@ -174,9 +193,14 @@ test('loads the search interface', async ({ page }) => {
 });
 
 test('shows all Showcase projects as compatible cards', async ({ page }) => {
-  await page.goto('/showcase');
+  await page.goto('/showcase/');
 
-  await expect(page.locator('article a[href^="/showcase/"]')).toHaveCount(8);
+  await expect(page.locator('article a[href^="/showcase/"]')).toHaveCount(
+    showcaseProjects.length,
+  );
+  await expect(
+    page.locator('article a[href="/showcase/imageforge/"]'),
+  ).toBeVisible();
 });
 
 test('keeps primary pages within a mobile viewport', async ({ page }) => {
@@ -184,13 +208,13 @@ test('keeps primary pages within a mobile viewport', async ({ page }) => {
 
   for (const path of [
     '/',
-    '/workflow',
-    '/prompts',
-    '/documents',
-    '/tools',
-    '/showcase',
-    '/faq',
-    '/search',
+    '/workflow/',
+    '/prompts/',
+    '/documents/',
+    '/tools/',
+    '/showcase/',
+    '/faq/',
+    '/search/',
   ]) {
     await page.goto(path);
     const width = await page.evaluate(
@@ -216,7 +240,7 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
   page,
 }) => {
   const slugs = promptDefinitions.map((prompt) => prompt.slug);
-  await page.goto('/prompts');
+  await page.goto('/prompts/');
   await expect(page.locator('button[data-prompt-copy]').first()).toBeVisible();
   const embeddedPrompts = new Map<string, string>();
 
@@ -229,7 +253,7 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
   }
 
   for (const slug of slugs) {
-    await page.goto(`/prompts/${slug}`);
+    await page.goto(`/prompts/${slug}/`);
     await expect(
       page.locator('article .expressive-code .copy button').first(),
     ).toBeVisible();
@@ -255,7 +279,7 @@ test('embeds the exact prompt text rendered on every prompt detail page and has 
 
 test('copies prompt text to the clipboard', async ({ page, context }) => {
   await context.grantPermissions(['clipboard-read', 'clipboard-write']);
-  await page.goto('/prompts');
+  await page.goto('/prompts/');
 
   const button = page.locator('button[data-prompt-copy]').first();
   const source = page.locator('script[data-prompt-source]').first();
@@ -270,18 +294,18 @@ test('copies prompt text to the clipboard', async ({ page, context }) => {
 });
 
 test('renders sidebar navigation on detail pages', async ({ page }) => {
-  await page.goto('/prompts/idea-generation');
+  await page.goto('/prompts/idea-generation/');
   const promptSidebar = page.locator('aside nav:visible').first();
   await expect(promptSidebar).toBeVisible();
   await expect(
     promptSidebar.locator('a[href="/prompts/pitch-creation/"]'),
   ).toBeVisible();
 
-  await page.goto('/showcase/repl-works-website');
+  await page.goto('/showcase/imageforge/');
   const showcaseSidebar = page.locator('aside nav:visible').first();
   await expect(showcaseSidebar).toBeVisible();
   await expect(
-    showcaseSidebar.locator('a[href="/showcase/claytube/"]'),
+    showcaseSidebar.locator('a[href="/showcase/imageforge/"]'),
   ).toBeVisible();
 });
 

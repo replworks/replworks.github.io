@@ -70,6 +70,7 @@ describe('REPL Works content invariants', () => {
       'coolrestore.mdx',
       'etern-labs.mdx',
       'eternops.mdx',
+      'imageforge.mdx',
       'mma.mdx',
       'repl-works-website.mdx',
       'wifinote.mdx',
@@ -80,19 +81,34 @@ describe('REPL Works content invariants', () => {
   });
 
   it('keeps the shared showcase data complete for home and Showcase', () => {
-    expect(showcaseProjects).toHaveLength(7);
+    expect(showcaseProjects).toHaveLength(8);
     expect(new Set(showcaseProjects.map((project) => project.slug)).size).toBe(
-      7,
+      8,
     );
     expect(showcaseProjects.filter((project) => project.featured)).toHaveLength(
       4,
     );
+    expect(
+      showcaseProjects
+        .filter((project) => project.featured)
+        .sort((a, b) => a.order - b.order)
+        .map((project) => project.slug),
+    ).toEqual(['repl-works-website', 'wifinote', 'imageforge', 'coolrestore']);
 
     for (const project of showcaseProjects) {
       expect(project.detailUrl).toMatch(/^\/showcase\//);
       expect(project.tags.length).toBeGreaterThan(0);
       expect(project.lesson.length).toBeGreaterThan(0);
     }
+
+    const imageForge = showcaseProjects.find(
+      (project) => project.slug === 'imageforge',
+    );
+    expect(imageForge?.website).toBe('https://if.repl.net');
+    expect(imageForge?.github).toBe('https://github.com/replworks/imageforge');
+    expect(read('src/content/showcase/imageforge.mdx')).not.toContain(
+      'github.com/replworks/img-proxy',
+    );
 
     const home = read('src/pages/index.astro');
     const card = read('src/components/ShowcaseCard.astro');
