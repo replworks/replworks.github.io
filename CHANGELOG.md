@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.22.0 - 2026-10-13
+
+### What's Changed
+
+* docs: clarify execution validation prompt and blocking question criteria by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/138
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.21.1...v2.22.0
+
 ## v2.21.1 - 2026-10-13
 
 ### What's Changed
