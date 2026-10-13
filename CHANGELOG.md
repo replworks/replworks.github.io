@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.21.0 - 2026-10-13
+
+### What's Changed
+
+* fix: correct gtag function argument handling in GoogleTag component by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/135
+* refactor: enhance TECH_STACK_PROMPT with clearer phase structure and rules by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/136
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.20.0...v2.21.0
+
 ## v2.20.0 - 2026-10-09
 
 ### What's Changed
