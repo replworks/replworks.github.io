@@ -1,5 +1,3 @@
-You are about to implement this product.
-
 Follow AGENTS.md.
 Read the documents in DOCUMENT_ORDER:
 
@@ -9,6 +7,11 @@ Read the documents in DOCUMENT_ORDER:
 
 Treat these three documents as the entire implementation contract.
 Ignore TASKS.md.
+
+The purpose of this check is to find what the documents cannot settle
+by themselves before implementation starts.
+Details that an implementer can choose while implementing
+are not the concern of this check.
 
 ## Step 1: Contract check
 
@@ -23,15 +26,33 @@ For every behavior stated in PRODUCT_SPEC.md, determine:
 - how data reaches it and leaves it
 - where it is implemented under the constraints in TECH_STACK.md
 
-Every point where you would have to stop or guess is a blocking question.
-Do not ask about behavior PRODUCT_SPEC.md does not claim.
+A point is blocking only if ALL of the following hold:
 
-Also report as blocking:
+- two reasonable implementations would differ in behavior that a Developer,
+  a Payer, or an external system can observe at a component boundary
+  or at the product boundary
+- the three documents give no rule that selects between them
+- PRODUCT_SPEC.md claims the behavior
+
+Also blocking, regardless of the test above:
 
 - contradictions between the documents (apply the priority in AGENTS.md)
 - behavior that depends on an external boundary
   with no recorded observation or spec and no [UNVERIFIED] mark
-- any section marked [UNVERIFIED]
+- sections marked [UNVERIFIED]
+
+Not blocking. Do not report:
+
+- names: identifiers, public symbols, table names, keys, constants
+- values of constants and the types of identifiers
+- how two parts of the product are wired together,
+  when the implementer can choose while implementing
+- the order of items when no order is required
+- internal structure inside a component
+- anything AGENTS.md lets the implementer resolve with a neutral placeholder
+- decisions already recorded in ARCHITECTURE.md Resolved Decisions
+- behavior PRODUCT_SPEC.md does not claim
+- content and visual design
 
 ## Step 2: Code divergence check
 
@@ -56,13 +77,16 @@ Do not suggest improvements, new features, or alternative technologies.
 ## Output
 
 Output only a numbered list of questions in chat,
-most blocking first, at most 15.
+most blocking first, at most 7.
+Report all [UNVERIFIED] sections together as one question.
+If more than 7 questions qualify, keep the 7 most blocking.
 
 Each question must state:
 - which step it comes from (1 or 2)
 - which document and section it concerns (and which file, for step 2)
 - what is undefined or conflicting
-- why you cannot proceed without an answer
+- which observable behavior would differ, so that you cannot proceed
+  without an answer
 
 If no blocking questions exist, output exactly:
 
