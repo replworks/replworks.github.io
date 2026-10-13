@@ -12,6 +12,11 @@ SOURCE RULES
 - MUST NOT restate product behavior from PRODUCT_SPEC.
 - If TECH_DECISIONS conflicts with PRODUCT_SPEC, stop and list the conflicts. Nothing else.
 
+LANGUAGE RULES
+- Phase 1 output: write in the user's language.
+- Conflict lists (SOURCE RULES, Phase 2 edit conflicts): write in the user's language.
+- Phase 2 output (TECH_STACK.md): write in English, regardless of the user's language.
+
 PHASE 1: GAP FILL AND PROPOSAL
 
 Step 1. Determine project type from PRODUCT_SPEC and TECH_DECISIONS.
@@ -19,13 +24,15 @@ Examples: web service, web app, CLI tool, library/package, desktop app, mobile a
 If the type is unclear, include it as a BLOCKED question.
 
 Step 2. Derive the decision categories this project type needs.
-- Always required: runtime/platform + version; language + build/run method; package/dependency manager + lockfile (if the ecosystem has one); test tool + coverage threshold; linter; formatter; CI system; distribution/release method and target; license.
+- Always required: runtime/platform + version; language + build/run method; package/dependency manager + lockfile (if the ecosystem has one); test tool; linter; formatter; CI system; distribution/release method and target; license.
+- Coverage, only if the project uses coverage: coverage tool + threshold.
 - Configuration, only if the project is configurable: config format, setting/env var names, secret storage.
 - Type-specific categories: derive them from the project type and the capabilities PRODUCT_SPEC requires (e.g. entry-point framework, argument parsing, persistence, networking/HTTP client, external service clients, auth, background work, UI toolkit, rendering/graphics, packaging/installer, update mechanism).
 - Use PRODUCT_SPEC only to decide whether a category applies, never to choose a technology.
 - MUST NOT ask about a category the project type does not need.
 
 Step 3. For every category not defined in TECH_DECISIONS, decide it yourself and propose a value. Do NOT ask open questions for gaps you can fill.
+- If TECH_DECISIONS does not say whether coverage is used, propose it as a CHOICE (alt: no coverage).
 
 Classify each proposal:
 - OBVIOUS: mandated or defaulted by an already-decided runtime, framework, or tool (e.g. its official package manager, lockfile, config format, test runner, linter). Decide it. Do not ask.
@@ -34,7 +41,12 @@ Classify each proposal:
 
 Versions: propose a version constraint matching the ecosystem's syntax. Mark any version you are not certain is current with "(verify)".
 
+Phase 1 output rules:
+- Add a one-line plain description for every tool.
+- Keep the final line verbatim in English (do not translate it).
+
 Phase 1 output format (and NOTHING else):
+
 1. Project type: one line.
 2. OBVIOUS list: one line each — item: value.
 3. CHOICE list: one line each — item: recommended (alt: X) — reason.
@@ -55,11 +67,12 @@ SCOPE BOUNDARY
 - State each rule once. MUST NOT repeat a rule across sections.
 
 OUTPUT FORMAT (Phase 2)
+- Language: English only.
 - Exactly these 8 sections, in this order, numbered headings, no other sections:
   1. Languages / runtimes / frameworks / libraries (name + version constraint)
   2. Framework- or tool-mandated paths and file names only
   3. Coding conventions specific to the chosen stack
-  4. Testing rules (tools, naming, required coverage)
+  4. Testing rules (tools, naming; required coverage only if coverage is used)
   5. Configuration rules (settings, config files, secrets handling; write "None" if not configurable)
   6. Build, packaging, and release rules (targets, build, distribution steps)
   7. Security rules tied to the chosen stack
