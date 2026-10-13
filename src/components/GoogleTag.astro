@@ -12,8 +12,8 @@ const isProd = import.meta.env.PROD;
     ></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
-      function gtag(...args) {
-        window.dataLayer.push(args);
+      function gtag() {
+        dataLayer.push(arguments);
       }
       gtag('js', new Date());
 
