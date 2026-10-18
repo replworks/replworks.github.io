@@ -314,6 +314,15 @@ test('renders sidebar navigation on detail pages', async ({ page }) => {
   await expect(
     showcaseSidebar.locator('a[href="/showcase/imageforge/"]'),
   ).toBeVisible();
+
+  await page.goto('/tools/');
+  const toolsSidebar = page.locator('aside nav:visible').first();
+  await expect(
+    toolsSidebar.locator('a[href="https://brew.repl.net/"]'),
+  ).toHaveAttribute('target', '_blank');
+  await expect(
+    toolsSidebar.locator('a[href="https://apt.repl.net/"]'),
+  ).toHaveAttribute('target', '_blank');
 });
 
 test('satisfies URL trailing slash, canonical tag, and og:url rules', async ({
