@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.23.0 - 2026-10-18
+
+### What's Changed
+
+* docs: improve source document access by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/139
+* docs: update tools directory by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/140
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.22.0...v2.23.0
+
 ## v2.22.0 - 2026-10-13
 
 ### What's Changed
