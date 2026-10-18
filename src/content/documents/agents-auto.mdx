@@ -1,0 +1,66 @@
+---
+title: 'AGENTS_AUTO.md'
+version: 'v1'
+description: '질문과 승인을 거쳐 TASKS.md의 작업을 순서대로 수행하고 PR 생성과 병합까지 맡기는 자동 실행 확장 표준 문서'
+publishedAt: '2026-10-19T00:00:00Z'
+---
+
+import MissionBox from '../../components/MissionBox.astro';
+import DocumentFlow from '../../components/DocumentFlow.astro';
+import CodeFile from '../../components/CodeFile.astro';
+
+## 1. 개요 및 목적
+
+`AGENTS_AUTO.md`는 `AGENTS.md`의 작업 규칙을 자동 실행에 맞게 확장한 문서입니다. 시작 전에 필요한 질문을 하고, 사람의 승인이나 권한이 필요한 지점에서는 멈추면서 `TASKS.md`의 작업을 순서대로 수행합니다.
+
+<MissionBox text="How can AI complete the project tasks continuously? (AI가 프로젝트 작업을 끝까지 어떻게 수행할 것인가?)" />
+
+## 2. 사용 방법
+
+이 문서를 그대로 `AGENTS.md`라는 이름으로 프로젝트 루트에 복사해서 사용합니다. 파일 이름이 `AGENTS_AUTO.md`인 상태로 두면 AI 에이전트의 기본 진입점으로 동작하지 않을 수 있습니다.
+
+### 1. 파일 복사
+
+다운로드한 파일을 프로젝트 루트에 복사하고 이름을 `AGENTS.md`로 변경합니다.
+
+```bash
+cp AGENTS_AUTO.md AGENTS.md
+```
+
+이 저장소의 원본을 직접 복사하는 경우에는 다음과 같이 실행할 수 있습니다.
+
+```bash
+cp templates/documents/AGENTS_AUTO.md AGENTS.md
+```
+
+### 2. 실행 정보 준비
+
+문서가 요구하는 계정, 커밋 작성자, 공동 작성자 정보를 시작 프롬프트에 함께 제공합니다. 정보가 없으면 에이전트가 먼저 질문합니다.
+
+### 3. 작업 시작 요청
+
+프로젝트의 AI 에이전트에게 작업을 시작하라고 요청합니다. 에이전트는 권위 문서를 읽고, 필요한 질문을 한 뒤 답변을 받은 다음 `TASKS.md`의 첫 번째 미완료 작업부터 수행합니다.
+
+### 4. 승인 요청 처리
+
+PR 생성, 리뷰, 병합, 권한 부여처럼 사람의 승인이 필요한 단계에서는 에이전트가 멈추고 승인을 요청합니다. 모바일 환경에서도 해당 승인 요청을 확인하고 처리한 뒤 작업을 계속할 수 있습니다.
+
+## 3. 문서 순서 및 자동 실행 범위
+
+`AGENTS_AUTO.md`도 다음 문서 순서를 그대로 따릅니다.
+
+<DocumentFlow
+  documents={[
+    'AGENTS.md (프로젝트 헌법 & 자동 실행 진입점)',
+    '.replworks/PRODUCT_SPEC.md (제품 명세)',
+    '.replworks/TECH_STACK.md (기술 구현 규칙)',
+    '.replworks/ARCHITECTURE.md (시스템 설계)',
+    '.replworks/TASKS.md (순서대로 수행할 작업 목록)',
+  ]}
+/>
+
+에이전트는 한 번에 하나의 작업을 수행하고 테스트한 뒤, 사람 계정으로 커밋하고 봇 계정으로 PR을 생성합니다. 모든 CI 검사가 통과하면 PR을 병합하고 다음 작업으로 넘어갑니다. 문서 충돌, 확인되지 않은 요구사항, 외부 경계 접근 실패, 테스트 실패, 개발자 결정이 필요한 상황에서는 자동으로 진행하지 않고 사람에게 질문합니다.
+
+## 4. 전체 예시 파일
+
+<CodeFile path="/templates/documents/AGENTS_AUTO.md" title="AGENTS_AUTO.md" />
