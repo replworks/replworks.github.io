@@ -8,6 +8,10 @@ publishedAt: '2026-10-03T00:00:00Z'
 
 REPL Works 방식으로 개발하는 서비스들은 필요한 CLI 도구를 직접 만들어 실제 개발과 운영에 사용합니다(dogfooding). 이 페이지에서는 그렇게 만들고 오픈소스로 공개한 도구를 소개합니다.
 
+<section class="mb-8">
+  <p class="text-base leading-relaxed text-slate-700 dark:text-slate-300">REPL Works가 운영하는 <a class="text-cyan-700 underline decoration-cyan-300 underline-offset-2 hover:text-cyan-500 dark:text-cyan-300 dark:decoration-cyan-700" href="https://brew.repl.net/" target="_blank" rel="noopener noreferrer">Homebrew 저장소</a>와 <a class="text-cyan-700 underline decoration-cyan-300 underline-offset-2 hover:text-cyan-500 dark:text-cyan-300 dark:decoration-cyan-700" href="https://apt.repl.net/" target="_blank" rel="noopener noreferrer">APT 저장소</a>에서 공식 도구를 설치할 수 있습니다.</p>
+</section>
+
 <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
   <article class="glass-card rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 p-6 space-y-6">
     <header class="space-y-3">
@@ -18,27 +22,37 @@ REPL Works 방식으로 개발하는 서비스들은 필요한 CLI 도구를 직
 
 ## REPL CLI
 
-      <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">REPL Works 방식의 개발 과정을 명령어로 진행하며, 리플웍스가 REPL Works 프로젝트를 개발할 때 실제로 사용합니다.</p>
+      <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">REPL Works 프로젝트에 표준 AGENTS.md를 설치하고, TASKS.md 작업 진행률을 확인하며, 프로젝트 규칙을 검사하고, 최신 표준 문서로 동기화하는 명령줄 도구입니다.</p>
     </header>
 
     <section class="space-y-3">
       <h3 class="text-sm font-bold text-slate-900 dark:text-white">지원 환경</h3>
       <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-700 dark:text-slate-300">
-        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">macOS · Homebrew</span>
-        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">Linux · apt 공식 패키지 미확인</span>
+        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">macOS · Linux · Windows</span>
+        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">amd64 · arm64</span>
       </div>
     </section>
 
     <section class="space-y-3">
+      <h3 class="text-sm font-bold text-slate-900 dark:text-white">설치</h3>
+      ```sh
+      brew install replworks/tap/repl
+      ```
+      <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-400">macOS, Linux, Windows용 사전 빌드 아카이브는 GitHub Releases에서 받을 수 있습니다. Linux에서는 replworks APT 저장소의 <code>.deb</code> 패키지도 사용할 수 있습니다.</p>
+    </section>
+
+    <section class="space-y-3">
       <h3 class="text-sm font-bold text-slate-900 dark:text-white">대표 명령</h3>
-      ```bash
-      repl init
-      repl runtime apply
-      repl runtime status
+      ```sh
+      repl init      # AGENTS.md와 .replworks/ 생성
+      repl status    # TASKS.md 작업 진행률 확인
+      repl check     # 프로젝트 규칙 검사
+      repl sync      # 표준 AGENTS.md로 교체
       ```
     </section>
 
     <div class="flex flex-wrap gap-3 border-t border-slate-200 dark:border-slate-800/80 pt-4 text-xs font-bold">
+      <a class="text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-300" href="https://github.com/replworks/repl-cli/releases" target="_blank" rel="noopener noreferrer">Releases →</a>
       <a class="text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-300" href="https://github.com/replworks/repl-cli" target="_blank" rel="noopener noreferrer">GitHub →</a>
     </div>
 
@@ -53,23 +67,43 @@ REPL Works 방식으로 개발하는 서비스들은 필요한 CLI 도구를 직
 
 ## AI Issue Publisher
 
-      <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">대화형 대규모 언어 모델(LLM)과 토론해 만든 GitHub Issue를 클립보드에서 읽어 AI 봇 계정으로 등록합니다. 리플웍스의 REPL Works 프로젝트 전체에서 이슈 관리에 실제로 사용합니다.</p>
+      <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">ChatGPT, Claude, Cursor 같은 AI 도우미가 만든 Markdown을 클립보드에서 읽어 GitHub Issue로 등록하는 명령줄 도구입니다. AI가 내용을 만들고, 사람이 검토하고, 사람이 게시를 결정합니다.</p>
     </header>
 
     <section class="space-y-3">
       <h3 class="text-sm font-bold text-slate-900 dark:text-white">지원 환경</h3>
       <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-700 dark:text-slate-300">
-        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">macOS · Homebrew</span>
-        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">Linux · apt</span>
+        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">macOS · Linux</span>
+        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">amd64 · arm64</span>
       </div>
+    </section>
+
+    <section class="space-y-3">
+      <h3 class="text-sm font-bold text-slate-900 dark:text-white">설치</h3>
+      ```bash
+      brew install replworks/tap/ai-issue
+      ```
+      <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-400">Debian·Ubuntu는 replworks APT 저장소를, Go 개발 환경에서는 <code>go install</code>을 사용할 수 있습니다.</p>
     </section>
 
     <section class="space-y-3">
       <h3 class="text-sm font-bold text-slate-900 dark:text-white">대표 명령</h3>
       ```bash
-      ai-issue
-      ai-issue --dry-run
+      ai-issue login       # GitHub App device flow 로그인
+      ai-issue             # 클립보드 Markdown을 Issue로 게시
+      ai-issue --dry-run   # 게시 전 미리 확인
+      ai-issue diagnose    # 인증·저장소 권한 진단
       ```
+    </section>
+
+    <section class="space-y-3">
+      <h3 class="text-sm font-bold text-slate-900 dark:text-white">게시 조건</h3>
+      <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-400">GitHub App 설치와 게시 계정의 대상 저장소 쓰기 권한이 모두 필요합니다. Linux에서는 <code>xclip</code>, <code>xsel</code>, <code>wl-clipboard</code> 중 하나가 필요합니다.</p>
+    </section>
+
+    <section class="space-y-3">
+      <h3 class="text-sm font-bold text-slate-900 dark:text-white">게시자 정보</h3>
+      <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-400">GitHub 계정이 실제 Issue 작성자로 기록되며, 게시자 라벨은 기본값 <code>ai-backlog-bot</code>을 사용합니다.</p>
     </section>
 
     <div class="flex flex-wrap gap-3 border-t border-slate-200 dark:border-slate-800/80 pt-4 text-xs font-bold">
@@ -78,38 +112,4 @@ REPL Works 방식으로 개발하는 서비스들은 필요한 CLI 도구를 직
 
   </article>
 
-  <article class="glass-card rounded-2xl border border-slate-200 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 p-6 space-y-6 lg:col-span-2">
-    <header class="space-y-3">
-      <div class="flex flex-wrap items-center gap-2">
-        <span class="rounded-full border border-emerald-300 dark:border-emerald-800/60 bg-emerald-50 dark:bg-emerald-950/70 px-2.5 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">Operations</span>
-        <span class="text-xs font-mono text-slate-500">coolrestore</span>
-      </div>
-
-## Cool Restore
-
-      <p class="text-sm leading-relaxed text-slate-700 dark:text-slate-300">리플웍스의 모든 서비스를 관리하는 Coolify의 S3 백업 파일을 미리 확인하고 복구하는 데 실제로 사용합니다.</p>
-    </header>
-
-    <section class="space-y-3">
-      <h3 class="text-sm font-bold text-slate-900 dark:text-white">지원 환경</h3>
-      <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-700 dark:text-slate-300">
-        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">macOS · Homebrew</span>
-        <span class="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-950/60 px-3 py-2">Linux · apt</span>
-      </div>
-    </section>
-
-    <section class="space-y-3">
-      <h3 class="text-sm font-bold text-slate-900 dark:text-white">대표 명령</h3>
-      ```bash
-      coolrestore \
-        --source /backups/coolify-storage.tar.gz \
-        --target /var/lib/coolify/storage
-      ```
-    </section>
-
-    <div class="flex flex-wrap gap-3 border-t border-slate-200 dark:border-slate-800/80 pt-4 text-xs font-bold">
-      <a class="text-slate-600 dark:text-slate-400 hover:text-cyan-700 dark:hover:text-cyan-300" href="https://github.com/replworks/coolrestore" target="_blank" rel="noopener noreferrer">GitHub →</a>
-    </div>
-
-  </article>
 </div>
