@@ -1,6 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
 import { documentMenu as documentMenuConfig } from '../src/data/documents';
 import { promptDefinitions } from '../src/data/prompts';
 import { showcaseProjects } from '../src/data/showcase';
@@ -31,6 +29,7 @@ test('links to document details and provides raw document downloads', async ({
   const response = await page.request.get('/documents/agents.md');
   expect(response.status()).toBe(200);
   expect(response.headers()['content-type']).toContain('text/markdown');
+  expect(response.headers()['content-disposition']).toMatch(/^inline;/);
 });
 
 test('renders document sidebar from its configured order', async ({ page }) => {
@@ -40,7 +39,7 @@ test('renders document sidebar from its configured order', async ({ page }) => {
     .first()
     .locator('a[data-sidebar-link]');
   await expect(documentMenu.first()).toHaveAttribute('href', '/documents/');
-  await expect(documentMenu).toHaveCount(8);
+  await expect(documentMenu).toHaveCount(9);
   const documentMenuHrefs = await documentMenu.evaluateAll((links) =>
     links.map((link) => link.getAttribute('href')),
   );
@@ -52,9 +51,7 @@ test('renders document sidebar from its configured order', async ({ page }) => {
   );
 });
 
-test('renders document explanations without code controls', async ({
-  page,
-}) => {
+test('renders document explanations with source links', async ({ page }) => {
   const documentSlugs = [
     'architecture',
     'ideas',
@@ -70,22 +67,32 @@ test('renders document explanations without code controls', async ({
   }
 
   await page.goto('/documents/agents/');
-  const agentsCode = page.locator('article .expressive-code');
-  await expect(agentsCode).toHaveCount(1);
-  await expect(agentsCode.locator('.title')).toHaveCount(1);
-  await expect(agentsCode.locator('.copy button')).toBeVisible();
-  const expectedTemplate = readFileSync(
-    resolve(import.meta.dirname, '../templates/documents/AGENTS.md'),
-    'utf8',
-  )
-    .replace(/\r\n/g, '\n')
-    .trimEnd();
-  const renderedLines = await agentsCode
-    .locator('pre code .ec-line')
-    .allTextContents();
-  expect(renderedLines.map((line) => line.replace(/\n$/, '')).join('\n')).toBe(
-    expectedTemplate,
+  await expect(
+    page
+      .locator('code')
+      .filter({ hasText: 'https://www.repl.net/documents/agents.md' }),
+  ).toBeVisible();
+  await expect(page.locator('button[data-doc-url-copy]')).toHaveText(
+    '주소 복사',
   );
+  await expect(page.locator('button[data-doc-copy]')).toHaveText('원본 복사');
+  await expect(
+    page.locator('a[download][href="/documents/agents.md"]'),
+  ).toBeVisible();
+
+  await page.goto('/documents/agents-auto/');
+  await expect(
+    page
+      .locator('code')
+      .filter({ hasText: 'https://www.repl.net/documents/agents-auto.md' }),
+  ).toBeVisible();
+  await expect(page.locator('button[data-doc-url-copy]')).toHaveText(
+    '주소 복사',
+  );
+  await expect(page.locator('button[data-doc-copy]')).toHaveText('원본 복사');
+  await expect(
+    page.locator('a[download][href="/documents/agents-auto.md"]'),
+  ).toBeVisible();
 });
 
 test('applies the light theme to detail pages', async ({ page }) => {

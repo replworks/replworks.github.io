@@ -6,12 +6,73 @@ interface Props {
   href: string;
   text?: string;
   downloadHref?: string;
+  copyText?: string;
+  showUrl?: boolean;
 }
-const { href, text = '표준 문서 보기', downloadHref } = Astro.props;
+const {
+  href,
+  text = '표준 문서 보기',
+  downloadHref,
+  copyText,
+  showUrl = false,
+} = Astro.props;
 const formattedHref = formatUrl(href);
+const copyId = href.replace(/[^a-z0-9]+/gi, '-');
+const absoluteUrl = href.startsWith('/')
+  ? `https://www.repl.net${formattedHref}`
+  : formattedHref;
+const serializedCopyText = copyText
+  ? JSON.stringify(copyText)
+      .replaceAll('<', '\\u003c')
+      .replaceAll('>', '\\u003e')
+      .replaceAll('&', '\\u0026')
+  : '';
 ---
 
 <div class="my-4 flex flex-wrap gap-2.5">
+  {showUrl && (
+    <div class="basis-full flex flex-wrap items-center gap-2 rounded-xl border border-cyan-200 dark:border-cyan-900/70 bg-cyan-50/70 dark:bg-cyan-950/30 px-3.5 py-2.5">
+      <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-700 dark:text-cyan-300">
+        원본 주소
+      </span>
+      <code class="min-w-0 flex-1 break-all text-xs text-slate-700 dark:text-slate-300">
+        {absoluteUrl}
+      </code>
+      <button
+        type="button"
+        data-doc-url-copy={copyId}
+        aria-label="원본 주소 복사"
+        class="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-cyan-300 dark:border-cyan-800/80 bg-white/80 dark:bg-slate-900/70 px-2.5 py-1.5 text-[11px] font-bold text-cyan-700 dark:text-cyan-300 transition-all hover:bg-cyan-100 dark:hover:bg-cyan-900/80"
+      >
+        <span data-doc-url-copy-label>주소 복사</span>
+      </button>
+    </div>
+  )}
+  {copyText && (
+    <button
+      type="button"
+      data-doc-copy={copyId}
+      aria-label={`${text} 복사`}
+      class="inline-flex items-center gap-1.5 rounded-xl border border-cyan-300 dark:border-cyan-800/80 bg-cyan-50 dark:bg-cyan-950/60 px-3.5 py-2 text-xs font-bold text-cyan-700 dark:text-cyan-300 transition-all hover:bg-cyan-100 dark:hover:bg-cyan-900/80 hover:text-cyan-950 dark:hover:text-white"
+    >
+      <svg
+        class="h-3.5 w-3.5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="2.25"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
+        <rect width="13" height="13" x="9" y="9" rx="2"></rect>
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"
+        ></path>
+      </svg>
+      <span data-doc-copy-label>원본 복사</span>
+    </button>
+  )}
   <a
     href={formattedHref}
     class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-xs font-bold text-slate-800 dark:text-slate-200 shadow-sm no-underline transition-all hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-950 dark:hover:text-white hover:border-slate-400 dark:hover:border-slate-700 group"
@@ -55,3 +116,108 @@ const formattedHref = formatUrl(href);
     </a>
   )}
 </div>
+
+{copyText && (
+  <>
+    <span
+      class="sr-only"
+      aria-live="polite"
+      data-doc-copy-status={copyId}
+    ></span>
+    <script
+      type="application/json"
+      data-doc-copy-source={copyId}
+      set:html={serializedCopyText}
+    ></script>
+  </>
+)}
+
+{showUrl && (
+  <span
+    class="sr-only"
+    aria-live="polite"
+    data-doc-url-copy-status={copyId}
+  ></span>
+)}
+
+<script>
+  const copyDocumentSource = async (text: string) => {
+    if (!navigator.clipboard?.writeText) {
+      throw new Error('Clipboard API is unavailable');
+    }
+
+    await navigator.clipboard.writeText(text);
+  };
+
+  document.addEventListener('click', async (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const button = target.closest<HTMLButtonElement>('button[data-doc-copy]');
+    if (!button) return;
+
+    const copyId = button.dataset.docCopy;
+    if (!copyId) return;
+
+    const source = document.querySelector<HTMLScriptElement>(
+      `script[data-doc-copy-source="${copyId}"]`,
+    );
+    const status = document.querySelector<HTMLElement>(
+      `[data-doc-copy-status="${copyId}"]`,
+    );
+    if (!source || !status) return;
+
+    const label = button.querySelector<HTMLElement>('[data-doc-copy-label]');
+
+    try {
+      await copyDocumentSource(JSON.parse(source.textContent ?? 'null'));
+      if (label) label.textContent = '복사됨';
+      status.textContent = `${button.getAttribute('aria-label')} 완료`;
+    } catch {
+      if (label) label.textContent = '복사 실패';
+      status.textContent = `${button.getAttribute('aria-label')} 실패`;
+    }
+
+    window.setTimeout(() => {
+      if (label) label.textContent = '원본 복사';
+      status.textContent = '';
+    }, 2000);
+  });
+
+  document.addEventListener('click', async (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const button = target.closest<HTMLButtonElement>(
+      'button[data-doc-url-copy]',
+    );
+    if (!button) return;
+
+    const copyId = button.dataset.docUrlCopy;
+    if (!copyId) return;
+
+    const status = document.querySelector<HTMLElement>(
+      `[data-doc-url-copy-status="${copyId}"]`,
+    );
+    const label = button.querySelector<HTMLElement>(
+      '[data-doc-url-copy-label]',
+    );
+    if (!status) return;
+
+    try {
+      await copyDocumentSource(
+        button.closest('div')?.querySelector('code')?.textContent ?? '',
+      );
+      if (label) label.textContent = '복사됨';
+      status.textContent = '원본 주소 복사 완료';
+    } catch {
+      if (label) label.textContent = '복사 실패';
+      status.textContent = '원본 주소 복사 실패';
+    }
+
+    window.setTimeout(() => {
+      if (label) label.textContent = '주소 복사';
+      status.textContent = '';
+    }, 2000);
+  });
+</script>

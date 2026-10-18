@@ -45,16 +45,24 @@ describe('REPL Works content invariants', () => {
     }
   });
 
-  it('keeps the complete AGENTS example backed by its template source', () => {
-    const template = getCodeSource('/templates/documents/AGENTS.md');
-    expect(template).toBe(
+  it('keeps the AGENTS source links backed by their template files', () => {
+    const agentsTemplate = getCodeSource('/templates/documents/AGENTS.md');
+    expect(agentsTemplate).toBe(
       read('templates/documents/AGENTS.md').replace(/\r\n/g, '\n').trimEnd(),
+    );
+    const agentsAutoTemplate = getCodeSource(
+      '/templates/documents/AGENTS_AUTO.md',
+    );
+    expect(agentsAutoTemplate).toBe(
+      read('templates/documents/AGENTS_AUTO.md')
+        .replace(/\r\n/g, '\n')
+        .trimEnd(),
     );
 
     const agentsPage = read('src/content/documents/agents.mdx');
-    expect(agentsPage).toContain(
-      '<CodeFile path="/templates/documents/AGENTS.md"',
-    );
+    expect(agentsPage).toContain('href="/documents/agents.md"');
+    const agentsAutoPage = read('src/content/documents/agents-auto.mdx');
+    expect(agentsAutoPage).toContain('href="/documents/agents-auto.md"');
   });
 
   it('provides raw Markdown endpoints for document standards', () => {

@@ -13,4 +13,5 @@ export const documentMenu: DocumentMenuDefinition[] = [
   { slug: 'architecture' },
   { slug: 'tasks' },
   { slug: 'agents' },
+  { slug: 'agents-auto' },
 ];
