@@ -1,12 +1,22 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
+import { getCodeSource } from '../../utils/codeSource';
+
+const sourceFiles: Record<string, string> = {
+  agents: '/templates/documents/AGENTS.md',
+  'agents-auto': '/templates/documents/AGENTS_AUTO.md',
+};
 
 export async function getStaticPaths() {
   const entries = await getCollection('documents');
 
   return entries.map((entry) => ({
     params: { slug: entry.id },
-    props: { body: entry.body },
+    props: {
+      body: sourceFiles[entry.id]
+        ? getCodeSource(sourceFiles[entry.id])
+        : entry.body,
+    },
   }));
 }
 
@@ -17,7 +27,7 @@ export const GET: APIRoute = ({ params, props }) => {
   return new Response(body, {
     headers: {
       'Content-Type': 'text/markdown; charset=utf-8',
-      'Content-Disposition': `attachment; filename="${filename}"`,
+      'Content-Disposition': `inline; filename="${filename}"`,
     },
   });
 };
