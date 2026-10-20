@@ -1,5 +1,6 @@
 ---
 import type { ShowcaseProject } from '../data/showcase';
+import { getEntry } from 'astro:content';
 import { imageForge } from '@replworks/astro-imageforge/runtime';
 
 interface Props {
@@ -8,8 +9,9 @@ interface Props {
 }
 
 const { project, showLesson = false } = Astro.props;
-const thumbnailSrc = project.thumbnail
-  ? imageForge(project.thumbnail, {
+const showcaseEntry = await getEntry('showcase', project.slug);
+const thumbnailSrc = showcaseEntry?.data.ogImage
+  ? imageForge(showcaseEntry.data.ogImage, {
       w: 320,
       h: 168,
       fit: 'fill',
