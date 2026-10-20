@@ -25,6 +25,17 @@ npm install
 npm run dev
 ```
 
+### 마크다운 이미지 미리보기
+
+마크다운에서 이미지를 `/images/...` 경로로 쓰면 실제 파일은 `public/images/`에 있습니다. Astro는 `public/`을 루트(`/`)로 서빙해서 브라우저에서는 보이지만, 에디터 미리보기는 저장소 루트 기준으로 경로를 찾기 때문에 깨져 보입니다.
+
+clone을 받은 뒤 한 번만 저장소 루트에서 심볼릭링크를 만드세요 (`/images`는 `.gitignore`에 있어서 커밋되지 않습니다. `git status`에 나타나지 않는 것이 정상입니다).
+
+```bash
+ln -s public/images images
+ls -l images # images -> public/images 확인
+```
+
 개발 서버는 `npm run dev:stop`으로 종료합니다. Astro 개발 툴바는 `npm run toolbar:start`와 `npm run toolbar:stop`으로 켜고 끕니다.
 
 ## 저장소 구조

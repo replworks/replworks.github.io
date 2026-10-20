@@ -34,3 +34,4 @@ dist-ssr
 /playwright/.auth/
 
 .link-checker
+/images
