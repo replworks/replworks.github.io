@@ -62,6 +62,7 @@ export const showcaseProjects: ShowcaseProject[] = [
       '복구 도구는 실수하면 정상 데이터를 덮어쓰므로, 아무 옵션 없이 실행했을 때 아무것도 바꾸지 않는 것을 제품 정의의 첫 줄에 두었습니다.',
     detailUrl: '/showcase/coolrestore/',
     github: 'https://github.com/replworks/coolrestore',
+    website: 'https://www.repl.net/coolrestore/',
     featured: true,
     order: 4,
   },
