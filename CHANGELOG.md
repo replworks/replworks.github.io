@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.24.2 - 2026-10-20
+
+### What's Changed
+
+* docs: 마크다운 이미지 미리보기용 심볼링크 안내 추가 by [@replworks-bot](https://github.com/replworks-bot) in https://github.com/replworks/replworks.github.io/pull/144
+* test: verify local Showcase OG image originals by [@replworks-bot](https://github.com/replworks-bot) in https://github.com/replworks/replworks.github.io/pull/145
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.24.1...v2.24.2
+
 ## v2.24.1 - 2026-10-20
 
 ### What's Changed
