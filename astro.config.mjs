@@ -1,6 +1,7 @@
 // astro.config.mjs
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
+import imageforge from '@replworks/astro-imageforge';
 import astroExpressiveCode from 'astro-expressive-code';
 import { pluginFramesTexts } from '@expressive-code/plugin-frames';
 import pagefind from 'astro-pagefind';
@@ -19,6 +20,7 @@ export default defineConfig({
   integrations: [
     astroExpressiveCode(),
     mdx(),
+    imageforge({ service: 'repl' }),
     pagefind(),
     sitemap({
       filter: (page) => !page.includes('/index/'),

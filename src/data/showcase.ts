@@ -7,6 +7,7 @@ export interface ShowcaseProject {
   detailUrl: string;
   website?: string;
   github?: string;
+  thumbnail?: string;
   featured: boolean;
   order: number;
 }
@@ -23,6 +24,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     detailUrl: '/showcase/repl-works-website/',
     website: 'https://www.repl.net/',
     github: 'https://github.com/replworks/replworks.github.io',
+    thumbnail: '/src/assets/images/repl.net.og.png',
     featured: true,
     order: 1,
   },
@@ -36,6 +38,7 @@ export const showcaseProjects: ShowcaseProject[] = [
       '비공개 상용 프로덕트일수록 약속이 필요합니다. 코드를 공개하지 않아도 팀원과 AI 에이전트 사이에는 문서 표준이라는 명확한 약속이 있어야 합니다.',
     detailUrl: '/showcase/wifinote/',
     website: 'https://wifinote.net',
+    thumbnail: '/src/assets/images/wifinote.net.og.png',
     featured: true,
     order: 2,
   },
@@ -113,6 +116,7 @@ export const showcaseProjects: ShowcaseProject[] = [
     detailUrl: '/showcase/imageforge/',
     website: 'https://if.repl.net',
     github: 'https://github.com/replworks/imageforge',
+    thumbnail: '/src/assets/images/if.repl.net.og.png',
     featured: true,
     order: 3,
   },

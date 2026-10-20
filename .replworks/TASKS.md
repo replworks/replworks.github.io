@@ -310,6 +310,15 @@ Propose TASK update
   - Keep ImageForge immediately after Wifi Note in the shared featured order.
   - Verify the homepage card and all project checks.
 
+## PHASE 17
+
+### IMAGEFORGE ASTRO PACKAGE
+
+- [x] T1701 Install `@replworks/astro-imageforge`
+  - Install the published package from the npm registry.
+  - Keep the declared package configuration and lockfile synchronized.
+  - Run the project-defined validation checks.
+
 ---
 
 ## COMPLETION
