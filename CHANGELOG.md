@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.24.1 - 2026-10-20
+
+### What's Changed
+
+* refactor(showcase): move og images to public and update references by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/143
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.24.0...v2.24.1
+
 ## v2.24.0 - 2026-10-20
 
 ### What's Changed
