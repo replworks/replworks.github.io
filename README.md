@@ -93,6 +93,14 @@ MDX 페이지에서 `templates/`의 파일을 복사해 붙이지 말고 `CodeFi
 
 ### 표준 문서 원본 추가·삭제 (`/documents/*.md`)
 
+현재 주소를 제공하고 있는 원본은 다음 3개입니다.
+
+```text
+/documents/agents.md → templates/documents/AGENTS.md
+/documents/agents-auto.md → templates/documents/AGENTS_AUTO.md
+/scripts/ask-human.sh → templates/scripts/ask-human.sh
+```
+
 1. `templates/documents/<FILE>.md`를 추가하고 `src/pages/documents/[slug].md.ts`의 `sourceFiles`에 매핑을 추가합니다.
 2. MDX 페이지에 `DocLink`의 `href`와 `downloadHref`를 `/documents/<slug>.md`로 연결합니다.
 3. 아래 [검증](#검증)을 실행하고 [배포](#배포)합니다.
