@@ -457,6 +457,18 @@ Files with extensions do not have a trailing slash. All directory routes and int
 
 ---
 
+Script source endpoints
+
+```text
+/scripts/ask-human.sh
+```
+
+Script source endpoints return the raw script body from `templates/scripts/` verbatim.
+The AGENTS_AUTO document requires `/scripts/ask-human.sh` for `templates/scripts/ask-human.sh`.
+Files with extensions do not have a trailing slash.
+
+---
+
 ## GITHUB
 
 GitHub is the primary external asset.

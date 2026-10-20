@@ -85,12 +85,24 @@ test('renders document explanations with source links', async ({ page }) => {
       .locator('code')
       .filter({ hasText: 'https://www.repl.net/documents/agents-auto.md' }),
   ).toBeVisible();
-  await expect(page.locator('button[data-doc-url-copy]')).toHaveText(
+  await expect(
+    page
+      .locator('code')
+      .filter({ hasText: 'https://www.repl.net/scripts/ask-human.sh' }),
+  ).toBeVisible();
+  await expect(page.locator('button[data-doc-url-copy]')).toHaveText([
     '주소 복사',
-  );
-  await expect(page.locator('button[data-doc-copy]')).toHaveText('원본 복사');
+    '주소 복사',
+  ]);
+  await expect(page.locator('button[data-doc-copy]')).toHaveText([
+    '원본 복사',
+    '원본 복사',
+  ]);
   await expect(
     page.locator('a[download][href="/documents/agents-auto.md"]'),
+  ).toBeVisible();
+  await expect(
+    page.locator('a[download][href="/scripts/ask-human.sh"]'),
   ).toBeVisible();
 });
 

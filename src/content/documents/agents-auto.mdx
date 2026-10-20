@@ -20,6 +20,14 @@ import { getCodeSource } from '../../utils/codeSource';
   showUrl
 />
 
+<DocLink
+  href="/scripts/ask-human.sh"
+  text="ask-human.sh 원본 보기"
+  downloadHref="/scripts/ask-human.sh"
+  copyText={getCodeSource('/templates/scripts/ask-human.sh')}
+  showUrl
+/>
+
 ## 2. 개요 및 목적
 
 `AGENTS_AUTO.md`는 `AGENTS.md`의 작업 규칙을 자동 실행에 맞게 확장한 문서입니다. 시작 전에 필요한 질문을 하고, 사람의 승인이나 권한이 필요한 지점에서는 멈추면서 `TASKS.md`의 작업을 순서대로 수행합니다.
