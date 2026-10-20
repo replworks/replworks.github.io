@@ -1,5 +1,14 @@
 # Release Notes
 
+## v2.25.0 - 2026-10-20
+
+### What's Changed
+
+* feat(showcase): add website link for coolrestore by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/147
+* feat: add auto run bootstrap prompt by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/148
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.24.3...v2.25.0
+
 ## v2.24.3 - 2026-10-20
 
 ### What's Changed
