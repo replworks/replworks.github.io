@@ -22,9 +22,9 @@ AGENTS.md의 다른 규칙은 하나도 바꾸지 않는다. 충돌하면 AGENTS
 - 코드 변경이 없다 -> Issue 채널
 
 PR 채널:
-1. 현재 브랜치에 PR이 없으면: 커밋 안 된 변경은 `chore: wip t-NNN` 으로 커밋(human account),
+1. 현재 브랜치에 PR이 없으면: 커밋 안 된 변경은 `chore: wip t-NNN` 으로 커밋(bot account),
    브랜치를 push 하고 bot account 로 draft PR을 연다
-   (Conventional Commits 제목, reviewer: human account, assignee: bot account).
+   (Conventional Commits 제목, assignee: bot account).
    이 draft PR이 그 태스크의 최종 PR이다. 두 번째 PR을 만들지 않는다.
    태스크가 끝나면 이 PR을 ready 로 전환해서 AUTO_RUN 6번을 수행한다.
 2. `.replworks/scripts/ask-human.sh ask pr "<질문>"` 을 실행한다.
