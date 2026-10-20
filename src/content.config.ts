@@ -44,7 +44,9 @@ export const collections = {
       base: './src/content/showcase',
       pattern: '**/*.{md,mdx}',
     }),
-    schema: baseCollectionSchema,
+    schema: baseCollectionSchema.extend({
+      ogImage: z.string().optional(),
+    }),
   }),
   faq: defineCollection({
     loader: glob({

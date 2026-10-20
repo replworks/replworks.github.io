@@ -211,20 +211,36 @@ test('shows all Showcase projects as compatible cards', async ({ page }) => {
     page.locator('[data-showcase-thumbnail="repl-works-website"]'),
   ).toHaveAttribute(
     'src',
-    'https://img.repl.net/repl/src/assets/images/repl.net.og.png?w=320&h=168&fit=fill&q=80&f=webp',
+    'https://img.repl.net/repl/images/repl.net.og.png?w=320&h=168&fit=fill&q=80&f=webp',
   );
   await expect(
     page.locator('[data-showcase-thumbnail="wifinote"]'),
   ).toHaveAttribute(
     'src',
-    'https://img.repl.net/repl/src/assets/images/wifinote.net.og.png?w=320&h=168&fit=fill&q=80&f=webp',
+    'https://img.repl.net/repl/images/wifinote.net.og.png?w=320&h=168&fit=fill&q=80&f=webp',
   );
   await expect(
     page.locator('[data-showcase-thumbnail="imageforge"]'),
   ).toHaveAttribute(
     'src',
-    'https://img.repl.net/repl/src/assets/images/if.repl.net.og.png?w=320&h=168&fit=fill&q=80&f=webp',
+    'https://img.repl.net/repl/images/if.repl.net.og.png?w=320&h=168&fit=fill&q=80&f=webp',
   );
+});
+
+test('serves Showcase OG image originals from the local web server', async ({
+  page,
+}) => {
+  for (const imagePath of [
+    '/images/repl.net.og.png',
+    '/images/wifinote.net.og.png',
+    '/images/if.repl.net.og.png',
+  ]) {
+    const response = await page.request.get(imagePath);
+
+    expect(response.status()).toBe(200);
+    expect(response.headers()['content-type']).toContain('image/png');
+    expect((await response.body()).length).toBeGreaterThan(0);
+  }
 });
 
 test('keeps primary pages within a mobile viewport', async ({ page }) => {
