@@ -1,5 +1,18 @@
 # Release Notes
 
+## v2.24.0 - 2026-10-20
+
+### What's Changed
+
+* Allow Astro dev server through Herd domain by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/141
+* feat: add showcase thumbnails with ImageForge by [@replworks-bot](https://github.com/replworks-bot) in https://github.com/replworks/replworks.github.io/pull/142
+
+### New Contributors
+
+* [@replworks-bot](https://github.com/replworks-bot) made their first contribution in https://github.com/replworks/replworks.github.io/pull/142
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.23.0...v2.24.0
+
 ## v2.23.0 - 2026-10-18
 
 ### What's Changed
