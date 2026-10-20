@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.24.3 - 2026-10-20
+
+### What's Changed
+
+* docs(showcase): add og image for coolrestore by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/146
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.24.2...v2.24.3
+
 ## v2.24.2 - 2026-10-20
 
 ### What's Changed
