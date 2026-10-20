@@ -1,5 +1,6 @@
 ---
 import type { ShowcaseProject } from '../data/showcase';
+import { imageForge } from '@replworks/astro-imageforge/runtime';
 
 interface Props {
   project: ShowcaseProject;
@@ -7,6 +8,15 @@ interface Props {
 }
 
 const { project, showLesson = false } = Astro.props;
+const thumbnailSrc = project.thumbnail
+  ? imageForge(project.thumbnail, {
+      w: 320,
+      h: 168,
+      fit: 'fill',
+      q: 80,
+      f: 'webp',
+    })
+  : null;
 ---
 
 <article class="glass-card glass-card-hover -mx-4 sm:mx-0 rounded-none sm:rounded-2xl border-y sm:border border-slate-200 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/40 p-5 flex flex-col justify-between space-y-4">
@@ -26,12 +36,28 @@ const { project, showLesson = false } = Astro.props;
         </span>
       ))}
     </div>
-    <h2 class="text-base font-extrabold tracking-tight text-slate-900 dark:text-white">
-      {project.name}
-    </h2>
-    <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
-      {project.description}
-    </p>
+    <div class="flex items-start gap-4 xl:flex-col">
+      {thumbnailSrc && (
+        <img
+          src={thumbnailSrc}
+          alt={`${project.name} OG 이미지`}
+          width="320"
+          height="168"
+          loading="lazy"
+          decoding="async"
+          data-showcase-thumbnail={project.slug}
+          class="order-2 h-16 w-28 shrink-0 rounded-lg border border-slate-200 object-cover dark:border-slate-700 xl:order-1 xl:h-auto xl:w-full"
+        />
+      )}
+      <div class="order-1 min-w-0 flex-1 space-y-1.5 xl:order-2">
+        <h2 class="text-base font-extrabold tracking-tight text-slate-900 dark:text-white">
+          {project.name}
+        </h2>
+        <p class="text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+          {project.description}
+        </p>
+      </div>
+    </div>
     {showLesson && (
       <p class="border-t border-slate-200 dark:border-slate-800/80 pt-3 text-xs leading-relaxed text-slate-700 dark:text-slate-300">
         <span class="font-bold text-cyan-700 dark:text-cyan-300">배운 점</span>{' '}

@@ -207,6 +207,24 @@ test('shows all Showcase projects as compatible cards', async ({ page }) => {
   await expect(
     page.locator('article a[href="/showcase/imageforge/"]'),
   ).toBeVisible();
+  await expect(
+    page.locator('[data-showcase-thumbnail="repl-works-website"]'),
+  ).toHaveAttribute(
+    'src',
+    'https://img.repl.net/repl/src/assets/images/repl.net.og.png?w=320&h=168&fit=fill&q=80&f=webp',
+  );
+  await expect(
+    page.locator('[data-showcase-thumbnail="wifinote"]'),
+  ).toHaveAttribute(
+    'src',
+    'https://img.repl.net/repl/src/assets/images/wifinote.net.og.png?w=320&h=168&fit=fill&q=80&f=webp',
+  );
+  await expect(
+    page.locator('[data-showcase-thumbnail="imageforge"]'),
+  ).toHaveAttribute(
+    'src',
+    'https://img.repl.net/repl/src/assets/images/if.repl.net.og.png?w=320&h=168&fit=fill&q=80&f=webp',
+  );
 });
 
 test('keeps primary pages within a mobile viewport', async ({ page }) => {
