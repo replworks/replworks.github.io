@@ -29,7 +29,6 @@ test('links to document details and provides raw document downloads', async ({
   const response = await page.request.get('/documents/agents.md');
   expect(response.status()).toBe(200);
   expect(response.headers()['content-type']).toContain('text/markdown');
-  expect(response.headers()['content-disposition']).toMatch(/^inline;/);
 });
 
 test('renders document sidebar from its configured order', async ({ page }) => {

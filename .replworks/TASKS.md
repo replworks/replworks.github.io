@@ -314,7 +314,7 @@ Propose TASK update
 
 ### IMAGEFORGE ASTRO PACKAGE
 
-- [ ] T1701 Install `@replworks/astro-imageforge`
+- [x] T1701 Install `@replworks/astro-imageforge`
   - Install the published package from the npm registry.
   - Keep the declared package configuration and lockfile synchronized.
   - Run the project-defined validation checks.
