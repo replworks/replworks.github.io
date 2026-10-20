@@ -91,6 +91,22 @@ MDX 페이지에서 `templates/`의 파일을 복사해 붙이지 말고 `CodeFi
 
 저장소 루트의 `AGENTS.md`는 이 사이트를 개발하고 운영하는 AI 에이전트가 읽는 파일이고, `templates/documents/AGENTS.md`는 웹사이트에 보여주는 용도입니다. 규칙은 루트 `AGENTS.md`에서 먼저 바꾸고 이 저장소에서 써 보며 검증합니다. 변경이 확정되면 같은 내용을 `templates/documents/AGENTS.md`에 반영하고, 사이트에는 [배포](#배포)해야 보입니다. 그래서 두 파일은 확정된 시점에는 같지만, 검증 중에는 루트가 앞서 있을 수 있습니다.
 
+### 표준 문서 원본 추가·삭제 (`/documents/*.md`)
+
+현재 주소를 제공하고 있는 원본은 다음 3개입니다.
+
+```text
+/documents/agents.md → templates/documents/AGENTS.md
+/documents/agents-auto.md → templates/documents/AGENTS_AUTO.md
+/scripts/ask-human.sh → templates/scripts/ask-human.sh
+```
+
+1. `templates/documents/<FILE>.md`를 추가하고 `src/pages/documents/[slug].md.ts`의 `sourceFiles`에 매핑을 추가합니다.
+2. MDX 페이지에 `DocLink`의 `href`와 `downloadHref`를 `/documents/<slug>.md`로 연결합니다.
+3. 아래 [검증](#검증)을 실행하고 [배포](#배포)합니다.
+
+삭제하려면 위의 역순으로 제거합니다.
+
 ### TECH_STACK 템플릿 추가·수정
 
 `templates/tech-stacks/`의 템플릿은 저장소에만 있고 사이트에서 사용하지 않습니다. 수정해도 사이트 콘텐츠를 갱신하거나 배포할 필요가 없습니다.

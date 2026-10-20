@@ -211,8 +211,9 @@ Per task:
 1. Pull main.
 2. Create branch `t-NNN-slug`.
 3. Implement and test (TASK_EXECUTION).
-4. Commit as the human account.
-5. Open a PR as the bot account. Reviewer: human account. Assignee: bot account.
+4. Commit as the human account. Add a `Co-authored-by` trailer
+   for the agent that wrote the code (name and noreply email of that agent).
+5. Open a PR as the bot account. Assignee: bot account.
 6. Squash merge only after every CI check on the PR has passed.
    Pending is not passed. If no CI is configured, there is no gate.
 7. Pull main and start the next task.

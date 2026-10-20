@@ -414,6 +414,14 @@ Update Rules
 
 ---
 
+The AGENTS_AUTO document requires the `ask-human.sh` script source endpoint.
+
+```text
+/scripts/ask-human.sh returns templates/scripts/ask-human.sh verbatim.
+```
+
+---
+
 ## TOOLS
 
 Purpose

@@ -63,6 +63,19 @@ describe('REPL Works content invariants', () => {
     expect(agentsPage).toContain('href="/documents/agents.md"');
     const agentsAutoPage = read('src/content/documents/agents-auto.mdx');
     expect(agentsAutoPage).toContain('href="/documents/agents-auto.md"');
+    expect(agentsAutoPage).toContain('href="/scripts/ask-human.sh"');
+  });
+
+  it('keeps the ask-human script source backed by its template file', () => {
+    expect(existsSync(resolve(root, 'src/pages/scripts/ask-human.sh.ts'))).toBe(
+      true,
+    );
+    expect(existsSync(resolve(root, 'templates/scripts/ask-human.sh'))).toBe(
+      true,
+    );
+    expect(getCodeSource('/templates/scripts/ask-human.sh')).toBe(
+      read('templates/scripts/ask-human.sh').replace(/\r\n/g, '\n').trimEnd(),
+    );
   });
 
   it('provides raw Markdown endpoints for document standards', () => {

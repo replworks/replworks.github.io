@@ -321,6 +321,17 @@ Propose TASK update
 
 ---
 
+## PHASE 18
+
+### ASK-HUMAN SCRIPT SOURCE ENDPOINT
+
+- [x] T1801 Publish ask-human.sh script source endpoint
+  - Publish `/scripts/ask-human.sh` returning `templates/scripts/ask-human.sh` verbatim.
+  - Link the AGENTS_AUTO document page to the script source endpoint.
+  - Pass applicable unit, E2E, and build checks.
+
+---
+
 ## COMPLETION
 
 ```text
