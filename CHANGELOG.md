@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.25.3 - 2026-10-21
+
+### What's Changed
+
+* docs(agents): update commit authorship and co-author guidelines by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/151
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.25.2...v2.25.3
+
 ## v2.25.2 - 2026-10-21
 
 ### What's Changed
