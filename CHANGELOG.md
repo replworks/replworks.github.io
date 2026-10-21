@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.25.2 - 2026-10-21
+
+### What's Changed
+
+* docs(prompts): add emoji reaction instructions for bootstrap autorun by [@cable8mm](https://github.com/cable8mm) in https://github.com/replworks/replworks.github.io/pull/150
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.25.1...v2.25.2
+
 ## v2.25.1 - 2026-10-20
 
 ### What's Changed
