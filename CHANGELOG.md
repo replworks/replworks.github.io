@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.25.4 - 2026-10-22
+
+### What's Changed
+
+* Update GitHub and service links by [@replworks-bot](https://github.com/replworks-bot) in https://github.com/replworks/replworks.github.io/pull/152
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.25.3...v2.25.4
+
 ## v2.25.3 - 2026-10-21
 
 ### What's Changed
