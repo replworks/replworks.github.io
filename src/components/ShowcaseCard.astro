@@ -38,7 +38,7 @@ const thumbnailSrc = showcaseEntry?.data.ogImage
         </span>
       ))}
     </div>
-    <div class="flex items-start gap-4 xl:flex-col">
+    <div class="flex items-start gap-4 lg:flex-col">
       {thumbnailSrc && (
         <img
           src={thumbnailSrc}
@@ -48,10 +48,10 @@ const thumbnailSrc = showcaseEntry?.data.ogImage
           loading="lazy"
           decoding="async"
           data-showcase-thumbnail={project.slug}
-          class="order-2 h-16 w-28 shrink-0 rounded-lg border border-slate-200 object-cover dark:border-slate-700 xl:order-1 xl:h-auto xl:w-full"
+          class="order-2 h-16 w-28 shrink-0 rounded-lg border border-slate-200 object-cover dark:border-slate-700 lg:order-1 lg:h-auto lg:w-full"
         />
       )}
-      <div class="order-1 min-w-0 flex-1 space-y-1.5 xl:order-2">
+      <div class="order-1 min-w-0 flex-1 space-y-1.5 lg:order-2">
         <h2 class="text-base font-extrabold tracking-tight text-slate-900 dark:text-white">
           {project.name}
         </h2>
