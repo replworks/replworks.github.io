@@ -191,9 +191,9 @@ For every task:
 5. If the task touches a domain that is not covered by verified knowledge in PRODUCT_SPEC.md, TECH_STACK.md, or ARCHITECTURE.md: stop. Mark the relevant section UNVERIFIED (see UNVERIFIED_MARK). Do not implement against an UNVERIFIED section. Require explicit human confirmation before continuing.
 6. Implement
 7. Write unit tests for internal logic
-8. If the task touches an EXTERNAL_BOUNDARY: write an E2E test against the live boundary. A mocked test alone does not satisfy this step. If the live boundary is unreachable, stop and report. Do not mark the task `[X]`.
+8. If the task touches an EXTERNAL_BOUNDARY: write an E2E test against the live boundary. A mocked test alone does not satisfy this step. If the live boundary is unreachable, stop and report. Do not mark the task `[x]`.
 9. Run all tests
-10. Mark the completed task `[X]` in TASKS.md
+10. Mark the completed task `[x]` in TASKS.md
 11. Stop
     Do not start another task automatically.
 
