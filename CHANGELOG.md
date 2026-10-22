@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.25.5 - 2026-10-22
+
+### What's Changed
+
+* Switch showcase card layout at lg by [@replworks-bot](https://github.com/replworks-bot) in https://github.com/replworks/replworks.github.io/pull/153
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.25.4...v2.25.5
+
 ## v2.25.4 - 2026-10-22
 
 ### What's Changed
