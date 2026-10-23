@@ -1,5 +1,13 @@
 # Release Notes
 
+## v2.26.0 - 2026-10-23
+
+### What's Changed
+
+* fix(documents): consolidate AGENTS auto-run page by [@replworks-bot](https://github.com/replworks-bot) in https://github.com/replworks/replworks.github.io/pull/154
+
+**Full Changelog**: https://github.com/replworks/replworks.github.io/compare/v2.25.5...v2.26.0
+
 ## v2.25.5 - 2026-10-22
 
 ### What's Changed
