@@ -4,7 +4,6 @@ import { getCodeSource } from '../../utils/codeSource';
 
 const sourceFiles: Record<string, string> = {
   agents: '/templates/documents/AGENTS.md',
-  'agents-auto': '/templates/documents/AGENTS_AUTO.md',
 };
 
 export async function getStaticPaths() {

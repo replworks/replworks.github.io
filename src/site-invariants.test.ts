@@ -50,20 +50,9 @@ describe('REPL Works content invariants', () => {
     expect(agentsTemplate).toBe(
       read('templates/documents/AGENTS.md').replace(/\r\n/g, '\n').trimEnd(),
     );
-    const agentsAutoTemplate = getCodeSource(
-      '/templates/documents/AGENTS_AUTO.md',
-    );
-    expect(agentsAutoTemplate).toBe(
-      read('templates/documents/AGENTS_AUTO.md')
-        .replace(/\r\n/g, '\n')
-        .trimEnd(),
-    );
-
     const agentsPage = read('src/content/documents/agents.mdx');
     expect(agentsPage).toContain('href="/documents/agents.md"');
-    const agentsAutoPage = read('src/content/documents/agents-auto.mdx');
-    expect(agentsAutoPage).toContain('href="/documents/agents-auto.md"');
-    expect(agentsAutoPage).toContain('href="/scripts/ask-human.sh"');
+    expect(agentsPage).toContain('href="/scripts/ask-human.sh"');
   });
 
   it('keeps the ask-human script source backed by its template file', () => {

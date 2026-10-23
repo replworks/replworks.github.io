@@ -97,7 +97,6 @@ MDX 페이지에서 `templates/`의 파일을 복사해 붙이지 말고 `CodeFi
 
 ```text
 /documents/agents.md → templates/documents/AGENTS.md
-/documents/agents-auto.md → templates/documents/AGENTS_AUTO.md
 /scripts/ask-human.sh → templates/scripts/ask-human.sh
 ```
 
