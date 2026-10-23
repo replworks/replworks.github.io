@@ -464,7 +464,7 @@ Script source endpoints
 ```
 
 Script source endpoints return the raw script body from `templates/scripts/` verbatim.
-The AGENTS_AUTO document requires `/scripts/ask-human.sh` for `templates/scripts/ask-human.sh`.
+The AGENTS.md document requires `/scripts/ask-human.sh` for `templates/scripts/ask-human.sh`.
 Files with extensions do not have a trailing slash.
 
 ---

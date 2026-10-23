@@ -38,7 +38,7 @@ test('renders document sidebar from its configured order', async ({ page }) => {
     .first()
     .locator('a[data-sidebar-link]');
   await expect(documentMenu.first()).toHaveAttribute('href', '/documents/');
-  await expect(documentMenu).toHaveCount(9);
+  await expect(documentMenu).toHaveCount(8);
   const documentMenuHrefs = await documentMenu.evaluateAll((links) =>
     links.map((link) => link.getAttribute('href')),
   );
@@ -71,25 +71,6 @@ test('renders document explanations with source links', async ({ page }) => {
       .locator('code')
       .filter({ hasText: 'https://www.repl.net/documents/agents.md' }),
   ).toBeVisible();
-  await expect(page.locator('button[data-doc-url-copy]')).toHaveText(
-    '주소 복사',
-  );
-  await expect(page.locator('button[data-doc-copy]')).toHaveText('원본 복사');
-  await expect(
-    page.locator('a[download][href="/documents/agents.md"]'),
-  ).toBeVisible();
-
-  await page.goto('/documents/agents-auto/');
-  await expect(
-    page
-      .locator('code')
-      .filter({ hasText: 'https://www.repl.net/documents/agents-auto.md' }),
-  ).toBeVisible();
-  await expect(
-    page
-      .locator('code')
-      .filter({ hasText: 'https://www.repl.net/scripts/ask-human.sh' }),
-  ).toBeVisible();
   await expect(page.locator('button[data-doc-url-copy]')).toHaveText([
     '주소 복사',
     '주소 복사',
@@ -99,7 +80,13 @@ test('renders document explanations with source links', async ({ page }) => {
     '원본 복사',
   ]);
   await expect(
-    page.locator('a[download][href="/documents/agents-auto.md"]'),
+    page.locator('a[download][href="/documents/agents.md"]'),
+  ).toBeVisible();
+
+  await expect(
+    page
+      .locator('code')
+      .filter({ hasText: 'https://www.repl.net/scripts/ask-human.sh' }),
   ).toBeVisible();
   await expect(
     page.locator('a[download][href="/scripts/ask-human.sh"]'),

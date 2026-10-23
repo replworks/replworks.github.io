@@ -206,10 +206,18 @@ Any other change the human requests in the session is committed only after human
 Repeat TASK_SELECTION and TASK_EXECUTION until no unchecked task remains.
 Do not stop between tasks. Do not ask for approval to start a task.
 
-Before the first git operation of a session, state who will be the commit author,
-co-author, PR creator, PR assignee, and merger, and get human confirmation.
-Never infer them from git config, gh auth, or history. Ask if anything is missing.
-Confirm once per session, not per task.
+Before the first git operation of a session, ask the human to confirm
+the delivery identities. Fill in every value and ask in this form:
+
+Commit author/committer: <name> <noreply email>
+Co-authored-by: <human account> (only when the human took part in the change)
+PR creator / assignee: <bot account>
+Merger: <account>
+Is this correct?
+
+Fill missing values using available context, including `gh` commands. Show the
+complete values and ask: "<values>. Is this correct?" Wait for the human's
+confirmation before any git operation.
 
 Per task:
 
